@@ -1,0 +1,119 @@
+phase1:
+  config: config/phase1_oxidative_stress.yaml
+  run_id: 20261025T174736Z_5bbc7e723df4
+paths:
+  results_dir: results/phase2
+  manifests_dir: data/manifests
+mode: offline
+random_seed: 1
+network:
+  edge_score_threshold: 0.7
+  sensitivity_thresholds:
+  - 0.4
+  - 0.5
+  - 0.6
+  - 0.7
+  - 0.8
+  - 0.9
+topology:
+  hub_percentile: 0.8
+  bottleneck_percentile: 0.8
+  betweenness_distance: inverse_score
+  size_matched_samples: 1000
+communities:
+  method: louvain
+  resolution: 1.0
+  resolutions_for_stability:
+  - 0.5
+  - 1.0
+  - 1.5
+  - 2.0
+  n_seeds: 50
+  weight: weight
+enrichment:
+  categories:
+  - Process
+  - Function
+  - Component
+  - KEGG
+  - Pfam
+  - InterPro
+  - RCTM
+  min_module_size: 3
+  min_term_size: 2
+  fdr: 0.05
+similarity:
+  measure: ochiai
+  measures_for_sensitivity:
+  - ochiai
+  - simgic
+  - min
+  go_categories:
+  - Process
+  - Function
+  pathway_category: KEGG
+  kegg_excluded_maps:
+  - '01100'
+  - '01110'
+  - '01120'
+  - '01200'
+  - '01210'
+  - '01212'
+  - '01230'
+  - '01232'
+  - '01250'
+  - '01240'
+  - '01220'
+  min_homology_bitscore: 50.0
+alignment:
+  method: isorank
+  alphas:
+  - 1.0
+  - 0.8
+  - 0.5
+  max_iterations: 500
+  tolerance: 1.0e-09
+  null_permutations: 1000
+  rewired_null_samples: 100
+kegg:
+  enabled: true
+  org_codes:
+    deinococcus_radiodurans: dra
+    homo_sapiens: hsa
+curated_evidence: config/curated_evidence.tsv
+coverage_variant:
+  enabled: true
+  alphas:
+  - 1.0
+  - 0.8
+  max_iterations: 200
+  rewired_null_samples: 200
+ranking:
+  weights:
+    ec: 0.15
+    go: 0.15
+    pathway: 0.15
+    literature: 0.15
+    perturbation: 0.1
+    module: 0.1
+    role: 0.1
+    homology: 0.1
+  min_evidence_coverage: 0.45
+  go_similarity_for_shared_function: 0.3
+  pathway_similarity_for_shared_role: 0.3
+  sensitivity:
+    dirichlet_samples: 500
+    dirichlet_concentration: 50
+    top_k: 20
+  report_top_n: 25
+embedding:
+  enabled: true
+  method: netmf
+  dimensions: 16
+  window: 5
+  negative: 1.0
+  test_fraction: 0.1
+  n_splits: 5
+  min_edges_for_evaluation: 100
+evaluation:
+  roc_negative_ratio: 1

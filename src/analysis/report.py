@@ -137,6 +137,10 @@ def build(summary: dict, ranked: pd.DataFrame, module_tables: dict, base: dict, 
         "## 3. Evidence availability",
         _table(avail),
         "",
+        f"Curated literature evidence: {s.get('curated_evidence', {}).get('rows', 0)} PubMed-verified findings for "
+        f"{s.get('curated_evidence', {}).get('proteins', 0)} proteins (`{s.get('curated_evidence', {}).get('source')}`), "
+        "including findings that contradict a simple protective role; see `candidates/protein_evidence.tsv`.",
+        "",
         "## 4. Cross-species comparison",
         "### 4.1 Annotation vocabulary overlap (descriptive)",
         _table(ov, ["category", "dr_terms", "hs_terms", "shared_terms", "jaccard", "fraction_of_dr_terms_shared"]),
@@ -156,6 +160,9 @@ def build(summary: dict, ranked: pd.DataFrame, module_tables: dict, base: dict, 
         "Module correspondence (core-term similarity of non-singleton modules; top 10):",
         "",
         _table(pd.DataFrame(s["module_correspondence_top"])),
+        "",
+        "### 4.4 Coverage variant: KO-projected D. radiodurans network",
+        *_coverage_lines(s.get("coverage_variant", {})),
         "",
         "## 5. Candidate ranking",
         "Weights (config `ranking.weights`): " + ", ".join(f"{k}={v}" for k, v in cfg["ranking"]["weights"].items())
@@ -223,3 +230,26 @@ def build(summary: dict, ranked: pd.DataFrame, module_tables: dict, base: dict, 
         "- Literature evidence is limited to references attached to experimental GO annotations (QuickGO).",
         "",
     ])
+
+
+def _coverage_lines(cov: dict) -> list[str]:
+    if not cov.get("enabled"):
+        return ["_not run_"]
+    g = cov["graph_statistics"]
+    lines = [
+        f"D. radiodurans genes (original seeds included) in a KEGG KO group carried by a human seed: "
+        f"{cov['projected_dr_genes']} (human seed KOs: {cov['human_seed_kos']}). Union with the "
+        f"{cov['original_seeds']} original seeds: {cov['mapped_to_string']} proteins mapped to STRING "
+        f"({cov['mapped_to_string'] - cov['original_seeds_mapped']} new; {cov['unmapped']} unmapped).",
+        "Caveat: STRING transfers association evidence between orthologs of different organisms, so",
+        "edge conservation between KO-orthologous pairs is partly built into the input scores.",
+        f"At the primary threshold: {g['nodes']} nodes, {g['edges']} edges, {g['isolated_nodes']} isolated, "
+        f"largest component {g['largest_component_nodes']} nodes, average clustering {_fmt(g['average_clustering'])}.",
+        "",
+        "Alignment of the variant to the human network (prior for alpha < 1: shared KEGG KO):",
+        "",
+        _table(pd.DataFrame(cov["alignment"])),
+        "",
+        f"{cov['note']}.",
+    ]
+    return lines

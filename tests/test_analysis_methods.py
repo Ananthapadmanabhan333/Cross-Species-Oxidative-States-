@@ -144,6 +144,10 @@ def test_homology_tiers():
     assert similarity.homology(prot("d3", pfam={"PF1"}), prot("h3", pfam={"PF1"}), tables, 50)[1] == "shared_pfam_domain"
     assert similarity.homology(prot("d3", interpro={"IPR1"}), prot("h3", interpro={"IPR1"}), tables, 50)[1] \
         == "shared_interpro_entry"
+    assert similarity.homology(prot("d3", ko={"K1"}, pfam={"PF1"}), prot("h3", ko={"K1"}, pfam={"PF1"}),
+                               tables, 50)[1] == "shared_kegg_ko"
+    _, _, detail = similarity.homology(prot("d3", ko={"K1"}), prot("h3", ko={"K2"}), tables, 50)
+    assert detail["ko_conflict"] is True
     score, tier, _ = similarity.homology(prot("d3"), prot("h3"), tables, 50)
     assert (score, tier) == (0.0, "none_detected")
     assert similarity.homology(prot("d2"), prot("h9"), tables, 100)[1] == "none_detected"   # below min bitscore
@@ -177,6 +181,7 @@ def base_row(**kw):
 def test_category_rules():
     assert ranking.assign_category(base_row(homology_tier="reciprocal_best_hit"), 0.3, 0.3) == "ortholog_rbh"
     assert ranking.assign_category(base_row(homology_tier="shared_interpro_entry", ec=1.0), 0.3, 0.3) == "homolog"
+    assert ranking.assign_category(base_row(homology_tier="shared_kegg_ko"), 0.3, 0.3) == "ortholog_ko"
     assert ranking.assign_category(base_row(ec=1.0, pathway=0.5), 0.3, 0.3) == "candidate_analogue"
     assert ranking.assign_category(base_row(ec=1.0, literature=1.0), 0.3, 0.3) == "candidate_analogue"
     assert ranking.assign_category(base_row(ec=1.0), 0.3, 0.3) == "shared_function_annotation"
@@ -199,6 +204,26 @@ def synthetic_pairs():
                      "hs_isolated": False, "dr_evidence_codes": "IEA", "hs_evidence_codes": "IDA",
                      "references": "", "negated_go_conflicts": ""})
     return pd.DataFrame(rows)
+
+
+def test_tied_scores_are_ordered_by_identifiers():
+    pairs = synthetic_pairs().head(4).copy()
+    for c in ranking.COMPONENTS:
+        pairs[c] = 0.5                                   # every pair scores exactly the same
+    pairs = pairs.iloc[::-1].reset_index(drop=True)       # input order must not matter
+    weights = {c: 1 / len(ranking.COMPONENTS) for c in ranking.COMPONENTS}
+    ranked = ranking.rank_pairs(pairs, weights, 0.3, 0.3, 0.3)
+    keys = list(zip(ranked["dr_string_id"], ranked["hs_string_id"]))
+    assert keys == sorted(keys)
+
+
+def test_set_similarity_is_independent_of_set_iteration_order():
+    ic = {f"t{i}": 0.1 * (i + 1) ** 1.7 for i in range(40)}
+    a = {f"t{i}" for i in range(0, 40, 2)}
+    b = {f"t{i}" for i in range(0, 40, 3)}
+    reference = similarity.simgic(a, b, ic, "ochiai")
+    for perm in (sorted(a, reverse=True), sorted(a, key=hash)):
+        assert similarity.simgic(set(perm), set(b), ic, "ochiai") == reference
 
 
 def test_rank_pairs_and_weight_sensitivity_are_deterministic():

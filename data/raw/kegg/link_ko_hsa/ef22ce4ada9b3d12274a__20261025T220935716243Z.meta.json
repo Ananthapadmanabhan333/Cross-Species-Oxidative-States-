@@ -1,0 +1,18 @@
+{
+  "source": "kegg",
+  "endpoint": "link_ko_hsa",
+  "description": "KEGG Orthology assignments of all hsa genes (academic use)",
+  "request_key": "ef22ce4ada9b3d12274a",
+  "method": "GET",
+  "url": "https://rest.kegg.jp/link/ko/hsa",
+  "params": {},
+  "retrieved_at_utc": "2026-10-25T22:09:35.716243+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "date": "Sun, 25 Oct 2026 22:09:34 GMT"
+  },
+  "bytes": 381042,
+  "sha256": "d19e5a27e3f5324e4575bb688de853338ac3cdcf253114357bf156d5ce27502d",
+  "data_file": "ef22ce4ada9b3d12274a__20261025T220935716243Z.tsv"
+}

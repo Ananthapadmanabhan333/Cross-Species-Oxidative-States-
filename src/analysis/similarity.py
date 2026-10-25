@@ -34,8 +34,12 @@ class ProteinEvidence:
     literature_level: float | None = None      # 1 experimental, 0.5 curated/phylo/computational, 0.25 IEA only
     evidence_codes: set[str] = field(default_factory=set)
     experimental_references: set[str] = field(default_factory=set)
-    perturbation: bool = False
+    perturbation: bool = False                          # any perturbation evidence (GO code or curated)
+    perturbation_score: float | None = None             # 1 supports, 0.5 mixed, 0 contradicts, None absent
     negated_go: set[str] = field(default_factory=set)   # "NOT" annotations: contradictory evidence
+    kegg_genes: set[str] = field(default_factory=set)
+    ko: set[str] = field(default_factory=set)           # KEGG Orthology groups
+    curated: list[dict] = field(default_factory=list)   # rows of config/curated_evidence.tsv
 
 
 def kegg_map(term: str) -> str | None:
@@ -46,8 +50,15 @@ def kegg_map(term: str) -> str | None:
 
 def build_profiles(nodes: pd.DataFrame, annotations: pd.DataFrame, uniprot: pd.DataFrame,
                    quickgo: pd.DataFrame, species_key: str, go_categories: list[str],
-                   pathway_category: str, excluded_maps: set[str]) -> dict[str, ProteinEvidence]:
+                   pathway_category: str, excluded_maps: set[str],
+                   ko_links: dict[str, set[str]] | None = None,
+                   curated: pd.DataFrame | None = None) -> dict[str, ProteinEvidence]:
+    """`ko_links` maps KEGG gene ids ('dra:DR_1998') to KO ids; `curated` holds literature-curated
+    findings (config/curated_evidence.tsv) keyed by string_id."""
     up = uniprot.set_index("uniprot_accession") if not uniprot.empty else pd.DataFrame()
+    ko_links = ko_links or {}
+    curated_by_id = ({sid: grp.to_dict("records") for sid, grp in curated.groupby("string_id")}
+                     if curated is not None and len(curated) else {})
     profiles: dict[str, ProteinEvidence] = {}
     ann_by_node = {sid: grp for sid, grp in annotations.groupby("string_id")}
     for row in nodes.itertuples(index=False):
@@ -66,6 +77,8 @@ def build_profiles(nodes: pd.DataFrame, annotations: pd.DataFrame, uniprot: pd.D
                 prof.ec |= set(split_list(rec["ec_numbers"]))
                 prof.panther |= {p.split(":")[0] for p in split_list(rec["panther_families"])}
                 prof.pfam |= set(split_list(rec["pfam"]))
+                prof.kegg_genes |= set(split_list(rec["kegg_genes"]))
+        prof.ko = set().union(*(ko_links.get(g, set()) for g in prof.kegg_genes)) if prof.kegg_genes else set()
         qg = quickgo[quickgo["uniprot_accession"].isin(accessions)] if len(quickgo) else quickgo
         if len(qg):
             negated = qg["qualifier"].fillna("").str.startswith("NOT")
@@ -82,8 +95,25 @@ def build_profiles(nodes: pd.DataFrame, annotations: pd.DataFrame, uniprot: pd.D
             exp = positive[positive["evidence_class"] == "experimental"]
             prof.experimental_references = {r for r in exp["reference"].dropna() if str(r).startswith("PMID:")}
             prof.perturbation = bool(positive["is_perturbation"].any())
+        effects = ["supports"] if prof.perturbation else []
+        prof.curated = curated_by_id.get(sid, [])
+        for item in prof.curated:
+            prof.experimental_references.add(f"PMID:{item['pmid']}")
+            if item["effect_on_role"] == "supports":
+                prof.literature_level = 1.0
+            if item["evidence_type"] == "perturbation":
+                effects.append(item["effect_on_role"])
+        if effects:
+            prof.perturbation = True
+            supports, contradicts = "supports" in effects, "contradicts" in effects
+            prof.perturbation_score = 0.5 if supports and contradicts else (1.0 if supports else 0.0)
         profiles[sid] = prof
     return profiles
+
+
+def curated_contradictions(profile: ProteinEvidence) -> list[str]:
+    return [f"{profile.name}: {c['finding']} (PMID:{c['pmid']})" for c in profile.curated
+            if c["effect_on_role"] == "contradicts"]
 
 
 def information_content(term_sets: list[set[str]]) -> dict[str, float]:
@@ -105,11 +135,13 @@ def simgic(a: set[str] | None, b: set[str] | None, ic: dict[str, float], measure
     """
     if not a or not b:
         return None
-    shared = sum(ic.get(t, 0.0) for t in a & b)
+    # sums run over sorted terms: set iteration order depends on per-process hash randomisation,
+    # and a different summation order changes results at ~1e-16, enough to reorder tied pairs
+    shared = sum(ic.get(t, 0.0) for t in sorted(a & b))
     if measure == "simgic":
-        denom = sum(ic.get(t, 0.0) for t in a | b)
+        denom = sum(ic.get(t, 0.0) for t in sorted(a | b))
     else:
-        ia, ib = sum(ic.get(t, 0.0) for t in a), sum(ic.get(t, 0.0) for t in b)
+        ia, ib = sum(ic.get(t, 0.0) for t in sorted(a)), sum(ic.get(t, 0.0) for t in sorted(b))
         if measure == "ochiai":
             denom = math.sqrt(ia * ib)
         elif measure == "min":
@@ -163,12 +195,18 @@ def homology(a: ProteinEvidence, b: ProteinEvidence, tables: HomologyTables,
     shared_panther = sorted(a.panther & b.panther)
     shared_pfam = sorted(a.pfam & b.pfam)
     shared_interpro = sorted(a.interpro & b.interpro)
+    shared_ko = sorted(a.ko & b.ko)
     detail = {"best_hit_dr_to_hs": hit_ab[0] if hit_ab else None,
               "bitscore_dr_to_hs": hit_ab[1] if hit_ab else None,
               "best_hit_hs_to_dr": hit_ba[0] if hit_ba else None,
-              "shared_panther": shared_panther, "shared_pfam": shared_pfam, "shared_interpro": shared_interpro}
+              "shared_panther": shared_panther, "shared_pfam": shared_pfam, "shared_interpro": shared_interpro,
+              "shared_ko": shared_ko,
+              "ko_conflict": bool(a.ko and b.ko and not shared_ko)}
     if ab and ba:
         return 1.0, "reciprocal_best_hit", detail
+    if shared_ko:
+        # KEGG Orthology groups are curated ortholog groups spanning bacteria and eukaryotes.
+        return 0.9, "shared_kegg_ko", detail
     if shared_panther:
         return 0.8, "shared_panther_family", detail
     if ab or ba:

@@ -9,8 +9,11 @@ Sources (all documented public APIs, all responses cached with provenance by Cac
                                        PubMed references cited by the entry
   * QuickGO (EBI)                    - GO annotations with evidence codes and references
 
-KEGG content is used only as redistributed inside STRING (pathway maps) and UniProt (gene
-cross-references); the KEGG API itself is not called, in line with KEGG's access conditions.
+  * KEGG REST ``link/ko/<org>``      - KEGG Orthology (KO) assignment of every gene of an organism
+
+KEGG REST is used once per organism (cached) for KO assignments. KEGG's terms allow free academic
+use; commercial use requires a licence (https://www.kegg.jp/kegg/legal.html). Pathway maps are
+taken from STRING's redistribution of KEGG.
 """
 
 from __future__ import annotations
@@ -149,3 +152,21 @@ def quickgo_annotations(http: CachedHttpClient, go_terms: list[str], ncbi_taxon:
     frame["evidence_class"] = frame["go_evidence"].map(lambda c: evidence_class(str(c)))
     frame["is_perturbation"] = frame["go_evidence"].isin(PERTURBATION_CODES)
     return frame
+
+
+# ------------------------------------------------------------------------------------- KEGG
+KEGG_REST = "https://rest.kegg.jp"
+
+
+def kegg_ko_links(http: CachedHttpClient, org_code: str) -> dict[str, set[str]]:
+    """KEGG gene id ('dra:DR_1998') -> set of KO ids ('K03781') for one organism."""
+    raw = http.fetch("kegg", f"link_ko_{org_code}", f"{KEGG_REST}/link/ko/{org_code}", {}, method="GET",
+                     ext="tsv", description=f"KEGG Orthology assignments of all {org_code} genes (academic use)")
+    links: dict[str, set[str]] = {}
+    for line in raw.text.splitlines():
+        parts = line.strip().split("\t")
+        if len(parts) == 2 and parts[1].startswith("ko:"):
+            links.setdefault(parts[0], set()).add(parts[1][3:])
+    if not links:
+        raise DataSourceError(f"KEGG link/ko/{org_code} returned no KO assignments")
+    return links

@@ -181,7 +181,11 @@ its checksums before doing anything else. It then retrieves the additional evide
 
 - STRING functional annotation, best-hit homology and PPI-enrichment results;
 - UniProt EC numbers, PANTHER families and Pfam domains;
-- QuickGO evidence codes.
+- QuickGO evidence codes;
+- KEGG Orthology (KO) assignments (academic use).
+
+It also reads a literature-curated evidence table, `config/curated_evidence.tsv`, in which every
+row is verified against its PubMed record.
 
 These responses are cached with provenance, exactly as in Phase 1.
 
@@ -226,19 +230,21 @@ candidates/                candidate_pairs_all.tsv (every pair: 8 evidence compo
 evaluation/                threshold, similarity-measure and ranking sensitivity; link prediction;
                            proxy evaluation
 evidence/                  QuickGO, UniProt and STRING annotation tables used
+coverage_variant/          KO-projected D. radiodurans network, metrics and alignment (coverage check only)
 figures/                   degree CCDF, threshold sensitivity, size-matched context, Louvain stability,
                            ranking weight sensitivity, D. radiodurans module network, link-prediction AUC
 ```
 
-**Reference Phase 2 run.** `20261025T203119Z_863b77a88678` is the reference run. Its
+**Reference Phase 2 run.** `20261025T222114Z_a6bb58dd4682` is the reference run. Its
 interpretation, including all coverage limitations, is in
 [docs/PHASE2_FINDINGS.md](docs/PHASE2_FINDINGS.md). Briefly:
 
-- the five reciprocal-best-hit orthologs (katA–CAT, sodA–SOD2, msrB–MSRB3, DR_A0202–SOD1,
-  DR_2242–PRDX2) are recovered;
-- the strongest *non-homologous* candidates are Mn/Fe vs Cu/Zn superoxide dismutases (e.g.
-  sodA–SOD3, sodA–SOD1);
-- network alignment shows no topology conservation beyond a degree-preserving null;
+- the five reciprocal-best-hit orthologs and three further KEGG-KO orthologs are recovered;
+- the best-supported bacterial protein is peroxiredoxin Q (DR0846);
+- the strongest *non-homologous* candidates are Mn/Fe vs Cu/Zn superoxide dismutases, with
+  conflicting sodA mutant evidence flagged;
+- network alignment shows no topology conservation beyond a degree-preserving null, even with a
+  KO-projected (enlarged) bacterial network;
 - NetMF embeddings do not beat neighbourhood baselines and are not used in the ranking.
 
 No result here is experimental validation.

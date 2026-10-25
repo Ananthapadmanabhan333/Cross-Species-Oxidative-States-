@@ -1,0 +1,25 @@
+{
+  "source": "string",
+  "endpoint": "network_functional_deinococcus_radiodurans_ko_projected",
+  "description": "STRING functional network among 27 proteins, required_score=400",
+  "request_key": "460123ced159d6dc91c6",
+  "method": "POST",
+  "url": "https://string-db.org/api/json/network",
+  "params": {
+    "add_nodes": "0",
+    "caller_identity": "extremonet_phase1",
+    "identifiers": "243230.DR_0189\r243230.DR_0765\r243230.DR_0846\r243230.DR_0944\r243230.DR_1208\r243230.DR_1209\r243230.DR_1279\r243230.DR_1378\r243230.DR_1522\r243230.DR_1538\r243230.DR_1546\r243230.DR_1596\r243230.DR_1849\r243230.DR_1857\r243230.DR_1982\r243230.DR_1998\r243230.DR_2063\r243230.DR_2093\r243230.DR_2160\r243230.DR_2242\r243230.DR_2452\r243230.DR_2453\r243230.DR_A0145\r243230.DR_A0202\r243230.DR_A0259\r243230.DR_A0272\r243230.DR_A0301",
+    "network_type": "functional",
+    "required_score": "400",
+    "species": "243230"
+  },
+  "retrieved_at_utc": "2026-10-25T22:09:57.081701+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/json; charset=utf-8",
+    "date": "Sun, 25 Oct 2026 22:09:57 GMT"
+  },
+  "bytes": 13812,
+  "sha256": "5c69baf7334f2219a3ffca1dde24cf1cac104702b2e0d205419d3b9c702b41ba",
+  "data_file": "460123ced159d6dc91c6__20261025T220957081701Z.json"
+}

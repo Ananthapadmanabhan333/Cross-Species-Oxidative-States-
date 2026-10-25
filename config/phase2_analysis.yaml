@@ -64,6 +64,24 @@ alignment:
   null_permutations: 1000       # random one-to-one maps (weak baseline: no optimisation)
   rewired_null_samples: 100     # degree-preserving rewired D. radiodurans graphs, aligned identically
 
+kegg:
+  # KEGG REST link/ko/<org>: KO assignment of every gene, fetched once per organism and cached.
+  # KEGG terms: free for academic use; commercial use needs a licence (kegg.jp/kegg/legal.html).
+  enabled: true
+  org_codes: {deinococcus_radiodurans: dra, homo_sapiens: hsa}
+
+# Literature-curated findings (PubMed-verified, abstract level) that GO evidence codes miss,
+# e.g. mutant phenotypes coded as IDA. Contradicting findings are kept and reported.
+curated_evidence: config/curated_evidence.tsv
+
+coverage_variant:
+  # KO-projected D. radiodurans network: seeds plus every gene in a KO group carried by a human
+  # seed. Orthology-defined, so used for coverage sensitivity of topology/alignment only.
+  enabled: true
+  alphas: [1.0, 0.8]
+  max_iterations: 200
+  rewired_null_samples: 200     # 27-node graph: cheap, and 20 samples cannot resolve p < 0.048
+
 ranking:
   # Weights for evidence components (each component scored 0-1, or missing). Score of a pair =
   # sum(w_i * s_i) / sum(w_i) over AVAILABLE components only, so missing evidence is never counted
@@ -74,7 +92,7 @@ ranking:
     go: 0.15            # shared GO BP/MF annotation (simGIC); partly electronic, hence not higher
     pathway: 0.15       # shared KEGG pathway maps: context-level evidence of a similar role
     literature: 0.15    # experimental GO evidence (QuickGO) with references for both proteins
-    perturbation: 0.10  # mutant/genetic-interaction evidence codes (IMP/IGI/HMP/HGI); sparse
+    perturbation: 0.10  # mutant/genetic-interaction GO codes plus curated mutant studies; sparse
     module: 0.10        # functional profile of the network modules containing each protein
     role: 0.10          # topological role similarity; weak given unequal network coverage
     homology: 0.10      # supporting only: analogues by definition may lack it

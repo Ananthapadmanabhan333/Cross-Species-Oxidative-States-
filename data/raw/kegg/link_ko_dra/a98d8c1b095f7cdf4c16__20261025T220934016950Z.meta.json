@@ -1,0 +1,18 @@
+{
+  "source": "kegg",
+  "endpoint": "link_ko_dra",
+  "description": "KEGG Orthology assignments of all dra genes (academic use)",
+  "request_key": "a98d8c1b095f7cdf4c16",
+  "method": "GET",
+  "url": "https://rest.kegg.jp/link/ko/dra",
+  "params": {},
+  "retrieved_at_utc": "2026-10-25T22:09:34.016950+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "date": "Sun, 25 Oct 2026 22:09:33 GMT"
+  },
+  "bytes": 32384,
+  "sha256": "61c04be63baa6a44ca50b55e45692a3947c5cdff822826816ad6374c4dc02a40",
+  "data_file": "a98d8c1b095f7cdf4c16__20261025T220934016950Z.tsv"
+}

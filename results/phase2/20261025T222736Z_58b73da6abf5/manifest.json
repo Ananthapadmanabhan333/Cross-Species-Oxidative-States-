@@ -1,0 +1,1060 @@
+{
+  "manifest_written_at_utc": "2026-10-25T22:29:08.886740+00:00",
+  "run_id": "20261025T222736Z_58b73da6abf5",
+  "phase": 2,
+  "mode": "offline",
+  "config": {
+    "phase1": {
+      "config": "config/phase1_oxidative_stress.yaml",
+      "run_id": "20261025T174736Z_5bbc7e723df4"
+    },
+    "paths": {
+      "results_dir": "results/phase2",
+      "manifests_dir": "data/manifests"
+    },
+    "mode": "offline",
+    "random_seed": 1,
+    "network": {
+      "edge_score_threshold": 0.7,
+      "sensitivity_thresholds": [
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9
+      ]
+    },
+    "topology": {
+      "hub_percentile": 0.8,
+      "bottleneck_percentile": 0.8,
+      "betweenness_distance": "inverse_score",
+      "size_matched_samples": 1000
+    },
+    "communities": {
+      "method": "louvain",
+      "resolution": 1.0,
+      "resolutions_for_stability": [
+        0.5,
+        1.0,
+        1.5,
+        2.0
+      ],
+      "n_seeds": 50,
+      "weight": "weight"
+    },
+    "enrichment": {
+      "categories": [
+        "Process",
+        "Function",
+        "Component",
+        "KEGG",
+        "Pfam",
+        "InterPro",
+        "RCTM"
+      ],
+      "min_module_size": 3,
+      "min_term_size": 2,
+      "fdr": 0.05
+    },
+    "similarity": {
+      "measure": "ochiai",
+      "measures_for_sensitivity": [
+        "ochiai",
+        "simgic",
+        "min"
+      ],
+      "go_categories": [
+        "Process",
+        "Function"
+      ],
+      "pathway_category": "KEGG",
+      "kegg_excluded_maps": [
+        "01100",
+        "01110",
+        "01120",
+        "01200",
+        "01210",
+        "01212",
+        "01230",
+        "01232",
+        "01250",
+        "01240",
+        "01220"
+      ],
+      "min_homology_bitscore": 50.0
+    },
+    "alignment": {
+      "method": "isorank",
+      "alphas": [
+        1.0,
+        0.8,
+        0.5
+      ],
+      "max_iterations": 500,
+      "tolerance": 1e-09,
+      "null_permutations": 1000,
+      "rewired_null_samples": 100
+    },
+    "kegg": {
+      "enabled": true,
+      "org_codes": {
+        "deinococcus_radiodurans": "dra",
+        "homo_sapiens": "hsa"
+      }
+    },
+    "curated_evidence": "config/curated_evidence.tsv",
+    "coverage_variant": {
+      "enabled": true,
+      "alphas": [
+        1.0,
+        0.8
+      ],
+      "max_iterations": 200,
+      "rewired_null_samples": 200
+    },
+    "ranking": {
+      "weights": {
+        "ec": 0.15,
+        "go": 0.15,
+        "pathway": 0.15,
+        "literature": 0.15,
+        "perturbation": 0.1,
+        "module": 0.1,
+        "role": 0.1,
+        "homology": 0.1
+      },
+      "min_evidence_coverage": 0.45,
+      "go_similarity_for_shared_function": 0.3,
+      "pathway_similarity_for_shared_role": 0.3,
+      "sensitivity": {
+        "dirichlet_samples": 500,
+        "dirichlet_concentration": 50,
+        "top_k": 20
+      },
+      "report_top_n": 25
+    },
+    "embedding": {
+      "enabled": true,
+      "method": "netmf",
+      "dimensions": 16,
+      "window": 5,
+      "negative": 1.0,
+      "test_fraction": 0.1,
+      "n_splits": 5,
+      "min_edges_for_evaluation": 100
+    },
+    "evaluation": {
+      "roc_negative_ratio": 1
+    }
+  },
+  "phase1_verification": {
+    "run_id": "20261025T174736Z_5bbc7e723df4",
+    "string_version": "12.5",
+    "outputs_verified": 33,
+    "raw_inputs_verified": 14,
+    "manifest": "data\\manifests\\20261025T174736Z_5bbc7e723df4.json"
+  },
+  "software": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "networkx": "3.4.2",
+    "pandas": "2.2.3",
+    "numpy": "2.1.3",
+    "PyYAML": "6.0.2",
+    "requests": "2.32.3",
+    "extremonet": "0.2.0"
+  },
+  "random_seed": 1,
+  "raw_inputs": [
+    {
+      "source": "string",
+      "endpoint": "functional_annotation_deinococcus_radiodurans",
+      "description": "STRING functional annotation of 16 proteins",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/functional_annotation",
+      "method": "POST",
+      "params": {
+        "allow_pubmed": "0",
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "243230.DR_0189\r243230.DR_0846\r243230.DR_1208\r243230.DR_1209\r243230.DR_1279\r243230.DR_1378\r243230.DR_1538\r243230.DR_1546\r243230.DR_1857\r243230.DR_1982\r243230.DR_1998\r243230.DR_2242\r243230.DR_A0145\r243230.DR_A0202\r243230.DR_A0259\r243230.DR_A0301",
+        "species": "243230"
+      },
+      "retrieved_at_utc": "2026-10-25T20:09:46.884287+00:00",
+      "sha256": "f358d0e6cb90561899cc35c91edbba6ee520d2c9b15dbf24fa2c720a761c0fb2",
+      "data_file": "data\\raw\\string\\functional_annotation_deinococcus_radiodurans\\c90b7e33b39bf07f1b95__20261025T200946884287Z.json"
+    },
+    {
+      "source": "uniprot",
+      "endpoint": "evidence_deinococcus_radiodurans",
+      "description": "UniProt EC, PANTHER, Pfam, KEGG, Reactome, PubMed",
+      "served_from": "cache",
+      "url": "https://rest.uniprot.org/uniprotkb/stream",
+      "method": "GET",
+      "params": {
+        "fields": "accession,ec,xref_panther,xref_pfam,xref_kegg,xref_reactome,lit_pubmed_id",
+        "format": "tsv",
+        "query": "((go:0006979) OR (go:0098869) OR (go:0016209)) AND (taxonomy_id:1299)"
+      },
+      "retrieved_at_utc": "2026-10-25T20:09:48.537694+00:00",
+      "sha256": "9ff122a0fa159a5bf93356824cad7f0d9d85b7837e76cab386647200fd2503ca",
+      "data_file": "data\\raw\\uniprot\\evidence_deinococcus_radiodurans\\1abc96304f61ac93c05a__20261025T200948537694Z.tsv"
+    },
+    {
+      "source": "quickgo",
+      "endpoint": "annotations_deinococcus_radiodurans",
+      "description": "QuickGO annotations to GO:0006979,GO:0098869,GO:0016209 (+descendants), page 1",
+      "served_from": "cache",
+      "url": "https://www.ebi.ac.uk/QuickGO/services/annotation/search",
+      "method": "GET",
+      "params": {
+        "goId": "GO:0006979,GO:0098869,GO:0016209",
+        "goUsage": "descendants",
+        "goUsageRelationships": "is_a,part_of,occurs_in",
+        "limit": "200",
+        "page": "1",
+        "taxonId": "1299",
+        "taxonUsage": "descendants"
+      },
+      "retrieved_at_utc": "2026-10-25T20:09:50.216904+00:00",
+      "sha256": "22bae91fbce0da3aad4070ee1c152deb0ee69d6a6028719adda4c02124606d0c",
+      "data_file": "data\\raw\\quickgo\\annotations_deinococcus_radiodurans\\26e07b4c902c32b66503__20261025T200950216904Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "ppi_enrichment_deinococcus_radiodurans",
+      "description": "PPI enrichment test, required_score=400",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/ppi_enrichment",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "243230.DR_0189\r243230.DR_0846\r243230.DR_1208\r243230.DR_1209\r243230.DR_1279\r243230.DR_1378\r243230.DR_1538\r243230.DR_1546\r243230.DR_1857\r243230.DR_1982\r243230.DR_1998\r243230.DR_2242\r243230.DR_A0145\r243230.DR_A0202\r243230.DR_A0259\r243230.DR_A0301",
+        "required_score": "400",
+        "species": "243230"
+      },
+      "retrieved_at_utc": "2026-10-25T20:09:50.465474+00:00",
+      "sha256": "7dab7fc1496ab41e125439e7b50f67a7ccf7991166844202c3e7f5df121e8b26",
+      "data_file": "data\\raw\\string\\ppi_enrichment_deinococcus_radiodurans\\5a418fdb7e4e60a9a456__20261025T200950465474Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "ppi_enrichment_deinococcus_radiodurans",
+      "description": "PPI enrichment test, required_score=500",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/ppi_enrichment",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "243230.DR_0189\r243230.DR_0846\r243230.DR_1208\r243230.DR_1209\r243230.DR_1279\r243230.DR_1378\r243230.DR_1538\r243230.DR_1546\r243230.DR_1857\r243230.DR_1982\r243230.DR_1998\r243230.DR_2242\r243230.DR_A0145\r243230.DR_A0202\r243230.DR_A0259\r243230.DR_A0301",
+        "required_score": "500",
+        "species": "243230"
+      },
+      "retrieved_at_utc": "2026-10-25T20:09:51.458965+00:00",
+      "sha256": "8631d67240d538d5270807392f58c40ed5cf22b7c94bc62e82b2285275b53370",
+      "data_file": "data\\raw\\string\\ppi_enrichment_deinococcus_radiodurans\\9b1f09e25615cc0efc12__20261025T200951458965Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "ppi_enrichment_deinococcus_radiodurans",
+      "description": "PPI enrichment test, required_score=600",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/ppi_enrichment",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "243230.DR_0189\r243230.DR_0846\r243230.DR_1208\r243230.DR_1209\r243230.DR_1279\r243230.DR_1378\r243230.DR_1538\r243230.DR_1546\r243230.DR_1857\r243230.DR_1982\r243230.DR_1998\r243230.DR_2242\r243230.DR_A0145\r243230.DR_A0202\r243230.DR_A0259\r243230.DR_A0301",
+        "required_score": "600",
+        "species": "243230"
+      },
+      "retrieved_at_utc": "2026-10-25T20:09:52.462726+00:00",
+      "sha256": "53484cffc667f2e008da2a654f8fe605b37a18b719dbf675b623332e7249375e",
+      "data_file": "data\\raw\\string\\ppi_enrichment_deinococcus_radiodurans\\7b7f6daf01d9f7e1d25e__20261025T200952462726Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "ppi_enrichment_deinococcus_radiodurans",
+      "description": "PPI enrichment test, required_score=700",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/ppi_enrichment",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "243230.DR_0189\r243230.DR_0846\r243230.DR_1208\r243230.DR_1209\r243230.DR_1279\r243230.DR_1378\r243230.DR_1538\r243230.DR_1546\r243230.DR_1857\r243230.DR_1982\r243230.DR_1998\r243230.DR_2242\r243230.DR_A0145\r243230.DR_A0202\r243230.DR_A0259\r243230.DR_A0301",
+        "required_score": "700",
+        "species": "243230"
+      },
+      "retrieved_at_utc": "2026-10-25T20:09:53.447643+00:00",
+      "sha256": "0bea914157ef18ad97345751945086c862258ff8e75564a59fb9a1d632962be5",
+      "data_file": "data\\raw\\string\\ppi_enrichment_deinococcus_radiodurans\\a2cd478a1f834976930d__20261025T200953447643Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "ppi_enrichment_deinococcus_radiodurans",
+      "description": "PPI enrichment test, required_score=800",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/ppi_enrichment",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "243230.DR_0189\r243230.DR_0846\r243230.DR_1208\r243230.DR_1209\r243230.DR_1279\r243230.DR_1378\r243230.DR_1538\r243230.DR_1546\r243230.DR_1857\r243230.DR_1982\r243230.DR_1998\r243230.DR_2242\r243230.DR_A0145\r243230.DR_A0202\r243230.DR_A0259\r243230.DR_A0301",
+        "required_score": "800",
+        "species": "243230"
+      },
+      "retrieved_at_utc": "2026-10-25T20:09:54.451628+00:00",
+      "sha256": "f5e26efbb2efd9d60e97bb679d4db2f4942d7da16689660f29660c5afa29a319",
+      "data_file": "data\\raw\\string\\ppi_enrichment_deinococcus_radiodurans\\422ae9cab89131116642__20261025T200954451628Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "ppi_enrichment_deinococcus_radiodurans",
+      "description": "PPI enrichment test, required_score=900",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/ppi_enrichment",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "243230.DR_0189\r243230.DR_0846\r243230.DR_1208\r243230.DR_1209\r243230.DR_1279\r243230.DR_1378\r243230.DR_1538\r243230.DR_1546\r243230.DR_1857\r243230.DR_1982\r243230.DR_1998\r243230.DR_2242\r243230.DR_A0145\r243230.DR_A0202\r243230.DR_A0259\r243230.DR_A0301",
+        "required_score": "900",
+        "species": "243230"
+      },
+      "retrieved_at_utc": "2026-10-25T20:09:55.740698+00:00",
+      "sha256": "21413d8ac249766bddbed553de7a1950ebed8676ce466d75d8f2751be0c10ad2",
+      "data_file": "data\\raw\\string\\ppi_enrichment_deinococcus_radiodurans\\9ce91c58c14bf9f46daf__20261025T200955740698Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "functional_annotation_homo_sapiens",
+      "description": "STRING functional annotation of 382 proteins",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/functional_annotation",
+      "method": "POST",
+      "params": {
+        "allow_pubmed": "0",
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "9606.ENSP00000012443\r9606.ENSP00000013807\r9606.ENSP00000044462\r9606.ENSP00000157812\r9606.ENSP00000162044\r9606.ENSP00000200691\r9606.ENSP00000211287\r9606.ENSP00000212015\r9606.ENSP00000215071\r9606.ENSP00000216037\r9606.ENSP00000216117\r9606.ENSP00000216225\r9606.ENSP00000216274\r9606.ENSP00000216455\r9606.ENSP00000216802\r9606.ENSP00000217320\r9606.ENSP00000219070\r9606.ENSP00000219313\r9606.ENSP00000220659\r9606.ENSP00000221130\r9606.ENSP00000222462\r9606.ENSP00000223321\r9606.ENSP00000224140\r9606.ENSP00000224652\r9606.ENSP00000225174\r9606.ENSP00000225275\r9606.ENSP00000225371\r9606.ENSP00000225964\r9606.ENSP00000226279\r9606.ENSP00000231198\r9606.ENSP00000237596\r9606.ENSP00000239223\r9606.ENSP00000240651\r9606.ENSP00000241052\r9606.ENSP00000241337\r9606.ENSP00000248071\r9606.ENSP00000249396\r9606.ENSP00000251595\r9606.ENSP00000252229\r9606.ENSP00000252244\r9606.ENSP00000252321\r9606.ENSP00000252486\r9606.ENSP00000252804\r9606.ENSP00000253063\r9606.ENSP00000255174\r9606.ENSP00000256383\r9606.ENSP00000257290\r9606.ENSP00000258080\r9606.ENSP00000258149\r9606.ENSP00000259457\r9606.ENSP00000259808\r9606.ENSP00000261303\r9606.ENSP00000261479\r9606.ENSP00000261712\r9606.ENSP00000262193\r9606.ENSP00000262209\r9606.ENSP00000262290\r9606.ENSP00000262746\r9606.ENSP00000262887\r9606.ENSP00000262999\r9606.ENSP00000263754\r9606.ENSP00000264110\r9606.ENSP00000264260\r9606.ENSP00000264331\r9606.ENSP00000264376\r9606.ENSP00000264414\r9606.ENSP00000264613\r9606.ENSP00000264639\r9606.ENSP00000264867\r9606.ENSP00000265038\r9606.ENSP00000265462\r9606.ENSP00000266031\r9606.ENSP00000267257\r9606.ENSP00000268058\r9606.ENSP00000269305\r9606.ENSP00000269385\r9606.ENSP00000270142\r9606.ENSP00000270586\r9606.ENSP00000271308\r9606.ENSP00000272233\r9606.ENSP00000278282\r9606.ENSP00000278572\r9606.ENSP00000278616\r9606.ENSP00000281092\r9606.ENSP00000283243\r9606.ENSP00000285381\r9606.ENSP00000285398\r9606.ENSP00000286719\r9606.ENSP00000287295\r9606.ENSP00000288774\r9606.ENSP00000289081\r9606.ENSP00000290541\r9606.ENSP00000292596\r9606.ENSP00000293230\r9606.ENSP00000293362\r9606.ENSP00000295006\r9606.ENSP00000295030\r9606.ENSP00000295718\r9606.ENSP00000295834\r9606.ENSP00000295897\r9606.ENSP00000296099\r9606.ENSP00000297494\r9606.ENSP00000298510\r9606.ENSP00000298910\r9606.ENSP00000299855\r9606.ENSP00000300574\r9606.ENSP00000301522\r9606.ENSP00000301904\r9606.ENSP00000302486\r9606.ENSP00000303522\r9606.ENSP00000304908\r9606.ENSP00000305631\r9606.ENSP00000306100\r9606.ENSP00000306245\r9606.ENSP00000306449\r9606.ENSP00000306561\r9606.ENSP00000306894\r9606.ENSP00000307940\r9606.ENSP00000308208\r9606.ENSP00000308430\r9606.ENSP00000309474\r9606.ENSP00000310129\r9606.ENSP00000310572\r9606.ENSP00000310841\r9606.ENSP00000311005\r9606.ENSP00000311032\r9606.ENSP00000311165\r9606.ENSP00000311713\r9606.ENSP00000312741\r9606.ENSP00000313921\r9606.ENSP00000315011\r9606.ENSP00000317714\r9606.ENSP00000317997\r9606.ENSP00000318635\r9606.ENSP00000319788\r9606.ENSP00000321617\r9606.ENSP00000321797\r9606.ENSP00000323511\r9606.ENSP00000323740\r9606.ENSP00000323889\r9606.ENSP00000325527\r9606.ENSP00000325748\r9606.ENSP00000326804\r9606.ENSP00000327214\r9606.ENSP00000328729\r9606.ENSP00000329357\r9606.ENSP00000329869\r9606.ENSP00000331602\r9606.ENSP00000335153\r9606.ENSP00000335620\r9606.ENSP00000336790\r9606.ENSP00000337443\r9606.ENSP00000339527\r9606.ENSP00000339992\r9606.ENSP00000340176\r9606.ENSP00000340278\r9606.ENSP00000340427\r9606.ENSP00000340820\r9606.ENSP00000342026\r9606.ENSP00000342385\r9606.ENSP00000342502\r9606.ENSP00000343635\r9606.ENSP00000344215\r9606.ENSP00000344674\r9606.ENSP00000345023\r9606.ENSP00000345179\r9606.ENSP00000345270\r9606.ENSP00000345719\r9606.ENSP00000345728\r9606.ENSP00000346103\r9606.ENSP00000346148\r9606.ENSP00000346671\r9606.ENSP00000347134\r9606.ENSP00000347324\r9606.ENSP00000348089\r9606.ENSP00000348170\r9606.ENSP00000348234\r9606.ENSP00000348442\r9606.ENSP00000348645\r9606.ENSP00000349016\r9606.ENSP00000349358\r9606.ENSP00000349543\r9606.ENSP00000350425\r9606.ENSP00000351022\r9606.ENSP00000351284\r9606.ENSP00000351407\r9606.ENSP00000351908\r9606.ENSP00000352835\r9606.ENSP00000353826\r9606.ENSP00000354499\r9606.ENSP00000354581\r9606.ENSP00000354612\r9606.ENSP00000354677\r9606.ENSP00000354813\r9606.ENSP00000355206\r9606.ENSP00000355231\r9606.ENSP00000355325\r9606.ENSP00000355759\r9606.ENSP00000355865\r9606.ENSP00000356251\r9606.ENSP00000356438\r9606.ENSP00000356864\r9606.ENSP00000356905\r9606.ENSP00000357625\r9606.ENSP00000357711\r9606.ENSP00000357876\r9606.ENSP00000357986\r9606.ENSP00000358460\r9606.ENSP00000358727\r9606.ENSP00000359258\r9606.ENSP00000359285\r9606.ENSP00000359424\r9606.ENSP00000359910\r9606.ENSP00000360290\r9606.ENSP00000360305\r9606.ENSP00000360576\r9606.ENSP00000360922\r9606.ENSP00000361275\r9606.ENSP00000361423\r9606.ENSP00000361725\r9606.ENSP00000362108\r9606.ENSP00000362179\r9606.ENSP00000362273\r9606.ENSP00000362334\r9606.ENSP00000362680\r9606.ENSP00000362748\r9606.ENSP00000363079\r9606.ENSP00000363191\r9606.ENSP00000363377\r9606.ENSP00000363591\r9606.ENSP00000363641\r9606.ENSP00000363804\r9606.ENSP00000363970\r9606.ENSP00000364204\r9606.ENSP00000364403\r9606.ENSP00000364801\r9606.ENSP00000364935\r9606.ENSP00000365081\r9606.ENSP00000365227\r9606.ENSP00000365380\r9606.ENSP00000365663\r9606.ENSP00000365693\r9606.ENSP00000365730\r9606.ENSP00000365804\r9606.ENSP00000366006\r9606.ENSP00000366015\r9606.ENSP00000368066\r9606.ENSP00000368144\r9606.ENSP00000368452\r9606.ENSP00000368458\r9606.ENSP00000368637\r9606.ENSP00000368646\r9606.ENSP00000368683\r9606.ENSP00000368880\r9606.ENSP00000369399\r9606.ENSP00000370114\r9606.ENSP00000371067\r9606.ENSP00000371388\r9606.ENSP00000371554\r9606.ENSP00000372023\r9606.ENSP00000372155\r9606.ENSP00000373477\r9606.ENSP00000373691\r9606.ENSP00000374265\r9606.ENSP00000375809\r9606.ENSP00000376103\r9606.ENSP00000376178\r9606.ENSP00000376269\r9606.ENSP00000376457\r9606.ENSP00000376506\r9606.ENSP00000376865\r9606.ENSP00000377192\r9606.ENSP00000377245\r9606.ENSP00000377867\r9606.ENSP00000377914\r9606.ENSP00000378364\r9606.ENSP00000378402\r9606.ENSP00000378699\r9606.ENSP00000378812\r9606.ENSP00000378974\r9606.ENSP00000379097\r9606.ENSP00000379512\r9606.ENSP00000380241\r9606.ENSP00000380252\r9606.ENSP00000380413\r9606.ENSP00000381026\r9606.ENSP00000381237\r9606.ENSP00000381282\r9606.ENSP00000381607\r9606.ENSP00000382342\r9606.ENSP00000383044\r9606.ENSP00000383365\r9606.ENSP00000383421\r9606.ENSP00000384273\r9606.ENSP00000384517\r9606.ENSP00000384763\r9606.ENSP00000384949\r9606.ENSP00000385675\r9606.ENSP00000386135\r9606.ENSP00000386229\r9606.ENSP00000386284\r9606.ENSP00000386485\r9606.ENSP00000386541\r9606.ENSP00000386738\r9606.ENSP00000390535\r9606.ENSP00000391211\r9606.ENSP00000391601\r9606.ENSP00000392398\r9606.ENSP00000393762\r9606.ENSP00000394560\r9606.ENSP00000394751\r9606.ENSP00000396937\r9606.ENSP00000399376\r9606.ENSP00000400646\r9606.ENSP00000400894\r9606.ENSP00000401445\r9606.ENSP00000401508\r9606.ENSP00000401853\r9606.ENSP00000403077\r9606.ENSP00000405424\r9606.ENSP00000408002\r9606.ENSP00000408292\r9606.ENSP00000408695\r9606.ENSP00000410402\r9606.ENSP00000414359\r9606.ENSP00000415743\r9606.ENSP00000418695\r9606.ENSP00000418813\r9606.ENSP00000418910\r9606.ENSP00000419243\r9606.ENSP00000419425\r9606.ENSP00000419446\r9606.ENSP00000420927\r9606.ENSP00000423822\r9606.ENSP00000425915\r9606.ENSP00000426638\r9606.ENSP00000427562\r9606.ENSP00000428756\r9606.ENSP00000430031\r9606.ENSP00000430598\r9606.ENSP00000431049\r9606.ENSP00000432660\r9606.ENSP00000432973\r9606.ENSP00000433560\r9606.ENSP00000433760\r9606.ENSP00000434516\r9606.ENSP00000434717\r9606.ENSP00000436318\r9606.ENSP00000437955\r9606.ENSP00000443957\r9606.ENSP00000446252\r9606.ENSP00000451828\r9606.ENSP00000451976\r9606.ENSP00000454919\r9606.ENSP00000456851\r9606.ENSP00000457733\r9606.ENSP00000462521\r9606.ENSP00000473990\r9606.ENSP00000477515\r9606.ENSP00000477572\r9606.ENSP00000478561\r9606.ENSP00000478763\r9606.ENSP00000478877\r9606.ENSP00000479870\r9606.ENSP00000481021\r9606.ENSP00000481029\r9606.ENSP00000481570\r9606.ENSP00000482445\r9606.ENSP00000482609\r9606.ENSP00000482639\r9606.ENSP00000483570\r9606.ENSP00000483688\r9606.ENSP00000484998\r9606.ENSP00000492260\r9606.ENSP00000494175\r9606.ENSP00000494678\r9606.ENSP00000495750\r9606.ENSP00000495855\r9606.ENSP00000497574\r9606.ENSP00000499371\r9606.ENSP00000499695\r9606.ENSP00000500990",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:00.462976+00:00",
+      "sha256": "ba10d25b39a53d545a75ac0799b058569cbfafd78085b67fed5cb962c6a3a602",
+      "data_file": "data\\raw\\string\\functional_annotation_homo_sapiens\\9a1efed58664d235b2c3__20261025T201000462976Z.json"
+    },
+    {
+      "source": "uniprot",
+      "endpoint": "evidence_homo_sapiens",
+      "description": "UniProt EC, PANTHER, Pfam, KEGG, Reactome, PubMed",
+      "served_from": "cache",
+      "url": "https://rest.uniprot.org/uniprotkb/stream",
+      "method": "GET",
+      "params": {
+        "fields": "accession,ec,xref_panther,xref_pfam,xref_kegg,xref_reactome,lit_pubmed_id",
+        "format": "tsv",
+        "query": "((go:0006979) OR (go:0098869) OR (go:0016209)) AND (organism_id:9606) AND (reviewed:true)"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:02.518286+00:00",
+      "sha256": "081f72563d8bd4265537831fc8b02c9dba0fe9dff6668ab1bf9ade5c55e8a127",
+      "data_file": "data\\raw\\uniprot\\evidence_homo_sapiens\\e93630ae489e2003b6f5__20261025T201002518286Z.tsv"
+    },
+    {
+      "source": "quickgo",
+      "endpoint": "annotations_homo_sapiens",
+      "description": "QuickGO annotations to GO:0006979,GO:0098869,GO:0016209 (+descendants), page 1",
+      "served_from": "cache",
+      "url": "https://www.ebi.ac.uk/QuickGO/services/annotation/search",
+      "method": "GET",
+      "params": {
+        "goId": "GO:0006979,GO:0098869,GO:0016209",
+        "goUsage": "descendants",
+        "goUsageRelationships": "is_a,part_of,occurs_in",
+        "limit": "200",
+        "page": "1",
+        "taxonId": "9606",
+        "taxonUsage": "descendants"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:03.150870+00:00",
+      "sha256": "e7a536829fc143f9ca6a7a92ba469908a4227e527ece10add23b2da55c15a241",
+      "data_file": "data\\raw\\quickgo\\annotations_homo_sapiens\\a73bcb87401bc53bea55__20261025T201003150870Z.json"
+    },
+    {
+      "source": "quickgo",
+      "endpoint": "annotations_homo_sapiens",
+      "description": "QuickGO annotations to GO:0006979,GO:0098869,GO:0016209 (+descendants), page 2",
+      "served_from": "cache",
+      "url": "https://www.ebi.ac.uk/QuickGO/services/annotation/search",
+      "method": "GET",
+      "params": {
+        "goId": "GO:0006979,GO:0098869,GO:0016209",
+        "goUsage": "descendants",
+        "goUsageRelationships": "is_a,part_of,occurs_in",
+        "limit": "200",
+        "page": "2",
+        "taxonId": "9606",
+        "taxonUsage": "descendants"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:03.896213+00:00",
+      "sha256": "ee88466a2169206fe7767544bc5cd28fe17a231d5803dba7a8a2fe758c0b83be",
+      "data_file": "data\\raw\\quickgo\\annotations_homo_sapiens\\e622961ce3ea33814f05__20261025T201003896213Z.json"
+    },
+    {
+      "source": "quickgo",
+      "endpoint": "annotations_homo_sapiens",
+      "description": "QuickGO annotations to GO:0006979,GO:0098869,GO:0016209 (+descendants), page 3",
+      "served_from": "cache",
+      "url": "https://www.ebi.ac.uk/QuickGO/services/annotation/search",
+      "method": "GET",
+      "params": {
+        "goId": "GO:0006979,GO:0098869,GO:0016209",
+        "goUsage": "descendants",
+        "goUsageRelationships": "is_a,part_of,occurs_in",
+        "limit": "200",
+        "page": "3",
+        "taxonId": "9606",
+        "taxonUsage": "descendants"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:05.003275+00:00",
+      "sha256": "f2f0fe6874b9cad7039894b7872320345e1f34e129c2803cf27d8731abcf20df",
+      "data_file": "data\\raw\\quickgo\\annotations_homo_sapiens\\6fb28d519612658a40e4__20261025T201005003275Z.json"
+    },
+    {
+      "source": "quickgo",
+      "endpoint": "annotations_homo_sapiens",
+      "description": "QuickGO annotations to GO:0006979,GO:0098869,GO:0016209 (+descendants), page 4",
+      "served_from": "cache",
+      "url": "https://www.ebi.ac.uk/QuickGO/services/annotation/search",
+      "method": "GET",
+      "params": {
+        "goId": "GO:0006979,GO:0098869,GO:0016209",
+        "goUsage": "descendants",
+        "goUsageRelationships": "is_a,part_of,occurs_in",
+        "limit": "200",
+        "page": "4",
+        "taxonId": "9606",
+        "taxonUsage": "descendants"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:06.120272+00:00",
+      "sha256": "86b67a9ecad11528fa8ebf3fc0b313e3714056eb99ed046934efcd0b7f12a5f4",
+      "data_file": "data\\raw\\quickgo\\annotations_homo_sapiens\\bc4d4e9dc332d175522b__20261025T201006120272Z.json"
+    },
+    {
+      "source": "quickgo",
+      "endpoint": "annotations_homo_sapiens",
+      "description": "QuickGO annotations to GO:0006979,GO:0098869,GO:0016209 (+descendants), page 5",
+      "served_from": "cache",
+      "url": "https://www.ebi.ac.uk/QuickGO/services/annotation/search",
+      "method": "GET",
+      "params": {
+        "goId": "GO:0006979,GO:0098869,GO:0016209",
+        "goUsage": "descendants",
+        "goUsageRelationships": "is_a,part_of,occurs_in",
+        "limit": "200",
+        "page": "5",
+        "taxonId": "9606",
+        "taxonUsage": "descendants"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:07.154993+00:00",
+      "sha256": "1a2d47ef2befa766ed41a10d22e9dce9d210efa2815b98f14088a847d7249fa5",
+      "data_file": "data\\raw\\quickgo\\annotations_homo_sapiens\\b604e4585ad3757c37e8__20261025T201007154993Z.json"
+    },
+    {
+      "source": "quickgo",
+      "endpoint": "annotations_homo_sapiens",
+      "description": "QuickGO annotations to GO:0006979,GO:0098869,GO:0016209 (+descendants), page 6",
+      "served_from": "cache",
+      "url": "https://www.ebi.ac.uk/QuickGO/services/annotation/search",
+      "method": "GET",
+      "params": {
+        "goId": "GO:0006979,GO:0098869,GO:0016209",
+        "goUsage": "descendants",
+        "goUsageRelationships": "is_a,part_of,occurs_in",
+        "limit": "200",
+        "page": "6",
+        "taxonId": "9606",
+        "taxonUsage": "descendants"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:08.015340+00:00",
+      "sha256": "71b28a1e68bc2dabf2c7ab0ada2ccf2802566e0788845379fcd0eedd5dd09bb9",
+      "data_file": "data\\raw\\quickgo\\annotations_homo_sapiens\\ce0f8cef699248c2d059__20261025T201008015340Z.json"
+    },
+    {
+      "source": "quickgo",
+      "endpoint": "annotations_homo_sapiens",
+      "description": "QuickGO annotations to GO:0006979,GO:0098869,GO:0016209 (+descendants), page 7",
+      "served_from": "cache",
+      "url": "https://www.ebi.ac.uk/QuickGO/services/annotation/search",
+      "method": "GET",
+      "params": {
+        "goId": "GO:0006979,GO:0098869,GO:0016209",
+        "goUsage": "descendants",
+        "goUsageRelationships": "is_a,part_of,occurs_in",
+        "limit": "200",
+        "page": "7",
+        "taxonId": "9606",
+        "taxonUsage": "descendants"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:08.879766+00:00",
+      "sha256": "f765cb8bd2c4a44a32000fc7b7106650c2d9f50c5c94aa72a6201c3bf8073345",
+      "data_file": "data\\raw\\quickgo\\annotations_homo_sapiens\\a78c2efcdffcf440ef59__20261025T201008879766Z.json"
+    },
+    {
+      "source": "quickgo",
+      "endpoint": "annotations_homo_sapiens",
+      "description": "QuickGO annotations to GO:0006979,GO:0098869,GO:0016209 (+descendants), page 8",
+      "served_from": "cache",
+      "url": "https://www.ebi.ac.uk/QuickGO/services/annotation/search",
+      "method": "GET",
+      "params": {
+        "goId": "GO:0006979,GO:0098869,GO:0016209",
+        "goUsage": "descendants",
+        "goUsageRelationships": "is_a,part_of,occurs_in",
+        "limit": "200",
+        "page": "8",
+        "taxonId": "9606",
+        "taxonUsage": "descendants"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:09.936781+00:00",
+      "sha256": "b89c435209f4e8c114b03054cf916d85354123d51388769d2d26e31bfdf37eeb",
+      "data_file": "data\\raw\\quickgo\\annotations_homo_sapiens\\abed877988e3183ab98e__20261025T201009936781Z.json"
+    },
+    {
+      "source": "quickgo",
+      "endpoint": "annotations_homo_sapiens",
+      "description": "QuickGO annotations to GO:0006979,GO:0098869,GO:0016209 (+descendants), page 9",
+      "served_from": "cache",
+      "url": "https://www.ebi.ac.uk/QuickGO/services/annotation/search",
+      "method": "GET",
+      "params": {
+        "goId": "GO:0006979,GO:0098869,GO:0016209",
+        "goUsage": "descendants",
+        "goUsageRelationships": "is_a,part_of,occurs_in",
+        "limit": "200",
+        "page": "9",
+        "taxonId": "9606",
+        "taxonUsage": "descendants"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:10.868224+00:00",
+      "sha256": "29ffab64fbeff39d5f9ab5b1268f70d06f1b581b929a437aaa2e61f53a22c98d",
+      "data_file": "data\\raw\\quickgo\\annotations_homo_sapiens\\72acdb134b2730f6ef65__20261025T201010868224Z.json"
+    },
+    {
+      "source": "quickgo",
+      "endpoint": "annotations_homo_sapiens",
+      "description": "QuickGO annotations to GO:0006979,GO:0098869,GO:0016209 (+descendants), page 10",
+      "served_from": "cache",
+      "url": "https://www.ebi.ac.uk/QuickGO/services/annotation/search",
+      "method": "GET",
+      "params": {
+        "goId": "GO:0006979,GO:0098869,GO:0016209",
+        "goUsage": "descendants",
+        "goUsageRelationships": "is_a,part_of,occurs_in",
+        "limit": "200",
+        "page": "10",
+        "taxonId": "9606",
+        "taxonUsage": "descendants"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:11.891555+00:00",
+      "sha256": "6ed40d7eea71b3e491538e31dcdb1cf387d18b72689d471cc84b2553d5f936bb",
+      "data_file": "data\\raw\\quickgo\\annotations_homo_sapiens\\42f825f0ada2a5ce4a29__20261025T201011891555Z.json"
+    },
+    {
+      "source": "quickgo",
+      "endpoint": "annotations_homo_sapiens",
+      "description": "QuickGO annotations to GO:0006979,GO:0098869,GO:0016209 (+descendants), page 11",
+      "served_from": "cache",
+      "url": "https://www.ebi.ac.uk/QuickGO/services/annotation/search",
+      "method": "GET",
+      "params": {
+        "goId": "GO:0006979,GO:0098869,GO:0016209",
+        "goUsage": "descendants",
+        "goUsageRelationships": "is_a,part_of,occurs_in",
+        "limit": "200",
+        "page": "11",
+        "taxonId": "9606",
+        "taxonUsage": "descendants"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:13.194513+00:00",
+      "sha256": "95e5e1822958221df70185323b867f97fcbe5595d2a59ba063b54d71a4b2b69d",
+      "data_file": "data\\raw\\quickgo\\annotations_homo_sapiens\\3bd7d9736a520feb3fc7__20261025T201013194513Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "ppi_enrichment_homo_sapiens",
+      "description": "PPI enrichment test, required_score=400",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/ppi_enrichment",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "9606.ENSP00000012443\r9606.ENSP00000013807\r9606.ENSP00000044462\r9606.ENSP00000157812\r9606.ENSP00000162044\r9606.ENSP00000200691\r9606.ENSP00000211287\r9606.ENSP00000212015\r9606.ENSP00000215071\r9606.ENSP00000216037\r9606.ENSP00000216117\r9606.ENSP00000216225\r9606.ENSP00000216274\r9606.ENSP00000216455\r9606.ENSP00000216802\r9606.ENSP00000217320\r9606.ENSP00000219070\r9606.ENSP00000219313\r9606.ENSP00000220659\r9606.ENSP00000221130\r9606.ENSP00000222462\r9606.ENSP00000223321\r9606.ENSP00000224140\r9606.ENSP00000224652\r9606.ENSP00000225174\r9606.ENSP00000225275\r9606.ENSP00000225371\r9606.ENSP00000225964\r9606.ENSP00000226279\r9606.ENSP00000231198\r9606.ENSP00000237596\r9606.ENSP00000239223\r9606.ENSP00000240651\r9606.ENSP00000241052\r9606.ENSP00000241337\r9606.ENSP00000248071\r9606.ENSP00000249396\r9606.ENSP00000251595\r9606.ENSP00000252229\r9606.ENSP00000252244\r9606.ENSP00000252321\r9606.ENSP00000252486\r9606.ENSP00000252804\r9606.ENSP00000253063\r9606.ENSP00000255174\r9606.ENSP00000256383\r9606.ENSP00000257290\r9606.ENSP00000258080\r9606.ENSP00000258149\r9606.ENSP00000259457\r9606.ENSP00000259808\r9606.ENSP00000261303\r9606.ENSP00000261479\r9606.ENSP00000261712\r9606.ENSP00000262193\r9606.ENSP00000262209\r9606.ENSP00000262290\r9606.ENSP00000262746\r9606.ENSP00000262887\r9606.ENSP00000262999\r9606.ENSP00000263754\r9606.ENSP00000264110\r9606.ENSP00000264260\r9606.ENSP00000264331\r9606.ENSP00000264376\r9606.ENSP00000264414\r9606.ENSP00000264613\r9606.ENSP00000264639\r9606.ENSP00000264867\r9606.ENSP00000265038\r9606.ENSP00000265462\r9606.ENSP00000266031\r9606.ENSP00000267257\r9606.ENSP00000268058\r9606.ENSP00000269305\r9606.ENSP00000269385\r9606.ENSP00000270142\r9606.ENSP00000270586\r9606.ENSP00000271308\r9606.ENSP00000272233\r9606.ENSP00000278282\r9606.ENSP00000278572\r9606.ENSP00000278616\r9606.ENSP00000281092\r9606.ENSP00000283243\r9606.ENSP00000285381\r9606.ENSP00000285398\r9606.ENSP00000286719\r9606.ENSP00000287295\r9606.ENSP00000288774\r9606.ENSP00000289081\r9606.ENSP00000290541\r9606.ENSP00000292596\r9606.ENSP00000293230\r9606.ENSP00000293362\r9606.ENSP00000295006\r9606.ENSP00000295030\r9606.ENSP00000295718\r9606.ENSP00000295834\r9606.ENSP00000295897\r9606.ENSP00000296099\r9606.ENSP00000297494\r9606.ENSP00000298510\r9606.ENSP00000298910\r9606.ENSP00000299855\r9606.ENSP00000300574\r9606.ENSP00000301522\r9606.ENSP00000301904\r9606.ENSP00000302486\r9606.ENSP00000303522\r9606.ENSP00000304908\r9606.ENSP00000305631\r9606.ENSP00000306100\r9606.ENSP00000306245\r9606.ENSP00000306449\r9606.ENSP00000306561\r9606.ENSP00000306894\r9606.ENSP00000307940\r9606.ENSP00000308208\r9606.ENSP00000308430\r9606.ENSP00000309474\r9606.ENSP00000310129\r9606.ENSP00000310572\r9606.ENSP00000310841\r9606.ENSP00000311005\r9606.ENSP00000311032\r9606.ENSP00000311165\r9606.ENSP00000311713\r9606.ENSP00000312741\r9606.ENSP00000313921\r9606.ENSP00000315011\r9606.ENSP00000317714\r9606.ENSP00000317997\r9606.ENSP00000318635\r9606.ENSP00000319788\r9606.ENSP00000321617\r9606.ENSP00000321797\r9606.ENSP00000323511\r9606.ENSP00000323740\r9606.ENSP00000323889\r9606.ENSP00000325527\r9606.ENSP00000325748\r9606.ENSP00000326804\r9606.ENSP00000327214\r9606.ENSP00000328729\r9606.ENSP00000329357\r9606.ENSP00000329869\r9606.ENSP00000331602\r9606.ENSP00000335153\r9606.ENSP00000335620\r9606.ENSP00000336790\r9606.ENSP00000337443\r9606.ENSP00000339527\r9606.ENSP00000339992\r9606.ENSP00000340176\r9606.ENSP00000340278\r9606.ENSP00000340427\r9606.ENSP00000340820\r9606.ENSP00000342026\r9606.ENSP00000342385\r9606.ENSP00000342502\r9606.ENSP00000343635\r9606.ENSP00000344215\r9606.ENSP00000344674\r9606.ENSP00000345023\r9606.ENSP00000345179\r9606.ENSP00000345270\r9606.ENSP00000345719\r9606.ENSP00000345728\r9606.ENSP00000346103\r9606.ENSP00000346148\r9606.ENSP00000346671\r9606.ENSP00000347134\r9606.ENSP00000347324\r9606.ENSP00000348089\r9606.ENSP00000348170\r9606.ENSP00000348234\r9606.ENSP00000348442\r9606.ENSP00000348645\r9606.ENSP00000349016\r9606.ENSP00000349358\r9606.ENSP00000349543\r9606.ENSP00000350425\r9606.ENSP00000351022\r9606.ENSP00000351284\r9606.ENSP00000351407\r9606.ENSP00000351908\r9606.ENSP00000352835\r9606.ENSP00000353826\r9606.ENSP00000354499\r9606.ENSP00000354581\r9606.ENSP00000354612\r9606.ENSP00000354677\r9606.ENSP00000354813\r9606.ENSP00000355206\r9606.ENSP00000355231\r9606.ENSP00000355325\r9606.ENSP00000355759\r9606.ENSP00000355865\r9606.ENSP00000356251\r9606.ENSP00000356438\r9606.ENSP00000356864\r9606.ENSP00000356905\r9606.ENSP00000357625\r9606.ENSP00000357711\r9606.ENSP00000357876\r9606.ENSP00000357986\r9606.ENSP00000358460\r9606.ENSP00000358727\r9606.ENSP00000359258\r9606.ENSP00000359285\r9606.ENSP00000359424\r9606.ENSP00000359910\r9606.ENSP00000360290\r9606.ENSP00000360305\r9606.ENSP00000360576\r9606.ENSP00000360922\r9606.ENSP00000361275\r9606.ENSP00000361423\r9606.ENSP00000361725\r9606.ENSP00000362108\r9606.ENSP00000362179\r9606.ENSP00000362273\r9606.ENSP00000362334\r9606.ENSP00000362680\r9606.ENSP00000362748\r9606.ENSP00000363079\r9606.ENSP00000363191\r9606.ENSP00000363377\r9606.ENSP00000363591\r9606.ENSP00000363641\r9606.ENSP00000363804\r9606.ENSP00000363970\r9606.ENSP00000364204\r9606.ENSP00000364403\r9606.ENSP00000364801\r9606.ENSP00000364935\r9606.ENSP00000365081\r9606.ENSP00000365227\r9606.ENSP00000365380\r9606.ENSP00000365663\r9606.ENSP00000365693\r9606.ENSP00000365730\r9606.ENSP00000365804\r9606.ENSP00000366006\r9606.ENSP00000366015\r9606.ENSP00000368066\r9606.ENSP00000368144\r9606.ENSP00000368452\r9606.ENSP00000368458\r9606.ENSP00000368637\r9606.ENSP00000368646\r9606.ENSP00000368683\r9606.ENSP00000368880\r9606.ENSP00000369399\r9606.ENSP00000370114\r9606.ENSP00000371067\r9606.ENSP00000371388\r9606.ENSP00000371554\r9606.ENSP00000372023\r9606.ENSP00000372155\r9606.ENSP00000373477\r9606.ENSP00000373691\r9606.ENSP00000374265\r9606.ENSP00000375809\r9606.ENSP00000376103\r9606.ENSP00000376178\r9606.ENSP00000376269\r9606.ENSP00000376457\r9606.ENSP00000376506\r9606.ENSP00000376865\r9606.ENSP00000377192\r9606.ENSP00000377245\r9606.ENSP00000377867\r9606.ENSP00000377914\r9606.ENSP00000378364\r9606.ENSP00000378402\r9606.ENSP00000378699\r9606.ENSP00000378812\r9606.ENSP00000378974\r9606.ENSP00000379097\r9606.ENSP00000379512\r9606.ENSP00000380241\r9606.ENSP00000380252\r9606.ENSP00000380413\r9606.ENSP00000381026\r9606.ENSP00000381237\r9606.ENSP00000381282\r9606.ENSP00000381607\r9606.ENSP00000382342\r9606.ENSP00000383044\r9606.ENSP00000383365\r9606.ENSP00000383421\r9606.ENSP00000384273\r9606.ENSP00000384517\r9606.ENSP00000384763\r9606.ENSP00000384949\r9606.ENSP00000385675\r9606.ENSP00000386135\r9606.ENSP00000386229\r9606.ENSP00000386284\r9606.ENSP00000386485\r9606.ENSP00000386541\r9606.ENSP00000386738\r9606.ENSP00000390535\r9606.ENSP00000391211\r9606.ENSP00000391601\r9606.ENSP00000392398\r9606.ENSP00000393762\r9606.ENSP00000394560\r9606.ENSP00000394751\r9606.ENSP00000396937\r9606.ENSP00000399376\r9606.ENSP00000400646\r9606.ENSP00000400894\r9606.ENSP00000401445\r9606.ENSP00000401508\r9606.ENSP00000401853\r9606.ENSP00000403077\r9606.ENSP00000405424\r9606.ENSP00000408002\r9606.ENSP00000408292\r9606.ENSP00000408695\r9606.ENSP00000410402\r9606.ENSP00000414359\r9606.ENSP00000415743\r9606.ENSP00000418695\r9606.ENSP00000418813\r9606.ENSP00000418910\r9606.ENSP00000419243\r9606.ENSP00000419425\r9606.ENSP00000419446\r9606.ENSP00000420927\r9606.ENSP00000423822\r9606.ENSP00000425915\r9606.ENSP00000426638\r9606.ENSP00000427562\r9606.ENSP00000428756\r9606.ENSP00000430031\r9606.ENSP00000430598\r9606.ENSP00000431049\r9606.ENSP00000432660\r9606.ENSP00000432973\r9606.ENSP00000433560\r9606.ENSP00000433760\r9606.ENSP00000434516\r9606.ENSP00000434717\r9606.ENSP00000436318\r9606.ENSP00000437955\r9606.ENSP00000443957\r9606.ENSP00000446252\r9606.ENSP00000451828\r9606.ENSP00000451976\r9606.ENSP00000454919\r9606.ENSP00000456851\r9606.ENSP00000457733\r9606.ENSP00000462521\r9606.ENSP00000473990\r9606.ENSP00000477515\r9606.ENSP00000477572\r9606.ENSP00000478561\r9606.ENSP00000478763\r9606.ENSP00000478877\r9606.ENSP00000479870\r9606.ENSP00000481021\r9606.ENSP00000481029\r9606.ENSP00000481570\r9606.ENSP00000482445\r9606.ENSP00000482609\r9606.ENSP00000482639\r9606.ENSP00000483570\r9606.ENSP00000483688\r9606.ENSP00000484998\r9606.ENSP00000492260\r9606.ENSP00000494175\r9606.ENSP00000494678\r9606.ENSP00000495750\r9606.ENSP00000495855\r9606.ENSP00000497574\r9606.ENSP00000499371\r9606.ENSP00000499695\r9606.ENSP00000500990",
+        "required_score": "400",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:13.898141+00:00",
+      "sha256": "7237a2b41b35419ffb0dfbd307dc55e79145a0c2e8a2d293c190912f7662482a",
+      "data_file": "data\\raw\\string\\ppi_enrichment_homo_sapiens\\55fa19b813bbbfdfc733__20261025T201013898141Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "ppi_enrichment_homo_sapiens",
+      "description": "PPI enrichment test, required_score=500",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/ppi_enrichment",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "9606.ENSP00000012443\r9606.ENSP00000013807\r9606.ENSP00000044462\r9606.ENSP00000157812\r9606.ENSP00000162044\r9606.ENSP00000200691\r9606.ENSP00000211287\r9606.ENSP00000212015\r9606.ENSP00000215071\r9606.ENSP00000216037\r9606.ENSP00000216117\r9606.ENSP00000216225\r9606.ENSP00000216274\r9606.ENSP00000216455\r9606.ENSP00000216802\r9606.ENSP00000217320\r9606.ENSP00000219070\r9606.ENSP00000219313\r9606.ENSP00000220659\r9606.ENSP00000221130\r9606.ENSP00000222462\r9606.ENSP00000223321\r9606.ENSP00000224140\r9606.ENSP00000224652\r9606.ENSP00000225174\r9606.ENSP00000225275\r9606.ENSP00000225371\r9606.ENSP00000225964\r9606.ENSP00000226279\r9606.ENSP00000231198\r9606.ENSP00000237596\r9606.ENSP00000239223\r9606.ENSP00000240651\r9606.ENSP00000241052\r9606.ENSP00000241337\r9606.ENSP00000248071\r9606.ENSP00000249396\r9606.ENSP00000251595\r9606.ENSP00000252229\r9606.ENSP00000252244\r9606.ENSP00000252321\r9606.ENSP00000252486\r9606.ENSP00000252804\r9606.ENSP00000253063\r9606.ENSP00000255174\r9606.ENSP00000256383\r9606.ENSP00000257290\r9606.ENSP00000258080\r9606.ENSP00000258149\r9606.ENSP00000259457\r9606.ENSP00000259808\r9606.ENSP00000261303\r9606.ENSP00000261479\r9606.ENSP00000261712\r9606.ENSP00000262193\r9606.ENSP00000262209\r9606.ENSP00000262290\r9606.ENSP00000262746\r9606.ENSP00000262887\r9606.ENSP00000262999\r9606.ENSP00000263754\r9606.ENSP00000264110\r9606.ENSP00000264260\r9606.ENSP00000264331\r9606.ENSP00000264376\r9606.ENSP00000264414\r9606.ENSP00000264613\r9606.ENSP00000264639\r9606.ENSP00000264867\r9606.ENSP00000265038\r9606.ENSP00000265462\r9606.ENSP00000266031\r9606.ENSP00000267257\r9606.ENSP00000268058\r9606.ENSP00000269305\r9606.ENSP00000269385\r9606.ENSP00000270142\r9606.ENSP00000270586\r9606.ENSP00000271308\r9606.ENSP00000272233\r9606.ENSP00000278282\r9606.ENSP00000278572\r9606.ENSP00000278616\r9606.ENSP00000281092\r9606.ENSP00000283243\r9606.ENSP00000285381\r9606.ENSP00000285398\r9606.ENSP00000286719\r9606.ENSP00000287295\r9606.ENSP00000288774\r9606.ENSP00000289081\r9606.ENSP00000290541\r9606.ENSP00000292596\r9606.ENSP00000293230\r9606.ENSP00000293362\r9606.ENSP00000295006\r9606.ENSP00000295030\r9606.ENSP00000295718\r9606.ENSP00000295834\r9606.ENSP00000295897\r9606.ENSP00000296099\r9606.ENSP00000297494\r9606.ENSP00000298510\r9606.ENSP00000298910\r9606.ENSP00000299855\r9606.ENSP00000300574\r9606.ENSP00000301522\r9606.ENSP00000301904\r9606.ENSP00000302486\r9606.ENSP00000303522\r9606.ENSP00000304908\r9606.ENSP00000305631\r9606.ENSP00000306100\r9606.ENSP00000306245\r9606.ENSP00000306449\r9606.ENSP00000306561\r9606.ENSP00000306894\r9606.ENSP00000307940\r9606.ENSP00000308208\r9606.ENSP00000308430\r9606.ENSP00000309474\r9606.ENSP00000310129\r9606.ENSP00000310572\r9606.ENSP00000310841\r9606.ENSP00000311005\r9606.ENSP00000311032\r9606.ENSP00000311165\r9606.ENSP00000311713\r9606.ENSP00000312741\r9606.ENSP00000313921\r9606.ENSP00000315011\r9606.ENSP00000317714\r9606.ENSP00000317997\r9606.ENSP00000318635\r9606.ENSP00000319788\r9606.ENSP00000321617\r9606.ENSP00000321797\r9606.ENSP00000323511\r9606.ENSP00000323740\r9606.ENSP00000323889\r9606.ENSP00000325527\r9606.ENSP00000325748\r9606.ENSP00000326804\r9606.ENSP00000327214\r9606.ENSP00000328729\r9606.ENSP00000329357\r9606.ENSP00000329869\r9606.ENSP00000331602\r9606.ENSP00000335153\r9606.ENSP00000335620\r9606.ENSP00000336790\r9606.ENSP00000337443\r9606.ENSP00000339527\r9606.ENSP00000339992\r9606.ENSP00000340176\r9606.ENSP00000340278\r9606.ENSP00000340427\r9606.ENSP00000340820\r9606.ENSP00000342026\r9606.ENSP00000342385\r9606.ENSP00000342502\r9606.ENSP00000343635\r9606.ENSP00000344215\r9606.ENSP00000344674\r9606.ENSP00000345023\r9606.ENSP00000345179\r9606.ENSP00000345270\r9606.ENSP00000345719\r9606.ENSP00000345728\r9606.ENSP00000346103\r9606.ENSP00000346148\r9606.ENSP00000346671\r9606.ENSP00000347134\r9606.ENSP00000347324\r9606.ENSP00000348089\r9606.ENSP00000348170\r9606.ENSP00000348234\r9606.ENSP00000348442\r9606.ENSP00000348645\r9606.ENSP00000349016\r9606.ENSP00000349358\r9606.ENSP00000349543\r9606.ENSP00000350425\r9606.ENSP00000351022\r9606.ENSP00000351284\r9606.ENSP00000351407\r9606.ENSP00000351908\r9606.ENSP00000352835\r9606.ENSP00000353826\r9606.ENSP00000354499\r9606.ENSP00000354581\r9606.ENSP00000354612\r9606.ENSP00000354677\r9606.ENSP00000354813\r9606.ENSP00000355206\r9606.ENSP00000355231\r9606.ENSP00000355325\r9606.ENSP00000355759\r9606.ENSP00000355865\r9606.ENSP00000356251\r9606.ENSP00000356438\r9606.ENSP00000356864\r9606.ENSP00000356905\r9606.ENSP00000357625\r9606.ENSP00000357711\r9606.ENSP00000357876\r9606.ENSP00000357986\r9606.ENSP00000358460\r9606.ENSP00000358727\r9606.ENSP00000359258\r9606.ENSP00000359285\r9606.ENSP00000359424\r9606.ENSP00000359910\r9606.ENSP00000360290\r9606.ENSP00000360305\r9606.ENSP00000360576\r9606.ENSP00000360922\r9606.ENSP00000361275\r9606.ENSP00000361423\r9606.ENSP00000361725\r9606.ENSP00000362108\r9606.ENSP00000362179\r9606.ENSP00000362273\r9606.ENSP00000362334\r9606.ENSP00000362680\r9606.ENSP00000362748\r9606.ENSP00000363079\r9606.ENSP00000363191\r9606.ENSP00000363377\r9606.ENSP00000363591\r9606.ENSP00000363641\r9606.ENSP00000363804\r9606.ENSP00000363970\r9606.ENSP00000364204\r9606.ENSP00000364403\r9606.ENSP00000364801\r9606.ENSP00000364935\r9606.ENSP00000365081\r9606.ENSP00000365227\r9606.ENSP00000365380\r9606.ENSP00000365663\r9606.ENSP00000365693\r9606.ENSP00000365730\r9606.ENSP00000365804\r9606.ENSP00000366006\r9606.ENSP00000366015\r9606.ENSP00000368066\r9606.ENSP00000368144\r9606.ENSP00000368452\r9606.ENSP00000368458\r9606.ENSP00000368637\r9606.ENSP00000368646\r9606.ENSP00000368683\r9606.ENSP00000368880\r9606.ENSP00000369399\r9606.ENSP00000370114\r9606.ENSP00000371067\r9606.ENSP00000371388\r9606.ENSP00000371554\r9606.ENSP00000372023\r9606.ENSP00000372155\r9606.ENSP00000373477\r9606.ENSP00000373691\r9606.ENSP00000374265\r9606.ENSP00000375809\r9606.ENSP00000376103\r9606.ENSP00000376178\r9606.ENSP00000376269\r9606.ENSP00000376457\r9606.ENSP00000376506\r9606.ENSP00000376865\r9606.ENSP00000377192\r9606.ENSP00000377245\r9606.ENSP00000377867\r9606.ENSP00000377914\r9606.ENSP00000378364\r9606.ENSP00000378402\r9606.ENSP00000378699\r9606.ENSP00000378812\r9606.ENSP00000378974\r9606.ENSP00000379097\r9606.ENSP00000379512\r9606.ENSP00000380241\r9606.ENSP00000380252\r9606.ENSP00000380413\r9606.ENSP00000381026\r9606.ENSP00000381237\r9606.ENSP00000381282\r9606.ENSP00000381607\r9606.ENSP00000382342\r9606.ENSP00000383044\r9606.ENSP00000383365\r9606.ENSP00000383421\r9606.ENSP00000384273\r9606.ENSP00000384517\r9606.ENSP00000384763\r9606.ENSP00000384949\r9606.ENSP00000385675\r9606.ENSP00000386135\r9606.ENSP00000386229\r9606.ENSP00000386284\r9606.ENSP00000386485\r9606.ENSP00000386541\r9606.ENSP00000386738\r9606.ENSP00000390535\r9606.ENSP00000391211\r9606.ENSP00000391601\r9606.ENSP00000392398\r9606.ENSP00000393762\r9606.ENSP00000394560\r9606.ENSP00000394751\r9606.ENSP00000396937\r9606.ENSP00000399376\r9606.ENSP00000400646\r9606.ENSP00000400894\r9606.ENSP00000401445\r9606.ENSP00000401508\r9606.ENSP00000401853\r9606.ENSP00000403077\r9606.ENSP00000405424\r9606.ENSP00000408002\r9606.ENSP00000408292\r9606.ENSP00000408695\r9606.ENSP00000410402\r9606.ENSP00000414359\r9606.ENSP00000415743\r9606.ENSP00000418695\r9606.ENSP00000418813\r9606.ENSP00000418910\r9606.ENSP00000419243\r9606.ENSP00000419425\r9606.ENSP00000419446\r9606.ENSP00000420927\r9606.ENSP00000423822\r9606.ENSP00000425915\r9606.ENSP00000426638\r9606.ENSP00000427562\r9606.ENSP00000428756\r9606.ENSP00000430031\r9606.ENSP00000430598\r9606.ENSP00000431049\r9606.ENSP00000432660\r9606.ENSP00000432973\r9606.ENSP00000433560\r9606.ENSP00000433760\r9606.ENSP00000434516\r9606.ENSP00000434717\r9606.ENSP00000436318\r9606.ENSP00000437955\r9606.ENSP00000443957\r9606.ENSP00000446252\r9606.ENSP00000451828\r9606.ENSP00000451976\r9606.ENSP00000454919\r9606.ENSP00000456851\r9606.ENSP00000457733\r9606.ENSP00000462521\r9606.ENSP00000473990\r9606.ENSP00000477515\r9606.ENSP00000477572\r9606.ENSP00000478561\r9606.ENSP00000478763\r9606.ENSP00000478877\r9606.ENSP00000479870\r9606.ENSP00000481021\r9606.ENSP00000481029\r9606.ENSP00000481570\r9606.ENSP00000482445\r9606.ENSP00000482609\r9606.ENSP00000482639\r9606.ENSP00000483570\r9606.ENSP00000483688\r9606.ENSP00000484998\r9606.ENSP00000492260\r9606.ENSP00000494175\r9606.ENSP00000494678\r9606.ENSP00000495750\r9606.ENSP00000495855\r9606.ENSP00000497574\r9606.ENSP00000499371\r9606.ENSP00000499695\r9606.ENSP00000500990",
+        "required_score": "500",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:16.521488+00:00",
+      "sha256": "d9dee26bbe7508f9b806cc48612eab6e66eee9f0dba73bef6a1ee87336957d49",
+      "data_file": "data\\raw\\string\\ppi_enrichment_homo_sapiens\\8f8464ddf24dd23a88f6__20261025T201016521488Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "ppi_enrichment_homo_sapiens",
+      "description": "PPI enrichment test, required_score=600",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/ppi_enrichment",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "9606.ENSP00000012443\r9606.ENSP00000013807\r9606.ENSP00000044462\r9606.ENSP00000157812\r9606.ENSP00000162044\r9606.ENSP00000200691\r9606.ENSP00000211287\r9606.ENSP00000212015\r9606.ENSP00000215071\r9606.ENSP00000216037\r9606.ENSP00000216117\r9606.ENSP00000216225\r9606.ENSP00000216274\r9606.ENSP00000216455\r9606.ENSP00000216802\r9606.ENSP00000217320\r9606.ENSP00000219070\r9606.ENSP00000219313\r9606.ENSP00000220659\r9606.ENSP00000221130\r9606.ENSP00000222462\r9606.ENSP00000223321\r9606.ENSP00000224140\r9606.ENSP00000224652\r9606.ENSP00000225174\r9606.ENSP00000225275\r9606.ENSP00000225371\r9606.ENSP00000225964\r9606.ENSP00000226279\r9606.ENSP00000231198\r9606.ENSP00000237596\r9606.ENSP00000239223\r9606.ENSP00000240651\r9606.ENSP00000241052\r9606.ENSP00000241337\r9606.ENSP00000248071\r9606.ENSP00000249396\r9606.ENSP00000251595\r9606.ENSP00000252229\r9606.ENSP00000252244\r9606.ENSP00000252321\r9606.ENSP00000252486\r9606.ENSP00000252804\r9606.ENSP00000253063\r9606.ENSP00000255174\r9606.ENSP00000256383\r9606.ENSP00000257290\r9606.ENSP00000258080\r9606.ENSP00000258149\r9606.ENSP00000259457\r9606.ENSP00000259808\r9606.ENSP00000261303\r9606.ENSP00000261479\r9606.ENSP00000261712\r9606.ENSP00000262193\r9606.ENSP00000262209\r9606.ENSP00000262290\r9606.ENSP00000262746\r9606.ENSP00000262887\r9606.ENSP00000262999\r9606.ENSP00000263754\r9606.ENSP00000264110\r9606.ENSP00000264260\r9606.ENSP00000264331\r9606.ENSP00000264376\r9606.ENSP00000264414\r9606.ENSP00000264613\r9606.ENSP00000264639\r9606.ENSP00000264867\r9606.ENSP00000265038\r9606.ENSP00000265462\r9606.ENSP00000266031\r9606.ENSP00000267257\r9606.ENSP00000268058\r9606.ENSP00000269305\r9606.ENSP00000269385\r9606.ENSP00000270142\r9606.ENSP00000270586\r9606.ENSP00000271308\r9606.ENSP00000272233\r9606.ENSP00000278282\r9606.ENSP00000278572\r9606.ENSP00000278616\r9606.ENSP00000281092\r9606.ENSP00000283243\r9606.ENSP00000285381\r9606.ENSP00000285398\r9606.ENSP00000286719\r9606.ENSP00000287295\r9606.ENSP00000288774\r9606.ENSP00000289081\r9606.ENSP00000290541\r9606.ENSP00000292596\r9606.ENSP00000293230\r9606.ENSP00000293362\r9606.ENSP00000295006\r9606.ENSP00000295030\r9606.ENSP00000295718\r9606.ENSP00000295834\r9606.ENSP00000295897\r9606.ENSP00000296099\r9606.ENSP00000297494\r9606.ENSP00000298510\r9606.ENSP00000298910\r9606.ENSP00000299855\r9606.ENSP00000300574\r9606.ENSP00000301522\r9606.ENSP00000301904\r9606.ENSP00000302486\r9606.ENSP00000303522\r9606.ENSP00000304908\r9606.ENSP00000305631\r9606.ENSP00000306100\r9606.ENSP00000306245\r9606.ENSP00000306449\r9606.ENSP00000306561\r9606.ENSP00000306894\r9606.ENSP00000307940\r9606.ENSP00000308208\r9606.ENSP00000308430\r9606.ENSP00000309474\r9606.ENSP00000310129\r9606.ENSP00000310572\r9606.ENSP00000310841\r9606.ENSP00000311005\r9606.ENSP00000311032\r9606.ENSP00000311165\r9606.ENSP00000311713\r9606.ENSP00000312741\r9606.ENSP00000313921\r9606.ENSP00000315011\r9606.ENSP00000317714\r9606.ENSP00000317997\r9606.ENSP00000318635\r9606.ENSP00000319788\r9606.ENSP00000321617\r9606.ENSP00000321797\r9606.ENSP00000323511\r9606.ENSP00000323740\r9606.ENSP00000323889\r9606.ENSP00000325527\r9606.ENSP00000325748\r9606.ENSP00000326804\r9606.ENSP00000327214\r9606.ENSP00000328729\r9606.ENSP00000329357\r9606.ENSP00000329869\r9606.ENSP00000331602\r9606.ENSP00000335153\r9606.ENSP00000335620\r9606.ENSP00000336790\r9606.ENSP00000337443\r9606.ENSP00000339527\r9606.ENSP00000339992\r9606.ENSP00000340176\r9606.ENSP00000340278\r9606.ENSP00000340427\r9606.ENSP00000340820\r9606.ENSP00000342026\r9606.ENSP00000342385\r9606.ENSP00000342502\r9606.ENSP00000343635\r9606.ENSP00000344215\r9606.ENSP00000344674\r9606.ENSP00000345023\r9606.ENSP00000345179\r9606.ENSP00000345270\r9606.ENSP00000345719\r9606.ENSP00000345728\r9606.ENSP00000346103\r9606.ENSP00000346148\r9606.ENSP00000346671\r9606.ENSP00000347134\r9606.ENSP00000347324\r9606.ENSP00000348089\r9606.ENSP00000348170\r9606.ENSP00000348234\r9606.ENSP00000348442\r9606.ENSP00000348645\r9606.ENSP00000349016\r9606.ENSP00000349358\r9606.ENSP00000349543\r9606.ENSP00000350425\r9606.ENSP00000351022\r9606.ENSP00000351284\r9606.ENSP00000351407\r9606.ENSP00000351908\r9606.ENSP00000352835\r9606.ENSP00000353826\r9606.ENSP00000354499\r9606.ENSP00000354581\r9606.ENSP00000354612\r9606.ENSP00000354677\r9606.ENSP00000354813\r9606.ENSP00000355206\r9606.ENSP00000355231\r9606.ENSP00000355325\r9606.ENSP00000355759\r9606.ENSP00000355865\r9606.ENSP00000356251\r9606.ENSP00000356438\r9606.ENSP00000356864\r9606.ENSP00000356905\r9606.ENSP00000357625\r9606.ENSP00000357711\r9606.ENSP00000357876\r9606.ENSP00000357986\r9606.ENSP00000358460\r9606.ENSP00000358727\r9606.ENSP00000359258\r9606.ENSP00000359285\r9606.ENSP00000359424\r9606.ENSP00000359910\r9606.ENSP00000360290\r9606.ENSP00000360305\r9606.ENSP00000360576\r9606.ENSP00000360922\r9606.ENSP00000361275\r9606.ENSP00000361423\r9606.ENSP00000361725\r9606.ENSP00000362108\r9606.ENSP00000362179\r9606.ENSP00000362273\r9606.ENSP00000362334\r9606.ENSP00000362680\r9606.ENSP00000362748\r9606.ENSP00000363079\r9606.ENSP00000363191\r9606.ENSP00000363377\r9606.ENSP00000363591\r9606.ENSP00000363641\r9606.ENSP00000363804\r9606.ENSP00000363970\r9606.ENSP00000364204\r9606.ENSP00000364403\r9606.ENSP00000364801\r9606.ENSP00000364935\r9606.ENSP00000365081\r9606.ENSP00000365227\r9606.ENSP00000365380\r9606.ENSP00000365663\r9606.ENSP00000365693\r9606.ENSP00000365730\r9606.ENSP00000365804\r9606.ENSP00000366006\r9606.ENSP00000366015\r9606.ENSP00000368066\r9606.ENSP00000368144\r9606.ENSP00000368452\r9606.ENSP00000368458\r9606.ENSP00000368637\r9606.ENSP00000368646\r9606.ENSP00000368683\r9606.ENSP00000368880\r9606.ENSP00000369399\r9606.ENSP00000370114\r9606.ENSP00000371067\r9606.ENSP00000371388\r9606.ENSP00000371554\r9606.ENSP00000372023\r9606.ENSP00000372155\r9606.ENSP00000373477\r9606.ENSP00000373691\r9606.ENSP00000374265\r9606.ENSP00000375809\r9606.ENSP00000376103\r9606.ENSP00000376178\r9606.ENSP00000376269\r9606.ENSP00000376457\r9606.ENSP00000376506\r9606.ENSP00000376865\r9606.ENSP00000377192\r9606.ENSP00000377245\r9606.ENSP00000377867\r9606.ENSP00000377914\r9606.ENSP00000378364\r9606.ENSP00000378402\r9606.ENSP00000378699\r9606.ENSP00000378812\r9606.ENSP00000378974\r9606.ENSP00000379097\r9606.ENSP00000379512\r9606.ENSP00000380241\r9606.ENSP00000380252\r9606.ENSP00000380413\r9606.ENSP00000381026\r9606.ENSP00000381237\r9606.ENSP00000381282\r9606.ENSP00000381607\r9606.ENSP00000382342\r9606.ENSP00000383044\r9606.ENSP00000383365\r9606.ENSP00000383421\r9606.ENSP00000384273\r9606.ENSP00000384517\r9606.ENSP00000384763\r9606.ENSP00000384949\r9606.ENSP00000385675\r9606.ENSP00000386135\r9606.ENSP00000386229\r9606.ENSP00000386284\r9606.ENSP00000386485\r9606.ENSP00000386541\r9606.ENSP00000386738\r9606.ENSP00000390535\r9606.ENSP00000391211\r9606.ENSP00000391601\r9606.ENSP00000392398\r9606.ENSP00000393762\r9606.ENSP00000394560\r9606.ENSP00000394751\r9606.ENSP00000396937\r9606.ENSP00000399376\r9606.ENSP00000400646\r9606.ENSP00000400894\r9606.ENSP00000401445\r9606.ENSP00000401508\r9606.ENSP00000401853\r9606.ENSP00000403077\r9606.ENSP00000405424\r9606.ENSP00000408002\r9606.ENSP00000408292\r9606.ENSP00000408695\r9606.ENSP00000410402\r9606.ENSP00000414359\r9606.ENSP00000415743\r9606.ENSP00000418695\r9606.ENSP00000418813\r9606.ENSP00000418910\r9606.ENSP00000419243\r9606.ENSP00000419425\r9606.ENSP00000419446\r9606.ENSP00000420927\r9606.ENSP00000423822\r9606.ENSP00000425915\r9606.ENSP00000426638\r9606.ENSP00000427562\r9606.ENSP00000428756\r9606.ENSP00000430031\r9606.ENSP00000430598\r9606.ENSP00000431049\r9606.ENSP00000432660\r9606.ENSP00000432973\r9606.ENSP00000433560\r9606.ENSP00000433760\r9606.ENSP00000434516\r9606.ENSP00000434717\r9606.ENSP00000436318\r9606.ENSP00000437955\r9606.ENSP00000443957\r9606.ENSP00000446252\r9606.ENSP00000451828\r9606.ENSP00000451976\r9606.ENSP00000454919\r9606.ENSP00000456851\r9606.ENSP00000457733\r9606.ENSP00000462521\r9606.ENSP00000473990\r9606.ENSP00000477515\r9606.ENSP00000477572\r9606.ENSP00000478561\r9606.ENSP00000478763\r9606.ENSP00000478877\r9606.ENSP00000479870\r9606.ENSP00000481021\r9606.ENSP00000481029\r9606.ENSP00000481570\r9606.ENSP00000482445\r9606.ENSP00000482609\r9606.ENSP00000482639\r9606.ENSP00000483570\r9606.ENSP00000483688\r9606.ENSP00000484998\r9606.ENSP00000492260\r9606.ENSP00000494175\r9606.ENSP00000494678\r9606.ENSP00000495750\r9606.ENSP00000495855\r9606.ENSP00000497574\r9606.ENSP00000499371\r9606.ENSP00000499695\r9606.ENSP00000500990",
+        "required_score": "600",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:16.893208+00:00",
+      "sha256": "58c9e733505661d9d31e563e41b4c55ee0a3973b134659af3f1d1375c4343b6c",
+      "data_file": "data\\raw\\string\\ppi_enrichment_homo_sapiens\\f2afda67f90438188cee__20261025T201016893208Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "ppi_enrichment_homo_sapiens",
+      "description": "PPI enrichment test, required_score=700",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/ppi_enrichment",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "9606.ENSP00000012443\r9606.ENSP00000013807\r9606.ENSP00000044462\r9606.ENSP00000157812\r9606.ENSP00000162044\r9606.ENSP00000200691\r9606.ENSP00000211287\r9606.ENSP00000212015\r9606.ENSP00000215071\r9606.ENSP00000216037\r9606.ENSP00000216117\r9606.ENSP00000216225\r9606.ENSP00000216274\r9606.ENSP00000216455\r9606.ENSP00000216802\r9606.ENSP00000217320\r9606.ENSP00000219070\r9606.ENSP00000219313\r9606.ENSP00000220659\r9606.ENSP00000221130\r9606.ENSP00000222462\r9606.ENSP00000223321\r9606.ENSP00000224140\r9606.ENSP00000224652\r9606.ENSP00000225174\r9606.ENSP00000225275\r9606.ENSP00000225371\r9606.ENSP00000225964\r9606.ENSP00000226279\r9606.ENSP00000231198\r9606.ENSP00000237596\r9606.ENSP00000239223\r9606.ENSP00000240651\r9606.ENSP00000241052\r9606.ENSP00000241337\r9606.ENSP00000248071\r9606.ENSP00000249396\r9606.ENSP00000251595\r9606.ENSP00000252229\r9606.ENSP00000252244\r9606.ENSP00000252321\r9606.ENSP00000252486\r9606.ENSP00000252804\r9606.ENSP00000253063\r9606.ENSP00000255174\r9606.ENSP00000256383\r9606.ENSP00000257290\r9606.ENSP00000258080\r9606.ENSP00000258149\r9606.ENSP00000259457\r9606.ENSP00000259808\r9606.ENSP00000261303\r9606.ENSP00000261479\r9606.ENSP00000261712\r9606.ENSP00000262193\r9606.ENSP00000262209\r9606.ENSP00000262290\r9606.ENSP00000262746\r9606.ENSP00000262887\r9606.ENSP00000262999\r9606.ENSP00000263754\r9606.ENSP00000264110\r9606.ENSP00000264260\r9606.ENSP00000264331\r9606.ENSP00000264376\r9606.ENSP00000264414\r9606.ENSP00000264613\r9606.ENSP00000264639\r9606.ENSP00000264867\r9606.ENSP00000265038\r9606.ENSP00000265462\r9606.ENSP00000266031\r9606.ENSP00000267257\r9606.ENSP00000268058\r9606.ENSP00000269305\r9606.ENSP00000269385\r9606.ENSP00000270142\r9606.ENSP00000270586\r9606.ENSP00000271308\r9606.ENSP00000272233\r9606.ENSP00000278282\r9606.ENSP00000278572\r9606.ENSP00000278616\r9606.ENSP00000281092\r9606.ENSP00000283243\r9606.ENSP00000285381\r9606.ENSP00000285398\r9606.ENSP00000286719\r9606.ENSP00000287295\r9606.ENSP00000288774\r9606.ENSP00000289081\r9606.ENSP00000290541\r9606.ENSP00000292596\r9606.ENSP00000293230\r9606.ENSP00000293362\r9606.ENSP00000295006\r9606.ENSP00000295030\r9606.ENSP00000295718\r9606.ENSP00000295834\r9606.ENSP00000295897\r9606.ENSP00000296099\r9606.ENSP00000297494\r9606.ENSP00000298510\r9606.ENSP00000298910\r9606.ENSP00000299855\r9606.ENSP00000300574\r9606.ENSP00000301522\r9606.ENSP00000301904\r9606.ENSP00000302486\r9606.ENSP00000303522\r9606.ENSP00000304908\r9606.ENSP00000305631\r9606.ENSP00000306100\r9606.ENSP00000306245\r9606.ENSP00000306449\r9606.ENSP00000306561\r9606.ENSP00000306894\r9606.ENSP00000307940\r9606.ENSP00000308208\r9606.ENSP00000308430\r9606.ENSP00000309474\r9606.ENSP00000310129\r9606.ENSP00000310572\r9606.ENSP00000310841\r9606.ENSP00000311005\r9606.ENSP00000311032\r9606.ENSP00000311165\r9606.ENSP00000311713\r9606.ENSP00000312741\r9606.ENSP00000313921\r9606.ENSP00000315011\r9606.ENSP00000317714\r9606.ENSP00000317997\r9606.ENSP00000318635\r9606.ENSP00000319788\r9606.ENSP00000321617\r9606.ENSP00000321797\r9606.ENSP00000323511\r9606.ENSP00000323740\r9606.ENSP00000323889\r9606.ENSP00000325527\r9606.ENSP00000325748\r9606.ENSP00000326804\r9606.ENSP00000327214\r9606.ENSP00000328729\r9606.ENSP00000329357\r9606.ENSP00000329869\r9606.ENSP00000331602\r9606.ENSP00000335153\r9606.ENSP00000335620\r9606.ENSP00000336790\r9606.ENSP00000337443\r9606.ENSP00000339527\r9606.ENSP00000339992\r9606.ENSP00000340176\r9606.ENSP00000340278\r9606.ENSP00000340427\r9606.ENSP00000340820\r9606.ENSP00000342026\r9606.ENSP00000342385\r9606.ENSP00000342502\r9606.ENSP00000343635\r9606.ENSP00000344215\r9606.ENSP00000344674\r9606.ENSP00000345023\r9606.ENSP00000345179\r9606.ENSP00000345270\r9606.ENSP00000345719\r9606.ENSP00000345728\r9606.ENSP00000346103\r9606.ENSP00000346148\r9606.ENSP00000346671\r9606.ENSP00000347134\r9606.ENSP00000347324\r9606.ENSP00000348089\r9606.ENSP00000348170\r9606.ENSP00000348234\r9606.ENSP00000348442\r9606.ENSP00000348645\r9606.ENSP00000349016\r9606.ENSP00000349358\r9606.ENSP00000349543\r9606.ENSP00000350425\r9606.ENSP00000351022\r9606.ENSP00000351284\r9606.ENSP00000351407\r9606.ENSP00000351908\r9606.ENSP00000352835\r9606.ENSP00000353826\r9606.ENSP00000354499\r9606.ENSP00000354581\r9606.ENSP00000354612\r9606.ENSP00000354677\r9606.ENSP00000354813\r9606.ENSP00000355206\r9606.ENSP00000355231\r9606.ENSP00000355325\r9606.ENSP00000355759\r9606.ENSP00000355865\r9606.ENSP00000356251\r9606.ENSP00000356438\r9606.ENSP00000356864\r9606.ENSP00000356905\r9606.ENSP00000357625\r9606.ENSP00000357711\r9606.ENSP00000357876\r9606.ENSP00000357986\r9606.ENSP00000358460\r9606.ENSP00000358727\r9606.ENSP00000359258\r9606.ENSP00000359285\r9606.ENSP00000359424\r9606.ENSP00000359910\r9606.ENSP00000360290\r9606.ENSP00000360305\r9606.ENSP00000360576\r9606.ENSP00000360922\r9606.ENSP00000361275\r9606.ENSP00000361423\r9606.ENSP00000361725\r9606.ENSP00000362108\r9606.ENSP00000362179\r9606.ENSP00000362273\r9606.ENSP00000362334\r9606.ENSP00000362680\r9606.ENSP00000362748\r9606.ENSP00000363079\r9606.ENSP00000363191\r9606.ENSP00000363377\r9606.ENSP00000363591\r9606.ENSP00000363641\r9606.ENSP00000363804\r9606.ENSP00000363970\r9606.ENSP00000364204\r9606.ENSP00000364403\r9606.ENSP00000364801\r9606.ENSP00000364935\r9606.ENSP00000365081\r9606.ENSP00000365227\r9606.ENSP00000365380\r9606.ENSP00000365663\r9606.ENSP00000365693\r9606.ENSP00000365730\r9606.ENSP00000365804\r9606.ENSP00000366006\r9606.ENSP00000366015\r9606.ENSP00000368066\r9606.ENSP00000368144\r9606.ENSP00000368452\r9606.ENSP00000368458\r9606.ENSP00000368637\r9606.ENSP00000368646\r9606.ENSP00000368683\r9606.ENSP00000368880\r9606.ENSP00000369399\r9606.ENSP00000370114\r9606.ENSP00000371067\r9606.ENSP00000371388\r9606.ENSP00000371554\r9606.ENSP00000372023\r9606.ENSP00000372155\r9606.ENSP00000373477\r9606.ENSP00000373691\r9606.ENSP00000374265\r9606.ENSP00000375809\r9606.ENSP00000376103\r9606.ENSP00000376178\r9606.ENSP00000376269\r9606.ENSP00000376457\r9606.ENSP00000376506\r9606.ENSP00000376865\r9606.ENSP00000377192\r9606.ENSP00000377245\r9606.ENSP00000377867\r9606.ENSP00000377914\r9606.ENSP00000378364\r9606.ENSP00000378402\r9606.ENSP00000378699\r9606.ENSP00000378812\r9606.ENSP00000378974\r9606.ENSP00000379097\r9606.ENSP00000379512\r9606.ENSP00000380241\r9606.ENSP00000380252\r9606.ENSP00000380413\r9606.ENSP00000381026\r9606.ENSP00000381237\r9606.ENSP00000381282\r9606.ENSP00000381607\r9606.ENSP00000382342\r9606.ENSP00000383044\r9606.ENSP00000383365\r9606.ENSP00000383421\r9606.ENSP00000384273\r9606.ENSP00000384517\r9606.ENSP00000384763\r9606.ENSP00000384949\r9606.ENSP00000385675\r9606.ENSP00000386135\r9606.ENSP00000386229\r9606.ENSP00000386284\r9606.ENSP00000386485\r9606.ENSP00000386541\r9606.ENSP00000386738\r9606.ENSP00000390535\r9606.ENSP00000391211\r9606.ENSP00000391601\r9606.ENSP00000392398\r9606.ENSP00000393762\r9606.ENSP00000394560\r9606.ENSP00000394751\r9606.ENSP00000396937\r9606.ENSP00000399376\r9606.ENSP00000400646\r9606.ENSP00000400894\r9606.ENSP00000401445\r9606.ENSP00000401508\r9606.ENSP00000401853\r9606.ENSP00000403077\r9606.ENSP00000405424\r9606.ENSP00000408002\r9606.ENSP00000408292\r9606.ENSP00000408695\r9606.ENSP00000410402\r9606.ENSP00000414359\r9606.ENSP00000415743\r9606.ENSP00000418695\r9606.ENSP00000418813\r9606.ENSP00000418910\r9606.ENSP00000419243\r9606.ENSP00000419425\r9606.ENSP00000419446\r9606.ENSP00000420927\r9606.ENSP00000423822\r9606.ENSP00000425915\r9606.ENSP00000426638\r9606.ENSP00000427562\r9606.ENSP00000428756\r9606.ENSP00000430031\r9606.ENSP00000430598\r9606.ENSP00000431049\r9606.ENSP00000432660\r9606.ENSP00000432973\r9606.ENSP00000433560\r9606.ENSP00000433760\r9606.ENSP00000434516\r9606.ENSP00000434717\r9606.ENSP00000436318\r9606.ENSP00000437955\r9606.ENSP00000443957\r9606.ENSP00000446252\r9606.ENSP00000451828\r9606.ENSP00000451976\r9606.ENSP00000454919\r9606.ENSP00000456851\r9606.ENSP00000457733\r9606.ENSP00000462521\r9606.ENSP00000473990\r9606.ENSP00000477515\r9606.ENSP00000477572\r9606.ENSP00000478561\r9606.ENSP00000478763\r9606.ENSP00000478877\r9606.ENSP00000479870\r9606.ENSP00000481021\r9606.ENSP00000481029\r9606.ENSP00000481570\r9606.ENSP00000482445\r9606.ENSP00000482609\r9606.ENSP00000482639\r9606.ENSP00000483570\r9606.ENSP00000483688\r9606.ENSP00000484998\r9606.ENSP00000492260\r9606.ENSP00000494175\r9606.ENSP00000494678\r9606.ENSP00000495750\r9606.ENSP00000495855\r9606.ENSP00000497574\r9606.ENSP00000499371\r9606.ENSP00000499695\r9606.ENSP00000500990",
+        "required_score": "700",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:17.877496+00:00",
+      "sha256": "8145a4df98f48acc18fc5a8cbe59a67c1b198049637a3ac4a8c827d01d27504d",
+      "data_file": "data\\raw\\string\\ppi_enrichment_homo_sapiens\\cd076c7d014ff44a4644__20261025T201017877496Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "ppi_enrichment_homo_sapiens",
+      "description": "PPI enrichment test, required_score=800",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/ppi_enrichment",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "9606.ENSP00000012443\r9606.ENSP00000013807\r9606.ENSP00000044462\r9606.ENSP00000157812\r9606.ENSP00000162044\r9606.ENSP00000200691\r9606.ENSP00000211287\r9606.ENSP00000212015\r9606.ENSP00000215071\r9606.ENSP00000216037\r9606.ENSP00000216117\r9606.ENSP00000216225\r9606.ENSP00000216274\r9606.ENSP00000216455\r9606.ENSP00000216802\r9606.ENSP00000217320\r9606.ENSP00000219070\r9606.ENSP00000219313\r9606.ENSP00000220659\r9606.ENSP00000221130\r9606.ENSP00000222462\r9606.ENSP00000223321\r9606.ENSP00000224140\r9606.ENSP00000224652\r9606.ENSP00000225174\r9606.ENSP00000225275\r9606.ENSP00000225371\r9606.ENSP00000225964\r9606.ENSP00000226279\r9606.ENSP00000231198\r9606.ENSP00000237596\r9606.ENSP00000239223\r9606.ENSP00000240651\r9606.ENSP00000241052\r9606.ENSP00000241337\r9606.ENSP00000248071\r9606.ENSP00000249396\r9606.ENSP00000251595\r9606.ENSP00000252229\r9606.ENSP00000252244\r9606.ENSP00000252321\r9606.ENSP00000252486\r9606.ENSP00000252804\r9606.ENSP00000253063\r9606.ENSP00000255174\r9606.ENSP00000256383\r9606.ENSP00000257290\r9606.ENSP00000258080\r9606.ENSP00000258149\r9606.ENSP00000259457\r9606.ENSP00000259808\r9606.ENSP00000261303\r9606.ENSP00000261479\r9606.ENSP00000261712\r9606.ENSP00000262193\r9606.ENSP00000262209\r9606.ENSP00000262290\r9606.ENSP00000262746\r9606.ENSP00000262887\r9606.ENSP00000262999\r9606.ENSP00000263754\r9606.ENSP00000264110\r9606.ENSP00000264260\r9606.ENSP00000264331\r9606.ENSP00000264376\r9606.ENSP00000264414\r9606.ENSP00000264613\r9606.ENSP00000264639\r9606.ENSP00000264867\r9606.ENSP00000265038\r9606.ENSP00000265462\r9606.ENSP00000266031\r9606.ENSP00000267257\r9606.ENSP00000268058\r9606.ENSP00000269305\r9606.ENSP00000269385\r9606.ENSP00000270142\r9606.ENSP00000270586\r9606.ENSP00000271308\r9606.ENSP00000272233\r9606.ENSP00000278282\r9606.ENSP00000278572\r9606.ENSP00000278616\r9606.ENSP00000281092\r9606.ENSP00000283243\r9606.ENSP00000285381\r9606.ENSP00000285398\r9606.ENSP00000286719\r9606.ENSP00000287295\r9606.ENSP00000288774\r9606.ENSP00000289081\r9606.ENSP00000290541\r9606.ENSP00000292596\r9606.ENSP00000293230\r9606.ENSP00000293362\r9606.ENSP00000295006\r9606.ENSP00000295030\r9606.ENSP00000295718\r9606.ENSP00000295834\r9606.ENSP00000295897\r9606.ENSP00000296099\r9606.ENSP00000297494\r9606.ENSP00000298510\r9606.ENSP00000298910\r9606.ENSP00000299855\r9606.ENSP00000300574\r9606.ENSP00000301522\r9606.ENSP00000301904\r9606.ENSP00000302486\r9606.ENSP00000303522\r9606.ENSP00000304908\r9606.ENSP00000305631\r9606.ENSP00000306100\r9606.ENSP00000306245\r9606.ENSP00000306449\r9606.ENSP00000306561\r9606.ENSP00000306894\r9606.ENSP00000307940\r9606.ENSP00000308208\r9606.ENSP00000308430\r9606.ENSP00000309474\r9606.ENSP00000310129\r9606.ENSP00000310572\r9606.ENSP00000310841\r9606.ENSP00000311005\r9606.ENSP00000311032\r9606.ENSP00000311165\r9606.ENSP00000311713\r9606.ENSP00000312741\r9606.ENSP00000313921\r9606.ENSP00000315011\r9606.ENSP00000317714\r9606.ENSP00000317997\r9606.ENSP00000318635\r9606.ENSP00000319788\r9606.ENSP00000321617\r9606.ENSP00000321797\r9606.ENSP00000323511\r9606.ENSP00000323740\r9606.ENSP00000323889\r9606.ENSP00000325527\r9606.ENSP00000325748\r9606.ENSP00000326804\r9606.ENSP00000327214\r9606.ENSP00000328729\r9606.ENSP00000329357\r9606.ENSP00000329869\r9606.ENSP00000331602\r9606.ENSP00000335153\r9606.ENSP00000335620\r9606.ENSP00000336790\r9606.ENSP00000337443\r9606.ENSP00000339527\r9606.ENSP00000339992\r9606.ENSP00000340176\r9606.ENSP00000340278\r9606.ENSP00000340427\r9606.ENSP00000340820\r9606.ENSP00000342026\r9606.ENSP00000342385\r9606.ENSP00000342502\r9606.ENSP00000343635\r9606.ENSP00000344215\r9606.ENSP00000344674\r9606.ENSP00000345023\r9606.ENSP00000345179\r9606.ENSP00000345270\r9606.ENSP00000345719\r9606.ENSP00000345728\r9606.ENSP00000346103\r9606.ENSP00000346148\r9606.ENSP00000346671\r9606.ENSP00000347134\r9606.ENSP00000347324\r9606.ENSP00000348089\r9606.ENSP00000348170\r9606.ENSP00000348234\r9606.ENSP00000348442\r9606.ENSP00000348645\r9606.ENSP00000349016\r9606.ENSP00000349358\r9606.ENSP00000349543\r9606.ENSP00000350425\r9606.ENSP00000351022\r9606.ENSP00000351284\r9606.ENSP00000351407\r9606.ENSP00000351908\r9606.ENSP00000352835\r9606.ENSP00000353826\r9606.ENSP00000354499\r9606.ENSP00000354581\r9606.ENSP00000354612\r9606.ENSP00000354677\r9606.ENSP00000354813\r9606.ENSP00000355206\r9606.ENSP00000355231\r9606.ENSP00000355325\r9606.ENSP00000355759\r9606.ENSP00000355865\r9606.ENSP00000356251\r9606.ENSP00000356438\r9606.ENSP00000356864\r9606.ENSP00000356905\r9606.ENSP00000357625\r9606.ENSP00000357711\r9606.ENSP00000357876\r9606.ENSP00000357986\r9606.ENSP00000358460\r9606.ENSP00000358727\r9606.ENSP00000359258\r9606.ENSP00000359285\r9606.ENSP00000359424\r9606.ENSP00000359910\r9606.ENSP00000360290\r9606.ENSP00000360305\r9606.ENSP00000360576\r9606.ENSP00000360922\r9606.ENSP00000361275\r9606.ENSP00000361423\r9606.ENSP00000361725\r9606.ENSP00000362108\r9606.ENSP00000362179\r9606.ENSP00000362273\r9606.ENSP00000362334\r9606.ENSP00000362680\r9606.ENSP00000362748\r9606.ENSP00000363079\r9606.ENSP00000363191\r9606.ENSP00000363377\r9606.ENSP00000363591\r9606.ENSP00000363641\r9606.ENSP00000363804\r9606.ENSP00000363970\r9606.ENSP00000364204\r9606.ENSP00000364403\r9606.ENSP00000364801\r9606.ENSP00000364935\r9606.ENSP00000365081\r9606.ENSP00000365227\r9606.ENSP00000365380\r9606.ENSP00000365663\r9606.ENSP00000365693\r9606.ENSP00000365730\r9606.ENSP00000365804\r9606.ENSP00000366006\r9606.ENSP00000366015\r9606.ENSP00000368066\r9606.ENSP00000368144\r9606.ENSP00000368452\r9606.ENSP00000368458\r9606.ENSP00000368637\r9606.ENSP00000368646\r9606.ENSP00000368683\r9606.ENSP00000368880\r9606.ENSP00000369399\r9606.ENSP00000370114\r9606.ENSP00000371067\r9606.ENSP00000371388\r9606.ENSP00000371554\r9606.ENSP00000372023\r9606.ENSP00000372155\r9606.ENSP00000373477\r9606.ENSP00000373691\r9606.ENSP00000374265\r9606.ENSP00000375809\r9606.ENSP00000376103\r9606.ENSP00000376178\r9606.ENSP00000376269\r9606.ENSP00000376457\r9606.ENSP00000376506\r9606.ENSP00000376865\r9606.ENSP00000377192\r9606.ENSP00000377245\r9606.ENSP00000377867\r9606.ENSP00000377914\r9606.ENSP00000378364\r9606.ENSP00000378402\r9606.ENSP00000378699\r9606.ENSP00000378812\r9606.ENSP00000378974\r9606.ENSP00000379097\r9606.ENSP00000379512\r9606.ENSP00000380241\r9606.ENSP00000380252\r9606.ENSP00000380413\r9606.ENSP00000381026\r9606.ENSP00000381237\r9606.ENSP00000381282\r9606.ENSP00000381607\r9606.ENSP00000382342\r9606.ENSP00000383044\r9606.ENSP00000383365\r9606.ENSP00000383421\r9606.ENSP00000384273\r9606.ENSP00000384517\r9606.ENSP00000384763\r9606.ENSP00000384949\r9606.ENSP00000385675\r9606.ENSP00000386135\r9606.ENSP00000386229\r9606.ENSP00000386284\r9606.ENSP00000386485\r9606.ENSP00000386541\r9606.ENSP00000386738\r9606.ENSP00000390535\r9606.ENSP00000391211\r9606.ENSP00000391601\r9606.ENSP00000392398\r9606.ENSP00000393762\r9606.ENSP00000394560\r9606.ENSP00000394751\r9606.ENSP00000396937\r9606.ENSP00000399376\r9606.ENSP00000400646\r9606.ENSP00000400894\r9606.ENSP00000401445\r9606.ENSP00000401508\r9606.ENSP00000401853\r9606.ENSP00000403077\r9606.ENSP00000405424\r9606.ENSP00000408002\r9606.ENSP00000408292\r9606.ENSP00000408695\r9606.ENSP00000410402\r9606.ENSP00000414359\r9606.ENSP00000415743\r9606.ENSP00000418695\r9606.ENSP00000418813\r9606.ENSP00000418910\r9606.ENSP00000419243\r9606.ENSP00000419425\r9606.ENSP00000419446\r9606.ENSP00000420927\r9606.ENSP00000423822\r9606.ENSP00000425915\r9606.ENSP00000426638\r9606.ENSP00000427562\r9606.ENSP00000428756\r9606.ENSP00000430031\r9606.ENSP00000430598\r9606.ENSP00000431049\r9606.ENSP00000432660\r9606.ENSP00000432973\r9606.ENSP00000433560\r9606.ENSP00000433760\r9606.ENSP00000434516\r9606.ENSP00000434717\r9606.ENSP00000436318\r9606.ENSP00000437955\r9606.ENSP00000443957\r9606.ENSP00000446252\r9606.ENSP00000451828\r9606.ENSP00000451976\r9606.ENSP00000454919\r9606.ENSP00000456851\r9606.ENSP00000457733\r9606.ENSP00000462521\r9606.ENSP00000473990\r9606.ENSP00000477515\r9606.ENSP00000477572\r9606.ENSP00000478561\r9606.ENSP00000478763\r9606.ENSP00000478877\r9606.ENSP00000479870\r9606.ENSP00000481021\r9606.ENSP00000481029\r9606.ENSP00000481570\r9606.ENSP00000482445\r9606.ENSP00000482609\r9606.ENSP00000482639\r9606.ENSP00000483570\r9606.ENSP00000483688\r9606.ENSP00000484998\r9606.ENSP00000492260\r9606.ENSP00000494175\r9606.ENSP00000494678\r9606.ENSP00000495750\r9606.ENSP00000495855\r9606.ENSP00000497574\r9606.ENSP00000499371\r9606.ENSP00000499695\r9606.ENSP00000500990",
+        "required_score": "800",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:18.842805+00:00",
+      "sha256": "bd05ad8e09f2bc4aaa973acec4eaabc02610d03c2df3140e76b3988840f33b95",
+      "data_file": "data\\raw\\string\\ppi_enrichment_homo_sapiens\\47327e12fe29ec6885b9__20261025T201018842805Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "ppi_enrichment_homo_sapiens",
+      "description": "PPI enrichment test, required_score=900",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/ppi_enrichment",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "9606.ENSP00000012443\r9606.ENSP00000013807\r9606.ENSP00000044462\r9606.ENSP00000157812\r9606.ENSP00000162044\r9606.ENSP00000200691\r9606.ENSP00000211287\r9606.ENSP00000212015\r9606.ENSP00000215071\r9606.ENSP00000216037\r9606.ENSP00000216117\r9606.ENSP00000216225\r9606.ENSP00000216274\r9606.ENSP00000216455\r9606.ENSP00000216802\r9606.ENSP00000217320\r9606.ENSP00000219070\r9606.ENSP00000219313\r9606.ENSP00000220659\r9606.ENSP00000221130\r9606.ENSP00000222462\r9606.ENSP00000223321\r9606.ENSP00000224140\r9606.ENSP00000224652\r9606.ENSP00000225174\r9606.ENSP00000225275\r9606.ENSP00000225371\r9606.ENSP00000225964\r9606.ENSP00000226279\r9606.ENSP00000231198\r9606.ENSP00000237596\r9606.ENSP00000239223\r9606.ENSP00000240651\r9606.ENSP00000241052\r9606.ENSP00000241337\r9606.ENSP00000248071\r9606.ENSP00000249396\r9606.ENSP00000251595\r9606.ENSP00000252229\r9606.ENSP00000252244\r9606.ENSP00000252321\r9606.ENSP00000252486\r9606.ENSP00000252804\r9606.ENSP00000253063\r9606.ENSP00000255174\r9606.ENSP00000256383\r9606.ENSP00000257290\r9606.ENSP00000258080\r9606.ENSP00000258149\r9606.ENSP00000259457\r9606.ENSP00000259808\r9606.ENSP00000261303\r9606.ENSP00000261479\r9606.ENSP00000261712\r9606.ENSP00000262193\r9606.ENSP00000262209\r9606.ENSP00000262290\r9606.ENSP00000262746\r9606.ENSP00000262887\r9606.ENSP00000262999\r9606.ENSP00000263754\r9606.ENSP00000264110\r9606.ENSP00000264260\r9606.ENSP00000264331\r9606.ENSP00000264376\r9606.ENSP00000264414\r9606.ENSP00000264613\r9606.ENSP00000264639\r9606.ENSP00000264867\r9606.ENSP00000265038\r9606.ENSP00000265462\r9606.ENSP00000266031\r9606.ENSP00000267257\r9606.ENSP00000268058\r9606.ENSP00000269305\r9606.ENSP00000269385\r9606.ENSP00000270142\r9606.ENSP00000270586\r9606.ENSP00000271308\r9606.ENSP00000272233\r9606.ENSP00000278282\r9606.ENSP00000278572\r9606.ENSP00000278616\r9606.ENSP00000281092\r9606.ENSP00000283243\r9606.ENSP00000285381\r9606.ENSP00000285398\r9606.ENSP00000286719\r9606.ENSP00000287295\r9606.ENSP00000288774\r9606.ENSP00000289081\r9606.ENSP00000290541\r9606.ENSP00000292596\r9606.ENSP00000293230\r9606.ENSP00000293362\r9606.ENSP00000295006\r9606.ENSP00000295030\r9606.ENSP00000295718\r9606.ENSP00000295834\r9606.ENSP00000295897\r9606.ENSP00000296099\r9606.ENSP00000297494\r9606.ENSP00000298510\r9606.ENSP00000298910\r9606.ENSP00000299855\r9606.ENSP00000300574\r9606.ENSP00000301522\r9606.ENSP00000301904\r9606.ENSP00000302486\r9606.ENSP00000303522\r9606.ENSP00000304908\r9606.ENSP00000305631\r9606.ENSP00000306100\r9606.ENSP00000306245\r9606.ENSP00000306449\r9606.ENSP00000306561\r9606.ENSP00000306894\r9606.ENSP00000307940\r9606.ENSP00000308208\r9606.ENSP00000308430\r9606.ENSP00000309474\r9606.ENSP00000310129\r9606.ENSP00000310572\r9606.ENSP00000310841\r9606.ENSP00000311005\r9606.ENSP00000311032\r9606.ENSP00000311165\r9606.ENSP00000311713\r9606.ENSP00000312741\r9606.ENSP00000313921\r9606.ENSP00000315011\r9606.ENSP00000317714\r9606.ENSP00000317997\r9606.ENSP00000318635\r9606.ENSP00000319788\r9606.ENSP00000321617\r9606.ENSP00000321797\r9606.ENSP00000323511\r9606.ENSP00000323740\r9606.ENSP00000323889\r9606.ENSP00000325527\r9606.ENSP00000325748\r9606.ENSP00000326804\r9606.ENSP00000327214\r9606.ENSP00000328729\r9606.ENSP00000329357\r9606.ENSP00000329869\r9606.ENSP00000331602\r9606.ENSP00000335153\r9606.ENSP00000335620\r9606.ENSP00000336790\r9606.ENSP00000337443\r9606.ENSP00000339527\r9606.ENSP00000339992\r9606.ENSP00000340176\r9606.ENSP00000340278\r9606.ENSP00000340427\r9606.ENSP00000340820\r9606.ENSP00000342026\r9606.ENSP00000342385\r9606.ENSP00000342502\r9606.ENSP00000343635\r9606.ENSP00000344215\r9606.ENSP00000344674\r9606.ENSP00000345023\r9606.ENSP00000345179\r9606.ENSP00000345270\r9606.ENSP00000345719\r9606.ENSP00000345728\r9606.ENSP00000346103\r9606.ENSP00000346148\r9606.ENSP00000346671\r9606.ENSP00000347134\r9606.ENSP00000347324\r9606.ENSP00000348089\r9606.ENSP00000348170\r9606.ENSP00000348234\r9606.ENSP00000348442\r9606.ENSP00000348645\r9606.ENSP00000349016\r9606.ENSP00000349358\r9606.ENSP00000349543\r9606.ENSP00000350425\r9606.ENSP00000351022\r9606.ENSP00000351284\r9606.ENSP00000351407\r9606.ENSP00000351908\r9606.ENSP00000352835\r9606.ENSP00000353826\r9606.ENSP00000354499\r9606.ENSP00000354581\r9606.ENSP00000354612\r9606.ENSP00000354677\r9606.ENSP00000354813\r9606.ENSP00000355206\r9606.ENSP00000355231\r9606.ENSP00000355325\r9606.ENSP00000355759\r9606.ENSP00000355865\r9606.ENSP00000356251\r9606.ENSP00000356438\r9606.ENSP00000356864\r9606.ENSP00000356905\r9606.ENSP00000357625\r9606.ENSP00000357711\r9606.ENSP00000357876\r9606.ENSP00000357986\r9606.ENSP00000358460\r9606.ENSP00000358727\r9606.ENSP00000359258\r9606.ENSP00000359285\r9606.ENSP00000359424\r9606.ENSP00000359910\r9606.ENSP00000360290\r9606.ENSP00000360305\r9606.ENSP00000360576\r9606.ENSP00000360922\r9606.ENSP00000361275\r9606.ENSP00000361423\r9606.ENSP00000361725\r9606.ENSP00000362108\r9606.ENSP00000362179\r9606.ENSP00000362273\r9606.ENSP00000362334\r9606.ENSP00000362680\r9606.ENSP00000362748\r9606.ENSP00000363079\r9606.ENSP00000363191\r9606.ENSP00000363377\r9606.ENSP00000363591\r9606.ENSP00000363641\r9606.ENSP00000363804\r9606.ENSP00000363970\r9606.ENSP00000364204\r9606.ENSP00000364403\r9606.ENSP00000364801\r9606.ENSP00000364935\r9606.ENSP00000365081\r9606.ENSP00000365227\r9606.ENSP00000365380\r9606.ENSP00000365663\r9606.ENSP00000365693\r9606.ENSP00000365730\r9606.ENSP00000365804\r9606.ENSP00000366006\r9606.ENSP00000366015\r9606.ENSP00000368066\r9606.ENSP00000368144\r9606.ENSP00000368452\r9606.ENSP00000368458\r9606.ENSP00000368637\r9606.ENSP00000368646\r9606.ENSP00000368683\r9606.ENSP00000368880\r9606.ENSP00000369399\r9606.ENSP00000370114\r9606.ENSP00000371067\r9606.ENSP00000371388\r9606.ENSP00000371554\r9606.ENSP00000372023\r9606.ENSP00000372155\r9606.ENSP00000373477\r9606.ENSP00000373691\r9606.ENSP00000374265\r9606.ENSP00000375809\r9606.ENSP00000376103\r9606.ENSP00000376178\r9606.ENSP00000376269\r9606.ENSP00000376457\r9606.ENSP00000376506\r9606.ENSP00000376865\r9606.ENSP00000377192\r9606.ENSP00000377245\r9606.ENSP00000377867\r9606.ENSP00000377914\r9606.ENSP00000378364\r9606.ENSP00000378402\r9606.ENSP00000378699\r9606.ENSP00000378812\r9606.ENSP00000378974\r9606.ENSP00000379097\r9606.ENSP00000379512\r9606.ENSP00000380241\r9606.ENSP00000380252\r9606.ENSP00000380413\r9606.ENSP00000381026\r9606.ENSP00000381237\r9606.ENSP00000381282\r9606.ENSP00000381607\r9606.ENSP00000382342\r9606.ENSP00000383044\r9606.ENSP00000383365\r9606.ENSP00000383421\r9606.ENSP00000384273\r9606.ENSP00000384517\r9606.ENSP00000384763\r9606.ENSP00000384949\r9606.ENSP00000385675\r9606.ENSP00000386135\r9606.ENSP00000386229\r9606.ENSP00000386284\r9606.ENSP00000386485\r9606.ENSP00000386541\r9606.ENSP00000386738\r9606.ENSP00000390535\r9606.ENSP00000391211\r9606.ENSP00000391601\r9606.ENSP00000392398\r9606.ENSP00000393762\r9606.ENSP00000394560\r9606.ENSP00000394751\r9606.ENSP00000396937\r9606.ENSP00000399376\r9606.ENSP00000400646\r9606.ENSP00000400894\r9606.ENSP00000401445\r9606.ENSP00000401508\r9606.ENSP00000401853\r9606.ENSP00000403077\r9606.ENSP00000405424\r9606.ENSP00000408002\r9606.ENSP00000408292\r9606.ENSP00000408695\r9606.ENSP00000410402\r9606.ENSP00000414359\r9606.ENSP00000415743\r9606.ENSP00000418695\r9606.ENSP00000418813\r9606.ENSP00000418910\r9606.ENSP00000419243\r9606.ENSP00000419425\r9606.ENSP00000419446\r9606.ENSP00000420927\r9606.ENSP00000423822\r9606.ENSP00000425915\r9606.ENSP00000426638\r9606.ENSP00000427562\r9606.ENSP00000428756\r9606.ENSP00000430031\r9606.ENSP00000430598\r9606.ENSP00000431049\r9606.ENSP00000432660\r9606.ENSP00000432973\r9606.ENSP00000433560\r9606.ENSP00000433760\r9606.ENSP00000434516\r9606.ENSP00000434717\r9606.ENSP00000436318\r9606.ENSP00000437955\r9606.ENSP00000443957\r9606.ENSP00000446252\r9606.ENSP00000451828\r9606.ENSP00000451976\r9606.ENSP00000454919\r9606.ENSP00000456851\r9606.ENSP00000457733\r9606.ENSP00000462521\r9606.ENSP00000473990\r9606.ENSP00000477515\r9606.ENSP00000477572\r9606.ENSP00000478561\r9606.ENSP00000478763\r9606.ENSP00000478877\r9606.ENSP00000479870\r9606.ENSP00000481021\r9606.ENSP00000481029\r9606.ENSP00000481570\r9606.ENSP00000482445\r9606.ENSP00000482609\r9606.ENSP00000482639\r9606.ENSP00000483570\r9606.ENSP00000483688\r9606.ENSP00000484998\r9606.ENSP00000492260\r9606.ENSP00000494175\r9606.ENSP00000494678\r9606.ENSP00000495750\r9606.ENSP00000495855\r9606.ENSP00000497574\r9606.ENSP00000499371\r9606.ENSP00000499695\r9606.ENSP00000500990",
+        "required_score": "900",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:22.018806+00:00",
+      "sha256": "8465137bfa7ad977769aae6bbee68c05234a9a8e710e325014ae44fb43cb24ce",
+      "data_file": "data\\raw\\string\\ppi_enrichment_homo_sapiens\\b1237be9a6ee6f3e52b3__20261025T201022018806Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "homology_best_deinococcus_radiodurans_to_9606",
+      "description": "best homologs in taxon 9606 for 16 proteins",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/homology_best",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "243230.DR_0189\r243230.DR_0846\r243230.DR_1208\r243230.DR_1209\r243230.DR_1279\r243230.DR_1378\r243230.DR_1538\r243230.DR_1546\r243230.DR_1857\r243230.DR_1982\r243230.DR_1998\r243230.DR_2242\r243230.DR_A0145\r243230.DR_A0202\r243230.DR_A0259\r243230.DR_A0301",
+        "species": "243230",
+        "species_b": "9606"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:22.393131+00:00",
+      "sha256": "9995584ca830a1240939bac6b56e4578d94688880280d12a1ed68d8cae5cccc2",
+      "data_file": "data\\raw\\string\\homology_best_deinococcus_radiodurans_to_9606\\91feb2c60bebf9d8b169__20261025T201022393131Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "homology_best_homo_sapiens_to_243230",
+      "description": "best homologs in taxon 243230 for 382 proteins",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/homology_best",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "9606.ENSP00000012443\r9606.ENSP00000013807\r9606.ENSP00000044462\r9606.ENSP00000157812\r9606.ENSP00000162044\r9606.ENSP00000200691\r9606.ENSP00000211287\r9606.ENSP00000212015\r9606.ENSP00000215071\r9606.ENSP00000216037\r9606.ENSP00000216117\r9606.ENSP00000216225\r9606.ENSP00000216274\r9606.ENSP00000216455\r9606.ENSP00000216802\r9606.ENSP00000217320\r9606.ENSP00000219070\r9606.ENSP00000219313\r9606.ENSP00000220659\r9606.ENSP00000221130\r9606.ENSP00000222462\r9606.ENSP00000223321\r9606.ENSP00000224140\r9606.ENSP00000224652\r9606.ENSP00000225174\r9606.ENSP00000225275\r9606.ENSP00000225371\r9606.ENSP00000225964\r9606.ENSP00000226279\r9606.ENSP00000231198\r9606.ENSP00000237596\r9606.ENSP00000239223\r9606.ENSP00000240651\r9606.ENSP00000241052\r9606.ENSP00000241337\r9606.ENSP00000248071\r9606.ENSP00000249396\r9606.ENSP00000251595\r9606.ENSP00000252229\r9606.ENSP00000252244\r9606.ENSP00000252321\r9606.ENSP00000252486\r9606.ENSP00000252804\r9606.ENSP00000253063\r9606.ENSP00000255174\r9606.ENSP00000256383\r9606.ENSP00000257290\r9606.ENSP00000258080\r9606.ENSP00000258149\r9606.ENSP00000259457\r9606.ENSP00000259808\r9606.ENSP00000261303\r9606.ENSP00000261479\r9606.ENSP00000261712\r9606.ENSP00000262193\r9606.ENSP00000262209\r9606.ENSP00000262290\r9606.ENSP00000262746\r9606.ENSP00000262887\r9606.ENSP00000262999\r9606.ENSP00000263754\r9606.ENSP00000264110\r9606.ENSP00000264260\r9606.ENSP00000264331\r9606.ENSP00000264376\r9606.ENSP00000264414\r9606.ENSP00000264613\r9606.ENSP00000264639\r9606.ENSP00000264867\r9606.ENSP00000265038\r9606.ENSP00000265462\r9606.ENSP00000266031\r9606.ENSP00000267257\r9606.ENSP00000268058\r9606.ENSP00000269305\r9606.ENSP00000269385\r9606.ENSP00000270142\r9606.ENSP00000270586\r9606.ENSP00000271308\r9606.ENSP00000272233\r9606.ENSP00000278282\r9606.ENSP00000278572\r9606.ENSP00000278616\r9606.ENSP00000281092\r9606.ENSP00000283243\r9606.ENSP00000285381\r9606.ENSP00000285398\r9606.ENSP00000286719\r9606.ENSP00000287295\r9606.ENSP00000288774\r9606.ENSP00000289081\r9606.ENSP00000290541\r9606.ENSP00000292596\r9606.ENSP00000293230\r9606.ENSP00000293362\r9606.ENSP00000295006\r9606.ENSP00000295030\r9606.ENSP00000295718\r9606.ENSP00000295834\r9606.ENSP00000295897\r9606.ENSP00000296099\r9606.ENSP00000297494\r9606.ENSP00000298510\r9606.ENSP00000298910\r9606.ENSP00000299855\r9606.ENSP00000300574\r9606.ENSP00000301522\r9606.ENSP00000301904\r9606.ENSP00000302486\r9606.ENSP00000303522\r9606.ENSP00000304908\r9606.ENSP00000305631\r9606.ENSP00000306100\r9606.ENSP00000306245\r9606.ENSP00000306449\r9606.ENSP00000306561\r9606.ENSP00000306894\r9606.ENSP00000307940\r9606.ENSP00000308208\r9606.ENSP00000308430\r9606.ENSP00000309474\r9606.ENSP00000310129\r9606.ENSP00000310572\r9606.ENSP00000310841\r9606.ENSP00000311005\r9606.ENSP00000311032\r9606.ENSP00000311165\r9606.ENSP00000311713\r9606.ENSP00000312741\r9606.ENSP00000313921\r9606.ENSP00000315011\r9606.ENSP00000317714\r9606.ENSP00000317997\r9606.ENSP00000318635\r9606.ENSP00000319788\r9606.ENSP00000321617\r9606.ENSP00000321797\r9606.ENSP00000323511\r9606.ENSP00000323740\r9606.ENSP00000323889\r9606.ENSP00000325527\r9606.ENSP00000325748\r9606.ENSP00000326804\r9606.ENSP00000327214\r9606.ENSP00000328729\r9606.ENSP00000329357\r9606.ENSP00000329869\r9606.ENSP00000331602\r9606.ENSP00000335153\r9606.ENSP00000335620\r9606.ENSP00000336790\r9606.ENSP00000337443\r9606.ENSP00000339527\r9606.ENSP00000339992\r9606.ENSP00000340176\r9606.ENSP00000340278\r9606.ENSP00000340427\r9606.ENSP00000340820\r9606.ENSP00000342026\r9606.ENSP00000342385\r9606.ENSP00000342502\r9606.ENSP00000343635\r9606.ENSP00000344215\r9606.ENSP00000344674\r9606.ENSP00000345023\r9606.ENSP00000345179\r9606.ENSP00000345270\r9606.ENSP00000345719\r9606.ENSP00000345728\r9606.ENSP00000346103\r9606.ENSP00000346148\r9606.ENSP00000346671\r9606.ENSP00000347134\r9606.ENSP00000347324\r9606.ENSP00000348089\r9606.ENSP00000348170\r9606.ENSP00000348234\r9606.ENSP00000348442\r9606.ENSP00000348645\r9606.ENSP00000349016\r9606.ENSP00000349358\r9606.ENSP00000349543\r9606.ENSP00000350425\r9606.ENSP00000351022\r9606.ENSP00000351284\r9606.ENSP00000351407\r9606.ENSP00000351908\r9606.ENSP00000352835\r9606.ENSP00000353826\r9606.ENSP00000354499\r9606.ENSP00000354581\r9606.ENSP00000354612\r9606.ENSP00000354677\r9606.ENSP00000354813\r9606.ENSP00000355206\r9606.ENSP00000355231\r9606.ENSP00000355325\r9606.ENSP00000355759\r9606.ENSP00000355865\r9606.ENSP00000356251\r9606.ENSP00000356438\r9606.ENSP00000356864\r9606.ENSP00000356905\r9606.ENSP00000357625\r9606.ENSP00000357711\r9606.ENSP00000357876\r9606.ENSP00000357986\r9606.ENSP00000358460\r9606.ENSP00000358727\r9606.ENSP00000359258\r9606.ENSP00000359285\r9606.ENSP00000359424\r9606.ENSP00000359910\r9606.ENSP00000360290\r9606.ENSP00000360305\r9606.ENSP00000360576\r9606.ENSP00000360922\r9606.ENSP00000361275\r9606.ENSP00000361423\r9606.ENSP00000361725\r9606.ENSP00000362108\r9606.ENSP00000362179\r9606.ENSP00000362273\r9606.ENSP00000362334\r9606.ENSP00000362680\r9606.ENSP00000362748\r9606.ENSP00000363079\r9606.ENSP00000363191\r9606.ENSP00000363377\r9606.ENSP00000363591\r9606.ENSP00000363641\r9606.ENSP00000363804\r9606.ENSP00000363970\r9606.ENSP00000364204\r9606.ENSP00000364403\r9606.ENSP00000364801\r9606.ENSP00000364935\r9606.ENSP00000365081\r9606.ENSP00000365227\r9606.ENSP00000365380\r9606.ENSP00000365663\r9606.ENSP00000365693\r9606.ENSP00000365730\r9606.ENSP00000365804\r9606.ENSP00000366006\r9606.ENSP00000366015\r9606.ENSP00000368066\r9606.ENSP00000368144\r9606.ENSP00000368452\r9606.ENSP00000368458\r9606.ENSP00000368637\r9606.ENSP00000368646\r9606.ENSP00000368683\r9606.ENSP00000368880\r9606.ENSP00000369399\r9606.ENSP00000370114\r9606.ENSP00000371067\r9606.ENSP00000371388\r9606.ENSP00000371554\r9606.ENSP00000372023\r9606.ENSP00000372155\r9606.ENSP00000373477\r9606.ENSP00000373691\r9606.ENSP00000374265\r9606.ENSP00000375809\r9606.ENSP00000376103\r9606.ENSP00000376178\r9606.ENSP00000376269\r9606.ENSP00000376457\r9606.ENSP00000376506\r9606.ENSP00000376865\r9606.ENSP00000377192\r9606.ENSP00000377245\r9606.ENSP00000377867\r9606.ENSP00000377914\r9606.ENSP00000378364\r9606.ENSP00000378402\r9606.ENSP00000378699\r9606.ENSP00000378812\r9606.ENSP00000378974\r9606.ENSP00000379097\r9606.ENSP00000379512\r9606.ENSP00000380241\r9606.ENSP00000380252\r9606.ENSP00000380413\r9606.ENSP00000381026\r9606.ENSP00000381237\r9606.ENSP00000381282\r9606.ENSP00000381607\r9606.ENSP00000382342\r9606.ENSP00000383044\r9606.ENSP00000383365\r9606.ENSP00000383421\r9606.ENSP00000384273\r9606.ENSP00000384517\r9606.ENSP00000384763\r9606.ENSP00000384949\r9606.ENSP00000385675\r9606.ENSP00000386135\r9606.ENSP00000386229\r9606.ENSP00000386284\r9606.ENSP00000386485\r9606.ENSP00000386541\r9606.ENSP00000386738\r9606.ENSP00000390535\r9606.ENSP00000391211\r9606.ENSP00000391601\r9606.ENSP00000392398\r9606.ENSP00000393762\r9606.ENSP00000394560\r9606.ENSP00000394751\r9606.ENSP00000396937\r9606.ENSP00000399376\r9606.ENSP00000400646\r9606.ENSP00000400894\r9606.ENSP00000401445\r9606.ENSP00000401508\r9606.ENSP00000401853\r9606.ENSP00000403077\r9606.ENSP00000405424\r9606.ENSP00000408002\r9606.ENSP00000408292\r9606.ENSP00000408695\r9606.ENSP00000410402\r9606.ENSP00000414359\r9606.ENSP00000415743\r9606.ENSP00000418695\r9606.ENSP00000418813\r9606.ENSP00000418910\r9606.ENSP00000419243\r9606.ENSP00000419425\r9606.ENSP00000419446\r9606.ENSP00000420927\r9606.ENSP00000423822\r9606.ENSP00000425915\r9606.ENSP00000426638\r9606.ENSP00000427562\r9606.ENSP00000428756\r9606.ENSP00000430031\r9606.ENSP00000430598\r9606.ENSP00000431049\r9606.ENSP00000432660\r9606.ENSP00000432973\r9606.ENSP00000433560\r9606.ENSP00000433760\r9606.ENSP00000434516\r9606.ENSP00000434717\r9606.ENSP00000436318\r9606.ENSP00000437955\r9606.ENSP00000443957\r9606.ENSP00000446252\r9606.ENSP00000451828\r9606.ENSP00000451976\r9606.ENSP00000454919\r9606.ENSP00000456851\r9606.ENSP00000457733\r9606.ENSP00000462521\r9606.ENSP00000473990\r9606.ENSP00000477515\r9606.ENSP00000477572\r9606.ENSP00000478561\r9606.ENSP00000478763\r9606.ENSP00000478877\r9606.ENSP00000479870\r9606.ENSP00000481021\r9606.ENSP00000481029\r9606.ENSP00000481570\r9606.ENSP00000482445\r9606.ENSP00000482609\r9606.ENSP00000482639\r9606.ENSP00000483570\r9606.ENSP00000483688\r9606.ENSP00000484998\r9606.ENSP00000492260\r9606.ENSP00000494175\r9606.ENSP00000494678\r9606.ENSP00000495750\r9606.ENSP00000495855\r9606.ENSP00000497574\r9606.ENSP00000499371\r9606.ENSP00000499695\r9606.ENSP00000500990",
+        "species": "9606",
+        "species_b": "243230"
+      },
+      "retrieved_at_utc": "2026-10-25T20:10:25.142764+00:00",
+      "sha256": "b36ae8f9f1dea5b555ec14b0ee404352ff2473016091eda6425354b0b22c9d58",
+      "data_file": "data\\raw\\string\\homology_best_homo_sapiens_to_243230\\e1aa3e822d870d7e0a10__20261025T201025142764Z.json"
+    },
+    {
+      "source": "kegg",
+      "endpoint": "link_ko_dra",
+      "description": "KEGG Orthology assignments of all dra genes (academic use)",
+      "served_from": "cache",
+      "url": "https://rest.kegg.jp/link/ko/dra",
+      "method": "GET",
+      "params": {},
+      "retrieved_at_utc": "2026-10-25T22:09:34.016950+00:00",
+      "sha256": "61c04be63baa6a44ca50b55e45692a3947c5cdff822826816ad6374c4dc02a40",
+      "data_file": "data\\raw\\kegg\\link_ko_dra\\a98d8c1b095f7cdf4c16__20261025T220934016950Z.tsv"
+    },
+    {
+      "source": "kegg",
+      "endpoint": "link_ko_hsa",
+      "description": "KEGG Orthology assignments of all hsa genes (academic use)",
+      "served_from": "cache",
+      "url": "https://rest.kegg.jp/link/ko/hsa",
+      "method": "GET",
+      "params": {},
+      "retrieved_at_utc": "2026-10-25T22:09:35.716243+00:00",
+      "sha256": "d19e5a27e3f5324e4575bb688de853338ac3cdcf253114357bf156d5ce27502d",
+      "data_file": "data\\raw\\kegg\\link_ko_hsa\\ef22ce4ada9b3d12274a__20261025T220935716243Z.tsv"
+    },
+    {
+      "source": "string",
+      "endpoint": "get_string_ids_deinococcus_radiodurans_ko_projected",
+      "description": "map 27 identifiers to STRING (species=243230)",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/get_string_ids",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_phase1",
+        "echo_query": "1",
+        "identifiers": "DR_0189\rDR_0765\rDR_0846\rDR_0944\rDR_1208\rDR_1209\rDR_1279\rDR_1378\rDR_1522\rDR_1538\rDR_1546\rDR_1596\rDR_1849\rDR_1857\rDR_1982\rDR_1998\rDR_2063\rDR_2093\rDR_2160\rDR_2242\rDR_2452\rDR_2453\rDR_A0145\rDR_A0202\rDR_A0259\rDR_A0272\rDR_A0301",
+        "limit": "1",
+        "species": "243230"
+      },
+      "retrieved_at_utc": "2026-10-25T22:09:56.268073+00:00",
+      "sha256": "3234c91742eeeb8b9d56c7c66b678b7dfc805fed24f477ee777240ad1d4b34a2",
+      "data_file": "data\\raw\\string\\get_string_ids_deinococcus_radiodurans_ko_projected\\a691ce27d426a779b93e__20261025T220956268073Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "network_functional_deinococcus_radiodurans_ko_projected",
+      "description": "STRING functional network among 27 proteins, required_score=400",
+      "served_from": "cache",
+      "url": "https://string-db.org/api/json/network",
+      "method": "POST",
+      "params": {
+        "add_nodes": "0",
+        "caller_identity": "extremonet_phase1",
+        "identifiers": "243230.DR_0189\r243230.DR_0765\r243230.DR_0846\r243230.DR_0944\r243230.DR_1208\r243230.DR_1209\r243230.DR_1279\r243230.DR_1378\r243230.DR_1522\r243230.DR_1538\r243230.DR_1546\r243230.DR_1596\r243230.DR_1849\r243230.DR_1857\r243230.DR_1982\r243230.DR_1998\r243230.DR_2063\r243230.DR_2093\r243230.DR_2160\r243230.DR_2242\r243230.DR_2452\r243230.DR_2453\r243230.DR_A0145\r243230.DR_A0202\r243230.DR_A0259\r243230.DR_A0272\r243230.DR_A0301",
+        "network_type": "functional",
+        "required_score": "400",
+        "species": "243230"
+      },
+      "retrieved_at_utc": "2026-10-25T22:09:57.081701+00:00",
+      "sha256": "5c69baf7334f2219a3ffca1dde24cf1cac104702b2e0d205419d3b9c702b41ba",
+      "data_file": "data\\raw\\string\\network_functional_deinococcus_radiodurans_ko_projected\\460123ced159d6dc91c6__20261025T220957081701Z.json"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/analysis_summary.json",
+      "bytes": 27660,
+      "sha256": "92c49dcfc2f11e1a0a1d8f056e6751dffa105e52b39fb008b1827312fa9d6a53"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/candidates/candidate_pairs_all.tsv",
+      "bytes": 3928833,
+      "sha256": "9d006d37b76e4dd829f5b4cdd319396b646e3cbf23f7e2d8ddfe99cbf8afd856"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/candidates/category_counts.tsv",
+      "bytes": 202,
+      "sha256": "45dec135173af0e41ff51db3ec61f876d3c5546f9fd65bdbd4cc6272034a6634"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/candidates/protein_evidence.tsv",
+      "bytes": 65517,
+      "sha256": "3fdc70a67e5d83f812a0709432428a02919028f738331ab28d7ae7b033629e62"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/candidates/top3_human_per_dr_protein.tsv",
+      "bytes": 39731,
+      "sha256": "98f094a9e6e380172bddc1a7b5cc1746e066ce75c9f80cf100c5489d2dd82516"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/candidates/weights_leave_one_out.tsv",
+      "bytes": 268,
+      "sha256": "144602fc91c0c6d59fc325f8d4aabe372ee4db3070fbd289b28b55f9a0f4775b"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/config_used.yaml",
+      "bytes": 2159,
+      "sha256": "21ac3af5a51d385ac302df36b3ae9a0fc6ac777848f7de035871d9825dcef3c9"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/coverage_variant/alignment_pairs.tsv",
+      "bytes": 3222,
+      "sha256": "9508716ecbb49460addb9126ebc1cb0ef658240e7daee598e4816bf1cda96e1b"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/coverage_variant/alignment_summary.tsv",
+      "bytes": 473,
+      "sha256": "f43ef7612203b9d22c9036aae542b62c12a7cf767ee5552ac88309da53032157"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/coverage_variant/coverage_summary.json",
+      "bytes": 2158,
+      "sha256": "913571737fedfb98e046c493e302b3c9cc5587be0f72a1e982d9c480687062cd"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/coverage_variant/network.graphml",
+      "bytes": 7693,
+      "sha256": "8de6c3f2c5330fdafd5242d94bf041d55835fbf395f39fe827bef12fcbd36fbf"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/coverage_variant/node_metrics.tsv",
+      "bytes": 4205,
+      "sha256": "7efe9765a5297aa172201e4686b2705ccc40f0a847a30eed59a701a6d7c2db75"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/coverage_variant/nodes.tsv",
+      "bytes": 959,
+      "sha256": "a0589ed7133eea8a6b839b8aa140b978497f7b06a425575bedf7192942364254"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/cross_species/alignment_pairs.tsv",
+      "bytes": 2849,
+      "sha256": "ef7bacd1f327ca26ee1aceafb467df34a9cf36885e7f3c4e741d47c25fe4fe12"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/cross_species/alignment_summary.tsv",
+      "bytes": 609,
+      "sha256": "5d49362a52cb32cb509f859fa0589e5fc01c07ab10eb74dbfb2b7834fcce1085"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/cross_species/annotation_overlap_by_category.tsv",
+      "bytes": 769,
+      "sha256": "441033adb71c585c8f9f36f132cba7d4c4e5eaf076cabba86ee20d0c6d5139ad"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/cross_species/homology_best_hits.tsv",
+      "bytes": 732,
+      "sha256": "430b23a511ff3806c7f06f8cc82bb5ad4b4e300ce92c6e3cef3e7e924b3ba7d6"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/cross_species/module_correspondence.tsv",
+      "bytes": 1810,
+      "sha256": "7036017d15bbc34672b0bd6114c4b885d8ee85cf8ed7375e99ba5147b3537f8d"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/cross_species/shared_terms.tsv",
+      "bytes": 6432,
+      "sha256": "97efefffda5d3e5d3c5dd8db71c1e5fda5efc254c300215412df18882e9c32b1"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/cross_species/size_matched_null_homo_sapiens.tsv",
+      "bytes": 23137,
+      "sha256": "c0ee9cd7fadfe50e43867df2b8ccfa2174f37bac9ecfc84e0159a6b90153df20"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/cross_species/topology_comparison.tsv",
+      "bytes": 596,
+      "sha256": "c6b8f1784b052c32157998331c47bf267bf532dbd8bfae3c0419978cfab3e676"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/deinococcus_radiodurans/degree_distribution.tsv",
+      "bytes": 79,
+      "sha256": "f26fc227c4d87cedad9b5a2df29f2727a8959b146127ef5d735f0c0076132507"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/deinococcus_radiodurans/graph_statistics.json",
+      "bytes": 466,
+      "sha256": "1f00a83edbb5ce7d26fa24f4affc9736085a959710a5834009f404fcbdfe8869"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/deinococcus_radiodurans/louvain_stability.tsv",
+      "bytes": 324,
+      "sha256": "42adff4434b171efc4a57a90b4f40865c272b2fc50963995a02cf37fc715bc2e"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/deinococcus_radiodurans/module_enrichment.tsv",
+      "bytes": 11663,
+      "sha256": "88a8d3d99d83983a7b1bd2abad9b0fa65b4e45d0211771a5aa21bb27fc714f3f"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/deinococcus_radiodurans/modules.tsv",
+      "bytes": 321,
+      "sha256": "818409b5a3f1c727280180c0c2ea65fe6cff71476b99897d562b824a7ccc92b3"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/deinococcus_radiodurans/network_with_metrics.graphml",
+      "bytes": 29172,
+      "sha256": "03f1bb454552fdf07c4ad7f12737740f28700138b01056ce4e90ba21854889a1"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/deinococcus_radiodurans/node_metrics.tsv",
+      "bytes": 2806,
+      "sha256": "25a045ade6b3b4f6ce38bf8b6c8e508203421ea17443e0085d9e9a001786135c"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/evaluation/link_prediction_homo_sapiens.tsv",
+      "bytes": 1067,
+      "sha256": "23673da37504cc5ea9ee80db2e4b400a53f3023f2d5c2d1174f1a1b2da11c4be"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/evaluation/proxy_evaluation.json",
+      "bytes": 1297,
+      "sha256": "1eb1a7f0b612ca93fdd54e62931346f7992b73693023bbaa03b9409b1c55a636"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/evaluation/similarity_measure_sensitivity.tsv",
+      "bytes": 147,
+      "sha256": "bc4b0faf91f2f9e6d957aa04dfd5cb154f266e6a4aa6a23ea72d0d81a2894103"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/evaluation/threshold_sensitivity_networks.tsv",
+      "bytes": 1424,
+      "sha256": "c2540a01da47248f23f069053fe4d958a58e39955c66a3cdbac2e6f7060495de"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/evaluation/threshold_sensitivity_ranking.tsv",
+      "bytes": 175,
+      "sha256": "c06a01782dd54c699d9f7f710adadf311fe8c2bede7f29be3dc53e94f37442c1"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/evidence/quickgo_annotations_deinococcus_radiodurans.tsv",
+      "bytes": 6359,
+      "sha256": "f017c8def3fa8e3c364c65a2cd9b09805a3aaf1711840fc2e2fc4bd0d4b71f4f"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/evidence/quickgo_annotations_homo_sapiens.tsv",
+      "bytes": 210278,
+      "sha256": "5479db79e446d3033d5af52b3a8364a1d1de255f20f332440d16a834ad5781b4"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/evidence/string_functional_annotation_deinococcus_radiodurans.tsv",
+      "bytes": 51894,
+      "sha256": "f604935b9c6b5ad41998848661f776b9b1673904d7c5a0bce3f4284350f72ad9"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/evidence/string_functional_annotation_homo_sapiens.tsv",
+      "bytes": 10767429,
+      "sha256": "afa685e50fb63cfeca2895d8bf174ee472bdfd70e4cc855c31ba874c27136be3"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/evidence/uniprot_evidence_deinococcus_radiodurans.tsv",
+      "bytes": 1302,
+      "sha256": "44ce0f177861039d5eb88a8ae430bf1e1a353cbd4d5d856b959a2eb2b03e1e5b"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/evidence/uniprot_evidence_homo_sapiens.tsv",
+      "bytes": 184508,
+      "sha256": "63bace318d8fb50e16988763bdec91de743b9a2674d5f9b65d06bbf425b69995"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/figures/degree_ccdf.png",
+      "bytes": 31374,
+      "sha256": "640ac6c1239ae1ae48555bb22450af9dbf0082a521536954c93841dddda4866d"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/figures/dr_network_modules.png",
+      "bytes": 52829,
+      "sha256": "0dbbd18864a525756bd79621e402887650c77631660160f127a4621313124ba6"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/figures/link_prediction_auc.png",
+      "bytes": 25630,
+      "sha256": "40fb25cb75955735b6b0cdf47fb9221a18b06556d927e966315834cd5080649b"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/figures/louvain_stability.png",
+      "bytes": 36390,
+      "sha256": "9c3e5d20ce6a148a0bea5d5a424861c058fb9eaa2511a4872fe9934c0e395ce9"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/figures/ranking_weight_sensitivity.png",
+      "bytes": 95164,
+      "sha256": "76ae8d5c0860999e3602752de5bd8926ab1f174960baea87ed56137091bbe0d4"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/figures/size_matched_context.png",
+      "bytes": 46336,
+      "sha256": "352c1f6b326a746bf1341514a54288332118474e0ff459d8cea5c3e46a343ec9"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/figures/threshold_sensitivity.png",
+      "bytes": 71013,
+      "sha256": "d17ff78a64ebe2a2ca208c0a2b46c0138f726b2e37637f19ac4cfdf2bca717fe"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/homo_sapiens/degree_distribution.tsv",
+      "bytes": 1937,
+      "sha256": "33c3b61bece8b1101960f98ad68093f316182199eecb53421ab59fface2142fe"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/homo_sapiens/graph_statistics.json",
+      "bytes": 497,
+      "sha256": "d7b334900618ee582273ecc49f70fb937c9dbcc57a8f7ffa6d112beae7e47afd"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/homo_sapiens/louvain_stability.tsv",
+      "bytes": 428,
+      "sha256": "2e7975d2b2f03caf74965836948a2fcb87052d65cfb5c60fe66f4b3f96d20f19"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/homo_sapiens/module_enrichment.tsv",
+      "bytes": 3015551,
+      "sha256": "3169245b3e12d966a0f47016c32480ad4c7e303d84850589da8abe454588034e"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/homo_sapiens/modules.tsv",
+      "bytes": 5221,
+      "sha256": "2fb748f83b144d0ef810d3bfd06cbcc0ae1a46209fe959469de787da58ac804a"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/homo_sapiens/network_with_metrics.graphml",
+      "bytes": 2179204,
+      "sha256": "3db4070609d56c783d10598bbbf07a3ba2dbd6e627b5fab9f9dea21e1d599243"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/homo_sapiens/node_metrics.tsv",
+      "bytes": 95004,
+      "sha256": "25bed207f37107f1068ca888cc3a8220b3d2947a011d85da74c3ed051c1794fb"
+    },
+    {
+      "path": "results/phase2/20261025T222736Z_58b73da6abf5/technical_report.md",
+      "bytes": 34330,
+      "sha256": "ae5f3f176c5f28a33455352afb8bd27f06497c7ac329869f20326c51dd1d4ee3"
+    }
+  ],
+  "outputs_not_checksummed": {
+    "path": "results/phase2/20261025T222736Z_58b73da6abf5/logs",
+    "reason": "log still being written"
+  },
+  "served_from_counts": {
+    "cache": 34
+  },
+  "data_sources": {
+    "string": "https://string-db.org/help/api/ (CC BY 4.0); KEGG maps as redistributed by STRING",
+    "uniprot": "https://www.uniprot.org/help/api (CC BY 4.0)",
+    "quickgo": "https://www.ebi.ac.uk/QuickGO/api (GO annotations, CC BY 4.0)"
+  }
+}

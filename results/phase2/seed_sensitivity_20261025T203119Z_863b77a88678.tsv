@@ -1,3 +1,0 @@
-run	seed	top10_overlap	top20_overlap	top50_overlap	spearman_score	category_agreement	deinococcus_radiodurans_modules_ref_vs_other	deinococcus_radiodurans_ari_ref_vs_other	homo_sapiens_modules_ref_vs_other	homo_sapiens_ari_ref_vs_other
-20261025T203256Z_bdecaafcd1e1	1	1	1	0.98	0.999632919191	0.999509162304	11.0 / 11.0	1.000 / 1.000	85.5 / 86.0	0.738 / 0.741
-20261025T203431Z_d5645afdbed0	987654	1	1	0.98	0.998973047748	0.997218586387	11.0 / 11.0	1.000 / 1.000	85.5 / 86.0	0.738 / 0.781

@@ -1,0 +1,24 @@
+{
+  "source": "string",
+  "endpoint": "get_string_ids_deinococcus_radiodurans_ko_projected",
+  "description": "map 27 identifiers to STRING (species=243230)",
+  "request_key": "a691ce27d426a779b93e",
+  "method": "POST",
+  "url": "https://string-db.org/api/json/get_string_ids",
+  "params": {
+    "caller_identity": "extremonet_phase1",
+    "echo_query": "1",
+    "identifiers": "DR_0189\rDR_0765\rDR_0846\rDR_0944\rDR_1208\rDR_1209\rDR_1279\rDR_1378\rDR_1522\rDR_1538\rDR_1546\rDR_1596\rDR_1849\rDR_1857\rDR_1982\rDR_1998\rDR_2063\rDR_2093\rDR_2160\rDR_2242\rDR_2452\rDR_2453\rDR_A0145\rDR_A0202\rDR_A0259\rDR_A0272\rDR_A0301",
+    "limit": "1",
+    "species": "243230"
+  },
+  "retrieved_at_utc": "2026-10-25T22:09:56.268073+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/json; charset=utf-8",
+    "date": "Sun, 25 Oct 2026 22:09:56 GMT"
+  },
+  "bytes": 8946,
+  "sha256": "3234c91742eeeb8b9d56c7c66b678b7dfc805fed24f477ee777240ad1d4b34a2",
+  "data_file": "a691ce27d426a779b93e__20261025T220956268073Z.json"
+}

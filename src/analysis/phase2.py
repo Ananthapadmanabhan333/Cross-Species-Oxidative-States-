@@ -24,7 +24,7 @@ from ..data_collection.http_cache import CachedHttpClient
 from ..data_collection.string_client import StringClient
 from ..logging_utils import configure_logging, get_logger
 from ..provenance import collect_outputs, relative_posix, software_versions, write_checksums, write_manifest
-from . import alignment, communities, embedding, enrichment, ranking, similarity, topology
+from . import alignment, communities, coverage, embedding, enrichment, ranking, similarity, topology
 from .inputs import graph_at_threshold, load_species, verify_phase1_run
 
 log = get_logger("phase2")
@@ -144,12 +144,19 @@ def run_phase2(cfg: dict[str, Any], session: Any = None, sleep: Any = None) -> d
                                        species[HS].spec["string_taxon_id"], DR)
     hs_to_dr = ev.string_homology_best(string, list(species[HS].nodes["string_id"]), species[HS].spec["string_taxon_id"],
                                        species[DR].spec["string_taxon_id"], HS)
-    log.info("evidence retrieved", extra={"ctx": {"requests": len(http.requests_log)}})
+    kegg_cfg = cfg.get("kegg", {})
+    ko_links = ({k: ev.kegg_ko_links(http, kegg_cfg["org_codes"][k]) for k in (DR, HS)}
+                if kegg_cfg.get("enabled") else {DR: {}, HS: {}})
+    curated = _load_curated(cfg.get("curated_evidence"), species)
+    log.info("evidence retrieved", extra={"ctx": {"requests": len(http.requests_log),
+                                                  "curated_rows": len(curated)}})
 
     sim = cfg["similarity"]
     profiles = {k: similarity.build_profiles(sp.nodes, evidence[k]["annotations"], evidence[k]["uniprot"],
                                              evidence[k]["quickgo"], k, sim["go_categories"], sim["pathway_category"],
-                                             set(sim["kegg_excluded_maps"])) for k, sp in species.items()}
+                                             set(sim["kegg_excluded_maps"]), ko_links[k],
+                                             curated[curated["species_key"] == k])
+                for k, sp in species.items()}
 
     # 3. baseline analysis at the primary threshold ---------------------------------------------
     thr = float(cfg["network"]["edge_score_threshold"])
@@ -214,6 +221,34 @@ def run_phase2(cfg: dict[str, Any], session: Any = None, sleep: Any = None) -> d
     _tsv(pd.DataFrame(align["summary"]), out / "cross_species" / "alignment_summary.tsv")
     homology_table = _homology_table(dr_to_hs, hs_to_dr, species, dr_nodes, hs_nodes, rbh)
     _tsv(homology_table, out / "cross_species" / "homology_best_hits.tsv")
+
+    # 7b. coverage variant: KO-projected D. radiodurans network ---------------------------------
+    cov_cfg, coverage_summary = cfg.get("coverage_variant", {}), {"enabled": False}
+    if cov_cfg.get("enabled") and ko_links[DR]:
+        human_kos = set().union(*(p.ko for p in profiles[HS].values()))
+        variant = coverage.ko_projected_network(
+            string, list(species[DR].nodes["string_id"]), species[DR].spec["string_taxon_id"], human_kos,
+            ko_links[DR], int(p1["string"]["retrieval_required_score"]), thr)
+        vg = variant["graph"]
+        ko_by_dr = {n: set(filter(None, str(d.get("shared_kos", "")).split(";"))) for n, d in vg.nodes(data=True)}
+        prior_frame = coverage.ko_prior_frame(vg, profiles[HS], ko_by_dr)
+        ko_pairs = set(zip(prior_frame["query_id"], prior_frame["hit_id"]))
+        v_align = alignment.run_alignment(vg, base[HS]["graph"], prior_frame, prior_frame.iloc[0:0], cov_cfg["alphas"],
+                                          cov_cfg["max_iterations"], al_cfg["tolerance"], al_cfg["null_permutations"],
+                                          derived_seed(master, "coverage_alignment"), ko_pairs,
+                                          cov_cfg["rewired_null_samples"])
+        v_stats = topology.graph_statistics(vg)
+        v_metrics = topology.node_metrics(vg)
+        coverage_summary = {"enabled": True, "method": "ko_projection", **variant["summary"],
+                            "graph_statistics": v_stats, "alignment": v_align["summary"],
+                            "note": "orthology-defined; used for coverage sensitivity only, not for ranking"}
+        d = out / "coverage_variant"
+        _tsv(variant["nodes"], d / "nodes.tsv")
+        _tsv(v_metrics, d / "node_metrics.tsv")
+        _tsv(pd.DataFrame(v_align["summary"]), d / "alignment_summary.tsv")
+        _tsv(v_align["pairs"], d / "alignment_pairs.tsv")
+        _json(coverage_summary, d / "coverage_summary.json")
+        nx.write_graphml(vg, d / "network.graphml")
 
     # 8. candidate ranking -----------------------------------------------------------------------
     rk = cfg["ranking"]
@@ -306,6 +341,10 @@ def run_phase2(cfg: dict[str, Any], session: Any = None, sleep: Any = None) -> d
         "louvain": {k: [s["summary"] for s in base[k]["stability"].values()] for k in base},
         "enrichment": enrichment_summary, "size_matched_context": size_matched,
         "annotation_overlap": overlap["summary"], "alignment": align["summary"],
+        "coverage_variant": coverage_summary,
+        "curated_evidence": {"rows": len(curated),
+                             "proteins": int(curated["string_id"].nunique()) if len(curated) else 0,
+                             "source": cfg.get("curated_evidence")},
         "rbh_pairs_within_networks": len(rbh), "weight_sensitivity": {k: v for k, v in sens.items() if k != "rank_intervals"},
         "ranking_threshold_sensitivity": ranking_thr, "similarity_measure_sensitivity": measure_rows,
         "embedding": emb_summary, "proxy_evaluation": proxy,
@@ -349,6 +388,29 @@ def run_phase2(cfg: dict[str, Any], session: Any = None, sleep: Any = None) -> d
 
 
 # --------------------------------------------------------------------------------------- helpers
+CURATED_COLUMNS = ["species_key", "string_id", "uniprot", "gene", "evidence_type", "effect_on_role", "assay",
+                   "finding", "pmid", "doi", "curation_basis", "curated_on"]
+
+
+def _load_curated(path: str | None, species: dict) -> pd.DataFrame:
+    """Literature-curated findings; every row must name a network protein of its species."""
+    if not path:
+        return pd.DataFrame(columns=CURATED_COLUMNS)
+    frame = pd.read_csv(path, sep="\t", dtype=str, keep_default_na=False)
+    missing = set(CURATED_COLUMNS) - set(frame.columns)
+    if missing:
+        raise ValueError(f"{path} lacks columns {sorted(missing)}")
+    bad_effect = ~frame["effect_on_role"].isin(["supports", "contradicts"])
+    bad_type = ~frame["evidence_type"].isin(["perturbation", "biochemical"])
+    bad_pmid = ~frame["pmid"].str.fullmatch(r"\d+")
+    unknown = [r.string_id for r in frame.itertuples()
+               if r.species_key not in species or r.string_id not in set(species[r.species_key].nodes["string_id"])]
+    if bad_effect.any() or bad_type.any() or bad_pmid.any() or unknown:
+        raise ValueError(f"invalid curated evidence rows in {path}: effect={int(bad_effect.sum())} "
+                         f"type={int(bad_type.sum())} pmid={int(bad_pmid.sum())} unknown_proteins={unknown}")
+    return frame[CURATED_COLUMNS]
+
+
 def _graphml_safe(graph: nx.Graph, metrics: pd.DataFrame) -> nx.Graph:
     g = graph.copy()
     cols = ["degree_pct", "betweenness", "pagerank", "module", "hub_bottleneck_class", "participation_coefficient"]
@@ -467,8 +529,9 @@ def _proxy_evaluation(ranked: pd.DataFrame) -> dict[str, Any]:
     individual components rank RBH ortholog pairs above other pairs. Annotation components are
     partly transferred by homology (IEA/IBA), so their AUC is inflated by construction (leakage);
     the topology-only 'role' component has no such dependency."""
-    labels = ranked["category"] == "ortholog_rbh"
-    out: dict[str, Any] = {"ground_truth": "none available; RBH orthologs used as a proxy positive set",
+    labels = ranked["category"].isin(["ortholog_rbh", "ortholog_ko"])
+    out: dict[str, Any] = {"ground_truth": "none available; orthologs (reciprocal best hits or shared KEGG KO) "
+                                           "used as a proxy positive set",
                            "positives": int(labels.sum()), "components": {}}
     for comp in ("role", "module", "pathway", "go", "ec"):
         vals = ranked[comp].astype(float)
@@ -493,6 +556,9 @@ def _protein_evidence_table(profiles: dict) -> pd.DataFrame:
             rows.append({"species": k, "string_id": p.string_id, "name": p.name, "uniprot": p.accession,
                          "ec": ";".join(sorted(p.ec)), "panther": ";".join(sorted(p.panther)),
                          "pfam": ";".join(sorted(p.pfam)), "interpro": len(p.interpro), "go_terms": len(p.go_terms),
+                         "kegg_ko": ";".join(sorted(p.ko)), "perturbation_score": p.perturbation_score,
+                         "curated_findings": " | ".join(f"{c['effect_on_role']}: {c['finding']} (PMID:{c['pmid']})"
+                                                        for c in p.curated),
                          "kegg_maps": ";".join(sorted(p.pathways)), "literature_level": p.literature_level,
                          "evidence_codes": ";".join(sorted(p.evidence_codes)),
                          "perturbation_evidence": p.perturbation,
@@ -512,5 +578,7 @@ def _evidence_availability(profiles: dict) -> dict[str, Any]:
                   "with_panther": sum(bool(p.panther) for p in vals), "with_pfam": sum(bool(p.pfam) for p in vals),
                   "with_quickgo_annotation": sum(p.literature_level is not None for p in vals),
                   "with_experimental_go": sum(p.literature_level == 1.0 for p in vals),
-                  "with_perturbation_go": sum(p.perturbation for p in vals)}
+                  "with_perturbation_evidence": sum(p.perturbation for p in vals),
+                  "with_kegg_ko": sum(bool(p.ko) for p in vals),
+                  "with_curated_literature": sum(bool(p.curated) for p in vals)}
     return out

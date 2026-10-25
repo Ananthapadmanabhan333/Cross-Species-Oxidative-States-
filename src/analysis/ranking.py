@@ -19,16 +19,18 @@ import pandas as pd
 from scipy.stats import spearmanr
 
 from .similarity import (
-    HomologyTables, ProteinEvidence, ec_similarity, homology, information_content, role_similarity, simgic,
+    HomologyTables, ProteinEvidence, curated_contradictions, ec_similarity, homology, information_content,
+    role_similarity, simgic,
 )
 
 COMPONENTS = ["ec", "go", "pathway", "literature", "perturbation", "module", "role", "homology"]
 ROLE_FEATURES = ["degree_pct", "betweenness_pct", "closeness_pct", "clustering", "participation_coefficient"]
 
-CATEGORY_ORDER = ["ortholog_rbh", "homolog", "candidate_analogue", "shared_function_annotation",
+CATEGORY_ORDER = ["ortholog_rbh", "ortholog_ko", "homolog", "candidate_analogue", "shared_function_annotation",
                   "similar_pathway_role", "speculative", "unsupported"]
 CATEGORY_DESCRIPTIONS = {
     "ortholog_rbh": "reciprocal best STRING sequence hits (orthology candidate; not proof of equal function)",
+    "ortholog_ko": "same KEGG Orthology group, not a reciprocal best hit (curated orthology; paralogs possible)",
     "homolog": "detectable homology (shared PANTHER family, one-way best hit, shared Pfam domain or shared "
                "InterPro entry)",
     "candidate_analogue": "no detected homology (no best hit, PANTHER, Pfam or InterPro signal); shared catalytic "
@@ -44,6 +46,8 @@ def assign_category(row: dict[str, Any], go_thr: float, path_thr: float) -> str:
     tier = row["homology_tier"]
     if tier == "reciprocal_best_hit":
         return "ortholog_rbh"
+    if tier == "shared_kegg_ko":
+        return "ortholog_ko"
     if tier != "none_detected":
         return "homolog"
     ec = row["ec"] if row["ec"] is not None else 0.0
@@ -64,6 +68,8 @@ def assign_category(row: dict[str, Any], go_thr: float, path_thr: float) -> str:
 VALIDATION = {
     "ortholog_rbh": "Confirm orthology with a gene-tree analysis (e.g. eggNOG/OrthoDB families); test whether the "
                     "human gene complements a D. radiodurans {dr} deletion under H2O2, paraquat or ionising radiation.",
+    "ortholog_ko": "Confirm the ortholog assignment with a gene tree; test whether the human gene complements a "
+                   "D. radiodurans {dr} deletion under H2O2, paraquat or ionising radiation.",
     "homolog": "Resolve the homology relationship (ortholog vs paralog) phylogenetically, then test complementation "
                "of a D. radiodurans {dr} deletion by the human gene under oxidative challenge.",
     "candidate_analogue": "Assay the shared activity ({ec}) of both purified proteins under matched conditions; express "
@@ -109,7 +115,8 @@ def build_pairs(dr: dict[str, ProteinEvidence], hs: dict[str, ProteinEvidence],
             hom, tier, hom_detail = homology(pa, pb, homology_tables, min_bitscore)
             literature = ((pa.literature_level + pb.literature_level) / 2
                           if pa.literature_level is not None and pb.literature_level is not None else None)
-            n_pert = int(pa.perturbation) + int(pb.perturbation)
+            # mean over the proteins that HAVE perturbation evidence: absence is never scored
+            pert = [s for s in (pa.perturbation_score, pb.perturbation_score) if s is not None]
             core_b = hs_cores.get(hs_modules.get(b))
             negated_conflict = sorted((pa.negated_go & pb.go_terms) | (pb.negated_go & pa.go_terms))
             rows.append({
@@ -118,7 +125,8 @@ def build_pairs(dr: dict[str, ProteinEvidence], hs: dict[str, ProteinEvidence],
                 "ec": ec, "go": simgic(pa.go_terms, pb.go_terms, go_ic, measure),
                 "pathway": simgic(pa.pathways, pb.pathways, path_ic, measure),
                 "literature": literature,
-                "perturbation": {2: 1.0, 1: 0.5}.get(n_pert),
+                "perturbation": sum(pert) / len(pert) if pert else None,
+                "perturbation_evidence_for": len(pert),
                 "module": simgic(core_a, core_b, module_ic, measure) if core_a and core_b else None,
                 "role": role_similarity(ma, mb, ROLE_FEATURES),
                 "homology": hom, "homology_tier": tier,
@@ -126,6 +134,10 @@ def build_pairs(dr: dict[str, ProteinEvidence], hs: dict[str, ProteinEvidence],
                 "shared_panther": ";".join(hom_detail["shared_panther"]),
                 "shared_pfam": ";".join(hom_detail["shared_pfam"]),
                 "shared_interpro": ";".join(hom_detail["shared_interpro"]),
+                "shared_ko": ";".join(hom_detail["shared_ko"]),
+                "dr_ko": ";".join(sorted(pa.ko)), "hs_ko": ";".join(sorted(pb.ko)),
+                "ko_conflict": hom_detail["ko_conflict"],
+                "curated_contradictions": " | ".join(curated_contradictions(pa) + curated_contradictions(pb)),
                 "shared_pathways": ";".join(sorted(pa.pathways & pb.pathways)),
                 "dr_best_human_hit": hom_detail["best_hit_dr_to_hs"],
                 "dr_best_hit_bitscore": hom_detail["bitscore_dr_to_hs"],
@@ -149,6 +161,10 @@ def contradictions(row: pd.Series) -> str:
         items.append(f"dissimilar network roles (role similarity {row['role']:.2f})")
     if row["negated_go_conflicts"]:
         items.append(f"NOT-qualified GO annotation conflicts: {row['negated_go_conflicts']}")
+    if row.get("ko_conflict") is True and row["homology_tier"] == "reciprocal_best_hit":
+        items.append(f"reciprocal best hit but different KEGG Orthology groups ({row['dr_ko']} vs {row['hs_ko']})")
+    if isinstance(row.get("curated_contradictions"), str) and row["curated_contradictions"]:
+        items.append(f"curated perturbation evidence against a simple protective role: {row['curated_contradictions']}")
     return "; ".join(items)
 
 
@@ -165,7 +181,8 @@ def supporting(row: pd.Series) -> str:
     if row["literature"] == 1.0:
         items.append("experimental GO evidence for both proteins")
     if row["perturbation"] is not None and not pd.isna(row["perturbation"]):
-        items.append("mutant/genetic-interaction GO evidence" + (" for both" if row["perturbation"] == 1.0 else " for one"))
+        who = "both proteins" if row.get("perturbation_evidence_for") == 2 else "one protein"
+        items.append(f"perturbation evidence for {who} (score {row['perturbation']:.2f})")
     if row["module"] is not None and not pd.isna(row["module"]) and row["module"] > 0:
         items.append(f"module profile similarity {row['module']:.2f}")
     if row["role"] is not None and not pd.isna(row["role"]):
@@ -196,7 +213,10 @@ def rank_pairs(pairs: pd.DataFrame, weights: dict[str, float], min_coverage: flo
     frame["eligible"] = frame["evidence_coverage"] >= min_coverage
     frame["category"] = [assign_category(r, go_thr, path_thr) for r in frame.to_dict("records")]
     frame["analogous_network_role"] = (frame["homology_tier"] == "none_detected") & (frame["role"].astype(float) >= 0.75)
-    frame = frame.sort_values(["eligible", "score", "evidence_coverage"], ascending=[False, False, False])
+    # round before sorting and break ties by identifiers, so the order is reproducible bit-for-bit
+    frame["score"] = frame["score"].round(12)
+    frame = frame.sort_values(["eligible", "score", "evidence_coverage", "dr_string_id", "hs_string_id"],
+                              ascending=[False, False, False, True, True], kind="mergesort")
     frame["rank"] = np.where(frame["eligible"], np.arange(1, len(frame) + 1), np.nan)
     frame["supporting_evidence"] = frame.apply(supporting, axis=1)
     frame["contradictory_evidence"] = frame.apply(contradictions, axis=1)
