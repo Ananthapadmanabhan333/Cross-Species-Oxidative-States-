@@ -84,12 +84,17 @@ HS_SEEDS = [
                 "9606.ENSPTEST01;", "GO:0006979"),         # duplicate accession -> excluded
     uniprot_row("P10005", "TSTE_HUMAN", "reviewed", "HTSTE", "Human test E", 9606, "Homo sapiens",
                 "9606.ENSPTEST02;", "GO:0006979"),         # same STRING protein as P10002 -> collapsed
+    uniprot_row("P10006", "TSTF_HUMAN", "reviewed", "HTSTF", "Human test F", 9606, "Homo sapiens",
+                "9606.ENSPTEST06;", "GO:0006979"),         # mapped, no edges (isolated)
+    uniprot_row("P10007", "TSTG_HUMAN", "reviewed", "HTSTG", "Human test G", 9606, "Homo sapiens",
+                "9606.ENSPTEST07;", "GO:0006979"),         # mapped, no edges (isolated)
 ]
 MAPPING = {
     "P00001": (243230, "243230.DR_T001", "tstA"), "P00002": (243230, "243230.DR_T002", "tstB"),
     "Q00003": (243230, "243230.DR_T003", "DR_T003"), "Q00004": (243230, "243230.DR_T004", "tstD"),
     "P10001": (9606, "9606.ENSPTEST01", "HTSTA"), "P10002": (9606, "9606.ENSPTEST02", "HTSTB"),
     "P10003": (9606, "9606.ENSPTEST03", "HTSTC"), "P10005": (9606, "9606.ENSPTEST02", "HTSTB"),
+    "P10006": (9606, "9606.ENSPTEST06", "HTSTF"), "P10007": (9606, "9606.ENSPTEST07", "HTSTG"),
 }
 
 

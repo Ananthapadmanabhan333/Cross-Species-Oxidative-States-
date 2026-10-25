@@ -1,0 +1,25 @@
+{
+  "source": "uniprot",
+  "endpoint": "evidence_deinococcus_radiodurans",
+  "description": "UniProt EC, PANTHER, Pfam, KEGG, Reactome, PubMed",
+  "request_key": "1abc96304f61ac93c05a",
+  "method": "GET",
+  "url": "https://rest.uniprot.org/uniprotkb/stream",
+  "params": {
+    "fields": "accession,ec,xref_panther,xref_pfam,xref_kegg,xref_reactome,lit_pubmed_id",
+    "format": "tsv",
+    "query": "((go:0006979) OR (go:0098869) OR (go:0016209)) AND (taxonomy_id:1299)"
+  },
+  "retrieved_at_utc": "2026-10-25T20:09:48.537694+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/plain;format=tsv",
+    "date": "Sun, 25 Oct 2026 20:09:48 GMT",
+    "x-uniprot-release": "2026_03",
+    "x-uniprot-release-date": "02-September-2026",
+    "x-api-deployment-date": "15-October-2026"
+  },
+  "bytes": 1248,
+  "sha256": "9ff122a0fa159a5bf93356824cad7f0d9d85b7837e76cab386647200fd2503ca",
+  "data_file": "1abc96304f61ac93c05a__20261025T200948537694Z.tsv"
+}

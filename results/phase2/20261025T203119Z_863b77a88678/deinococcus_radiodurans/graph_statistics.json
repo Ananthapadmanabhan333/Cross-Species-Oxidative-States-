@@ -1,0 +1,19 @@
+{
+  "nodes": 16,
+  "edges": 11,
+  "density": 0.091667,
+  "isolated_nodes": 9,
+  "connected_nodes": 7,
+  "connected_components": 11,
+  "non_trivial_components": 2,
+  "largest_component_nodes": 5,
+  "largest_component_edges": 10,
+  "degree_mean": 1.375,
+  "degree_median": 0.0,
+  "degree_max": 4,
+  "transitivity": 1.0,
+  "average_clustering": 0.3125,
+  "lcc_average_shortest_path_hops": 1.0,
+  "lcc_diameter_hops": 1,
+  "degree_assortativity": 1.0
+}

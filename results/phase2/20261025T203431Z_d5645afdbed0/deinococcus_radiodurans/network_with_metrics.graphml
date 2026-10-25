@@ -1,0 +1,652 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d44" for="edge" attr.name="physical_score" attr.type="double" />
+  <key id="d43" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d42" for="edge" attr.name="source_record" attr.type="long" />
+  <key id="d41" for="edge" attr.name="evidence_source" attr.type="string" />
+  <key id="d40" for="edge" attr.name="has_experiments_channel_score" attr.type="boolean" />
+  <key id="d39" for="edge" attr.name="in_physical_subnetwork" attr.type="boolean" />
+  <key id="d38" for="edge" attr.name="textmining_score" attr.type="double" />
+  <key id="d37" for="edge" attr.name="database_score" attr.type="double" />
+  <key id="d36" for="edge" attr.name="experimental_score" attr.type="double" />
+  <key id="d35" for="edge" attr.name="coexpression_score" attr.type="double" />
+  <key id="d34" for="edge" attr.name="cooccurrence_score" attr.type="double" />
+  <key id="d33" for="edge" attr.name="fusion_score" attr.type="double" />
+  <key id="d32" for="edge" attr.name="neighborhood_score" attr.type="double" />
+  <key id="d31" for="edge" attr.name="combined_score" attr.type="double" />
+  <key id="d30" for="edge" attr.name="preferred_name_b" attr.type="string" />
+  <key id="d29" for="edge" attr.name="preferred_name_a" attr.type="string" />
+  <key id="d28" for="node" attr.name="gene_primary" attr.type="string" />
+  <key id="d27" for="node" attr.name="participation_coefficient" attr.type="double" />
+  <key id="d26" for="node" attr.name="degree_pct" attr.type="double" />
+  <key id="d25" for="node" attr.name="hub_bottleneck_class" attr.type="string" />
+  <key id="d24" for="node" attr.name="module" attr.type="long" />
+  <key id="d23" for="node" attr.name="pagerank" attr.type="double" />
+  <key id="d22" for="node" attr.name="betweenness" attr.type="double" />
+  <key id="d21" for="node" attr.name="is_isolated" attr.type="boolean" />
+  <key id="d20" for="node" attr.name="is_seed" attr.type="boolean" />
+  <key id="d19" for="node" attr.name="xref_agrees" attr.type="boolean" />
+  <key id="d18" for="node" attr.name="matched_seed_go_terms" attr.type="string" />
+  <key id="d17" for="node" attr.name="go_ids" attr.type="string" />
+  <key id="d16" for="node" attr.name="uniprot_organism_id" attr.type="string" />
+  <key id="d15" for="node" attr.name="protein_name" attr.type="string" />
+  <key id="d14" for="node" attr.name="gene_names" attr.type="string" />
+  <key id="d13" for="node" attr.name="uniprot_reviewed" attr.type="boolean" />
+  <key id="d12" for="node" attr.name="uniprot_entry_name" attr.type="string" />
+  <key id="d11" for="node" attr.name="uniprot_accessions" attr.type="string" />
+  <key id="d10" for="node" attr.name="uniprot_accession" attr.type="string" />
+  <key id="d9" for="node" attr.name="string_annotation" attr.type="string" />
+  <key id="d8" for="node" attr.name="string_preferred_name" attr.type="string" />
+  <key id="d7" for="node" attr.name="string_taxon_id" attr.type="long" />
+  <key id="d6" for="node" attr.name="ncbi_taxon_id" attr.type="long" />
+  <key id="d5" for="node" attr.name="species_label" attr.type="string" />
+  <key id="d4" for="node" attr.name="species_key" attr.type="string" />
+  <key id="d3" for="node" attr.name="string_id" attr.type="string" />
+  <key id="d2" for="graph" attr.name="string_taxon_id" attr.type="long" />
+  <key id="d1" for="graph" attr.name="threshold" attr.type="double" />
+  <key id="d0" for="graph" attr.name="species" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="243230.DR_0189">
+      <data key="d3">243230.DR_0189</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">DR_0189</data>
+      <data key="d9">Thiol:disulfide interchange protein; Similar to GB:AL009126 percent identity: 48.47; identified by sequence similarity; putative.</data>
+      <data key="d10">Q9RXW6</data>
+      <data key="d11">Q9RXW6</data>
+      <data key="d12">Q9RXW6_DEIRA</data>
+      <data key="d13">False</data>
+      <data key="d14">DR_0189</data>
+      <data key="d15">Thiol:disulfide interchange protein</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0016209; GO:0016491; GO:0030313</data>
+      <data key="d18">GO:0016209</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">True</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.017964766612269777</data>
+      <data key="d24">2</data>
+      <data key="d25">isolated</data>
+    </node>
+    <node id="243230.DR_0846">
+      <data key="d3">243230.DR_0846</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">DR_0846</data>
+      <data key="d9">Bacterioferritin comigratory protein; Similar to GB:AE000657 percent identity: 65.61; identified by sequence similarity; putative.</data>
+      <data key="d10">Q9RW23</data>
+      <data key="d11">Q9RW23</data>
+      <data key="d12">Q9RW23_DEIRA</data>
+      <data key="d13">False</data>
+      <data key="d14">DR_0846</data>
+      <data key="d15">thioredoxin-dependent peroxiredoxin (EC 1.11.1.24) (Thioredoxin peroxidase)</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0008379; GO:0034599; GO:0045454</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">True</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.017964766612269777</data>
+      <data key="d24">3</data>
+      <data key="d25">isolated</data>
+    </node>
+    <node id="243230.DR_1208">
+      <data key="d3">243230.DR_1208</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">DR_1208</data>
+      <data key="d9">Bacterioferritin comigratory protein; Similar to GB:AL123456 percent identity: 58.21; identified by sequence similarity; putative.</data>
+      <data key="d10">Q9RV22</data>
+      <data key="d11">Q9RV22</data>
+      <data key="d12">Q9RV22_DEIRA</data>
+      <data key="d13">False</data>
+      <data key="d14">DR_1208</data>
+      <data key="d15">thioredoxin-dependent peroxiredoxin (EC 1.11.1.24) (Thioredoxin peroxidase)</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0008379; GO:0034599; GO:0045454</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">False</data>
+      <data key="d26">0.21428571428571427</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.11975958578422455</data>
+      <data key="d24">1</data>
+      <data key="d25">nonhub-nonbottleneck</data>
+      <data key="d27">0.0</data>
+    </node>
+    <node id="243230.DR_1209">
+      <data key="d3">243230.DR_1209</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">DR_1209</data>
+      <data key="d9">Bacterioferritin comigratory protein; Similar to PID:1651799 percent identity: 61.33; identified by sequence similarity; putative.</data>
+      <data key="d10">Q9RV21</data>
+      <data key="d11">Q9RV21</data>
+      <data key="d12">Q9RV21_DEIRA</data>
+      <data key="d13">False</data>
+      <data key="d14">DR_1209</data>
+      <data key="d15">thioredoxin-dependent peroxiredoxin (EC 1.11.1.24) (Thioredoxin peroxidase)</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0016491; GO:0140824</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">False</data>
+      <data key="d26">0.21428571428571427</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.11975958578422455</data>
+      <data key="d24">1</data>
+      <data key="d25">nonhub-nonbottleneck</data>
+      <data key="d27">0.0</data>
+    </node>
+    <node id="243230.DR_1279">
+      <data key="d3">243230.DR_1279</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">sodA</data>
+      <data key="d9">Superoxide dismutase (sodA), Mn family; Destroys superoxide anion radicals which are normally produced within the cells and which are toxic to biological systems. Belongs to the iron/manganese superoxide dismutase family.</data>
+      <data key="d10">Q9RUV2</data>
+      <data key="d11">Q9RUV2</data>
+      <data key="d12">SODM_DEIRA</data>
+      <data key="d13">True</data>
+      <data key="d28">sodA</data>
+      <data key="d14">sodA DR_1279</data>
+      <data key="d15">Superoxide dismutase [Mn] (EC 1.15.1.1) (MnSOD)</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0004784; GO:0005737; GO:0019430; GO:0046872</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">False</data>
+      <data key="d26">0.7142857142857143</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.1221934797831564</data>
+      <data key="d24">0</data>
+      <data key="d25">nonhub-nonbottleneck</data>
+      <data key="d27">0.0</data>
+    </node>
+    <node id="243230.DR_1378">
+      <data key="d3">243230.DR_1378</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">msrB</data>
+      <data key="d9">MsrA-related protein; Similar to GB:L42023 SP:P45213 PID:1007569 PID:1221598 PID:1205691 percent identity: 78.72; identified by sequence similarity; putative.</data>
+      <data key="d10">Q9RUK6</data>
+      <data key="d11">Q9RUK6</data>
+      <data key="d12">MSRB_DEIRA</data>
+      <data key="d13">True</data>
+      <data key="d28">msrB</data>
+      <data key="d14">msrB DR_1378</data>
+      <data key="d15">Peptide methionine sulfoxide reductase MsrB (EC 1.8.4.12) (Peptide-methionine (R)-S-oxide reductase)</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0006979; GO:0030091; GO:0033743</data>
+      <data key="d18">GO:0006979</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">True</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.017964766612269777</data>
+      <data key="d24">4</data>
+      <data key="d25">isolated</data>
+    </node>
+    <node id="243230.DR_1538">
+      <data key="d3">243230.DR_1538</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">DR_1538</data>
+      <data key="d9">Osmotically inducible protein C; Similar to SP:P23929 GB:X57433 PID:42181 GB:U00096 PID:1742412 percent identity: 63.04; identified by sequence similarity; putative.</data>
+      <data key="d10">Q9RU56</data>
+      <data key="d11">Q9RU56</data>
+      <data key="d12">Q9RU56_DEIRA</data>
+      <data key="d13">False</data>
+      <data key="d14">DR_1538</data>
+      <data key="d15">Osmotically inducible protein C</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0005829; GO:0006979; GO:0051920</data>
+      <data key="d18">GO:0006979</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">True</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.017964766612269777</data>
+      <data key="d24">5</data>
+      <data key="d25">isolated</data>
+    </node>
+    <node id="243230.DR_1546">
+      <data key="d3">243230.DR_1546</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">sodC</data>
+      <data key="d9">Superoxide dismutase (sodC), Cu-Zn family; Destroys radicals which are normally produced within the cells and which are toxic to biological systems.</data>
+      <data key="d10">Q9RU48</data>
+      <data key="d11">Q9RU48</data>
+      <data key="d12">SODC_DEIRA</data>
+      <data key="d13">True</data>
+      <data key="d28">sodC</data>
+      <data key="d14">sodC DR_1546</data>
+      <data key="d15">Superoxide dismutase [Cu-Zn] (EC 1.15.1.1)</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0004784; GO:0005507; GO:0005886; GO:0019430</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">False</data>
+      <data key="d26">0.7142857142857143</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.12435630276374177</data>
+      <data key="d24">0</data>
+      <data key="d25">nonhub-nonbottleneck</data>
+      <data key="d27">0.0</data>
+    </node>
+    <node id="243230.DR_1857">
+      <data key="d3">243230.DR_1857</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">DR_1857</data>
+      <data key="d9">Organic hydroperoxide resistance protein; Similar to GP:3098342 percent identity: 67.16; identified by sequence similarity; putative.</data>
+      <data key="d10">Q9RTA8</data>
+      <data key="d11">Q9RTA8</data>
+      <data key="d12">Q9RTA8_DEIRA</data>
+      <data key="d13">False</data>
+      <data key="d14">DR_1857</data>
+      <data key="d15">Organic hydroperoxide resistance protein</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0006979</data>
+      <data key="d18">GO:0006979</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">True</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.017964766612269777</data>
+      <data key="d24">6</data>
+      <data key="d25">isolated</data>
+    </node>
+    <node id="243230.DR_1982">
+      <data key="d3">243230.DR_1982</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">DR_1982</data>
+      <data key="d9">Thioredoxin reductase; Similar to GB:AL009126 percent identity: 70.92; identified by sequence similarity; putative.</data>
+      <data key="d10">Q9RSY7</data>
+      <data key="d11">Q9RSY7</data>
+      <data key="d12">Q9RSY7_DEIRA</data>
+      <data key="d13">False</data>
+      <data key="d14">DR_1982</data>
+      <data key="d15">Thioredoxin reductase (EC 1.8.1.9)</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0004791; GO:0005737; GO:0019430</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">True</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.017964766612269777</data>
+      <data key="d24">7</data>
+      <data key="d25">isolated</data>
+    </node>
+    <node id="243230.DR_1998">
+      <data key="d3">243230.DR_1998</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">katA</data>
+      <data key="d9">Catalase; Decomposes hydrogen peroxide into water and oxygen; serves to protect cells from the toxic effects of hydrogen peroxide. Belongs to the catalase family.</data>
+      <data key="d10">Q59337</data>
+      <data key="d11">Q59337</data>
+      <data key="d12">CATA_DEIRA</data>
+      <data key="d13">True</data>
+      <data key="d28">katA</data>
+      <data key="d14">katA DR_1998</data>
+      <data key="d15">Catalase (EC 1.11.1.6)</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0004096; GO:0005737; GO:0006979; GO:0020037</data>
+      <data key="d18">GO:0006979</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">False</data>
+      <data key="d26">0.7142857142857143</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.11713126850042077</data>
+      <data key="d24">0</data>
+      <data key="d25">nonhub-nonbottleneck</data>
+      <data key="d27">0.0</data>
+    </node>
+    <node id="243230.DR_2242">
+      <data key="d3">243230.DR_2242</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">DR_2242</data>
+      <data key="d9">Thiol-specific antioxidant protein, putative; Similar to PID:1001492 PID:1001510 percent identity: 64.39; identified by sequence similarity; putative.</data>
+      <data key="d10">Q9RS85</data>
+      <data key="d11">Q9RS85</data>
+      <data key="d12">Q9RS85_DEIRA</data>
+      <data key="d13">False</data>
+      <data key="d14">DR_2242</data>
+      <data key="d15">Alkyl hydroperoxide reductase E (EC 1.11.1.29) (Mycoredoxin-dependent peroxiredoxin) (Peroxiredoxin AhpE)</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0008379; GO:0034599; GO:0045454</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">True</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.017964766612269777</data>
+      <data key="d24">8</data>
+      <data key="d25">isolated</data>
+    </node>
+    <node id="243230.DR_A0145">
+      <data key="d3">243230.DR_A0145</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">DR_A0145</data>
+      <data key="d9">Peroxidase, putative; Similar to GP:2160705 percent identity: 47.72; identified by sequence similarity; putative.</data>
+      <data key="d10">Q9RZ08</data>
+      <data key="d11">Q9RZ08</data>
+      <data key="d12">Q9RZ08_DEIRA</data>
+      <data key="d13">False</data>
+      <data key="d14">DR_A0145</data>
+      <data key="d15">Peroxidase, putative</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0004601; GO:0005829; GO:0020037</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">True</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.017964766612269777</data>
+      <data key="d24">9</data>
+      <data key="d25">isolated</data>
+    </node>
+    <node id="243230.DR_A0202">
+      <data key="d3">243230.DR_A0202</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">DR_A0202</data>
+      <data key="d9">Superoxide dismutase (sodC), Cu-Zn family; Similar to SP:P15453 percent identity: 54.55; identified by sequence similarity; putative.</data>
+      <data key="d10">Q9RYV4</data>
+      <data key="d11">Q9RYV4</data>
+      <data key="d12">Q9RYV4_DEIRA</data>
+      <data key="d13">False</data>
+      <data key="d14">DR_A0202</data>
+      <data key="d15">Superoxide dismutase [Cu-Zn] (EC 1.15.1.1)</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0004784; GO:0005507; GO:0019430</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">False</data>
+      <data key="d26">0.7142857142857143</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.12115032985136737</data>
+      <data key="d24">0</data>
+      <data key="d25">nonhub-nonbottleneck</data>
+      <data key="d27">0.0</data>
+    </node>
+    <node id="243230.DR_A0259">
+      <data key="d3">243230.DR_A0259</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">DR_A0259</data>
+      <data key="d9">Catalase; Serves to protect cells from the toxic effects of hydrogen peroxide.</data>
+      <data key="d10">Q9RYQ0</data>
+      <data key="d11">Q9RYQ0</data>
+      <data key="d12">Q9RYQ0_DEIRA</data>
+      <data key="d13">False</data>
+      <data key="d14">DR_A0259</data>
+      <data key="d15">Catalase (EC 1.11.1.6)</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0004096; GO:0005829; GO:0006979; GO:0020037; GO:0042744</data>
+      <data key="d18">GO:0006979</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">False</data>
+      <data key="d26">0.7142857142857143</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.11396654802243633</data>
+      <data key="d24">0</data>
+      <data key="d25">nonhub-nonbottleneck</data>
+      <data key="d27">0.0</data>
+    </node>
+    <node id="243230.DR_A0301">
+      <data key="d3">243230.DR_A0301</data>
+      <data key="d4">deinococcus_radiodurans</data>
+      <data key="d5">Deinococcus radiodurans</data>
+      <data key="d6">1299</data>
+      <data key="d7">243230</data>
+      <data key="d8">DR_A0301</data>
+      <data key="d9">Methylamine utilization protein; Similar to GB:L26406 PID:551315 SP:Q49128 percent identity: 56.46; identified by sequence similarity; putative.</data>
+      <data key="d10">Q9RYL1</data>
+      <data key="d11">Q9RYL1</data>
+      <data key="d12">Q9RYL1_DEIRA</data>
+      <data key="d13">False</data>
+      <data key="d14">DR_A0301</data>
+      <data key="d15">Methylamine utilization protein</data>
+      <data key="d16">243230</data>
+      <data key="d17">GO:0004130; GO:0009055; GO:0020037; GO:0042597</data>
+      <data key="d19">True</data>
+      <data key="d20">True</data>
+      <data key="d21">True</data>
+      <data key="d22">0.0</data>
+      <data key="d23">0.017964766612269777</data>
+      <data key="d24">10</data>
+      <data key="d25">isolated</data>
+    </node>
+    <edge source="243230.DR_1208" target="243230.DR_1209">
+      <data key="d29">DR_1208</data>
+      <data key="d30">DR_1209</data>
+      <data key="d31">0.8</data>
+      <data key="d32">0.773</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.122</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.0</data>
+      <data key="d37">0.0</data>
+      <data key="d38">0.079</data>
+      <data key="d39">False</data>
+      <data key="d40">False</data>
+      <data key="d41">STRING v12.5 functional association</data>
+      <data key="d42">6</data>
+      <data key="d43">0.8</data>
+    </edge>
+    <edge source="243230.DR_1279" target="243230.DR_1546">
+      <data key="d29">sodA</data>
+      <data key="d30">sodC</data>
+      <data key="d31">0.986</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.196</data>
+      <data key="d36">0.602</data>
+      <data key="d37">0.9</data>
+      <data key="d38">0.627</data>
+      <data key="d39">True</data>
+      <data key="d44">0.9</data>
+      <data key="d40">True</data>
+      <data key="d41">STRING v12.5 functional association</data>
+      <data key="d42">14</data>
+      <data key="d43">0.986</data>
+    </edge>
+    <edge source="243230.DR_1279" target="243230.DR_1998">
+      <data key="d29">sodA</data>
+      <data key="d30">katA</data>
+      <data key="d31">0.766</data>
+      <data key="d32">0.068</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.122</data>
+      <data key="d36">0.144</data>
+      <data key="d37">0.5</data>
+      <data key="d38">0.436</data>
+      <data key="d39">False</data>
+      <data key="d40">True</data>
+      <data key="d41">STRING v12.5 functional association</data>
+      <data key="d42">12</data>
+      <data key="d43">0.766</data>
+    </edge>
+    <edge source="243230.DR_1279" target="243230.DR_A0202">
+      <data key="d29">sodA</data>
+      <data key="d30">DR_A0202</data>
+      <data key="d31">0.984</data>
+      <data key="d32">0.042</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.255</data>
+      <data key="d36">0.602</data>
+      <data key="d37">0.9</data>
+      <data key="d38">0.528</data>
+      <data key="d39">True</data>
+      <data key="d44">0.9</data>
+      <data key="d40">True</data>
+      <data key="d41">STRING v12.5 functional association</data>
+      <data key="d42">13</data>
+      <data key="d43">0.984</data>
+    </edge>
+    <edge source="243230.DR_1279" target="243230.DR_A0259">
+      <data key="d29">sodA</data>
+      <data key="d30">DR_A0259</data>
+      <data key="d31">0.733</data>
+      <data key="d32">0.068</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.122</data>
+      <data key="d36">0.144</data>
+      <data key="d37">0.5</data>
+      <data key="d38">0.356</data>
+      <data key="d39">False</data>
+      <data key="d40">True</data>
+      <data key="d41">STRING v12.5 functional association</data>
+      <data key="d42">11</data>
+      <data key="d43">0.733</data>
+    </edge>
+    <edge source="243230.DR_1546" target="243230.DR_1998">
+      <data key="d29">sodC</data>
+      <data key="d30">katA</data>
+      <data key="d31">0.828</data>
+      <data key="d32">0.069</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.147</data>
+      <data key="d36">0.185</data>
+      <data key="d37">0.5</data>
+      <data key="d38">0.551</data>
+      <data key="d39">False</data>
+      <data key="d40">True</data>
+      <data key="d41">STRING v12.5 functional association</data>
+      <data key="d42">21</data>
+      <data key="d43">0.828</data>
+    </edge>
+    <edge source="243230.DR_1546" target="243230.DR_A0202">
+      <data key="d29">sodC</data>
+      <data key="d30">DR_A0202</data>
+      <data key="d31">0.918</data>
+      <data key="d32">0.065</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.096</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.108</data>
+      <data key="d37">0.9</data>
+      <data key="d38">0.091</data>
+      <data key="d39">True</data>
+      <data key="d44">0.9</data>
+      <data key="d40">True</data>
+      <data key="d41">STRING v12.5 functional association</data>
+      <data key="d42">22</data>
+      <data key="d43">0.918</data>
+    </edge>
+    <edge source="243230.DR_1546" target="243230.DR_A0259">
+      <data key="d29">sodC</data>
+      <data key="d30">DR_A0259</data>
+      <data key="d31">0.806</data>
+      <data key="d32">0.069</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.147</data>
+      <data key="d36">0.185</data>
+      <data key="d37">0.5</data>
+      <data key="d38">0.494</data>
+      <data key="d39">False</data>
+      <data key="d40">True</data>
+      <data key="d41">STRING v12.5 functional association</data>
+      <data key="d42">20</data>
+      <data key="d43">0.806</data>
+    </edge>
+    <edge source="243230.DR_1998" target="243230.DR_A0202">
+      <data key="d29">katA</data>
+      <data key="d30">DR_A0202</data>
+      <data key="d31">0.79</data>
+      <data key="d32">0.077</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.296</data>
+      <data key="d36">0.209</data>
+      <data key="d37">0.0</data>
+      <data key="d38">0.641</data>
+      <data key="d39">False</data>
+      <data key="d40">True</data>
+      <data key="d41">STRING v12.5 functional association</data>
+      <data key="d42">28</data>
+      <data key="d43">0.79</data>
+    </edge>
+    <edge source="243230.DR_1998" target="243230.DR_A0259">
+      <data key="d29">katA</data>
+      <data key="d30">DR_A0259</data>
+      <data key="d31">0.919</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.137</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.0</data>
+      <data key="d37">0.9</data>
+      <data key="d38">0.138</data>
+      <data key="d39">True</data>
+      <data key="d44">0.9</data>
+      <data key="d40">False</data>
+      <data key="d41">STRING v12.5 functional association</data>
+      <data key="d42">29</data>
+      <data key="d43">0.919</data>
+    </edge>
+    <edge source="243230.DR_A0202" target="243230.DR_A0259">
+      <data key="d29">DR_A0202</data>
+      <data key="d30">DR_A0259</data>
+      <data key="d31">0.743</data>
+      <data key="d32">0.077</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.296</data>
+      <data key="d36">0.209</data>
+      <data key="d37">0.0</data>
+      <data key="d38">0.56</data>
+      <data key="d39">False</data>
+      <data key="d40">True</data>
+      <data key="d41">STRING v12.5 functional association</data>
+      <data key="d42">36</data>
+      <data key="d43">0.743</data>
+    </edge>
+    <data key="d0">Deinococcus radiodurans</data>
+    <data key="d1">0.7</data>
+    <data key="d2">243230</data>
+  </graph>
+</graphml>

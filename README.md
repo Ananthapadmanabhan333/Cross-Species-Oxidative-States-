@@ -5,9 +5,14 @@ A reproducible pipeline that builds **oxidative-stress defence** protein network
 **STRING** functional-association database, with full provenance, record-level quality control
 and weighted NetworkX graphs.
 
-Scope is Phase 1 only: oxidative-stress defence, per-species network construction and QC.
-DNA repair, orthology mapping and cross-species network alignment are deliberately out of scope
-until Phase 1 is accepted.
+- **Phase 1:** per-species network construction, QC and provenance (sections below).
+- **Phase 2:** cross-species analysis — topology, Louvain modules with enrichment, homology and
+  annotation evidence, IsoRank alignment, transparent candidate ranking, NetMF embeddings and
+  robustness checks. See [Phase 2](#phase-2-cross-species-analysis),
+  [docs/PHASE2_METHODS.md](docs/PHASE2_METHODS.md) and
+  [docs/PHASE2_FINDINGS.md](docs/PHASE2_FINDINGS.md).
+
+DNA repair and any Phase 3 work are out of scope until the Phase 2 results have been reviewed.
 
 > **Research plan.** The guiding document (Prof. Pietro Hiram Guzzi, *2026-Graph-AnanthapadmanabhanDS*)
 > and its Overleaf source were not available in this workspace when the pipeline was built, so the
@@ -44,6 +49,12 @@ run fails loudly if any required response is missing:
 
 ```bash
 .venv/Scripts/python -m pytest
+```
+
+If the system drive is low on space, keep pytest's temporary files in the project (gitignored):
+
+```bash
+.venv/Scripts/python -m pytest --basetemp=.pytest_tmp
 ```
 
 **Verify checksums** of the latest run and of every cached raw response:
@@ -166,6 +177,75 @@ These are the observed outputs of the pipeline, not biological conclusions.
   an older cached copy. That fallback is logged as a WARNING and recorded as
   `served_from: stale_cache` in the manifest.
 
+## Phase 2: cross-species analysis
+
+Phase 2 reads one Phase 1 run (`phase1.run_id` in `config/phase2_analysis.yaml`) and re-verifies
+its checksums before doing anything else. It then retrieves the additional evidence it needs:
+
+- STRING functional annotation, best-hit homology and PPI-enrichment results;
+- UniProt EC numbers, PANTHER families and Pfam domains;
+- QuickGO evidence codes.
+
+These responses are cached with provenance, exactly as in Phase 1.
+
+**Run Phase 2 (single command):**
+
+```bash
+.venv/Scripts/python -m extremonet.analysis --config config/phase2_analysis.yaml
+```
+
+Options are `--mode online|refresh|offline` and `--seed N` (overrides the master random seed).
+Exit codes are as in Phase 1, plus `4` when the Phase 1 inputs fail verification. A run takes about
+2 minutes once the evidence is cached.
+
+Reproduce the reference analysis offline and check random-seed sensitivity:
+
+```bash
+.venv/Scripts/python -m extremonet.analysis --mode offline
+```
+
+```bash
+.venv/Scripts/python -m extremonet.analysis --mode offline --seed 1
+```
+
+```bash
+.venv/Scripts/python scripts/compare_phase2_runs.py <reference_run_id> <seed_run_id>
+```
+
+Outputs, under `results/phase2/<run_id>/`:
+
+```
+technical_report.md        generated report (every number read from this run's tables)
+analysis_summary.json      machine-readable summary   config_used.yaml  manifest.json  SHA256SUMS.txt
+<species>/                 node_metrics.tsv (centralities, hub/bottleneck class, module role, stability),
+                           graph_statistics.json, degree_distribution.tsv, louvain_stability.tsv,
+                           modules.tsv, module_enrichment.tsv (hypergeometric + BH-FDR), network_with_metrics.graphml
+cross_species/             annotation overlap, shared terms, topology comparison, size-matched null,
+                           module correspondence, homology best hits, IsoRank alignment pairs and summary
+candidates/                candidate_pairs_all.tsv (every pair: 8 evidence components, score, coverage,
+                           category, supporting / contradictory evidence, references, uncertainty,
+                           proposed validation, rank interval), top3_human_per_dr_protein.tsv,
+                           protein_evidence.tsv, category_counts.tsv, weights_leave_one_out.tsv
+evaluation/                threshold, similarity-measure and ranking sensitivity; link prediction;
+                           proxy evaluation
+evidence/                  QuickGO, UniProt and STRING annotation tables used
+figures/                   degree CCDF, threshold sensitivity, size-matched context, Louvain stability,
+                           ranking weight sensitivity, D. radiodurans module network, link-prediction AUC
+```
+
+**Reference Phase 2 run.** `20261025T203119Z_863b77a88678` is the reference run. Its
+interpretation, including all coverage limitations, is in
+[docs/PHASE2_FINDINGS.md](docs/PHASE2_FINDINGS.md). Briefly:
+
+- the five reciprocal-best-hit orthologs (katA–CAT, sodA–SOD2, msrB–MSRB3, DR_A0202–SOD1,
+  DR_2242–PRDX2) are recovered;
+- the strongest *non-homologous* candidates are Mn/Fe vs Cu/Zn superoxide dismutases (e.g.
+  sodA–SOD3, sodA–SOD1);
+- network alignment shows no topology conservation beyond a degree-preserving null;
+- NetMF embeddings do not beat neighbourhood baselines and are not used in the ranking.
+
+No result here is experimental validation.
+
 ## Repository layout
 
 ```
@@ -176,10 +256,14 @@ src/                          package `extremonet` (installed from src/ via pypr
   quality_control/            validators (retain/exclude with reasons), reports
   annotation/                 protein table, annotation coverage
   network_construction/       weighted graph build, summary statistics
+  analysis/                   Phase 2: inputs, topology, communities, enrichment, similarity,
+                              alignment, ranking, embedding, figures, report, phase2 (orchestrator)
   pipeline.py  cli.py  config.py  provenance.py  logging_utils.py
 tests/                        pytest suite; HTTP mocked via a fake session
-scripts/                      run_pipeline.py, verify_checksums.py
-docs/METHODS.md               methods, data model and QC rules in detail
+scripts/                      run_pipeline.py, verify_checksums.py, compare_phase2_runs.py
+docs/METHODS.md               Phase 1 methods, data model and QC rules
+docs/PHASE2_METHODS.md        Phase 2 methods
+docs/PHASE2_FINDINGS.md       Phase 2 interpretation and limitations
 ```
 
 ## Data sources and licences
@@ -188,3 +272,5 @@ docs/METHODS.md               methods, data model and QC rules in detail
   Requests identify the client with `caller_identity` and wait at least 1 s between calls, as
   the documentation asks.
 - UniProtKB REST API (https://www.uniprot.org/help/api), CC BY 4.0.
+- QuickGO (https://www.ebi.ac.uk/QuickGO/api), GO annotations, CC BY 4.0.
+- KEGG is used only as redistributed by STRING and UniProt; the KEGG API is not called.

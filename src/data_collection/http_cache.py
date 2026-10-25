@@ -130,6 +130,7 @@ class CachedHttpClient:
         method: str = "GET",
         ext: str = "txt",
         description: str = "",
+        headers: dict[str, str] | None = None,
     ) -> RawResponse:
         key = request_key(method, url, params)
         cache_dir = self.raw_dir / source / endpoint
@@ -148,7 +149,7 @@ class CachedHttpClient:
             return self._record(self._load(cached, "cache"))
 
         try:
-            response = self._request_with_retries(method, url, params)
+            response = self._request_with_retries(method, url, params, headers)
         except DataSourceUnavailable:
             if cached is not None and self.allow_stale:
                 log.warning(
@@ -169,12 +170,13 @@ class CachedHttpClient:
                 self._sleep(wait)
         self._last_request_at = time.monotonic()
 
-    def _request_with_retries(self, method: str, url: str, params: dict[str, Any]) -> Any:
+    def _request_with_retries(self, method: str, url: str, params: dict[str, Any],
+                              headers: dict[str, str] | None = None) -> Any:
         last_error = "unknown error"
         for attempt in range(self.max_retries + 1):
             self._throttle()
             try:
-                kwargs: dict[str, Any] = {"timeout": self.timeout, "headers": self.headers}
+                kwargs: dict[str, Any] = {"timeout": self.timeout, "headers": {**self.headers, **(headers or {})}}
                 if method.upper() == "POST":
                     kwargs["data"] = params
                 else:

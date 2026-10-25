@@ -1,0 +1,5 @@
+resolution	n_runs	ari_mean	ari_min	modules_median	modules_min	modules_max	non_singleton_modules_medoid	modularity_medoid	medoid_seed
+0.5	50	1	1	11	11	11	2	0.578829119172	21057891
+1	50	1	1	11	11	11	2	0.157658238345	21057891
+1.5	50	1	1	13	13	13	3	-0.166613322342	21057891
+2	50	1	1	15	15	15	1	-0.263000428813	21057891

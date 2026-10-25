@@ -1,0 +1,101 @@
+# Phase 2 configuration: cross-species analysis of the Phase 1 oxidative-stress networks.
+# Copied verbatim into every Phase 2 results directory and manifest.
+
+phase1:
+  config: config/phase1_oxidative_stress.yaml   # paths, species, HTTP and STRING settings are reused
+  # Phase 1 run whose processed tables are analysed. Its manifest checksums are verified first.
+  run_id: 20261025T174736Z_5bbc7e723df4
+
+paths:
+  results_dir: results/phase2
+  manifests_dir: data/manifests
+
+mode: online            # online | refresh | offline (same meaning as in Phase 1)
+random_seed: 20261026   # master seed; every stochastic step derives its seed from it
+
+network:
+  edge_score_threshold: 0.7                         # primary analysis threshold (as in Phase 1)
+  sensitivity_thresholds: [0.4, 0.5, 0.6, 0.7, 0.8, 0.9]   # all >= Phase 1 retrieval score 0.4
+
+topology:
+  hub_percentile: 0.80          # degree percentile (within species, connected nodes) for "hub"
+  bottleneck_percentile: 0.80   # betweenness percentile for "bottleneck" (Yu et al. 2007)
+  betweenness_distance: inverse_score   # edge length = 1 / combined score for shortest paths
+  size_matched_samples: 1000    # random human node subsets of D. radiodurans seed-set size
+
+communities:
+  method: louvain               # networkx.algorithms.community.louvain_communities
+  resolution: 1.0
+  resolutions_for_stability: [0.5, 1.0, 1.5, 2.0]
+  n_seeds: 50                   # independent Louvain runs per resolution (stability, consensus)
+  weight: weight                # STRING combined score
+
+enrichment:
+  # Hypergeometric over-representation of each module versus the species' whole network node set
+  # (the oxidative-stress seed set), Benjamini-Hochberg FDR within species across all tests.
+  categories: [Process, Function, Component, KEGG, Pfam, InterPro, RCTM]
+  min_module_size: 3
+  min_term_size: 2              # term must annotate >= 2 nodes in the background
+  fdr: 0.05
+
+similarity:
+  # IC-weighted set similarity for GO, KEGG-map and module-profile comparisons, with
+  # IC(t) = -ln(p(t)) estimated from both networks' annotation corpus. Shared information
+  # sum IC(A & B) is normalised by:
+  #   ochiai: sqrt(sum IC(A) * sum IC(B))   (default)
+  #   simgic: sum IC(A | B)                 (Pesquita et al. 2008)
+  #   min:    min(sum IC(A), sum IC(B))
+  # The default is ochiai because annotation depth differs greatly between the species: union
+  # normalisation (simgic) penalises extensively studied human proteins (e.g. SOD2 vs its
+  # D. radiodurans ortholog sodA scored 0.07). All three are run as a sensitivity analysis.
+  measure: ochiai
+  measures_for_sensitivity: [ochiai, simgic, min]
+  go_categories: [Process, Function]
+  pathway_category: KEGG
+  # KEGG global / overview maps say little about specific roles and are dropped from pathway sets.
+  kegg_excluded_maps: ["01100", "01110", "01120", "01200", "01210", "01212", "01230", "01232", "01250", "01240", "01220"]
+  min_homology_bitscore: 50.0   # STRING homology_best hit treated as detectable sequence similarity
+
+alignment:
+  method: isorank               # Singh, Xu & Berger 2008, power iteration on A_dr (x) A_hs
+  alphas: [1.0, 0.8, 0.5]       # 1.0 = topology only; < 1.0 mixes in the homology prior
+  max_iterations: 500
+  tolerance: 1.0e-9
+  null_permutations: 1000       # random one-to-one maps (weak baseline: no optimisation)
+  rewired_null_samples: 100     # degree-preserving rewired D. radiodurans graphs, aligned identically
+
+ranking:
+  # Weights for evidence components (each component scored 0-1, or missing). Score of a pair =
+  # sum(w_i * s_i) / sum(w_i) over AVAILABLE components only, so missing evidence is never counted
+  # as negative. evidence_coverage = sum(w_i available) is reported next to every score, and pairs
+  # below min_evidence_coverage are listed but not ranked.
+  weights:
+    ec: 0.15            # shared catalytic activity: the most direct evidence of analogous function
+    go: 0.15            # shared GO BP/MF annotation (simGIC); partly electronic, hence not higher
+    pathway: 0.15       # shared KEGG pathway maps: context-level evidence of a similar role
+    literature: 0.15    # experimental GO evidence (QuickGO) with references for both proteins
+    perturbation: 0.10  # mutant/genetic-interaction evidence codes (IMP/IGI/HMP/HGI); sparse
+    module: 0.10        # functional profile of the network modules containing each protein
+    role: 0.10          # topological role similarity; weak given unequal network coverage
+    homology: 0.10      # supporting only: analogues by definition may lack it
+  min_evidence_coverage: 0.45
+  go_similarity_for_shared_function: 0.30
+  pathway_similarity_for_shared_role: 0.30
+  sensitivity:
+    dirichlet_samples: 500
+    dirichlet_concentration: 50   # higher = perturbed weights closer to the base weights
+    top_k: 20
+  report_top_n: 25
+
+embedding:
+  enabled: true
+  method: netmf          # DeepWalk as matrix factorisation (Qiu et al. 2018), closed form, numpy
+  dimensions: 16
+  window: 5
+  negative: 1.0
+  test_fraction: 0.1
+  n_splits: 5
+  min_edges_for_evaluation: 100   # below this, link-prediction evaluation is not attempted
+
+evaluation:
+  roc_negative_ratio: 1   # negatives sampled per held-out positive edge

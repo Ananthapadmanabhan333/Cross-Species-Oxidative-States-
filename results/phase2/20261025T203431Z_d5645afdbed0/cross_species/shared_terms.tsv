@@ -1,0 +1,122 @@
+category	term	description
+Function	GO:0000166	Nucleotide binding
+Function	GO:0003824	Catalytic activity
+Function	GO:0004096	Catalase activity
+Function	GO:0004601	Peroxidase activity
+Function	GO:0004784	Superoxide dismutase activity
+Function	GO:0004791	Thioredoxin-disulfide reductase (NADPH) activity
+Function	GO:0005488	Binding
+Function	GO:0005507	Copper ion binding
+Function	GO:0008379	Thioredoxin peroxidase activity
+Function	GO:0009055	Electron transfer activity
+Function	GO:0015035	Protein-disulfide reductase activity
+Function	GO:0015036	Disulfide oxidoreductase activity
+Function	GO:0016209	Antioxidant activity
+Function	GO:0016491	Oxidoreductase activity
+Function	GO:0016667	Oxidoreductase activity, acting on a sulfur group of donors
+Function	GO:0016668	Oxidoreductase activity, acting on a sulfur group of donors, NAD(P) as acceptor
+Function	GO:0016671	Oxidoreductase activity, acting on a sulfur group of donors, disulfide as acceptor
+Function	GO:0016684	Oxidoreductase activity, acting on peroxide as acceptor
+Function	GO:0016721	Oxidoreductase activity, acting on superoxide radicals as acceptor
+Function	GO:0020037	Heme binding
+Function	GO:0033743	Peptide-methionine (R)-S-oxide reductase activity
+Function	GO:0036094	Small molecule binding
+Function	GO:0043167	Ion binding
+Function	GO:0043169	Cation binding
+Function	GO:0046872	Metal ion binding
+Function	GO:0046906	Tetrapyrrole binding
+Function	GO:0046914	Transition metal ion binding
+Function	GO:0047134	Protein-disulfide reductase [NAD(P)H] activity
+Function	GO:0051920	Peroxiredoxin activity
+Function	GO:0140096	Catalytic activity, acting on a protein
+Function	GO:0140824	Thioredoxin-dependent peroxiredoxin activity
+Function	GO:1901265	Nucleoside phosphate binding
+Function	GO:1901363	Heterocyclic compound binding
+InterPro	IPR000866	Alkyl hydroperoxide reductase subunit C/ Thiol specific antioxidant
+InterPro	IPR001189	Manganese/iron superoxide dismutase
+InterPro	IPR001424	Superoxide dismutase, copper/zinc binding domain
+InterPro	IPR002226	Catalase haem-binding site
+InterPro	IPR002579	Peptide methionine sulphoxide reductase MrsB domain
+InterPro	IPR010582	Catalase immune-responsive domain
+InterPro	IPR011042	Six-bladed beta-propeller, TolB-like
+InterPro	IPR011057	Mss4-like superfamily
+InterPro	IPR011614	Catalase core domain
+InterPro	IPR013766	Thioredoxin domain
+InterPro	IPR015946	K homology domain-like, alpha/beta
+InterPro	IPR017937	Thioredoxin, conserved site
+InterPro	IPR018028	Catalase, mono-functional, haem-containing
+InterPro	IPR019831	Manganese/iron superoxide dismutase, N-terminal
+InterPro	IPR019832	Manganese/iron superoxide dismutase, C-terminal
+InterPro	IPR019833	Manganese/iron superoxide dismutase, binding site
+InterPro	IPR020835	Catalase superfamily
+InterPro	IPR023753	FAD/NAD(P)-binding domain
+InterPro	IPR024134	Superoxide dismutase (Cu/Zn) / superoxide dismutase copper chaperone
+InterPro	IPR024706	Peroxiredoxin, AhpC-type
+InterPro	IPR024708	Catalase active site
+InterPro	IPR024711	Catalase, mono-functional, haem-containing, clades 1 and 3
+InterPro	IPR028427	Peptide methionine sulfoxide reductase MsrB
+InterPro	IPR029062	Class I glutamine amidotransferase-like
+InterPro	IPR036188	FAD/NAD(P)-binding domain superfamily
+InterPro	IPR036249	Thioredoxin-like superfamily
+InterPro	IPR036314	Manganese/iron superoxide dismutase, C-terminal domain superfamily
+InterPro	IPR036324	Manganese/iron superoxide dismutase, N-terminal domain superfamily
+InterPro	IPR036423	Superoxide dismutase-like, copper/zinc binding domain superfamily
+KEGG	00380	Tryptophan metabolism
+KEGG	00450	Selenocompound metabolism
+KEGG	00630	Glyoxylate and dicarboxylate metabolism
+KEGG	01100	Metabolic pathways
+KEGG	01200	Carbon metabolism
+KEGG	04146	Peroxisome
+Pfam	PF00070	Pyridine nucleotide-disulphide oxidoreductase
+Pfam	PF00080	Copper/zinc superoxide dismutase (SODC)
+Pfam	PF00081	Iron/manganese superoxide dismutases, alpha-hairpin domain
+Pfam	PF00578	AhpC/TSA family
+Pfam	PF01641	SelR domain
+Pfam	PF01965	DJ-1/PfpI family
+Pfam	PF02777	Iron/manganese superoxide dismutases, C-terminal domain
+Pfam	PF06628	Catalase-related immune-responsive
+Process	GO:0000302	Response to reactive oxygen species
+Process	GO:0000303	Response to superoxide
+Process	GO:0000305	Response to oxygen radical
+Process	GO:0006801	Superoxide metabolic process
+Process	GO:0006950	Response to stress
+Process	GO:0006979	Response to oxidative stress
+Process	GO:0008152	Metabolic process
+Process	GO:0009056	Catabolic process
+Process	GO:0009636	Response to toxic substance
+Process	GO:0009987	Cellular process
+Process	GO:0016043	Cellular component organization
+Process	GO:0017004	Cytochrome complex assembly
+Process	GO:0019430	Removal of superoxide radicals
+Process	GO:0019538	Protein metabolic process
+Process	GO:0019725	Cellular homeostasis
+Process	GO:0022607	Cellular component assembly
+Process	GO:0030091	Protein repair
+Process	GO:0033554	Cellular response to stress
+Process	GO:0034599	Cellular response to oxidative stress
+Process	GO:0034614	Cellular response to reactive oxygen species
+Process	GO:0042221	Response to chemical
+Process	GO:0042542	Response to hydrogen peroxide
+Process	GO:0042592	Homeostatic process
+Process	GO:0042743	Hydrogen peroxide metabolic process
+Process	GO:0042744	Hydrogen peroxide catabolic process
+Process	GO:0043170	Macromolecule metabolic process
+Process	GO:0043933	Protein-containing complex organization
+Process	GO:0044085	Cellular component biogenesis
+Process	GO:0044238	Primary metabolic process
+Process	GO:0045454	Cell redox homeostasis
+Process	GO:0050896	Response to stimulus
+Process	GO:0051716	Cellular response to stimulus
+Process	GO:0062197	Cellular response to chemical stress
+Process	GO:0065003	Protein-containing complex assembly
+Process	GO:0070887	Cellular response to chemical stimulus
+Process	GO:0071450	Cellular response to oxygen radical
+Process	GO:0071451	Cellular response to superoxide
+Process	GO:0071840	Cellular component organization or biogenesis
+Process	GO:0072593	Reactive oxygen species metabolic process
+Process	GO:0097237	Cellular response to toxic substance
+Process	GO:0098754	Detoxification
+Process	GO:0098869	Cellular oxidant detoxification
+Process	GO:1901700	Response to oxygen-containing compound
+Process	GO:1901701	Cellular response to oxygen-containing compound
+Process	GO:1990748	Cellular detoxification

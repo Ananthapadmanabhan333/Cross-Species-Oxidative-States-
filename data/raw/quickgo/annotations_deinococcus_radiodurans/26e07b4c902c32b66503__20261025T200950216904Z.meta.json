@@ -1,0 +1,26 @@
+{
+  "source": "quickgo",
+  "endpoint": "annotations_deinococcus_radiodurans",
+  "description": "QuickGO annotations to GO:0006979,GO:0098869,GO:0016209 (+descendants), page 1",
+  "request_key": "26e07b4c902c32b66503",
+  "method": "GET",
+  "url": "https://www.ebi.ac.uk/QuickGO/services/annotation/search",
+  "params": {
+    "goId": "GO:0006979,GO:0098869,GO:0016209",
+    "goUsage": "descendants",
+    "goUsageRelationships": "is_a,part_of,occurs_in",
+    "limit": "200",
+    "page": "1",
+    "taxonId": "1299",
+    "taxonUsage": "descendants"
+  },
+  "retrieved_at_utc": "2026-10-25T20:09:50.216904+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "date": "Sun, 25 Oct 2026 20:09:49 GMT"
+  },
+  "bytes": 39227,
+  "sha256": "22bae91fbce0da3aad4070ee1c152deb0ee69d6a6028719adda4c02124606d0c",
+  "data_file": "26e07b4c902c32b66503__20261025T200950216904Z.json"
+}

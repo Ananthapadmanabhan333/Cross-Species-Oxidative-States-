@@ -1,0 +1,798 @@
+string_id	category	term	description
+243230.DR_0189	COMPARTMENTS	GOCC:0005622	Intracellular anatomical structure
+243230.DR_0846	COMPARTMENTS	GOCC:0005622	Intracellular anatomical structure
+243230.DR_1208	COMPARTMENTS	GOCC:0005622	Intracellular anatomical structure
+243230.DR_1209	COMPARTMENTS	GOCC:0005622	Intracellular anatomical structure
+243230.DR_1378	COMPARTMENTS	GOCC:0005622	Intracellular anatomical structure
+243230.DR_1538	COMPARTMENTS	GOCC:0005622	Intracellular anatomical structure
+243230.DR_1857	COMPARTMENTS	GOCC:0005622	Intracellular anatomical structure
+243230.DR_1982	COMPARTMENTS	GOCC:0005622	Intracellular anatomical structure
+243230.DR_1998	COMPARTMENTS	GOCC:0005622	Intracellular anatomical structure
+243230.DR_2242	COMPARTMENTS	GOCC:0005622	Intracellular anatomical structure
+243230.DR_A0259	COMPARTMENTS	GOCC:0005622	Intracellular anatomical structure
+243230.DR_0189	COMPARTMENTS	GOCC:0005737	Cytoplasm
+243230.DR_0846	COMPARTMENTS	GOCC:0005737	Cytoplasm
+243230.DR_1208	COMPARTMENTS	GOCC:0005737	Cytoplasm
+243230.DR_1209	COMPARTMENTS	GOCC:0005737	Cytoplasm
+243230.DR_1378	COMPARTMENTS	GOCC:0005737	Cytoplasm
+243230.DR_1538	COMPARTMENTS	GOCC:0005737	Cytoplasm
+243230.DR_1857	COMPARTMENTS	GOCC:0005737	Cytoplasm
+243230.DR_1982	COMPARTMENTS	GOCC:0005737	Cytoplasm
+243230.DR_1998	COMPARTMENTS	GOCC:0005737	Cytoplasm
+243230.DR_2242	COMPARTMENTS	GOCC:0005737	Cytoplasm
+243230.DR_A0259	COMPARTMENTS	GOCC:0005737	Cytoplasm
+243230.DR_1538	COMPARTMENTS	GOCC:0005829	Cytosol
+243230.DR_1857	COMPARTMENTS	GOCC:0005829	Cytosol
+243230.DR_A0202	COMPARTMENTS	GOCC:0009341	Beta-galactosidase complex
+243230.DR_A0202	COMPARTMENTS	GOCC:0032991	Protein-containing complex
+243230.DR_1546	COMPARTMENTS	GOCC:0042597	Periplasmic space
+243230.DR_A0301	COMPARTMENTS	GOCC:0042597	Periplasmic space
+243230.DR_0189	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_0846	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_1208	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_1209	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_1279	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_1378	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_1538	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_1546	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_1857	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_1982	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_1998	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_2242	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_A0145	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_A0259	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_A0301	COMPARTMENTS	GOCC:0110165	Cellular anatomical structure
+243230.DR_1279	Process	GO:0000302	Response to reactive oxygen species
+243230.DR_1546	Process	GO:0000302	Response to reactive oxygen species
+243230.DR_1982	Process	GO:0000302	Response to reactive oxygen species
+243230.DR_1998	Process	GO:0000302	Response to reactive oxygen species
+243230.DR_A0202	Process	GO:0000302	Response to reactive oxygen species
+243230.DR_1279	Process	GO:0000303	Response to superoxide
+243230.DR_1546	Process	GO:0000303	Response to superoxide
+243230.DR_1982	Process	GO:0000303	Response to superoxide
+243230.DR_A0202	Process	GO:0000303	Response to superoxide
+243230.DR_1279	Process	GO:0000305	Response to oxygen radical
+243230.DR_1546	Process	GO:0000305	Response to oxygen radical
+243230.DR_1982	Process	GO:0000305	Response to oxygen radical
+243230.DR_A0202	Process	GO:0000305	Response to oxygen radical
+243230.DR_1279	Process	GO:0006801	Superoxide metabolic process
+243230.DR_1546	Process	GO:0006801	Superoxide metabolic process
+243230.DR_1982	Process	GO:0006801	Superoxide metabolic process
+243230.DR_A0202	Process	GO:0006801	Superoxide metabolic process
+243230.DR_0846	Process	GO:0006950	Response to stress
+243230.DR_1208	Process	GO:0006950	Response to stress
+243230.DR_1279	Process	GO:0006950	Response to stress
+243230.DR_1378	Process	GO:0006950	Response to stress
+243230.DR_1538	Process	GO:0006950	Response to stress
+243230.DR_1546	Process	GO:0006950	Response to stress
+243230.DR_1857	Process	GO:0006950	Response to stress
+243230.DR_1982	Process	GO:0006950	Response to stress
+243230.DR_1998	Process	GO:0006950	Response to stress
+243230.DR_2242	Process	GO:0006950	Response to stress
+243230.DR_A0202	Process	GO:0006950	Response to stress
+243230.DR_A0259	Process	GO:0006950	Response to stress
+243230.DR_0846	Process	GO:0006979	Response to oxidative stress
+243230.DR_1208	Process	GO:0006979	Response to oxidative stress
+243230.DR_1279	Process	GO:0006979	Response to oxidative stress
+243230.DR_1378	Process	GO:0006979	Response to oxidative stress
+243230.DR_1538	Process	GO:0006979	Response to oxidative stress
+243230.DR_1546	Process	GO:0006979	Response to oxidative stress
+243230.DR_1857	Process	GO:0006979	Response to oxidative stress
+243230.DR_1982	Process	GO:0006979	Response to oxidative stress
+243230.DR_1998	Process	GO:0006979	Response to oxidative stress
+243230.DR_2242	Process	GO:0006979	Response to oxidative stress
+243230.DR_A0202	Process	GO:0006979	Response to oxidative stress
+243230.DR_A0259	Process	GO:0006979	Response to oxidative stress
+243230.DR_1279	Process	GO:0008152	Metabolic process
+243230.DR_1378	Process	GO:0008152	Metabolic process
+243230.DR_1546	Process	GO:0008152	Metabolic process
+243230.DR_1982	Process	GO:0008152	Metabolic process
+243230.DR_1998	Process	GO:0008152	Metabolic process
+243230.DR_A0202	Process	GO:0008152	Metabolic process
+243230.DR_A0259	Process	GO:0008152	Metabolic process
+243230.DR_1998	Process	GO:0009056	Catabolic process
+243230.DR_A0259	Process	GO:0009056	Catabolic process
+243230.DR_0189	Process	GO:0009636	Response to toxic substance
+243230.DR_0846	Process	GO:0009636	Response to toxic substance
+243230.DR_1208	Process	GO:0009636	Response to toxic substance
+243230.DR_1209	Process	GO:0009636	Response to toxic substance
+243230.DR_1279	Process	GO:0009636	Response to toxic substance
+243230.DR_1538	Process	GO:0009636	Response to toxic substance
+243230.DR_1546	Process	GO:0009636	Response to toxic substance
+243230.DR_1982	Process	GO:0009636	Response to toxic substance
+243230.DR_1998	Process	GO:0009636	Response to toxic substance
+243230.DR_2242	Process	GO:0009636	Response to toxic substance
+243230.DR_A0145	Process	GO:0009636	Response to toxic substance
+243230.DR_A0202	Process	GO:0009636	Response to toxic substance
+243230.DR_A0259	Process	GO:0009636	Response to toxic substance
+243230.DR_A0301	Process	GO:0009636	Response to toxic substance
+243230.DR_0189	Process	GO:0009987	Cellular process
+243230.DR_0846	Process	GO:0009987	Cellular process
+243230.DR_1208	Process	GO:0009987	Cellular process
+243230.DR_1209	Process	GO:0009987	Cellular process
+243230.DR_1279	Process	GO:0009987	Cellular process
+243230.DR_1378	Process	GO:0009987	Cellular process
+243230.DR_1538	Process	GO:0009987	Cellular process
+243230.DR_1546	Process	GO:0009987	Cellular process
+243230.DR_1982	Process	GO:0009987	Cellular process
+243230.DR_1998	Process	GO:0009987	Cellular process
+243230.DR_2242	Process	GO:0009987	Cellular process
+243230.DR_A0145	Process	GO:0009987	Cellular process
+243230.DR_A0202	Process	GO:0009987	Cellular process
+243230.DR_A0259	Process	GO:0009987	Cellular process
+243230.DR_A0301	Process	GO:0009987	Cellular process
+243230.DR_0189	Process	GO:0016043	Cellular component organization
+243230.DR_0189	Process	GO:0017004	Cytochrome complex assembly
+243230.DR_1279	Process	GO:0019430	Removal of superoxide radicals
+243230.DR_1546	Process	GO:0019430	Removal of superoxide radicals
+243230.DR_1982	Process	GO:0019430	Removal of superoxide radicals
+243230.DR_A0202	Process	GO:0019430	Removal of superoxide radicals
+243230.DR_1378	Process	GO:0019538	Protein metabolic process
+243230.DR_0846	Process	GO:0019725	Cellular homeostasis
+243230.DR_1208	Process	GO:0019725	Cellular homeostasis
+243230.DR_1982	Process	GO:0019725	Cellular homeostasis
+243230.DR_2242	Process	GO:0019725	Cellular homeostasis
+243230.DR_0189	Process	GO:0022607	Cellular component assembly
+243230.DR_1378	Process	GO:0030091	Protein repair
+243230.DR_0846	Process	GO:0033554	Cellular response to stress
+243230.DR_1208	Process	GO:0033554	Cellular response to stress
+243230.DR_1279	Process	GO:0033554	Cellular response to stress
+243230.DR_1546	Process	GO:0033554	Cellular response to stress
+243230.DR_1982	Process	GO:0033554	Cellular response to stress
+243230.DR_2242	Process	GO:0033554	Cellular response to stress
+243230.DR_A0202	Process	GO:0033554	Cellular response to stress
+243230.DR_0846	Process	GO:0034599	Cellular response to oxidative stress
+243230.DR_1208	Process	GO:0034599	Cellular response to oxidative stress
+243230.DR_1279	Process	GO:0034599	Cellular response to oxidative stress
+243230.DR_1546	Process	GO:0034599	Cellular response to oxidative stress
+243230.DR_1982	Process	GO:0034599	Cellular response to oxidative stress
+243230.DR_2242	Process	GO:0034599	Cellular response to oxidative stress
+243230.DR_A0202	Process	GO:0034599	Cellular response to oxidative stress
+243230.DR_1279	Process	GO:0034614	Cellular response to reactive oxygen species
+243230.DR_1546	Process	GO:0034614	Cellular response to reactive oxygen species
+243230.DR_1982	Process	GO:0034614	Cellular response to reactive oxygen species
+243230.DR_A0202	Process	GO:0034614	Cellular response to reactive oxygen species
+243230.DR_0189	Process	GO:0042221	Response to chemical
+243230.DR_0846	Process	GO:0042221	Response to chemical
+243230.DR_1208	Process	GO:0042221	Response to chemical
+243230.DR_1209	Process	GO:0042221	Response to chemical
+243230.DR_1279	Process	GO:0042221	Response to chemical
+243230.DR_1538	Process	GO:0042221	Response to chemical
+243230.DR_1546	Process	GO:0042221	Response to chemical
+243230.DR_1982	Process	GO:0042221	Response to chemical
+243230.DR_1998	Process	GO:0042221	Response to chemical
+243230.DR_2242	Process	GO:0042221	Response to chemical
+243230.DR_A0145	Process	GO:0042221	Response to chemical
+243230.DR_A0202	Process	GO:0042221	Response to chemical
+243230.DR_A0259	Process	GO:0042221	Response to chemical
+243230.DR_A0301	Process	GO:0042221	Response to chemical
+243230.DR_0846	Process	GO:0042592	Homeostatic process
+243230.DR_1208	Process	GO:0042592	Homeostatic process
+243230.DR_1982	Process	GO:0042592	Homeostatic process
+243230.DR_2242	Process	GO:0042592	Homeostatic process
+243230.DR_1998	Process	GO:0042743	Hydrogen peroxide metabolic process
+243230.DR_A0259	Process	GO:0042743	Hydrogen peroxide metabolic process
+243230.DR_1998	Process	GO:0042744	Hydrogen peroxide catabolic process
+243230.DR_A0259	Process	GO:0042744	Hydrogen peroxide catabolic process
+243230.DR_1378	Process	GO:0043170	Macromolecule metabolic process
+243230.DR_0189	Process	GO:0043933	Protein-containing complex organization
+243230.DR_0189	Process	GO:0044085	Cellular component biogenesis
+243230.DR_1378	Process	GO:0044238	Primary metabolic process
+243230.DR_0846	Process	GO:0045454	Cell redox homeostasis
+243230.DR_1208	Process	GO:0045454	Cell redox homeostasis
+243230.DR_1982	Process	GO:0045454	Cell redox homeostasis
+243230.DR_2242	Process	GO:0045454	Cell redox homeostasis
+243230.DR_0189	Process	GO:0050896	Response to stimulus
+243230.DR_0846	Process	GO:0050896	Response to stimulus
+243230.DR_1208	Process	GO:0050896	Response to stimulus
+243230.DR_1209	Process	GO:0050896	Response to stimulus
+243230.DR_1279	Process	GO:0050896	Response to stimulus
+243230.DR_1378	Process	GO:0050896	Response to stimulus
+243230.DR_1538	Process	GO:0050896	Response to stimulus
+243230.DR_1546	Process	GO:0050896	Response to stimulus
+243230.DR_1857	Process	GO:0050896	Response to stimulus
+243230.DR_1982	Process	GO:0050896	Response to stimulus
+243230.DR_1998	Process	GO:0050896	Response to stimulus
+243230.DR_2242	Process	GO:0050896	Response to stimulus
+243230.DR_A0145	Process	GO:0050896	Response to stimulus
+243230.DR_A0202	Process	GO:0050896	Response to stimulus
+243230.DR_A0259	Process	GO:0050896	Response to stimulus
+243230.DR_A0301	Process	GO:0050896	Response to stimulus
+243230.DR_0189	Process	GO:0051716	Cellular response to stimulus
+243230.DR_0846	Process	GO:0051716	Cellular response to stimulus
+243230.DR_1208	Process	GO:0051716	Cellular response to stimulus
+243230.DR_1209	Process	GO:0051716	Cellular response to stimulus
+243230.DR_1279	Process	GO:0051716	Cellular response to stimulus
+243230.DR_1538	Process	GO:0051716	Cellular response to stimulus
+243230.DR_1546	Process	GO:0051716	Cellular response to stimulus
+243230.DR_1982	Process	GO:0051716	Cellular response to stimulus
+243230.DR_1998	Process	GO:0051716	Cellular response to stimulus
+243230.DR_2242	Process	GO:0051716	Cellular response to stimulus
+243230.DR_A0145	Process	GO:0051716	Cellular response to stimulus
+243230.DR_A0202	Process	GO:0051716	Cellular response to stimulus
+243230.DR_A0259	Process	GO:0051716	Cellular response to stimulus
+243230.DR_A0301	Process	GO:0051716	Cellular response to stimulus
+243230.DR_0846	Process	GO:0062197	Cellular response to chemical stress
+243230.DR_1208	Process	GO:0062197	Cellular response to chemical stress
+243230.DR_1279	Process	GO:0062197	Cellular response to chemical stress
+243230.DR_1546	Process	GO:0062197	Cellular response to chemical stress
+243230.DR_1982	Process	GO:0062197	Cellular response to chemical stress
+243230.DR_2242	Process	GO:0062197	Cellular response to chemical stress
+243230.DR_A0202	Process	GO:0062197	Cellular response to chemical stress
+243230.DR_0189	Process	GO:0065003	Protein-containing complex assembly
+243230.DR_0189	Process	GO:0070887	Cellular response to chemical stimulus
+243230.DR_0846	Process	GO:0070887	Cellular response to chemical stimulus
+243230.DR_1208	Process	GO:0070887	Cellular response to chemical stimulus
+243230.DR_1209	Process	GO:0070887	Cellular response to chemical stimulus
+243230.DR_1279	Process	GO:0070887	Cellular response to chemical stimulus
+243230.DR_1538	Process	GO:0070887	Cellular response to chemical stimulus
+243230.DR_1546	Process	GO:0070887	Cellular response to chemical stimulus
+243230.DR_1982	Process	GO:0070887	Cellular response to chemical stimulus
+243230.DR_1998	Process	GO:0070887	Cellular response to chemical stimulus
+243230.DR_2242	Process	GO:0070887	Cellular response to chemical stimulus
+243230.DR_A0145	Process	GO:0070887	Cellular response to chemical stimulus
+243230.DR_A0202	Process	GO:0070887	Cellular response to chemical stimulus
+243230.DR_A0259	Process	GO:0070887	Cellular response to chemical stimulus
+243230.DR_A0301	Process	GO:0070887	Cellular response to chemical stimulus
+243230.DR_1279	Process	GO:0071450	Cellular response to oxygen radical
+243230.DR_1546	Process	GO:0071450	Cellular response to oxygen radical
+243230.DR_1982	Process	GO:0071450	Cellular response to oxygen radical
+243230.DR_A0202	Process	GO:0071450	Cellular response to oxygen radical
+243230.DR_1279	Process	GO:0071451	Cellular response to superoxide
+243230.DR_1546	Process	GO:0071451	Cellular response to superoxide
+243230.DR_1982	Process	GO:0071451	Cellular response to superoxide
+243230.DR_A0202	Process	GO:0071451	Cellular response to superoxide
+243230.DR_0189	Process	GO:0071840	Cellular component organization or biogenesis
+243230.DR_1279	Process	GO:0072593	Reactive oxygen species metabolic process
+243230.DR_1546	Process	GO:0072593	Reactive oxygen species metabolic process
+243230.DR_1982	Process	GO:0072593	Reactive oxygen species metabolic process
+243230.DR_1998	Process	GO:0072593	Reactive oxygen species metabolic process
+243230.DR_A0202	Process	GO:0072593	Reactive oxygen species metabolic process
+243230.DR_A0259	Process	GO:0072593	Reactive oxygen species metabolic process
+243230.DR_0189	Process	GO:0097237	Cellular response to toxic substance
+243230.DR_0846	Process	GO:0097237	Cellular response to toxic substance
+243230.DR_1208	Process	GO:0097237	Cellular response to toxic substance
+243230.DR_1209	Process	GO:0097237	Cellular response to toxic substance
+243230.DR_1279	Process	GO:0097237	Cellular response to toxic substance
+243230.DR_1538	Process	GO:0097237	Cellular response to toxic substance
+243230.DR_1546	Process	GO:0097237	Cellular response to toxic substance
+243230.DR_1982	Process	GO:0097237	Cellular response to toxic substance
+243230.DR_1998	Process	GO:0097237	Cellular response to toxic substance
+243230.DR_2242	Process	GO:0097237	Cellular response to toxic substance
+243230.DR_A0145	Process	GO:0097237	Cellular response to toxic substance
+243230.DR_A0202	Process	GO:0097237	Cellular response to toxic substance
+243230.DR_A0259	Process	GO:0097237	Cellular response to toxic substance
+243230.DR_A0301	Process	GO:0097237	Cellular response to toxic substance
+243230.DR_0189	Process	GO:0098754	Detoxification
+243230.DR_0846	Process	GO:0098754	Detoxification
+243230.DR_1208	Process	GO:0098754	Detoxification
+243230.DR_1209	Process	GO:0098754	Detoxification
+243230.DR_1279	Process	GO:0098754	Detoxification
+243230.DR_1538	Process	GO:0098754	Detoxification
+243230.DR_1546	Process	GO:0098754	Detoxification
+243230.DR_1982	Process	GO:0098754	Detoxification
+243230.DR_1998	Process	GO:0098754	Detoxification
+243230.DR_2242	Process	GO:0098754	Detoxification
+243230.DR_A0145	Process	GO:0098754	Detoxification
+243230.DR_A0202	Process	GO:0098754	Detoxification
+243230.DR_A0259	Process	GO:0098754	Detoxification
+243230.DR_A0301	Process	GO:0098754	Detoxification
+243230.DR_0189	Process	GO:0098869	Cellular oxidant detoxification
+243230.DR_0846	Process	GO:0098869	Cellular oxidant detoxification
+243230.DR_1208	Process	GO:0098869	Cellular oxidant detoxification
+243230.DR_1209	Process	GO:0098869	Cellular oxidant detoxification
+243230.DR_1279	Process	GO:0098869	Cellular oxidant detoxification
+243230.DR_1538	Process	GO:0098869	Cellular oxidant detoxification
+243230.DR_1546	Process	GO:0098869	Cellular oxidant detoxification
+243230.DR_1982	Process	GO:0098869	Cellular oxidant detoxification
+243230.DR_1998	Process	GO:0098869	Cellular oxidant detoxification
+243230.DR_2242	Process	GO:0098869	Cellular oxidant detoxification
+243230.DR_A0145	Process	GO:0098869	Cellular oxidant detoxification
+243230.DR_A0202	Process	GO:0098869	Cellular oxidant detoxification
+243230.DR_A0259	Process	GO:0098869	Cellular oxidant detoxification
+243230.DR_A0301	Process	GO:0098869	Cellular oxidant detoxification
+243230.DR_1279	Process	GO:1901700	Response to oxygen-containing compound
+243230.DR_1546	Process	GO:1901700	Response to oxygen-containing compound
+243230.DR_1982	Process	GO:1901700	Response to oxygen-containing compound
+243230.DR_1998	Process	GO:1901700	Response to oxygen-containing compound
+243230.DR_A0202	Process	GO:1901700	Response to oxygen-containing compound
+243230.DR_1279	Process	GO:1901701	Cellular response to oxygen-containing compound
+243230.DR_1546	Process	GO:1901701	Cellular response to oxygen-containing compound
+243230.DR_1982	Process	GO:1901701	Cellular response to oxygen-containing compound
+243230.DR_A0202	Process	GO:1901701	Cellular response to oxygen-containing compound
+243230.DR_0189	Process	GO:1990748	Cellular detoxification
+243230.DR_0846	Process	GO:1990748	Cellular detoxification
+243230.DR_1208	Process	GO:1990748	Cellular detoxification
+243230.DR_1209	Process	GO:1990748	Cellular detoxification
+243230.DR_1279	Process	GO:1990748	Cellular detoxification
+243230.DR_1538	Process	GO:1990748	Cellular detoxification
+243230.DR_1546	Process	GO:1990748	Cellular detoxification
+243230.DR_1982	Process	GO:1990748	Cellular detoxification
+243230.DR_1998	Process	GO:1990748	Cellular detoxification
+243230.DR_2242	Process	GO:1990748	Cellular detoxification
+243230.DR_A0145	Process	GO:1990748	Cellular detoxification
+243230.DR_A0202	Process	GO:1990748	Cellular detoxification
+243230.DR_A0259	Process	GO:1990748	Cellular detoxification
+243230.DR_A0301	Process	GO:1990748	Cellular detoxification
+243230.DR_1998	Process	GO:0042542	Response to hydrogen peroxide
+243230.DR_0189	Component	GO:0005622	Intracellular anatomical structure
+243230.DR_0846	Component	GO:0005622	Intracellular anatomical structure
+243230.DR_1208	Component	GO:0005622	Intracellular anatomical structure
+243230.DR_1209	Component	GO:0005622	Intracellular anatomical structure
+243230.DR_1279	Component	GO:0005622	Intracellular anatomical structure
+243230.DR_1378	Component	GO:0005622	Intracellular anatomical structure
+243230.DR_1538	Component	GO:0005622	Intracellular anatomical structure
+243230.DR_1857	Component	GO:0005622	Intracellular anatomical structure
+243230.DR_1982	Component	GO:0005622	Intracellular anatomical structure
+243230.DR_1998	Component	GO:0005622	Intracellular anatomical structure
+243230.DR_2242	Component	GO:0005622	Intracellular anatomical structure
+243230.DR_A0145	Component	GO:0005622	Intracellular anatomical structure
+243230.DR_A0259	Component	GO:0005622	Intracellular anatomical structure
+243230.DR_0189	Component	GO:0005737	Cytoplasm
+243230.DR_0846	Component	GO:0005737	Cytoplasm
+243230.DR_1208	Component	GO:0005737	Cytoplasm
+243230.DR_1209	Component	GO:0005737	Cytoplasm
+243230.DR_1279	Component	GO:0005737	Cytoplasm
+243230.DR_1378	Component	GO:0005737	Cytoplasm
+243230.DR_1538	Component	GO:0005737	Cytoplasm
+243230.DR_1857	Component	GO:0005737	Cytoplasm
+243230.DR_1982	Component	GO:0005737	Cytoplasm
+243230.DR_1998	Component	GO:0005737	Cytoplasm
+243230.DR_2242	Component	GO:0005737	Cytoplasm
+243230.DR_A0145	Component	GO:0005737	Cytoplasm
+243230.DR_A0259	Component	GO:0005737	Cytoplasm
+243230.DR_2242	Component	GO:0005829	Cytosol
+243230.DR_A0145	Component	GO:0005829	Cytosol
+243230.DR_1546	Component	GO:0005886	Plasma membrane
+243230.DR_A0202	Component	GO:0005886	Plasma membrane
+243230.DR_1546	Component	GO:0016020	Membrane
+243230.DR_A0202	Component	GO:0016020	Membrane
+243230.DR_1546	Component	GO:0071944	Cell periphery
+243230.DR_A0202	Component	GO:0071944	Cell periphery
+243230.DR_0189	Component	GO:0110165	Cellular anatomical structure
+243230.DR_0846	Component	GO:0110165	Cellular anatomical structure
+243230.DR_1208	Component	GO:0110165	Cellular anatomical structure
+243230.DR_1209	Component	GO:0110165	Cellular anatomical structure
+243230.DR_1279	Component	GO:0110165	Cellular anatomical structure
+243230.DR_1378	Component	GO:0110165	Cellular anatomical structure
+243230.DR_1538	Component	GO:0110165	Cellular anatomical structure
+243230.DR_1546	Component	GO:0110165	Cellular anatomical structure
+243230.DR_1857	Component	GO:0110165	Cellular anatomical structure
+243230.DR_1982	Component	GO:0110165	Cellular anatomical structure
+243230.DR_1998	Component	GO:0110165	Cellular anatomical structure
+243230.DR_2242	Component	GO:0110165	Cellular anatomical structure
+243230.DR_A0145	Component	GO:0110165	Cellular anatomical structure
+243230.DR_A0202	Component	GO:0110165	Cellular anatomical structure
+243230.DR_A0259	Component	GO:0110165	Cellular anatomical structure
+243230.DR_A0301	Component	GO:0110165	Cellular anatomical structure
+243230.DR_1982	Function	GO:0000166	Nucleotide binding
+243230.DR_0189	Function	GO:0003824	Catalytic activity
+243230.DR_0846	Function	GO:0003824	Catalytic activity
+243230.DR_1208	Function	GO:0003824	Catalytic activity
+243230.DR_1209	Function	GO:0003824	Catalytic activity
+243230.DR_1279	Function	GO:0003824	Catalytic activity
+243230.DR_1378	Function	GO:0003824	Catalytic activity
+243230.DR_1538	Function	GO:0003824	Catalytic activity
+243230.DR_1546	Function	GO:0003824	Catalytic activity
+243230.DR_1982	Function	GO:0003824	Catalytic activity
+243230.DR_1998	Function	GO:0003824	Catalytic activity
+243230.DR_2242	Function	GO:0003824	Catalytic activity
+243230.DR_A0145	Function	GO:0003824	Catalytic activity
+243230.DR_A0202	Function	GO:0003824	Catalytic activity
+243230.DR_A0259	Function	GO:0003824	Catalytic activity
+243230.DR_A0301	Function	GO:0003824	Catalytic activity
+243230.DR_1998	Function	GO:0004096	Catalase activity
+243230.DR_A0259	Function	GO:0004096	Catalase activity
+243230.DR_A0301	Function	GO:0004130	Cytochrome-c peroxidase activity
+243230.DR_0846	Function	GO:0004601	Peroxidase activity
+243230.DR_1208	Function	GO:0004601	Peroxidase activity
+243230.DR_1209	Function	GO:0004601	Peroxidase activity
+243230.DR_1538	Function	GO:0004601	Peroxidase activity
+243230.DR_1998	Function	GO:0004601	Peroxidase activity
+243230.DR_2242	Function	GO:0004601	Peroxidase activity
+243230.DR_A0145	Function	GO:0004601	Peroxidase activity
+243230.DR_A0259	Function	GO:0004601	Peroxidase activity
+243230.DR_A0301	Function	GO:0004601	Peroxidase activity
+243230.DR_1279	Function	GO:0004784	Superoxide dismutase activity
+243230.DR_1546	Function	GO:0004784	Superoxide dismutase activity
+243230.DR_A0202	Function	GO:0004784	Superoxide dismutase activity
+243230.DR_1982	Function	GO:0004791	Thioredoxin-disulfide reductase (NADPH) activity
+243230.DR_1279	Function	GO:0005488	Binding
+243230.DR_1546	Function	GO:0005488	Binding
+243230.DR_1982	Function	GO:0005488	Binding
+243230.DR_1998	Function	GO:0005488	Binding
+243230.DR_A0145	Function	GO:0005488	Binding
+243230.DR_A0202	Function	GO:0005488	Binding
+243230.DR_A0259	Function	GO:0005488	Binding
+243230.DR_A0301	Function	GO:0005488	Binding
+243230.DR_1546	Function	GO:0005507	Copper ion binding
+243230.DR_A0202	Function	GO:0005507	Copper ion binding
+243230.DR_0846	Function	GO:0008379	Thioredoxin peroxidase activity
+243230.DR_1208	Function	GO:0008379	Thioredoxin peroxidase activity
+243230.DR_2242	Function	GO:0008379	Thioredoxin peroxidase activity
+243230.DR_A0301	Function	GO:0009055	Electron transfer activity
+243230.DR_1982	Function	GO:0015035	Protein-disulfide reductase activity
+243230.DR_1982	Function	GO:0015036	Disulfide oxidoreductase activity
+243230.DR_0189	Function	GO:0016209	Antioxidant activity
+243230.DR_0846	Function	GO:0016209	Antioxidant activity
+243230.DR_1208	Function	GO:0016209	Antioxidant activity
+243230.DR_1209	Function	GO:0016209	Antioxidant activity
+243230.DR_1279	Function	GO:0016209	Antioxidant activity
+243230.DR_1538	Function	GO:0016209	Antioxidant activity
+243230.DR_1546	Function	GO:0016209	Antioxidant activity
+243230.DR_1982	Function	GO:0016209	Antioxidant activity
+243230.DR_1998	Function	GO:0016209	Antioxidant activity
+243230.DR_2242	Function	GO:0016209	Antioxidant activity
+243230.DR_A0145	Function	GO:0016209	Antioxidant activity
+243230.DR_A0202	Function	GO:0016209	Antioxidant activity
+243230.DR_A0259	Function	GO:0016209	Antioxidant activity
+243230.DR_A0301	Function	GO:0016209	Antioxidant activity
+243230.DR_0189	Function	GO:0016491	Oxidoreductase activity
+243230.DR_0846	Function	GO:0016491	Oxidoreductase activity
+243230.DR_1208	Function	GO:0016491	Oxidoreductase activity
+243230.DR_1209	Function	GO:0016491	Oxidoreductase activity
+243230.DR_1279	Function	GO:0016491	Oxidoreductase activity
+243230.DR_1378	Function	GO:0016491	Oxidoreductase activity
+243230.DR_1538	Function	GO:0016491	Oxidoreductase activity
+243230.DR_1546	Function	GO:0016491	Oxidoreductase activity
+243230.DR_1982	Function	GO:0016491	Oxidoreductase activity
+243230.DR_1998	Function	GO:0016491	Oxidoreductase activity
+243230.DR_2242	Function	GO:0016491	Oxidoreductase activity
+243230.DR_A0145	Function	GO:0016491	Oxidoreductase activity
+243230.DR_A0202	Function	GO:0016491	Oxidoreductase activity
+243230.DR_A0259	Function	GO:0016491	Oxidoreductase activity
+243230.DR_A0301	Function	GO:0016491	Oxidoreductase activity
+243230.DR_1378	Function	GO:0016667	Oxidoreductase activity, acting on a sulfur group of donors
+243230.DR_1982	Function	GO:0016667	Oxidoreductase activity, acting on a sulfur group of donors
+243230.DR_1982	Function	GO:0016668	Oxidoreductase activity, acting on a sulfur group of donors, NAD(P) as acceptor
+243230.DR_1378	Function	GO:0016671	Oxidoreductase activity, acting on a sulfur group of donors, disulfide as acceptor
+243230.DR_0846	Function	GO:0016684	Oxidoreductase activity, acting on peroxide as acceptor
+243230.DR_1208	Function	GO:0016684	Oxidoreductase activity, acting on peroxide as acceptor
+243230.DR_1209	Function	GO:0016684	Oxidoreductase activity, acting on peroxide as acceptor
+243230.DR_1538	Function	GO:0016684	Oxidoreductase activity, acting on peroxide as acceptor
+243230.DR_1998	Function	GO:0016684	Oxidoreductase activity, acting on peroxide as acceptor
+243230.DR_2242	Function	GO:0016684	Oxidoreductase activity, acting on peroxide as acceptor
+243230.DR_A0145	Function	GO:0016684	Oxidoreductase activity, acting on peroxide as acceptor
+243230.DR_A0259	Function	GO:0016684	Oxidoreductase activity, acting on peroxide as acceptor
+243230.DR_A0301	Function	GO:0016684	Oxidoreductase activity, acting on peroxide as acceptor
+243230.DR_1279	Function	GO:0016721	Oxidoreductase activity, acting on superoxide radicals as acceptor
+243230.DR_1546	Function	GO:0016721	Oxidoreductase activity, acting on superoxide radicals as acceptor
+243230.DR_A0202	Function	GO:0016721	Oxidoreductase activity, acting on superoxide radicals as acceptor
+243230.DR_1998	Function	GO:0020037	Heme binding
+243230.DR_A0145	Function	GO:0020037	Heme binding
+243230.DR_A0259	Function	GO:0020037	Heme binding
+243230.DR_A0301	Function	GO:0020037	Heme binding
+243230.DR_1279	Function	GO:0036094	Small molecule binding
+243230.DR_1546	Function	GO:0036094	Small molecule binding
+243230.DR_1982	Function	GO:0036094	Small molecule binding
+243230.DR_1998	Function	GO:0036094	Small molecule binding
+243230.DR_A0145	Function	GO:0036094	Small molecule binding
+243230.DR_A0202	Function	GO:0036094	Small molecule binding
+243230.DR_A0259	Function	GO:0036094	Small molecule binding
+243230.DR_A0301	Function	GO:0036094	Small molecule binding
+243230.DR_1279	Function	GO:0043167	Ion binding
+243230.DR_1546	Function	GO:0043167	Ion binding
+243230.DR_1998	Function	GO:0043167	Ion binding
+243230.DR_A0145	Function	GO:0043167	Ion binding
+243230.DR_A0202	Function	GO:0043167	Ion binding
+243230.DR_A0259	Function	GO:0043167	Ion binding
+243230.DR_A0301	Function	GO:0043167	Ion binding
+243230.DR_1279	Function	GO:0043169	Cation binding
+243230.DR_1546	Function	GO:0043169	Cation binding
+243230.DR_1998	Function	GO:0043169	Cation binding
+243230.DR_A0145	Function	GO:0043169	Cation binding
+243230.DR_A0202	Function	GO:0043169	Cation binding
+243230.DR_A0259	Function	GO:0043169	Cation binding
+243230.DR_A0301	Function	GO:0043169	Cation binding
+243230.DR_1279	Function	GO:0046872	Metal ion binding
+243230.DR_1546	Function	GO:0046872	Metal ion binding
+243230.DR_1998	Function	GO:0046872	Metal ion binding
+243230.DR_A0145	Function	GO:0046872	Metal ion binding
+243230.DR_A0202	Function	GO:0046872	Metal ion binding
+243230.DR_A0259	Function	GO:0046872	Metal ion binding
+243230.DR_A0301	Function	GO:0046872	Metal ion binding
+243230.DR_1998	Function	GO:0046906	Tetrapyrrole binding
+243230.DR_A0145	Function	GO:0046906	Tetrapyrrole binding
+243230.DR_A0259	Function	GO:0046906	Tetrapyrrole binding
+243230.DR_A0301	Function	GO:0046906	Tetrapyrrole binding
+243230.DR_1546	Function	GO:0046914	Transition metal ion binding
+243230.DR_A0202	Function	GO:0046914	Transition metal ion binding
+243230.DR_1982	Function	GO:0047134	Protein-disulfide reductase [NAD(P)H] activity
+243230.DR_0846	Function	GO:0051920	Peroxiredoxin activity
+243230.DR_1208	Function	GO:0051920	Peroxiredoxin activity
+243230.DR_1209	Function	GO:0051920	Peroxiredoxin activity
+243230.DR_1538	Function	GO:0051920	Peroxiredoxin activity
+243230.DR_2242	Function	GO:0051920	Peroxiredoxin activity
+243230.DR_1982	Function	GO:0140096	Catalytic activity, acting on a protein
+243230.DR_0846	Function	GO:0140824	Thioredoxin-dependent peroxiredoxin activity
+243230.DR_1208	Function	GO:0140824	Thioredoxin-dependent peroxiredoxin activity
+243230.DR_1209	Function	GO:0140824	Thioredoxin-dependent peroxiredoxin activity
+243230.DR_2242	Function	GO:0140824	Thioredoxin-dependent peroxiredoxin activity
+243230.DR_1982	Function	GO:1901265	Nucleoside phosphate binding
+243230.DR_1982	Function	GO:1901363	Heterocyclic compound binding
+243230.DR_1378	Function	GO:0033743	Peptide-methionine (R)-S-oxide reductase activity
+243230.DR_0846	Keyword	KW-0049	Antioxidant
+243230.DR_1208	Keyword	KW-0049	Antioxidant
+243230.DR_1209	Keyword	KW-0049	Antioxidant
+243230.DR_1546	Keyword	KW-0049	Antioxidant
+243230.DR_A0145	Keyword	KW-0106	Calcium
+243230.DR_1546	Keyword	KW-0186	Copper
+243230.DR_0189	Keyword	KW-0201	Cytochrome c-type biogenesis
+243230.DR_1982	Keyword	KW-0274	FAD
+243230.DR_1982	Keyword	KW-0285	Flavoprotein
+243230.DR_1998	Keyword	KW-0349	Heme
+243230.DR_A0145	Keyword	KW-0349	Heme
+243230.DR_A0259	Keyword	KW-0349	Heme
+243230.DR_A0301	Keyword	KW-0349	Heme
+243230.DR_1998	Keyword	KW-0376	Hydrogen peroxide
+243230.DR_A0259	Keyword	KW-0376	Hydrogen peroxide
+243230.DR_1998	Keyword	KW-0408	Iron
+243230.DR_A0145	Keyword	KW-0408	Iron
+243230.DR_A0259	Keyword	KW-0408	Iron
+243230.DR_A0301	Keyword	KW-0408	Iron
+243230.DR_1546	Keyword	KW-0449	Lipoprotein
+243230.DR_1279	Keyword	KW-0464	Manganese
+243230.DR_0189	Keyword	KW-0472	Membrane
+243230.DR_1546	Keyword	KW-0472	Membrane
+243230.DR_A0301	Keyword	KW-0472	Membrane
+243230.DR_1279	Keyword	KW-0479	Metal-binding
+243230.DR_1546	Keyword	KW-0479	Metal-binding
+243230.DR_1998	Keyword	KW-0479	Metal-binding
+243230.DR_A0145	Keyword	KW-0479	Metal-binding
+243230.DR_A0259	Keyword	KW-0479	Metal-binding
+243230.DR_A0301	Keyword	KW-0479	Metal-binding
+243230.DR_1982	Keyword	KW-0521	NADP
+243230.DR_1982	Keyword	KW-0547	Nucleotide-binding
+243230.DR_0846	Keyword	KW-0560	Oxidoreductase
+243230.DR_1208	Keyword	KW-0560	Oxidoreductase
+243230.DR_1209	Keyword	KW-0560	Oxidoreductase
+243230.DR_1279	Keyword	KW-0560	Oxidoreductase
+243230.DR_1378	Keyword	KW-0560	Oxidoreductase
+243230.DR_1546	Keyword	KW-0560	Oxidoreductase
+243230.DR_1982	Keyword	KW-0560	Oxidoreductase
+243230.DR_1998	Keyword	KW-0560	Oxidoreductase
+243230.DR_2242	Keyword	KW-0560	Oxidoreductase
+243230.DR_A0145	Keyword	KW-0560	Oxidoreductase
+243230.DR_A0202	Keyword	KW-0560	Oxidoreductase
+243230.DR_A0259	Keyword	KW-0560	Oxidoreductase
+243230.DR_A0301	Keyword	KW-0560	Oxidoreductase
+243230.DR_1546	Keyword	KW-0564	Palmitate
+243230.DR_A0301	Keyword	KW-0574	Periplasm
+243230.DR_0846	Keyword	KW-0575	Peroxidase
+243230.DR_1208	Keyword	KW-0575	Peroxidase
+243230.DR_1209	Keyword	KW-0575	Peroxidase
+243230.DR_1998	Keyword	KW-0575	Peroxidase
+243230.DR_A0145	Keyword	KW-0575	Peroxidase
+243230.DR_A0259	Keyword	KW-0575	Peroxidase
+243230.DR_0189	Keyword	KW-0676	Redox-active center
+243230.DR_0846	Keyword	KW-0676	Redox-active center
+243230.DR_1208	Keyword	KW-0676	Redox-active center
+243230.DR_1209	Keyword	KW-0676	Redox-active center
+243230.DR_1982	Keyword	KW-0676	Redox-active center
+243230.DR_2242	Keyword	KW-0676	Redox-active center
+243230.DR_1546	Keyword	KW-0732	Signal
+243230.DR_A0202	Keyword	KW-0732	Signal
+243230.DR_A0301	Keyword	KW-0732	Signal
+243230.DR_0189	Keyword	KW-0812	Transmembrane
+243230.DR_A0301	Keyword	KW-0812	Transmembrane
+243230.DR_1546	Keyword	KW-0862	Zinc
+243230.DR_1998	Keyword	KW-0963	Cytoplasm
+243230.DR_1546	Keyword	KW-1003	Cell membrane
+243230.DR_0846	Keyword	KW-1015	Disulfide bond
+243230.DR_1208	Keyword	KW-1015	Disulfide bond
+243230.DR_1209	Keyword	KW-1015	Disulfide bond
+243230.DR_1546	Keyword	KW-1015	Disulfide bond
+243230.DR_1982	Keyword	KW-1015	Disulfide bond
+243230.DR_0189	Keyword	KW-1133	Transmembrane helix
+243230.DR_A0301	Keyword	KW-1133	Transmembrane helix
+243230.DR_1998	KEGG	dra00380	Tryptophan metabolism
+243230.DR_A0259	KEGG	dra00380	Tryptophan metabolism
+243230.DR_1982	KEGG	dra00450	Selenocompound metabolism
+243230.DR_1998	KEGG	dra00630	Glyoxylate and dicarboxylate metabolism
+243230.DR_A0259	KEGG	dra00630	Glyoxylate and dicarboxylate metabolism
+243230.DR_1998	KEGG	dra01100	Metabolic pathways
+243230.DR_A0259	KEGG	dra01100	Metabolic pathways
+243230.DR_1998	KEGG	dra01110	Biosynthesis of secondary metabolites
+243230.DR_A0259	KEGG	dra01110	Biosynthesis of secondary metabolites
+243230.DR_1998	KEGG	dra01200	Carbon metabolism
+243230.DR_A0259	KEGG	dra01200	Carbon metabolism
+243230.DR_1279	KEGG	dra04146	Peroxisome
+243230.DR_1546	KEGG	dra04146	Peroxisome
+243230.DR_1998	KEGG	dra04146	Peroxisome
+243230.DR_A0202	KEGG	dra04146	Peroxisome
+243230.DR_A0259	KEGG	dra04146	Peroxisome
+243230.DR_1998	SMART	SM01060	Catalases are antioxidant enzymes that catalyse the conversion of hydrogen peroxide to water and molecular oxygen, serving to protect cells from its toxic effects PUBMED:11351128. Hydrogen peroxide is produced as a consequence of oxidative cellular ...
+243230.DR_A0259	SMART	SM01060	Catalases are antioxidant enzymes that catalyse the conversion of hydrogen peroxide to water and molecular oxygen, serving to protect cells from its toxic effects PUBMED:11351128. Hydrogen peroxide is produced as a consequence of oxidative cellular ...
+243230.DR_0189	InterPro	IPR000866	Alkyl hydroperoxide reductase subunit C/ Thiol specific antioxidant
+243230.DR_0846	InterPro	IPR000866	Alkyl hydroperoxide reductase subunit C/ Thiol specific antioxidant
+243230.DR_1208	InterPro	IPR000866	Alkyl hydroperoxide reductase subunit C/ Thiol specific antioxidant
+243230.DR_1209	InterPro	IPR000866	Alkyl hydroperoxide reductase subunit C/ Thiol specific antioxidant
+243230.DR_2242	InterPro	IPR000866	Alkyl hydroperoxide reductase subunit C/ Thiol specific antioxidant
+243230.DR_1546	InterPro	IPR001424	Superoxide dismutase, copper/zinc binding domain
+243230.DR_A0202	InterPro	IPR001424	Superoxide dismutase, copper/zinc binding domain
+243230.DR_1998	InterPro	IPR002226	Catalase haem-binding site
+243230.DR_A0259	InterPro	IPR002226	Catalase haem-binding site
+243230.DR_1538	InterPro	IPR003718	OsmC/Ohr family
+243230.DR_1857	InterPro	IPR003718	OsmC/Ohr family
+243230.DR_A0301	InterPro	IPR009056	Cytochrome c-like domain
+243230.DR_1998	InterPro	IPR010582	Catalase immune-responsive domain
+243230.DR_A0259	InterPro	IPR010582	Catalase immune-responsive domain
+243230.DR_A0145	InterPro	IPR011008	Dimeric alpha-beta barrel
+243230.DR_A0202	InterPro	IPR011042	Six-bladed beta-propeller, TolB-like
+243230.DR_1998	InterPro	IPR011614	Catalase core domain
+243230.DR_A0259	InterPro	IPR011614	Catalase core domain
+243230.DR_0189	InterPro	IPR013766	Thioredoxin domain
+243230.DR_0846	InterPro	IPR013766	Thioredoxin domain
+243230.DR_1208	InterPro	IPR013766	Thioredoxin domain
+243230.DR_1209	InterPro	IPR013766	Thioredoxin domain
+243230.DR_2242	InterPro	IPR013766	Thioredoxin domain
+243230.DR_1538	InterPro	IPR015946	K homology domain-like, alpha/beta
+243230.DR_1857	InterPro	IPR015946	K homology domain-like, alpha/beta
+243230.DR_0189	InterPro	IPR017937	Thioredoxin, conserved site
+243230.DR_1998	InterPro	IPR018028	Catalase, mono-functional, haem-containing
+243230.DR_A0259	InterPro	IPR018028	Catalase, mono-functional, haem-containing
+243230.DR_1998	InterPro	IPR020835	Catalase superfamily
+243230.DR_A0259	InterPro	IPR020835	Catalase superfamily
+243230.DR_1982	InterPro	IPR023753	FAD/NAD(P)-binding domain
+243230.DR_1546	InterPro	IPR024134	Superoxide dismutase (Cu/Zn) / superoxide dismutase copper chaperone
+243230.DR_A0202	InterPro	IPR024134	Superoxide dismutase (Cu/Zn) / superoxide dismutase copper chaperone
+243230.DR_1209	InterPro	IPR024706	Peroxiredoxin, AhpC-type
+243230.DR_2242	InterPro	IPR024706	Peroxiredoxin, AhpC-type
+243230.DR_A0259	InterPro	IPR029062	Class I glutamine amidotransferase-like
+243230.DR_1538	InterPro	IPR036102	OsmC/Ohr superfamily
+243230.DR_1857	InterPro	IPR036102	OsmC/Ohr superfamily
+243230.DR_1982	InterPro	IPR036188	FAD/NAD(P)-binding domain superfamily
+243230.DR_0189	InterPro	IPR036249	Thioredoxin-like superfamily
+243230.DR_0846	InterPro	IPR036249	Thioredoxin-like superfamily
+243230.DR_1208	InterPro	IPR036249	Thioredoxin-like superfamily
+243230.DR_1209	InterPro	IPR036249	Thioredoxin-like superfamily
+243230.DR_2242	InterPro	IPR036249	Thioredoxin-like superfamily
+243230.DR_1546	InterPro	IPR036423	Superoxide dismutase-like, copper/zinc binding domain superfamily
+243230.DR_A0202	InterPro	IPR036423	Superoxide dismutase-like, copper/zinc binding domain superfamily
+243230.DR_A0301	InterPro	IPR036909	Cytochrome c-like domain superfamily
+243230.DR_1982	InterPro	IPR050097	Ferredoxin--NADP reductase type 2
+243230.DR_0189	InterPro	IPR050553	Thioredoxin family ResA/DsbE subfamily
+243230.DR_0846	InterPro	IPR050924	Thiol-specific peroxidase BCP/PrxQ
+243230.DR_1208	InterPro	IPR050924	Thiol-specific peroxidase BCP/PrxQ
+243230.DR_1209	InterPro	IPR050924	Thiol-specific peroxidase BCP/PrxQ
+243230.DR_1279	InterPro	IPR001189	Manganese/iron superoxide dismutase
+243230.DR_1378	InterPro	IPR002579	Peptide methionine sulphoxide reductase MrsB domain
+243230.DR_A0301	InterPro	IPR004852	Di-haem cytochrome c peroxidase
+243230.DR_1982	InterPro	IPR005982	Thioredoxin reductase
+243230.DR_A0145	InterPro	IPR006314	Dyp-type peroxidase
+243230.DR_1982	InterPro	IPR008255	Pyridine nucleotide-disulphide oxidoreductase, class-II, active site
+243230.DR_1378	InterPro	IPR011057	Mss4-like superfamily
+243230.DR_1279	InterPro	IPR019831	Manganese/iron superoxide dismutase, N-terminal
+243230.DR_1279	InterPro	IPR019832	Manganese/iron superoxide dismutase, C-terminal
+243230.DR_1279	InterPro	IPR019833	Manganese/iron superoxide dismutase, binding site
+243230.DR_1538	InterPro	IPR019904	Peroxiredoxin OsmC
+243230.DR_1857	InterPro	IPR019953	Organic hydroperoxide resistance protein famiy
+243230.DR_A0259	InterPro	IPR024708	Catalase active site
+243230.DR_1998	InterPro	IPR024711	Catalase, mono-functional, haem-containing, clades 1 and 3
+243230.DR_A0259	InterPro	IPR024712	Catalase, mono-functional, haem-containing, clade 2
+243230.DR_A0301	InterPro	IPR026259	Di-c-type haem protein, MauG/cytochrome c peroxidase
+243230.DR_1378	InterPro	IPR028427	Peptide methionine sulfoxide reductase MsrB
+243230.DR_1279	InterPro	IPR036314	Manganese/iron superoxide dismutase, C-terminal domain superfamily
+243230.DR_1279	InterPro	IPR036324	Manganese/iron superoxide dismutase, N-terminal domain superfamily
+243230.DR_A0259	InterPro	IPR041399	Large catalase, C-terminal domain
+243230.DR_A0259	InterPro	IPR043156	Catalase, mono-functional, haem-containing, clade 2, helical domain
+243230.DR_A0145	InterPro	IPR049509	DyP dimeric alpha+beta barrel domain
+243230.DR_2242	InterPro	IPR050455	Thiol Peroxidase Tpx Subfamily
+243230.DR_A0301	InterPro	IPR051395	Cytochrome c-dependent Peroxidase and MauG
+243230.DR_1538	InterPro	IPR052707	OsmC/Ohr Peroxiredoxin
+243230.DR_A0301	Pfam	PF00034	Cytochrome c
+243230.DR_1982	Pfam	PF00070	Pyridine nucleotide-disulphide oxidoreductase
+243230.DR_1546	Pfam	PF00080	Copper/zinc superoxide dismutase (SODC)
+243230.DR_A0202	Pfam	PF00080	Copper/zinc superoxide dismutase (SODC)
+243230.DR_0189	Pfam	PF00578	AhpC/TSA family
+243230.DR_0846	Pfam	PF00578	AhpC/TSA family
+243230.DR_1208	Pfam	PF00578	AhpC/TSA family
+243230.DR_1209	Pfam	PF00578	AhpC/TSA family
+243230.DR_2242	Pfam	PF00578	AhpC/TSA family
+243230.DR_A0259	Pfam	PF01965	DJ-1/PfpI family
+243230.DR_1538	Pfam	PF02566	OsmC-like protein
+243230.DR_1857	Pfam	PF02566	OsmC-like protein
+243230.DR_1982	Pfam	PF03486	HI0933-like protein Rossmann domain
+243230.DR_1998	Pfam	PF06628	Catalase-related immune-responsive
+243230.DR_A0259	Pfam	PF06628	Catalase-related immune-responsive
+243230.DR_A0202	Pfam	PF08450	SMP-30/Gluconolactonase/LRE-like region
+243230.DR_1279	Pfam	PF00081	Iron/manganese superoxide dismutases, alpha-hairpin domain
+243230.DR_1378	Pfam	PF01641	SelR domain
+243230.DR_1279	Pfam	PF02777	Iron/manganese superoxide dismutases, C-terminal domain
+243230.DR_A0301	Pfam	PF03150	Di-haem cytochrome c peroxidase
+243230.DR_0189	RCTM	MAP-1222499	Latent infection - Other responses of Mtb to phagocytosis
+243230.DR_0846	RCTM	MAP-1222499	Latent infection - Other responses of Mtb to phagocytosis
+243230.DR_1208	RCTM	MAP-1222499	Latent infection - Other responses of Mtb to phagocytosis
+243230.DR_1209	RCTM	MAP-1222499	Latent infection - Other responses of Mtb to phagocytosis
+243230.DR_1279	RCTM	MAP-1222499	Latent infection - Other responses of Mtb to phagocytosis
+243230.DR_1546	RCTM	MAP-1222499	Latent infection - Other responses of Mtb to phagocytosis
+243230.DR_1982	RCTM	MAP-1222499	Latent infection - Other responses of Mtb to phagocytosis
+243230.DR_2242	RCTM	MAP-1222499	Latent infection - Other responses of Mtb to phagocytosis
+243230.DR_0189	RCTM	MAP-1643685	Disease
+243230.DR_0846	RCTM	MAP-1643685	Disease
+243230.DR_1208	RCTM	MAP-1643685	Disease
+243230.DR_1209	RCTM	MAP-1643685	Disease
+243230.DR_1279	RCTM	MAP-1643685	Disease
+243230.DR_1546	RCTM	MAP-1643685	Disease
+243230.DR_1982	RCTM	MAP-1643685	Disease
+243230.DR_2242	RCTM	MAP-1643685	Disease
+243230.DR_A0145	RCTM	MAP-1643685	Disease
+243230.DR_1998	RCTM	MAP-168249	Innate Immune System
+243230.DR_A0259	RCTM	MAP-168249	Innate Immune System
+243230.DR_1998	RCTM	MAP-168256	Immune System
+243230.DR_A0259	RCTM	MAP-168256	Immune System
+243230.DR_0189	RCTM	MAP-5663205	Infectious disease
+243230.DR_0846	RCTM	MAP-5663205	Infectious disease
+243230.DR_1208	RCTM	MAP-5663205	Infectious disease
+243230.DR_1209	RCTM	MAP-5663205	Infectious disease
+243230.DR_1279	RCTM	MAP-5663205	Infectious disease
+243230.DR_1546	RCTM	MAP-5663205	Infectious disease
+243230.DR_1982	RCTM	MAP-5663205	Infectious disease
+243230.DR_2242	RCTM	MAP-5663205	Infectious disease
+243230.DR_A0145	RCTM	MAP-5663205	Infectious disease
+243230.DR_0189	RCTM	MAP-9635486	Infection with Mycobacterium tuberculosis
+243230.DR_0846	RCTM	MAP-9635486	Infection with Mycobacterium tuberculosis
+243230.DR_1208	RCTM	MAP-9635486	Infection with Mycobacterium tuberculosis
+243230.DR_1209	RCTM	MAP-9635486	Infection with Mycobacterium tuberculosis
+243230.DR_1279	RCTM	MAP-9635486	Infection with Mycobacterium tuberculosis
+243230.DR_1546	RCTM	MAP-9635486	Infection with Mycobacterium tuberculosis
+243230.DR_1982	RCTM	MAP-9635486	Infection with Mycobacterium tuberculosis
+243230.DR_2242	RCTM	MAP-9635486	Infection with Mycobacterium tuberculosis
+243230.DR_A0145	RCTM	MAP-9638482	Metal ion assimilation from the host
+243230.DR_A0145	RCTM	MAP-9640148	Infection with Enterobacteria
+243230.DR_0189	RCTM	MAP-9824439	Bacterial Infection Pathways
+243230.DR_0846	RCTM	MAP-9824439	Bacterial Infection Pathways
+243230.DR_1208	RCTM	MAP-9824439	Bacterial Infection Pathways
+243230.DR_1209	RCTM	MAP-9824439	Bacterial Infection Pathways
+243230.DR_1279	RCTM	MAP-9824439	Bacterial Infection Pathways
+243230.DR_1546	RCTM	MAP-9824439	Bacterial Infection Pathways
+243230.DR_1982	RCTM	MAP-9824439	Bacterial Infection Pathways
+243230.DR_2242	RCTM	MAP-9824439	Bacterial Infection Pathways
+243230.DR_A0145	RCTM	MAP-9824439	Bacterial Infection Pathways
+243230.DR_A0301	NetworkNeighborAL	CL:2698	Mixed, incl. Biosynthesis of cofactors, and Sulfur metabolism
+243230.DR_A0301	NetworkNeighborAL	CL:2699	Mixed, incl. Biosynthesis of cofactors, and Sulfur metabolism
+243230.DR_A0301	NetworkNeighborAL	CL:2840	Mixed, incl. Metallo-beta-lactamase superfamily, and Copper ion transport
+243230.DR_A0301	NetworkNeighborAL	CL:2842	Mixed, incl. Copper ion transport, and Response to metal ion
+243230.DR_0846	NetworkNeighborAL	CL:2901	Mixed, incl. Signaling, and GGDEF domain
+243230.DR_A0145	NetworkNeighborAL	CL:2901	Mixed, incl. Signaling, and GGDEF domain
+243230.DR_A0145	NetworkNeighborAL	CL:2902	Mixed, incl. Phosphorelay signal transduction system, and GGDEF domain
+243230.DR_A0145	NetworkNeighborAL	CL:2903	Phosphorelay signal transduction system, and GGDEF domain
+243230.DR_A0145	NetworkNeighborAL	CL:3032	Mixed, incl. Catalase superfamily, and Peroxidase
+243230.DR_0846	NetworkNeighborAL	CL:3079	Mixed, incl. Pilin-like, and Secretion
+243230.DR_0846	NetworkNeighborAL	CL:3080	Mixed, incl. Pilin-like, and Secretion
+243230.DR_0846	NetworkNeighborAL	CL:3142	Mixed, incl. Thioredoxin peroxidase activity, and Bacterial cell wall metabolism enzyme
+243230.DR_1538	NetworkNeighborAL	CL:3166	Mostly uncharacterized, incl. External encapsulating structure, and OsmC/Ohr family
+243230.DR_1857	NetworkNeighborAL	CL:3166	Mostly uncharacterized, incl. External encapsulating structure, and OsmC/Ohr family
+243230.DR_1538	NetworkNeighborAL	CL:3167	Mostly uncharacterized, incl. OsmC/Ohr family, and YegS/DAGK, C-terminal domain
+243230.DR_1857	NetworkNeighborAL	CL:3167	Mostly uncharacterized, incl. OsmC/Ohr family, and YegS/DAGK, C-terminal domain
+243230.DR_1538	NetworkNeighborAL	CL:3168	Mixed, incl. YegS/DAGK, C-terminal domain, and OsmC/Ohr family
+243230.DR_1857	NetworkNeighborAL	CL:3168	Mixed, incl. YegS/DAGK, C-terminal domain, and OsmC/Ohr family
+243230.DR_1538	NetworkNeighborAL	CL:3200	YegS/DAGK, C-terminal domain, and Acid phosphatase homologues
+243230.DR_1279	NetworkNeighborAL	CL:458	Mixed, incl. Response to oxidative stress, and Response to heat
+243230.DR_1378	NetworkNeighborAL	CL:458	Mixed, incl. Response to oxidative stress, and Response to heat
+243230.DR_1546	NetworkNeighborAL	CL:458	Mixed, incl. Response to oxidative stress, and Response to heat
+243230.DR_1998	NetworkNeighborAL	CL:458	Mixed, incl. Response to oxidative stress, and Response to heat
+243230.DR_2242	NetworkNeighborAL	CL:458	Mixed, incl. Response to oxidative stress, and Response to heat
+243230.DR_A0202	NetworkNeighborAL	CL:458	Mixed, incl. Response to oxidative stress, and Response to heat
+243230.DR_A0259	NetworkNeighborAL	CL:458	Mixed, incl. Response to oxidative stress, and Response to heat
+243230.DR_1279	NetworkNeighborAL	CL:484	Response to oxidative stress, and E1-E2 ATPase
+243230.DR_1378	NetworkNeighborAL	CL:484	Response to oxidative stress, and E1-E2 ATPase
+243230.DR_1546	NetworkNeighborAL	CL:484	Response to oxidative stress, and E1-E2 ATPase
+243230.DR_1998	NetworkNeighborAL	CL:484	Response to oxidative stress, and E1-E2 ATPase
+243230.DR_2242	NetworkNeighborAL	CL:484	Response to oxidative stress, and E1-E2 ATPase
+243230.DR_A0202	NetworkNeighborAL	CL:484	Response to oxidative stress, and E1-E2 ATPase
+243230.DR_A0259	NetworkNeighborAL	CL:484	Response to oxidative stress, and E1-E2 ATPase
+243230.DR_1279	NetworkNeighborAL	CL:485	Reactive oxygen species metabolic process
+243230.DR_1546	NetworkNeighborAL	CL:485	Reactive oxygen species metabolic process
+243230.DR_1998	NetworkNeighborAL	CL:485	Reactive oxygen species metabolic process
+243230.DR_A0202	NetworkNeighborAL	CL:485	Reactive oxygen species metabolic process
+243230.DR_A0259	NetworkNeighborAL	CL:485	Reactive oxygen species metabolic process
+243230.DR_1378	NetworkNeighborAL	CL:496	Oxidoreductase activity, acting on a sulfur group of donors, disulfide as acceptor, and Peroxiredoxin, AhpC-type
+243230.DR_2242	NetworkNeighborAL	CL:496	Oxidoreductase activity, acting on a sulfur group of donors, disulfide as acceptor, and Peroxiredoxin, AhpC-type
+243230.DR_0189	NetworkNeighborAL	CL:5001	Mostly uncharacterized, incl. DDE transposase sub-family, and GNAT domain
+243230.DR_0189	NetworkNeighborAL	CL:5002	Mostly uncharacterized, incl. DDE transposase sub-family, and GNAT domain
+243230.DR_0189	NetworkNeighborAL	CL:5003	Mixed, incl. GNAT domain, and Oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen
+243230.DR_0189	NetworkNeighborAL	CL:5004	Mostly uncharacterized, incl. Carboxysome, and Glutaredoxin
+243230.DR_0189	NetworkNeighborAL	CL:5021	Mixed, incl. DUF218 domain, and Thioredoxin family ResA/DsbE subfamily
+243230.DR_1208	NetworkNeighborAL	CL:5542	Mixed, incl. HUH transposase Y1 type, and Helix-turn-helix domain
+243230.DR_1209	NetworkNeighborAL	CL:5542	Mixed, incl. HUH transposase Y1 type, and Helix-turn-helix domain

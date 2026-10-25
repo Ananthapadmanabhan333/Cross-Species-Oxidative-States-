@@ -1,19 +1,27 @@
-# Fully resolved environment used for the reference run (python 3.11.9, Windows 11).
+# Fully resolved environment used for the reference runs (python 3.11.9, Windows 11).
 certifi==2026.10.23
 charset-normalizer==3.5.2
 colorama==0.4.6
+contourpy==1.3.3
+cycler==0.12.1
+fonttools==4.67.0
 idna==3.20
 iniconfig==2.3.1
+kiwisolver==1.5.1
+matplotlib==3.9.2
 networkx==3.4.2
 numpy==2.1.3
 packaging==26.3
 pandas==2.2.3
+pillow==13.0.0
 pluggy==1.7.0
+pyparsing==3.1.4
 pytest==8.3.3
 python-dateutil==3.0.0
 pytz==2026.5
 PyYAML==6.0.2
 requests==2.32.3
+scipy==1.14.1
 six==1.17.0
 tzdata==2026.5
 urllib3==2.8.0

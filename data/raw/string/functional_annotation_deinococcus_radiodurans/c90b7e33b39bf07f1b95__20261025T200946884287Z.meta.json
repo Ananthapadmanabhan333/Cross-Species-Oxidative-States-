@@ -1,0 +1,23 @@
+{
+  "source": "string",
+  "endpoint": "functional_annotation_deinococcus_radiodurans",
+  "description": "STRING functional annotation of 16 proteins",
+  "request_key": "c90b7e33b39bf07f1b95",
+  "method": "POST",
+  "url": "https://string-db.org/api/json/functional_annotation",
+  "params": {
+    "allow_pubmed": "0",
+    "caller_identity": "extremonet_phase1",
+    "identifiers": "243230.DR_0189\r243230.DR_0846\r243230.DR_1208\r243230.DR_1209\r243230.DR_1279\r243230.DR_1378\r243230.DR_1538\r243230.DR_1546\r243230.DR_1857\r243230.DR_1982\r243230.DR_1998\r243230.DR_2242\r243230.DR_A0145\r243230.DR_A0202\r243230.DR_A0259\r243230.DR_A0301",
+    "species": "243230"
+  },
+  "retrieved_at_utc": "2026-10-25T20:09:46.884287+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/json; charset=utf-8",
+    "date": "Sun, 25 Oct 2026 20:09:46 GMT"
+  },
+  "bytes": 68936,
+  "sha256": "f358d0e6cb90561899cc35c91edbba6ee520d2c9b15dbf24fa2c720a761c0fb2",
+  "data_file": "c90b7e33b39bf07f1b95__20261025T200946884287Z.json"
+}

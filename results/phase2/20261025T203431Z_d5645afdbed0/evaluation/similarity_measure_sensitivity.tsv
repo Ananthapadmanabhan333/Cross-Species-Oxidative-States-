@@ -1,0 +1,4 @@
+measure	top20_overlap_with_primary	candidate_analogues	rank_of_sodA_SOD2	rank_of_katA_CAT
+ochiai	1	56	11	5
+simgic	0.9	32	13	5
+min	0.75	120	1	2

@@ -1,0 +1,23 @@
+{
+  "source": "string",
+  "endpoint": "ppi_enrichment_deinococcus_radiodurans",
+  "description": "PPI enrichment test, required_score=600",
+  "request_key": "7b7f6daf01d9f7e1d25e",
+  "method": "POST",
+  "url": "https://string-db.org/api/json/ppi_enrichment",
+  "params": {
+    "caller_identity": "extremonet_phase1",
+    "identifiers": "243230.DR_0189\r243230.DR_0846\r243230.DR_1208\r243230.DR_1209\r243230.DR_1279\r243230.DR_1378\r243230.DR_1538\r243230.DR_1546\r243230.DR_1857\r243230.DR_1982\r243230.DR_1998\r243230.DR_2242\r243230.DR_A0145\r243230.DR_A0202\r243230.DR_A0259\r243230.DR_A0301",
+    "required_score": "600",
+    "species": "243230"
+  },
+  "retrieved_at_utc": "2026-10-25T20:09:52.462726+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/json; charset=utf-8",
+    "date": "Sun, 25 Oct 2026 20:09:52 GMT"
+  },
+  "bytes": 167,
+  "sha256": "53484cffc667f2e008da2a654f8fe605b37a18b719dbf675b623332e7249375e",
+  "data_file": "7b7f6daf01d9f7e1d25e__20261025T200952462726Z.json"
+}

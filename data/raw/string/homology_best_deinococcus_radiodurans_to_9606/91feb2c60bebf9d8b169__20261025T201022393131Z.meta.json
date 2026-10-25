@@ -1,0 +1,23 @@
+{
+  "source": "string",
+  "endpoint": "homology_best_deinococcus_radiodurans_to_9606",
+  "description": "best homologs in taxon 9606 for 16 proteins",
+  "request_key": "91feb2c60bebf9d8b169",
+  "method": "POST",
+  "url": "https://string-db.org/api/json/homology_best",
+  "params": {
+    "caller_identity": "extremonet_phase1",
+    "identifiers": "243230.DR_0189\r243230.DR_0846\r243230.DR_1208\r243230.DR_1209\r243230.DR_1279\r243230.DR_1378\r243230.DR_1538\r243230.DR_1546\r243230.DR_1857\r243230.DR_1982\r243230.DR_1998\r243230.DR_2242\r243230.DR_A0145\r243230.DR_A0202\r243230.DR_A0259\r243230.DR_A0301",
+    "species": "243230",
+    "species_b": "9606"
+  },
+  "retrieved_at_utc": "2026-10-25T20:10:22.393131+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/json; charset=utf-8",
+    "date": "Sun, 25 Oct 2026 20:10:22 GMT"
+  },
+  "bytes": 1386,
+  "sha256": "9995584ca830a1240939bac6b56e4578d94688880280d12a1ed68d8cae5cccc2",
+  "data_file": "91feb2c60bebf9d8b169__20261025T201022393131Z.json"
+}
