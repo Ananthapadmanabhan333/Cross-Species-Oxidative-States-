@@ -1,0 +1,27 @@
+{
+  "source": "uniprot",
+  "endpoint": "entry_count_homo_sapiens",
+  "description": "UniProtKB entry count for (organism_id:9606) AND (reviewed:true) (read from the X-Total-Results header)",
+  "request_key": "e05d04b72b6c4810bd71",
+  "method": "GET",
+  "url": "https://rest.uniprot.org/uniprotkb/search",
+  "params": {
+    "fields": "accession",
+    "format": "tsv",
+    "query": "(organism_id:9606) AND (reviewed:true)",
+    "size": "1"
+  },
+  "retrieved_at_utc": "2026-10-25T17:44:26.764268+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/plain;format=tsv",
+    "date": "Sun, 25 Oct 2026 17:44:27 GMT",
+    "x-total-results": "20431",
+    "x-uniprot-release": "2026_03",
+    "x-uniprot-release-date": "02-September-2026",
+    "x-api-deployment-date": "07-October-2026"
+  },
+  "bytes": 17,
+  "sha256": "f32e1544afa22f6363bdfa5f194db61090701c741cdeb78c4bcbc6455396074d",
+  "data_file": "e05d04b72b6c4810bd71__20261025T174426764268Z.tsv"
+}

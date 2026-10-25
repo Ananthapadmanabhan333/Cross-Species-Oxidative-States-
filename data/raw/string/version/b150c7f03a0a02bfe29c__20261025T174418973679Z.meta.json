@@ -1,0 +1,20 @@
+{
+  "source": "string",
+  "endpoint": "version",
+  "description": "STRING database version",
+  "request_key": "b150c7f03a0a02bfe29c",
+  "method": "GET",
+  "url": "https://string-db.org/api/json/version",
+  "params": {
+    "caller_identity": "extremonet_phase1"
+  },
+  "retrieved_at_utc": "2026-10-25T17:44:18.973679+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/json; charset=utf-8",
+    "date": "Sun, 25 Oct 2026 17:44:19 GMT"
+  },
+  "bytes": 84,
+  "sha256": "2ccaf342a8fbcf2db550da164579b675cf3e615c039eaa59c3b67b3448bafa5c",
+  "data_file": "b150c7f03a0a02bfe29c__20261025T174418973679Z.json"
+}

@@ -1,0 +1,18 @@
+{
+  "nodes": 382,
+  "edges": 2210,
+  "isolated_nodes": 70,
+  "density": 0.030369,
+  "connected_components": 79,
+  "largest_component_nodes": 295,
+  "largest_component_fraction": 0.7723,
+  "degree_mean": 11.5707,
+  "degree_max": 90,
+  "weighted_degree_mean": 10.3283,
+  "edge_weight_min": 0.7,
+  "edge_weight_median": 0.92,
+  "edge_weight_max": 0.999,
+  "average_clustering_unweighted": 0.3606,
+  "edges_in_physical_subnetwork": 1152,
+  "edges_with_experiments_channel_score": 1659
+}

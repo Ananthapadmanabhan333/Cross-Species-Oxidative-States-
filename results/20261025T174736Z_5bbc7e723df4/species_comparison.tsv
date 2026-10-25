@@ -1,0 +1,3 @@
+species	ncbi_taxon	string_taxon	seeds_retrieved	seeds_mapped	nodes	edges	isolated_nodes	density	connected_components	largest_component_nodes	degree_mean	average_clustering_unweighted	edges_in_physical_subnetwork	edges_with_experiments_channel_score
+Deinococcus radiodurans	1299	243230	16	16	16	11	9	0.091667	11	5	1.375	0.3125	4	9
+Homo sapiens	9606	9606	385	382	382	2210	70	0.030369	79	295	11.5707	0.3606	1152	1659

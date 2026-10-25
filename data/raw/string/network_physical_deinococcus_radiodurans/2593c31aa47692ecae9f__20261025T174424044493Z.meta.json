@@ -1,0 +1,25 @@
+{
+  "source": "string",
+  "endpoint": "network_physical_deinococcus_radiodurans",
+  "description": "STRING physical network among 16 proteins, required_score=400",
+  "request_key": "2593c31aa47692ecae9f",
+  "method": "POST",
+  "url": "https://string-db.org/api/json/network",
+  "params": {
+    "add_nodes": "0",
+    "caller_identity": "extremonet_phase1",
+    "identifiers": "243230.DR_0189\r243230.DR_0846\r243230.DR_1208\r243230.DR_1209\r243230.DR_1279\r243230.DR_1378\r243230.DR_1538\r243230.DR_1546\r243230.DR_1857\r243230.DR_1982\r243230.DR_1998\r243230.DR_2242\r243230.DR_A0145\r243230.DR_A0202\r243230.DR_A0259\r243230.DR_A0301",
+    "network_type": "physical",
+    "required_score": "400",
+    "species": "243230"
+  },
+  "retrieved_at_utc": "2026-10-25T17:44:24.044493+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/json; charset=utf-8",
+    "date": "Sun, 25 Oct 2026 17:44:24 GMT"
+  },
+  "bytes": 1023,
+  "sha256": "086062a96a0d95b49467d6c76673c85739cf4110635d77f653c001507f6d1b09",
+  "data_file": "2593c31aa47692ecae9f__20261025T174424044493Z.json"
+}

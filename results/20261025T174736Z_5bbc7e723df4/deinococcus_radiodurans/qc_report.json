@@ -1,0 +1,103 @@
+{
+  "run_id": "20261025T174736Z_5bbc7e723df4",
+  "species_key": "deinococcus_radiodurans",
+  "species_label": "Deinococcus radiodurans",
+  "string_version": "12.5",
+  "edge_score_threshold": 0.7,
+  "retrieval_required_score": 400,
+  "seed_query": "((go:0006979) OR (go:0098869) OR (go:0016209)) AND (taxonomy_id:1299)",
+  "taxonomy": {
+    "ncbi_taxon_id": 1299,
+    "expected_string_taxon_id": 243230,
+    "string_taxa_returned": [
+      243230
+    ],
+    "uniprot_organism_ids_in_seeds": [
+      "243230"
+    ],
+    "all_retained_match": true
+  },
+  "excluded": {
+    "seeds": {},
+    "mapping": {},
+    "functional_edges": {
+      "below_threshold": 27
+    },
+    "physical_edges": {}
+  },
+  "edges": {
+    "functional_records_retrieved": 38,
+    "functional_retained": 11,
+    "physical_records_retrieved": 4,
+    "physical_retained": 4,
+    "physical_without_functional": 0
+  },
+  "network_coverage": {
+    "uniprot_entries_for_organism": 3104,
+    "seed_records_retrieved": 16,
+    "seed_fraction_of_organism_entries": 0.0052,
+    "seeds_valid": 16,
+    "seeds_mapped_to_string": 16,
+    "mapping_rate": 1.0,
+    "nodes_in_graph": 16,
+    "nodes_with_edges": 7,
+    "isolated_nodes": 9,
+    "connected_fraction_of_mapped_seeds": 0.4375
+  },
+  "annotation_coverage": {
+    "nodes": 16,
+    "with_uniprot_accession": {
+      "count": 16,
+      "fraction": 1.0
+    },
+    "uniprot_reviewed": {
+      "count": 4,
+      "fraction": 0.25
+    },
+    "with_gene_name": {
+      "count": 4,
+      "fraction": 0.25
+    },
+    "with_protein_name": {
+      "count": 16,
+      "fraction": 1.0
+    },
+    "with_string_annotation": {
+      "count": 16,
+      "fraction": 1.0
+    },
+    "with_seed_go_term_listed_verbatim": {
+      "count": 6,
+      "fraction": 0.375
+    },
+    "uniprot_xref_disagrees_with_string_mapping": {
+      "count": 0,
+      "fraction": 0.0
+    }
+  },
+  "summary_statistics": {
+    "nodes": 16,
+    "edges": 11,
+    "isolated_nodes": 9,
+    "density": 0.091667,
+    "connected_components": 11,
+    "largest_component_nodes": 5,
+    "largest_component_fraction": 0.3125,
+    "degree_mean": 1.375,
+    "degree_max": 4,
+    "weighted_degree_mean": 1.1591,
+    "edge_weight_min": 0.733,
+    "edge_weight_median": 0.806,
+    "edge_weight_max": 0.986,
+    "average_clustering_unweighted": 0.3125,
+    "edges_in_physical_subnetwork": 4,
+    "edges_with_experiments_channel_score": 9
+  },
+  "limitations": [
+    "STRING edges are functional associations (combined evidence channels), not physical interactions. `in_physical_subnetwork` marks pairs in STRING's physical-complex subnetwork, which is itself a scored prediction; `has_experiments_channel_score` reflects STRING's experiments channel, which can include evidence transferred from other organisms. Neither is equivalent to an experimentally confirmed physical interaction (e.g. from BioGRID/IntAct).",
+    "Seeds are defined by GO annotation in UniProtKB, so the network covers only proteins already annotated to the configured terms; poorly annotated proteomes yield smaller seed sets.",
+    "With string.add_nodes = 0 only interactions among seeds are retrieved; associations to non-seed proteins are outside the graph by design.",
+    "STRING represents Deinococcus radiodurans by taxon 243230 (a single strain), not the configured species taxon 1299; results describe that strain's proteome.",
+    "9 of 16 seed proteins have no association at combined score >= 0.7 with another seed."
+  ]
+}

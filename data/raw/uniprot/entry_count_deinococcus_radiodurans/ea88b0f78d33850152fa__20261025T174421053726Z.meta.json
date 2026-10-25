@@ -1,0 +1,27 @@
+{
+  "source": "uniprot",
+  "endpoint": "entry_count_deinococcus_radiodurans",
+  "description": "UniProtKB entry count for (taxonomy_id:1299) (read from the X-Total-Results header)",
+  "request_key": "ea88b0f78d33850152fa",
+  "method": "GET",
+  "url": "https://rest.uniprot.org/uniprotkb/search",
+  "params": {
+    "fields": "accession",
+    "format": "tsv",
+    "query": "(taxonomy_id:1299)",
+    "size": "1"
+  },
+  "retrieved_at_utc": "2026-10-25T17:44:21.053726+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/plain;format=tsv",
+    "date": "Sun, 25 Oct 2026 17:44:21 GMT",
+    "x-total-results": "3104",
+    "x-uniprot-release": "2026_03",
+    "x-uniprot-release-date": "02-September-2026",
+    "x-api-deployment-date": "07-October-2026"
+  },
+  "bytes": 13,
+  "sha256": "574488e0c05e86810eee0d8e8ab7ad64c371afd9e7af5e77e9e56cdfae89d2c1",
+  "data_file": "ea88b0f78d33850152fa__20261025T174421053726Z.tsv"
+}

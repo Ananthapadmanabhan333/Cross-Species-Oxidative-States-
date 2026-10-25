@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "extremonet"
+version = "0.1.0"
+description = "Cross-species biological network discovery: oxidative-stress defence networks in Deinococcus radiodurans and Homo sapiens (Phase 1)."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "networkx==3.4.2",
+    "pandas==2.2.3",
+    "numpy==2.1.3",
+    "PyYAML==6.0.2",
+    "requests==2.32.3",
+]
+
+[project.optional-dependencies]
+test = ["pytest==8.3.3"]
+
+[project.scripts]
+extremonet = "extremonet.cli:main"
+
+# The repository keeps the requested top-level layout (src/data_collection, src/quality_control, ...)
+# while exposing it as the importable package `extremonet`.
+[tool.setuptools]
+package-dir = { "extremonet" = "src" }
+packages = [
+    "extremonet",
+    "extremonet.data_collection",
+    "extremonet.preprocessing",
+    "extremonet.network_construction",
+    "extremonet.quality_control",
+    "extremonet.annotation",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "live: tests that contact real web APIs (deselected by default; run with -m live)",
+]

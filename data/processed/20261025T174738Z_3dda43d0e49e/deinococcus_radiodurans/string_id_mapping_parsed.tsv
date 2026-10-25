@@ -1,0 +1,17 @@
+uniprot_accession	query_index	string_id	string_taxon_id	string_taxon_name	string_preferred_name	string_annotation	mapping_pass
+Q59337	0	243230.DR_1998	243230	Deinococcus radiodurans	katA	Catalase; Decomposes hydrogen peroxide into water and oxygen; serves to protect cells from the toxic effects of hydrogen peroxide. Belongs to the catalase family.	batch
+Q9RS85	1	243230.DR_2242	243230	Deinococcus radiodurans	DR_2242	Thiol-specific antioxidant protein, putative; Similar to PID:1001492 PID:1001510 percent identity: 64.39; identified by sequence similarity; putative.	batch
+Q9RSY7	2	243230.DR_1982	243230	Deinococcus radiodurans	DR_1982	Thioredoxin reductase; Similar to GB:AL009126 percent identity: 70.92; identified by sequence similarity; putative.	batch
+Q9RTA8	3	243230.DR_1857	243230	Deinococcus radiodurans	DR_1857	Organic hydroperoxide resistance protein; Similar to GP:3098342 percent identity: 67.16; identified by sequence similarity; putative.	batch
+Q9RU48	4	243230.DR_1546	243230	Deinococcus radiodurans	sodC	Superoxide dismutase (sodC), Cu-Zn family; Destroys radicals which are normally produced within the cells and which are toxic to biological systems.	batch
+Q9RU56	5	243230.DR_1538	243230	Deinococcus radiodurans	DR_1538	Osmotically inducible protein C; Similar to SP:P23929 GB:X57433 PID:42181 GB:U00096 PID:1742412 percent identity: 63.04; identified by sequence similarity; putative.	batch
+Q9RUK6	6	243230.DR_1378	243230	Deinococcus radiodurans	msrB	MsrA-related protein; Similar to GB:L42023 SP:P45213 PID:1007569 PID:1221598 PID:1205691 percent identity: 78.72; identified by sequence similarity; putative.	batch
+Q9RUV2	7	243230.DR_1279	243230	Deinococcus radiodurans	sodA	Superoxide dismutase (sodA), Mn family; Destroys superoxide anion radicals which are normally produced within the cells and which are toxic to biological systems. Belongs to the iron/manganese superoxide dismutase family.	batch
+Q9RV21	8	243230.DR_1209	243230	Deinococcus radiodurans	DR_1209	Bacterioferritin comigratory protein; Similar to PID:1651799 percent identity: 61.33; identified by sequence similarity; putative.	batch
+Q9RV22	9	243230.DR_1208	243230	Deinococcus radiodurans	DR_1208	Bacterioferritin comigratory protein; Similar to GB:AL123456 percent identity: 58.21; identified by sequence similarity; putative.	batch
+Q9RW23	10	243230.DR_0846	243230	Deinococcus radiodurans	DR_0846	Bacterioferritin comigratory protein; Similar to GB:AE000657 percent identity: 65.61; identified by sequence similarity; putative.	batch
+Q9RXW6	11	243230.DR_0189	243230	Deinococcus radiodurans	DR_0189	Thiol:disulfide interchange protein; Similar to GB:AL009126 percent identity: 48.47; identified by sequence similarity; putative.	batch
+Q9RYL1	12	243230.DR_A0301	243230	Deinococcus radiodurans	DR_A0301	Methylamine utilization protein; Similar to GB:L26406 PID:551315 SP:Q49128 percent identity: 56.46; identified by sequence similarity; putative.	batch
+Q9RYQ0	13	243230.DR_A0259	243230	Deinococcus radiodurans	DR_A0259	Catalase; Serves to protect cells from the toxic effects of hydrogen peroxide.	batch
+Q9RYV4	14	243230.DR_A0202	243230	Deinococcus radiodurans	DR_A0202	Superoxide dismutase (sodC), Cu-Zn family; Similar to SP:P15453 percent identity: 54.55; identified by sequence similarity; putative.	batch
+Q9RZ08	15	243230.DR_A0145	243230	Deinococcus radiodurans	DR_A0145	Peroxidase, putative; Similar to GP:2160705 percent identity: 47.72; identified by sequence similarity; putative.	batch

@@ -1,0 +1,12 @@
+node_u	node_v	preferred_name_a	preferred_name_b	combined_score	neighborhood_score	fusion_score	cooccurrence_score	coexpression_score	experimental_score	database_score	textmining_score	in_physical_subnetwork	physical_score	has_experiments_channel_score	evidence_source	source_record
+243230.DR_1208	243230.DR_1209	DR_1208	DR_1209	0.8	0.773	0.0	0.122	0.0	0.0	0.0	0.079	False		False	STRING v12.5 functional association	6
+243230.DR_1279	243230.DR_1546	sodA	sodC	0.986	0.0	0.0	0.0	0.196	0.602	0.9	0.627	True	0.9	True	STRING v12.5 functional association	14
+243230.DR_1279	243230.DR_1998	sodA	katA	0.766	0.068	0.0	0.0	0.122	0.144	0.5	0.436	False		True	STRING v12.5 functional association	12
+243230.DR_1279	243230.DR_A0202	sodA	DR_A0202	0.984	0.042	0.0	0.0	0.255	0.602	0.9	0.528	True	0.9	True	STRING v12.5 functional association	13
+243230.DR_1279	243230.DR_A0259	sodA	DR_A0259	0.733	0.068	0.0	0.0	0.122	0.144	0.5	0.356	False		True	STRING v12.5 functional association	11
+243230.DR_1546	243230.DR_1998	sodC	katA	0.828	0.069	0.0	0.0	0.147	0.185	0.5	0.551	False		True	STRING v12.5 functional association	21
+243230.DR_1546	243230.DR_A0202	sodC	DR_A0202	0.918	0.065	0.0	0.096	0.0	0.108	0.9	0.091	True	0.9	True	STRING v12.5 functional association	22
+243230.DR_1546	243230.DR_A0259	sodC	DR_A0259	0.806	0.069	0.0	0.0	0.147	0.185	0.5	0.494	False		True	STRING v12.5 functional association	20
+243230.DR_1998	243230.DR_A0202	katA	DR_A0202	0.79	0.077	0.0	0.0	0.296	0.209	0.0	0.641	False		True	STRING v12.5 functional association	28
+243230.DR_1998	243230.DR_A0259	katA	DR_A0259	0.919	0.0	0.0	0.137	0.0	0.0	0.9	0.138	True	0.9	False	STRING v12.5 functional association	29
+243230.DR_A0202	243230.DR_A0259	DR_A0202	DR_A0259	0.743	0.077	0.0	0.0	0.296	0.209	0.0	0.56	False		True	STRING v12.5 functional association	36

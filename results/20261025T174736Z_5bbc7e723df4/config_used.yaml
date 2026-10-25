@@ -1,0 +1,52 @@
+project:
+  name: cross_species_network_discovery
+  phase: 1
+  topic: oxidative_stress_defence
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  manifests_dir: data/manifests
+  results_dir: results
+mode: online
+http:
+  timeout_seconds: 60
+  max_retries: 4
+  backoff_seconds: 2.0
+  min_interval_seconds: 1.0
+  allow_stale_cache_on_failure: false
+  user_agent: 'extremonet/0.1 (research pipeline; contact: talent.torsar@gmail.com)'
+string:
+  base_url: https://string-db.org/api
+  caller_identity: extremonet_phase1
+  retrieval_required_score: 400
+  network_types:
+  - functional
+  - physical
+  add_nodes: 0
+  max_individual_remap: 50
+network:
+  edge_score_threshold: 0.7
+  experimental_score_threshold: 0.0
+  keep_isolated_nodes: true
+seeds:
+  source: uniprot
+  uniprot_base_url: https://rest.uniprot.org/uniprotkb
+  go_terms:
+  - GO:0006979
+  - GO:0098869
+  - GO:0016209
+species:
+  deinococcus_radiodurans:
+    label: Deinococcus radiodurans
+    ncbi_taxon_id: 1299
+    string_taxon_id: 243230
+    uniprot_taxon_query: taxonomy_id:1299
+    reviewed_only: false
+  homo_sapiens:
+    label: Homo sapiens
+    ncbi_taxon_id: 9606
+    string_taxon_id: 9606
+    uniprot_taxon_query: organism_id:9606
+    reviewed_only: true
+logging:
+  level: INFO
