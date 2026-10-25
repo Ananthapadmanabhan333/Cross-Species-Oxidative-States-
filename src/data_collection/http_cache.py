@@ -215,6 +215,12 @@ class CachedHttpClient:
         retrieved_at = datetime.now(timezone.utc)
         stamp = retrieved_at.strftime("%Y%m%dT%H%M%S%fZ")
         body = response.content if isinstance(response.content, bytes) else str(response.text).encode("utf-8")
+        # The OS clock can repeat a timestamp for fetches milliseconds apart; never overwrite an
+        # earlier raw file. "_NN" sorts after "." so the newest copy is still found last by name.
+        n = 1
+        while (cache_dir / f"{key}__{stamp}.meta.json").exists():
+            n += 1
+            stamp = f"{retrieved_at.strftime('%Y%m%dT%H%M%S%fZ')}_{n:02d}"
         data_path = cache_dir / f"{key}__{stamp}.{ext}"
         meta_path = cache_dir / f"{key}__{stamp}.meta.json"
         data_path.write_bytes(body)

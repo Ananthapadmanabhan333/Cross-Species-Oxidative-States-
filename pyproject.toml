@@ -41,7 +41,8 @@ packages = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-ra"
+# Test temp files go in the project folder (gitignored) instead of the system temp dir on C:.
+addopts = "-ra --basetemp=.pytest_tmp"
 markers = [
     "live: tests that contact real web APIs (deselected by default; run with -m live)",
 ]

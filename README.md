@@ -51,11 +51,8 @@ run fails loudly if any required response is missing:
 .venv/Scripts/python -m pytest
 ```
 
-If the system drive is low on space, keep pytest's temporary files in the project (gitignored):
-
-```bash
-.venv/Scripts/python -m pytest --basetemp=.pytest_tmp
-```
+Test temporary files are written to `.pytest_tmp/` inside the project (gitignored), not to the
+system temp directory.
 
 **Verify checksums** of the latest run and of every cached raw response:
 
