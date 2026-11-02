@@ -1,0 +1,329 @@
+<title>Deinococcus–Human Defence Networks</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column (~68ch) with full-width tables; two process accents, teal = oxidative stress, ochre = DNA repair */
+:root {
+  --bg: #f6f8f8;
+  --surface: #ffffff;
+  --fg: #172326;
+  --muted: #55676b;
+  --rule: #d5dee0;
+  --ox: #0e6b70;
+  --dna: #9a6212;
+  --ok: #2f7d4f;
+  --warn: #9b4a1c;
+  --tint-ox: #e3f0f0;
+  --tint-dna: #f5ecdf;
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1719; --surface: #152125; --fg: #e3ecee; --muted: #9bb0b4; --rule: #2a3a3e;
+    --ox: #5cc2c6; --dna: #e0a44f; --ok: #7cc79a; --warn: #e89a6b; --tint-ox: #16302f; --tint-dna: #33281a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1719; --surface: #152125; --fg: #e3ecee; --muted: #9bb0b4; --rule: #2a3a3e;
+  --ox: #5cc2c6; --dna: #e0a44f; --ok: #7cc79a; --warn: #e89a6b; --tint-ox: #16302f; --tint-dna: #33281a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font: 400 16px/1.62 var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 72px;
+}
+main { max-width: 860px; margin: 0 auto; display: grid; gap: 44px; }
+.prose { max-width: 68ch; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2rem, 5vw, 2.75rem); letter-spacing: -0.01em; }
+h2 { font-size: 1.6rem; padding-top: 6px; border-top: 1px solid var(--rule); padding-top: 22px; }
+h3 { font-size: 1.2rem; margin-top: 6px; }
+p { margin: 0; }
+section { display: grid; gap: 16px; }
+.eyebrow { font: 500 12px/1.4 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.lede { font-size: 1.12rem; color: var(--fg); max-width: 66ch; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 18px; font: 400 13px/1.5 var(--font-mono); color: var(--muted); }
+.meta b { color: var(--fg); font-weight: 500; }
+em.sp { font-style: italic; }
+code, .mono { font-family: var(--font-mono); font-size: 0.88em; }
+a { color: var(--ox); text-underline-offset: 2px; }
+a:focus-visible { outline: 2px solid var(--ox); outline-offset: 2px; }
+ul, ol { margin: 0; padding-left: 1.3em; display: grid; gap: 6px; }
+.callout { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 18px; display: grid; gap: 8px; }
+.callout.ox { border-left: 4px solid var(--ox); }
+.callout.dna { border-left: 4px solid var(--dna); }
+.process-tag { display: inline-block; font: 500 11px/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 7px; border-radius: 3px; }
+.process-tag.ox { background: var(--tint-ox); color: var(--ox); }
+.process-tag.dna { background: var(--tint-dna); color: var(--dna); }
+.keyfind { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.keyfind .callout { min-width: 0; }
+.keyfind h3 { font-size: 1.05rem; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font: 500 12px/1.4 var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); background: var(--bg); }
+tr:last-child td { border-bottom: 0; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--font-mono); font-size: 13px; white-space: nowrap; }
+.cat { font: 500 12px/1.3 var(--font-mono); white-space: nowrap; }
+.cat.orth { color: var(--ok); }
+.cat.ana { color: var(--ox); }
+.cat.dist { color: var(--muted); }
+.cat.mixed { color: var(--warn); }
+figure { margin: 0; display: grid; gap: 8px; }
+figure img { width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 6px; background: #ffffff; }
+figcaption { font-size: 13px; color: var(--muted); max-width: 70ch; }
+.refs { font-size: 14px; display: grid; gap: 6px; padding-left: 1.4em; }
+.small { font-size: 13px; color: var(--muted); }
+pre { margin: 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; overflow-x: auto; font: 400 13px/1.55 var(--font-mono); }
+@media (max-width: 520px) { body { font-size: 15px; padding-block: 24px 48px; } main { gap: 34px; } th, td { padding: 7px 9px; } }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+
+<main>
+  <header style="display:grid; gap:14px;">
+    <div class="eyebrow">Cross-species network discovery · technical report · 3 November 2026</div>
+    <h1>Defence networks of <em class="sp">Deinococcus radiodurans</em> and humans</h1>
+    <p class="lede">A reproducible comparison of two protein networks in the radiation-resistant bacterium <em class="sp">D. radiodurans</em> (NCBI taxon 1299; STRING strain R1, taxon 243230) and <em class="sp">Homo sapiens</em> (9606): oxidative-stress defence and DNA repair. The aim is to find candidate proteins with analogous functional roles, and to say how strong the evidence for each one is.</p>
+    <div class="meta">
+      <span>Prepared for <b>Prof. Pietro Hiram Guzzi</b></span>
+      <span>Author <b>Ananthapadmanabhan</b></span>
+      <span>Code <b>github.com/Ananthapadmanabhan333/Cross-Species-Oxidative-States-</b> @ <b>611d14f</b></span>
+    </div>
+    <p class="small">All results are computational. None of them demonstrates biological equivalence or experimental validity.</p>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <div class="keyfind">
+      <div class="callout ox">
+        <span class="process-tag ox">Oxidative stress</span>
+        <h3>Same reaction, different enzyme families</h3>
+        <p>The strongest analogue candidates are superoxide dismutases. Bacterial Mn/Fe-SOD <span class="mono">sodA</span> pairs with human Cu/Zn <span class="mono">SOD3</span> (rank 19) and <span class="mono">SOD1</span>; the bacterial Cu/Zn SODs pair with human Mn-<span class="mono">SOD2</span>. No homology is detected at any level for these pairs.</p>
+      </div>
+      <div class="callout dna">
+        <span class="process-tag dna">DNA repair</span>
+        <h3>Convergent DNA glycosylases</h3>
+        <p>Bacterial <span class="mono">mutM</span> (Fpg) pairs with human <span class="mono">OGG1</span> and <span class="mono">NTHL1</span>, and <span class="mono">nth</span> pairs with <span class="mono">NEIL1/NEIL3</span>. Each pair removes oxidised DNA bases with unrelated folds. The pipeline found this textbook example of convergence from the data alone.</p>
+      </div>
+      <div class="callout">
+        <h3>Topology adds little evidence</h3>
+        <p>Network alignment conserves no more edges than degree-preserving random graphs when it uses topology alone. Conservation appears only when the alignment is anchored on sequence homologs, and STRING partly builds that in. Embeddings did not beat neighbourhood baselines.</p>
+      </div>
+      <div class="callout">
+        <h3>Mutant data contradict some annotations</h3>
+        <p>Published <em class="sp">D. radiodurans</em> mutants show that MnSOD is dispensable for radiation survival, that <span class="mono">lexA</span> deletion leaves DNA repair intact, and that <span class="mono">pprA</span> loss mainly affects cell division. The ranking records each of these as contradictory evidence.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Data and method</h2>
+    <div class="prose" style="display:grid; gap:12px;">
+      <p><b>Seed proteins.</b> Each process is defined by Gene Ontology annotation in UniProtKB: GO:0006979, GO:0098869 and GO:0016209 for oxidative stress, and GO:0006281 for DNA repair. Human seeds are Swiss-Prot entries only; <em class="sp">D. radiodurans</em> seeds include unreviewed entries, because only about 526 of its 3,104 entries are reviewed.</p>
+      <p><b>Networks.</b> STRING 12.5 functional associations are downloaded at combined score ≥ 0.4 and analysed at <b>0.7</b>. Every record passes QC, and each exclusion is logged with a reason. All raw responses are cached with SHA-256 checksums, so every run is reproducible offline.</p>
+      <p><b>Evidence for each protein pair</b> comes from eight components:</p>
+      <ul>
+        <li><b>Shared catalytic activity:</b> EC number.</li>
+        <li><b>Shared function annotation:</b> GO terms, compared by IC-weighted Ochiai similarity.</li>
+        <li><b>Shared pathways:</b> KEGG maps.</li>
+        <li><b>Literature:</b> QuickGO evidence codes, plus PubMed-verified curated findings.</li>
+        <li><b>Perturbation:</b> mutant and genetic-interaction phenotypes.</li>
+        <li><b>Module profile</b> and <b>network role:</b> the pair's places in their own networks.</li>
+        <li><b>Homology</b> (supporting evidence only), checked through STRING reciprocal best hits, KEGG Orthology, PANTHER, Pfam, InterPro and frequent common folds.</li>
+      </ul>
+      <p><b>Scoring.</b> A pair's score is the weighted mean over the components that are available, so missing evidence never counts as negative. Categories follow fixed rules. A pair is called a <b>candidate analogue</b> only when it has no homology signal at any level <em>and</em> shares catalytic activity with independent support.</p>
+      <p><b>Robustness and evaluation.</b> The ranking is re-run under Dirichlet weight perturbation, leave-one-component-out, three similarity measures, STRING thresholds from 0.4 to 0.9, and different random seeds. Alignment uses IsoRank with a degree-preserving rewired null. NetMF embeddings are tested against neighbourhood baselines on held-out edges, within each species only.</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Network (score ≥ 0.7)</th><th class="num">Proteins</th><th class="num">Edges</th><th class="num">Isolated</th><th class="num">Largest component</th></tr></thead>
+        <tbody>
+          <tr><td><span class="process-tag ox">Ox</span> <em class="sp">D. radiodurans</em></td><td class="num">16</td><td class="num">11</td><td class="num">9</td><td class="num">5</td></tr>
+          <tr><td><span class="process-tag ox">Ox</span> <em class="sp">H. sapiens</em></td><td class="num">382</td><td class="num">2,210</td><td class="num">70</td><td class="num">295</td></tr>
+          <tr><td><span class="process-tag dna">DNA</span> <em class="sp">D. radiodurans</em></td><td class="num">52</td><td class="num">119</td><td class="num">11</td><td class="num">41</td></tr>
+          <tr><td><span class="process-tag dna">DNA</span> <em class="sp">H. sapiens</em></td><td class="num">426</td><td class="num">5,285</td><td class="num">23</td><td class="num">400</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="prose small">Sparsity reflects seed-set size, not poor connectivity. The bacterial seed sets have more edges than 97.7 % (oxidative stress) and 95.3 % (DNA repair) of random human subsets of the same size. A KEGG-Orthology-projected bacterial network adds only 11 proteins (oxidative stress) and 1 protein (DNA repair), so orthology cannot close the coverage gap.</p>
+  </section>
+
+  <section>
+    <h2>Oxidative-stress defence</h2>
+    <div class="prose" style="display:grid; gap:12px;">
+      <p>The human network has an antioxidant module of 69 proteins (SOD1–3, CAT, PRDX1–6, GPX2–8, TXNRD1–3, glutathione enzymes, NFE2L2/KEAP1). Both non-trivial bacterial modules match this module best. The bacterial network itself is small, with 11 edges.</p>
+      <p>The best-supported bacterial protein is peroxiredoxin Q (DR0846), which tops the ranking against human PRDX1–5. A double DR0846/DR1998 deletion is less stress-tolerant than either single mutant. Its pairs with human glutathione peroxidases are classed as <span class="mono">distant_homolog</span>: the only shared signature is the thioredoxin fold, so they are related peroxidases rather than analogues.</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th><em class="sp">D. radiodurans</em></th><th>Human</th><th>Category</th><th class="num">Rank</th><th>Basis</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">DR_0846</td><td class="mono">PRDX5</td><td class="cat">homolog</td><td class="num">1</td><td>peroxiredoxin family; curated double-mutant phenotype</td></tr>
+          <tr><td class="mono">katA</td><td class="mono">CAT</td><td class="cat orth">ortholog (RBH)</td><td class="num">7</td><td>EC 1.11.1.6; KO K03781; mutant evidence in both species</td></tr>
+          <tr><td class="mono">sodA</td><td class="mono">SOD2</td><td class="cat orth">ortholog (RBH)</td><td class="num">16</td><td>EC 1.15.1.1; mixed bacterial mutant evidence</td></tr>
+          <tr><td class="mono">sodA</td><td class="mono">SOD3</td><td class="cat ana">candidate analogue</td><td class="num">19</td><td>Mn/Fe vs Cu/Zn SOD; EC 1.15.1.1; no homology</td></tr>
+          <tr><td class="mono">sodA</td><td class="mono">CYGB</td><td class="cat ana">candidate analogue</td><td class="num">65</td><td>cytoglobin SOD activity, from a single study</td></tr>
+          <tr><td class="mono">katA</td><td class="mono">PRDX5</td><td class="cat ana">candidate analogue</td><td class="num">69</td><td>shares only the peroxidase EC class (1.11.1); different chemistry</td></tr>
+          <tr><td class="mono">sodC</td><td class="mono">SOD2</td><td class="cat ana">candidate analogue</td><td class="num">76</td><td>Cu/Zn vs Mn SOD</td></tr>
+          <tr><td class="mono">DR_1538</td><td class="mono">GPX8</td><td class="cat">shared function</td><td class="num">11</td><td>OsmC vs glutathione peroxidase; GO only. An activity assay would decide.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout ox prose">
+      <h3>The sodA evidence is mixed</h3>
+      <p>sodA insertion mutants are more radiation-sensitive than the wild type. Yet ΔMnSOD mutants survive gamma radiation <em>better</em> than the wild type, while becoming sensitive to oxygen during desiccation. The authors attribute this to small-molecule Mn antioxidants that supplant MnSOD. In <em class="sp">D. radiodurans</em>, part of the functional counterpart of human enzymatic SOD may therefore not be a protein at all, and a protein network cannot represent it.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>DNA repair</h2>
+    <div class="prose" style="display:grid; gap:12px;">
+      <p>The bacterial network divides into recognisable repair pathways:</p>
+      <ul>
+        <li>base-excision repair (FDR 3 × 10⁻⁴);</li>
+        <li>RecFOR recombination;</li>
+        <li>nucleotide-excision repair (UvrABC);</li>
+        <li>replication and mismatch repair;</li>
+        <li>a <em class="sp">Deinococcus</em>-specific radiation-response module (recA, lexA, ddrA, ddrB, pprA).</li>
+      </ul>
+      <p>Module correspondence with the human network is weakly discriminating: several bacterial modules match the human base-excision module best, so shared generic repair terms dominate the comparison.</p>
+    </div>
+    <figure>
+      <img alt="D. radiodurans DNA-repair network at STRING score 0.7, coloured by Louvain module; eleven isolated proteins in a row at the bottom." src="{{IMG_DNA_NET}}">
+      <figcaption><em class="sp">D. radiodurans</em> DNA-repair seed network at combined score ≥ 0.7, coloured by Louvain module. Isolated proteins are in the bottom row.</figcaption>
+    </figure>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th><em class="sp">D. radiodurans</em></th><th>Human</th><th>Category</th><th class="num">Rank</th><th>Basis</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">nth</td><td class="mono">NTHL1</td><td class="cat orth">ortholog (RBH)</td><td class="num">2</td><td>EC 4.2.99.18; same KO</td></tr>
+          <tr><td class="mono">mutM</td><td class="mono">NEIL3</td><td class="cat">homolog</td><td class="num">3</td><td>Fpg/Nei family (PANTHER)</td></tr>
+          <tr><td class="mono">mutM</td><td class="mono">NTHL1</td><td class="cat ana">candidate analogue</td><td class="num">26</td><td>Fpg vs HhH-GPD fold; shared AP-lyase activity</td></tr>
+          <tr><td class="mono">nth</td><td class="mono">NEIL3</td><td class="cat ana">candidate analogue</td><td class="num">31</td><td>HhH-GPD vs Fpg fold</td></tr>
+          <tr><td class="mono">mutM</td><td class="mono">OGG1</td><td class="cat ana">candidate analogue</td><td class="num">47</td><td>both remove 8-oxoguanine; unrelated folds</td></tr>
+          <tr><td class="mono">DR_2584</td><td class="mono">MPG</td><td class="cat ana">candidate analogue</td><td class="num">62</td><td>3-methyladenine glycosylases (EC 3.2.2.21)</td></tr>
+          <tr><td class="mono">mutL</td><td class="mono">MLH1</td><td class="cat orth">ortholog (RBH)</td><td class="num">127</td><td>separate KO groups (kingdom split), treated as a caution only</td></tr>
+          <tr><td class="mono">recA</td><td class="mono">RAD51</td><td class="cat">homolog</td><td class="num">169</td><td>RecA/RAD51 family</td></tr>
+          <tr><td class="mono">ligA</td><td class="mono">LIG1</td><td class="cat dist">distant homolog</td><td class="num">514</td><td>NAD⁺- vs ATP-dependent ligases share common-fold signatures (e.g. the OB fold): distantly related</td></tr>
+          <tr><td class="mono">uvrA</td><td class="mono">XPC</td><td class="cat">similar pathway</td><td class="num">2,771</td><td>bacterial vs eukaryotic NER: analogy at the pathway level only</td></tr>
+          <tr><td class="mono">pprA</td><td class="mono">LIG4</td><td class="cat mixed">speculative</td><td class="num">3,013</td><td>no supported counterpart; mutant evidence mixed</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="prose small">ligA–RFC1 is a reciprocal best hit (bitscore 65.5) most likely caused by a single shared BRCT domain. The evidence ranks it low (478), but its category label alone would mislead. A ligase pair I had expected to be convergent (ligA–LIG1) turns out to be distantly homologous.</p>
+  </section>
+
+  <section>
+    <h2>Physical interactions and alignment</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>IntAct, physical interactions between seeds</th><th class="num">Ox · <em class="sp">D. rad.</em></th><th class="num">Ox · human</th><th class="num">DNA · <em class="sp">D. rad.</em></th><th class="num">DNA · human</th></tr></thead>
+        <tbody>
+          <tr><td>Physical interaction pairs</td><td class="num">0</td><td class="num">508</td><td class="num">0</td><td class="num">599</td></tr>
+          <tr><td>STRING edges confirmed</td><td class="num">0 / 11</td><td class="num">275 / 2,210 (12.4 %)</td><td class="num">0 / 119</td><td class="num">431 / 5,285 (8.2 %)</td></tr>
+          <tr><td>STRING physical-subnetwork edges confirmed</td><td class="num">0 / 4</td><td class="num">243 / 1,152 (21.1 %)</td><td class="num">0 / 14</td><td class="num">395 / 2,393 (16.5 %)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="prose">IntAct, BioGRID and MINT hold no experimentally determined interactions for the bacterial seed proteins (checked 2 November 2026). Both bacterial networks therefore consist entirely of functional associations.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>IsoRank alignment to the human network</th><th class="num">Edges conserved</th><th class="num">p vs rewired null</th></tr></thead>
+        <tbody>
+          <tr><td><span class="process-tag ox">Ox</span> topology only (α = 1)</td><td class="num">9 / 11</td><td class="num">0.10</td></tr>
+          <tr><td><span class="process-tag ox">Ox</span> KO-projected network, KO prior (α = 0.8)</td><td class="num">13 / 16</td><td class="num">0.02</td></tr>
+          <tr><td><span class="process-tag dna">DNA</span> topology only (α = 1)</td><td class="num">114 / 119</td><td class="num">0.05</td></tr>
+          <tr><td><span class="process-tag dna">DNA</span> homology prior (α = 0.5)</td><td class="num">89 / 119</td><td class="num">0.01</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="prose small">Homology-anchored conservation exceeds degree-preserving rewired graphs, but STRING transfers association evidence between orthologs, so this is not independent evidence of conserved wiring. Topology-only role similarity does not recover orthologs: AUC 0.46 over the 14 DNA-repair ortholog pairs that have role data.</p>
+  </section>
+
+  <section>
+    <h2>Robustness</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Check</th><th>Oxidative stress</th><th>DNA repair</th></tr></thead>
+        <tbody>
+          <tr><td>Weight perturbation: median top-20 overlap (5th percentile)</td><td class="num">0.80 (0.65)</td><td class="num">0.70 (0.50)</td></tr>
+          <tr><td>STRING threshold 0.4–0.9: top-20 overlap</td><td class="num">0.80–1.00</td><td class="num">0.60–1.00</td></tr>
+          <tr><td>Alternative random seeds: top-20 overlap</td><td class="num">1.0</td><td class="num">1.0</td></tr>
+          <tr><td>Offline re-run, different hash seed</td><td class="num">41/41 tables identical</td><td class="num">42/42 tables identical</td></tr>
+          <tr><td>Candidate analogues across 3 similarity measures</td><td class="num">65 / 81 / 120</td><td class="num">67 / 90 / 108</td></tr>
+          <tr><td>NetMF vs Adamic–Adar (human, link-prediction AUC)</td><td class="num">0.933 vs 0.949</td><td class="num">0.877 vs 0.952</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figure>
+      <img alt="Three panels comparing D. radiodurans and human DNA-repair networks across STRING thresholds 0.4 to 0.9: edge counts, fraction of seeds connected, and Louvain stability." src="{{IMG_DNA_THR}}">
+      <figcaption>DNA-repair networks across STRING thresholds: edge count (log scale), fraction of seeds connected, and Louvain stability (mean pairwise ARI over 50 seeds).</figcaption>
+    </figure>
+    <p class="prose small">Individual ranks move under these perturbations, especially in DNA repair, where the top of the list is dominated by orthologs. Each pair's 5–95 % rank interval is reported in <span class="mono">candidates/candidate_pairs_all.tsv</span>. The analogue category is best read as "pairs worth examining", not as a fixed set.</p>
+  </section>
+
+  <section>
+    <h2>Limitations</h2>
+    <ul class="prose">
+      <li>Seed sets are GO-defined, and annotation depth differs strongly between the organisms. Most bacterial GO evidence is electronic or phylogenetic.</li>
+      <li>Curated literature covers 12 bacterial proteins at abstract level from targeted searches. Human perturbation evidence comes only from GO evidence codes.</li>
+      <li>"No detected homology" cannot exclude very remote homology. Broad EC numbers, such as EC 2.7.7.7 for all DNA polymerases, inflate some weak analogues.</li>
+      <li>STRING edges are functional associations, partly transferred between species through orthology. No bacterial physical-interaction data exist.</li>
+      <li>There is no ground truth for cross-species analogy, so no accuracy is claimed.</li>
+      <li>Non-protein defences, such as Mn²⁺–metabolite antioxidants, are outside the networks.</li>
+      <li>The research plan <em>2026-Graph-AnanthapadmanabhanDS</em> was not available during development, so the design follows the written project brief.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Proposed experiments</h2>
+    <ol class="prose">
+      <li><b>Convergent glycosylases.</b> Complement a <em class="sp">D. radiodurans</em> <span class="mono">mutM</span> deletion with human <span class="mono">OGG1</span>, and an <span class="mono">nth</span> deletion with <span class="mono">NEIL1</span>, then measure 8-oxoG removal and survival after oxidative or ionising damage.</li>
+      <li><b>Cross-family SOD complementation.</b> Complement <span class="mono">sodA</span> with human <span class="mono">SOD1</span> or <span class="mono">SOD3</span> under H₂O₂, paraquat and desiccation. The mixed sodA evidence makes the choice of condition critical.</li>
+      <li><b>OsmC activity.</b> Assay DR1538 for hydroperoxide reduction to resolve its comparison with GPX7/GPX8.</li>
+      <li><b>Deinococcus-specific repair factors.</b> Characterise PprA, DdrA and DdrB against human end-processing proteins. The current data support no human counterpart for PprA.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Reproducing the analysis</h2>
+    <p class="prose">From the repository root, with Python 3.11 and the pinned requirements installed. Runs read the cached raw data and verify every checksum first.</p>
+    <pre>python -m extremonet --config config/phase1_oxidative_stress.yaml
+python -m extremonet.analysis --config config/phase2_analysis.yaml
+python -m extremonet --config config/phase1_dna_repair.yaml
+python -m extremonet.analysis --config config/phase2_dna_repair.yaml
+python -m pytest</pre>
+    <p class="prose small">Reference runs: oxidative stress <span class="mono">20261102T165336Z_e64fca252fa7</span>; DNA repair <span class="mono">20261102T170150Z_5a2a85f66091</span>. Detailed findings are in <span class="mono">docs/PHASE2_FINDINGS.md</span> and <span class="mono">docs/DNA_REPAIR_FINDINGS.md</span>; methods in <span class="mono">docs/PHASE2_METHODS.md</span>. Data sources: STRING 12.5, UniProtKB 2026_03, QuickGO, KEGG REST (academic use) and IntAct, all cached with provenance.</p>
+  </section>
+
+  <section>
+    <h2>Literature cited in the curated evidence</h2>
+    <ol class="refs">
+      <li>Daly MJ et al. 1994, J Bacteriol. <a href="https://doi.org/10.1128/jb.176.12.3508-3517.1994">doi:10.1128/jb.176.12.3508-3517.1994</a></li>
+      <li>Markillie LM et al. 1999, J Bacteriol. <a href="https://doi.org/10.1128/JB.181.2.666-669.1999">doi:10.1128/JB.181.2.666-669.1999</a></li>
+      <li>Funayama T et al. 1999, Mutat Res. <a href="https://doi.org/10.1016/s0921-8777(99)00044-0">doi:10.1016/s0921-8777(99)00044-0</a></li>
+      <li>Earl AM et al. 2002, J Bacteriol. <a href="https://doi.org/10.1128/jb.184.4.1003-1009.2002">doi:10.1128/jb.184.4.1003-1009.2002</a></li>
+      <li>Satoh K et al. 2002, J Biochem. <a href="https://doi.org/10.1093/oxfordjournals.jbchem.a003066">doi:10.1093/oxfordjournals.jbchem.a003066</a></li>
+      <li>Harris DR et al. 2004, PLoS Biol. <a href="https://doi.org/10.1371/journal.pbio.0020304">doi:10.1371/journal.pbio.0020304</a></li>
+      <li>Narumi I et al. 2004, Mol Microbiol. <a href="https://doi.org/10.1111/j.1365-2958.2004.04272.x">doi:10.1111/j.1365-2958.2004.04272.x</a></li>
+      <li>Jolivet E et al. 2006, Mol Microbiol. <a href="https://doi.org/10.1111/j.1365-2958.2005.04946.x">doi:10.1111/j.1365-2958.2005.04946.x</a></li>
+      <li>Xu G et al. 2010, DNA Repair. <a href="https://doi.org/10.1016/j.dnarep.2010.04.006">doi:10.1016/j.dnarep.2010.04.006</a></li>
+      <li>Devigne A et al. 2013, DNA Repair. <a href="https://doi.org/10.1016/j.dnarep.2013.01.004">doi:10.1016/j.dnarep.2013.01.004</a></li>
+      <li>Selvam K et al. 2013, PLoS One. <a href="https://doi.org/10.1371/journal.pone.0069007">doi:10.1371/journal.pone.0069007</a></li>
+      <li>Jeong et al. 2015, Biochem Biophys Res Commun. <a href="https://doi.org/10.1016/j.bbrc.2015.12.017">doi:10.1016/j.bbrc.2015.12.017</a></li>
+      <li>Wang L et al. 2016, Int J Radiat Biol. <a href="https://doi.org/10.3109/09553002.2016.1150618">doi:10.3109/09553002.2016.1150618</a></li>
+      <li>Cho et al. 2018, FEBS Lett. <a href="https://doi.org/10.1002/1873-3468.13302">doi:10.1002/1873-3468.13302</a></li>
+      <li>Zweier JL et al. 2021, PNAS. <a href="https://doi.org/10.1073/pnas.2105053118">doi:10.1073/pnas.2105053118</a></li>
+      <li>Gaidamakova et al. 2022, mBio. <a href="https://doi.org/10.1128/mbio.03394-21">doi:10.1128/mbio.03394-21</a></li>
+    </ol>
+    <p class="small">Methods: STRING (Szklarczyk et al.), Louvain (Blondel et al. 2008), IsoRank (Singh, Xu &amp; Berger 2008), NetMF (Qiu et al. 2018), simGIC (Pesquita et al. 2008), hub/bottleneck classes (Yu et al. 2007), participation coefficient (Guimerà &amp; Amaral 2005).</p>
+  </section>
+</main>
