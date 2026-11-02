@@ -1,0 +1,24 @@
+{
+  "source": "string",
+  "endpoint": "get_string_ids_deinococcus_radiodurans_single",
+  "description": "map 1 identifiers to STRING (species=1299)",
+  "request_key": "76582b658ac66638e47c",
+  "method": "POST",
+  "url": "https://string-db.org/api/json/get_string_ids",
+  "params": {
+    "caller_identity": "extremonet_dna_repair",
+    "echo_query": "1",
+    "identifiers": "G9I562",
+    "limit": "1",
+    "species": "1299"
+  },
+  "retrieved_at_utc": "2026-11-02T16:18:44.223093+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/json; charset=utf-8",
+    "date": "Mon, 02 Nov 2026 16:18:44 GMT"
+  },
+  "bytes": 2,
+  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "data_file": "76582b658ac66638e47c__20261102T161844223093Z.json"
+}

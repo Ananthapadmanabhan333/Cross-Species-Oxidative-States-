@@ -1,7 +1,9 @@
 """Compare Phase 2 runs (e.g. made with different --seed values) for robustness reporting.
 
 Usage (from the project root):
-    python scripts/compare_phase2_runs.py <reference_run_id> <other_run_id> [<other_run_id> ...]
+    python scripts/compare_phase2_runs.py [--root results/phase2] <reference_run_id> <other_run_id> [...]
+
+--root selects the Phase 2 results folder (default results/phase2; DNA repair: results/dna_repair/phase2).
 """
 
 from __future__ import annotations
@@ -12,7 +14,7 @@ from pathlib import Path
 
 import pandas as pd
 
-ROOT = Path("results/phase2")
+ROOT = Path("results/phase2")  # overridden by --root
 
 
 def load(run_id: str) -> tuple[pd.DataFrame, dict]:
@@ -27,6 +29,9 @@ def top(ranked: pd.DataFrame, k: int) -> set[tuple[str, str]]:
 
 
 def main(argv: list[str]) -> int:
+    global ROOT
+    if len(argv) >= 2 and argv[0] == "--root":
+        ROOT, argv = Path(argv[1]), argv[2:]
     if len(argv) < 2:
         print(__doc__)
         return 2

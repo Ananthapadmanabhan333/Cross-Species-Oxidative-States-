@@ -26,14 +26,17 @@ from .similarity import (
 COMPONENTS = ["ec", "go", "pathway", "literature", "perturbation", "module", "role", "homology"]
 ROLE_FEATURES = ["degree_pct", "betweenness_pct", "closeness_pct", "clustering", "participation_coefficient"]
 
-CATEGORY_ORDER = ["ortholog_rbh", "ortholog_ko", "homolog", "candidate_analogue", "shared_function_annotation",
+CATEGORY_ORDER = ["ortholog_rbh", "ortholog_ko", "homolog", "distant_homolog", "candidate_analogue", "shared_function_annotation",
                   "similar_pathway_role", "speculative", "unsupported"]
 CATEGORY_DESCRIPTIONS = {
     "ortholog_rbh": "reciprocal best STRING sequence hits (orthology candidate; not proof of equal function)",
     "ortholog_ko": "same KEGG Orthology group, not a reciprocal best hit (curated orthology; paralogs possible)",
     "homolog": "detectable homology (shared PANTHER family, one-way best hit, shared Pfam domain or shared "
                "InterPro entry)",
-    "candidate_analogue": "no detected homology (no best hit, PANTHER, Pfam or InterPro signal); shared catalytic "
+    "distant_homolog": "only a frequent fold-level signature in common (e.g. P-loop NTPase, helicase domain, "
+                       "thioredoxin fold): distant homology, not an analogue",
+    "candidate_analogue": "no detected homology (no best hit, KO, PANTHER, Pfam, InterPro or common-fold signal); "
+                          "shared catalytic "
                           "activity (EC) plus independent pathway, GO or experimental evidence",
     "shared_function_annotation": "no detected homology; shared EC or GO function annotation only",
     "similar_pathway_role": "no detected homology; shared KEGG pathway maps without shared function annotation",
@@ -48,6 +51,8 @@ def assign_category(row: dict[str, Any], go_thr: float, path_thr: float) -> str:
         return "ortholog_rbh"
     if tier == "shared_kegg_ko":
         return "ortholog_ko"
+    if tier == "shared_common_fold":
+        return "distant_homolog"
     if tier != "none_detected":
         return "homolog"
     ec = row["ec"] if row["ec"] is not None else 0.0
@@ -70,6 +75,8 @@ VALIDATION = {
                     "human gene complements a D. radiodurans {dr} deletion under H2O2, paraquat or ionising radiation.",
     "ortholog_ko": "Confirm the ortholog assignment with a gene tree; test whether the human gene complements a "
                    "D. radiodurans {dr} deletion under H2O2, paraquat or ionising radiation.",
+    "distant_homolog": "Treat as distant homologs sharing a common fold; compare active sites and substrate "
+                       "specificity before inferring any functional correspondence.",
     "homolog": "Resolve the homology relationship (ortholog vs paralog) phylogenetically, then test complementation "
                "of a D. radiodurans {dr} deletion by the human gene under oxidative challenge.",
     "candidate_analogue": "Assay the shared activity ({ec}) of both purified proteins under matched conditions; express "
@@ -135,6 +142,7 @@ def build_pairs(dr: dict[str, ProteinEvidence], hs: dict[str, ProteinEvidence],
                 "shared_pfam": ";".join(hom_detail["shared_pfam"]),
                 "shared_interpro": ";".join(hom_detail["shared_interpro"]),
                 "shared_ko": ";".join(hom_detail["shared_ko"]),
+                "shared_common_folds": ";".join(hom_detail["shared_common_folds"]),
                 "dr_ko": ";".join(sorted(pa.ko)), "hs_ko": ";".join(sorted(pb.ko)),
                 "ko_conflict": hom_detail["ko_conflict"],
                 "curated_contradictions": " | ".join(curated_contradictions(pa) + curated_contradictions(pb)),
@@ -161,8 +169,6 @@ def contradictions(row: pd.Series) -> str:
         items.append(f"dissimilar network roles (role similarity {row['role']:.2f})")
     if row["negated_go_conflicts"]:
         items.append(f"NOT-qualified GO annotation conflicts: {row['negated_go_conflicts']}")
-    if row.get("ko_conflict") is True and row["homology_tier"] == "reciprocal_best_hit":
-        items.append(f"reciprocal best hit but different KEGG Orthology groups ({row['dr_ko']} vs {row['hs_ko']})")
     if isinstance(row.get("curated_contradictions"), str) and row["curated_contradictions"]:
         items.append(f"curated perturbation evidence against a simple protective role: {row['curated_contradictions']}")
     return "; ".join(items)
@@ -197,7 +203,11 @@ def uncertainty_notes(row: pd.Series) -> str:
     if row["dr_evidence_codes"] and set(row["dr_evidence_codes"].split(";")) <= {"IEA"}:
         notes.append("D. radiodurans GO evidence is electronic only (IEA)")
     if row["homology_tier"] == "none_detected":
-        notes.append("no homology detected (best hit, PANTHER, Pfam, InterPro); very remote homology is not excluded")
+        notes.append("no homology detected (best hit, KO, PANTHER, Pfam, InterPro, common fold); very remote "
+                     "homology is not excluded")
+    if row.get("ko_conflict") is True and row["homology_tier"] == "reciprocal_best_hit":
+        notes.append(f"reciprocal best hit with different KEGG KO groups ({row['dr_ko']} vs {row['hs_ko']}); KEGG often "
+                     "splits bacterial and eukaryotic members of one family, so this is a caution, not a contradiction")
     if row["evidence_coverage"] < 0.6:
         notes.append(f"low evidence coverage ({row['evidence_coverage']:.2f})")
     return "; ".join(notes)

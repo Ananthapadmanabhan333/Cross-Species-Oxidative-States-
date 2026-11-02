@@ -1,0 +1,25 @@
+{
+  "source": "uniprot",
+  "endpoint": "seeds_deinococcus_radiodurans",
+  "description": "UniProtKB entries annotated with GO:0006281 for taxonomy_id:1299",
+  "request_key": "a3348e51bdc8747ce864",
+  "method": "GET",
+  "url": "https://rest.uniprot.org/uniprotkb/stream",
+  "params": {
+    "fields": "accession,id,reviewed,gene_primary,gene_names,protein_name,organism_id,organism_name,xref_string,go_id,annotation_score",
+    "format": "tsv",
+    "query": "((go:0006281)) AND (taxonomy_id:1299)"
+  },
+  "retrieved_at_utc": "2026-11-02T16:18:41.981357+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/plain;format=tsv",
+    "date": "Mon, 02 Nov 2026 16:18:42 GMT",
+    "x-uniprot-release": "2026_03",
+    "x-uniprot-release-date": "02-September-2026",
+    "x-api-deployment-date": "02-November-2026"
+  },
+  "bytes": 17863,
+  "sha256": "3a66888377341faf5c3209bce3ea38d7c1ac12b2e416aa282af7fe97d56f551e",
+  "data_file": "a3348e51bdc8747ce864__20261102T161841981357Z.tsv"
+}

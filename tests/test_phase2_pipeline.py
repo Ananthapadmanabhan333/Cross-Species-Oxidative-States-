@@ -49,7 +49,25 @@ ANNOTATIONS = {  # string id -> list of (category, term)
 }
 
 
+def mitab(a, b, mi_type, name, iid, score="0.6"):
+    cols = [f"uniprotkb:{a}", f"uniprotkb:{b}", "-", "-", "-", "-", 'psi-mi:"MI:0018"(two hybrid)', "-",
+            "pubmed:999", "taxid:9606", "taxid:9606", f'psi-mi:"{mi_type}"({name})', "-", f"intact:{iid}",
+            f"intact-miscore:{score}"]
+    return "\t".join(cols)
+
+
+INTACT_HUMAN = "\n".join([
+    mitab("P10001", "P10002", "MI:0915", "physical association", "EBI-1"),   # confirms a STRING edge
+    mitab("P10002", "P10003", "MI:2364", "proximity", "EBI-2"),              # not physical: ignored
+    mitab("P10001", "P10001", "MI:0915", "physical association", "EBI-3"),   # self interaction
+]) + "\n"
+
+
 def phase2_handler(method, url, params):
+    if "psicquic/intact" in url:
+        from urllib.parse import unquote
+        human = "P1000" in unquote(url)
+        return FakeResponse(body=INTACT_HUMAN if human and int(params.get("firstResult", 0)) == 0 else "")
     if url.endswith("/json/functional_annotation"):
         ids = params["identifiers"].split("\r")
         terms = {}
@@ -117,6 +135,7 @@ def phase2_setup(config, tmp_path, monkeypatch):
     cfg["ranking"]["min_evidence_coverage"] = 0.2
     cfg["embedding"]["min_edges_for_evaluation"] = 1000
     cfg["coverage_variant"].update({"rewired_null_samples": 2, "max_iterations": 30})
+    cfg["similarity"]["max_signature_fraction"] = 0.5   # 9-protein fixture: 2 carriers = 22 %
     curated = tmp_path / "curated.tsv"
     curated.write_text(CURATED)
     cfg["curated_evidence"] = str(curated)
@@ -166,10 +185,17 @@ def test_phase2_end_to_end(phase2_setup, tmp_path):
     variant_nodes = pd.read_csv(out / "coverage_variant" / "nodes.tsv", sep="\t")
     assert set(variant_nodes.loc[~variant_nodes["is_original_seed"], "string_id"]) == {"243230.DR_T005"}
     assert summary["curated_evidence"]["rows"] == 3
+    exp = summary["experimental_interactions"]
+    assert exp["homo_sapiens"]["physical_pairs_between_seeds"] == 1
+    assert exp["homo_sapiens"]["string_edges_confirmed"] == 1 and exp["homo_sapiens"]["self_interactions"] == 1
+    assert exp["deinococcus_radiodurans"]["physical_pairs_between_seeds"] == 0
+    conf = pd.read_csv(out / "homo_sapiens" / "edges_with_experimental_confirmation.tsv", sep="\t")
+    assert conf.loc[conf["intact_confirmed"], ["node_u", "node_v"]].values.tolist() == [
+        ["9606.ENSPTEST01", "9606.ENSPTEST02"]]
     manifest = json.loads(result["manifest"].read_text())
     for item in manifest["outputs"]:
         assert sha256_file(tmp_path / item["path"]) == item["sha256"]
-    assert {r["source"] for r in manifest["raw_inputs"]} == {"string", "uniprot", "quickgo", "kegg"}
+    assert {r["source"] for r in manifest["raw_inputs"]} == {"string", "uniprot", "quickgo", "kegg", "intact"}
 
 
 def test_phase2_offline_rerun_is_identical(phase2_setup, offline_session):
@@ -194,6 +220,16 @@ def test_curated_evidence_must_reference_network_proteins(phase2_setup, tmp_path
     cfg = copy.deepcopy(cfg)
     cfg["curated_evidence"] = str(bad)
     with pytest.raises(ValueError, match="DR_NOPE"):
+        run_phase2(cfg, session=session, sleep=lambda s: None)
+
+
+def test_curated_evidence_accession_must_match_network_protein(phase2_setup, tmp_path):
+    cfg, session, _ = phase2_setup
+    bad = tmp_path / "bad_accession.tsv"
+    bad.write_text(CURATED.replace("243230.DR_T002	P00002", "243230.DR_T002	P99999"))
+    cfg = copy.deepcopy(cfg)
+    cfg["curated_evidence"] = str(bad)
+    with pytest.raises(ValueError, match="P99999"):
         run_phase2(cfg, session=session, sleep=lambda s: None)
 
 

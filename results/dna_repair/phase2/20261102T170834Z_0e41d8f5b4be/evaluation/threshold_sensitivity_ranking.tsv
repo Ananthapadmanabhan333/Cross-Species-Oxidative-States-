@@ -1,0 +1,7 @@
+threshold	top20_overlap_with_primary	eligible_pairs	candidate_analogues
+0.4	0.7	20831	90
+0.5	0.7	20737	90
+0.6	0.8	20657	90
+0.7	1	20020	90
+0.8	0.8	19543	90
+0.9	0.65	18884	90

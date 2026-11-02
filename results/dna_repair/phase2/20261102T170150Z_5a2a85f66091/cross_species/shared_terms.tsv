@@ -1,0 +1,408 @@
+category	term	description
+Function	GO:0000166	Nucleotide binding
+Function	GO:0000217	DNA secondary structure binding
+Function	GO:0000287	Magnesium ion binding
+Function	GO:0000400	Four-way junction DNA binding
+Function	GO:0000700	Mismatch base pair DNA N-glycosylase activity
+Function	GO:0000701	Purine-specific mismatch base pair DNA N-glycosylase activity
+Function	GO:0000702	Oxidized base lesion DNA N-glycosylase activity
+Function	GO:0000703	Oxidized pyrimidine nucleobase lesion DNA N-glycosylase activity
+Function	GO:0001217	DNA-binding transcription repressor activity
+Function	GO:0003676	Nucleic acid binding
+Function	GO:0003677	DNA binding
+Function	GO:0003678	DNA helicase activity
+Function	GO:0003684	Damaged DNA binding
+Function	GO:0003690	Double-stranded DNA binding
+Function	GO:0003697	Single-stranded DNA binding
+Function	GO:0003700	DNA-binding transcription factor activity
+Function	GO:0003723	RNA binding
+Function	GO:0003824	Catalytic activity
+Function	GO:0003887	DNA-directed DNA polymerase activity
+Function	GO:0003905	Alkylbase DNA N-glycosylase activity
+Function	GO:0003906	DNA-(apurinic or apyrimidinic site) endonuclease activity
+Function	GO:0003909	DNA ligase activity
+Function	GO:0004175	Endopeptidase activity
+Function	GO:0004386	Helicase activity
+Function	GO:0004518	Nuclease activity
+Function	GO:0004519	Endonuclease activity
+Function	GO:0004520	DNA endonuclease activity
+Function	GO:0004521	RNA endonuclease activity
+Function	GO:0004523	RNA-DNA hybrid ribonuclease activity
+Function	GO:0004527	Exonuclease activity
+Function	GO:0004529	DNA exonuclease activity
+Function	GO:0004536	DNA nuclease activity
+Function	GO:0004540	RNA nuclease activity
+Function	GO:0004844	Uracil DNA N-glycosylase activity
+Function	GO:0005488	Binding
+Function	GO:0005515	Protein binding
+Function	GO:0005524	ATP binding
+Function	GO:0005525	GTP binding
+Function	GO:0008047	Enzyme activator activity
+Function	GO:0008081	Phosphoric diester hydrolase activity
+Function	GO:0008094	ATP-dependent activity, acting on DNA
+Function	GO:0008233	Peptidase activity
+Function	GO:0008236	Serine-type peptidase activity
+Function	GO:0008263	Pyrimidine-specific mismatch base pair DNA N-glycosylase activity
+Function	GO:0008270	Zinc ion binding
+Function	GO:0008296	3-5-DNA exonuclease activity
+Function	GO:0008297	Single-stranded DNA exodeoxyribonuclease activity
+Function	GO:0008309	Double-stranded DNA exodeoxyribonuclease activity
+Function	GO:0008311	Double-stranded DNA 3-5 DNA exonuclease activity
+Function	GO:0008408	3-5 exonuclease activity
+Function	GO:0008409	5-3 exonuclease activity
+Function	GO:0008534	Oxidized purine nucleobase lesion DNA N-glycosylase activity
+Function	GO:0008821	Crossover junction DNA endonuclease activity
+Function	GO:0008967	Phosphoglycolate phosphatase activity
+Function	GO:0009378	Four-way junction helicase activity
+Function	GO:0015616	DNA translocase activity
+Function	GO:0016462	Pyrophosphatase activity
+Function	GO:0016740	Transferase activity
+Function	GO:0016772	Transferase activity, transferring phosphorus-containing groups
+Function	GO:0016779	Nucleotidyltransferase activity
+Function	GO:0016787	Hydrolase activity
+Function	GO:0016788	Hydrolase activity, acting on ester bonds
+Function	GO:0016791	Phosphatase activity
+Function	GO:0016798	Hydrolase activity, acting on glycosyl bonds
+Function	GO:0016799	Hydrolase activity, hydrolyzing N-glycosyl compounds
+Function	GO:0016817	Hydrolase activity, acting on acid anhydrides
+Function	GO:0016818	Hydrolase activity, acting on acid anhydrides, in phosphorus-containing anhydrides
+Function	GO:0016829	Lyase activity
+Function	GO:0016835	Carbon-oxygen lyase activity
+Function	GO:0016836	Hydro-lyase activity
+Function	GO:0016853	Isomerase activity
+Function	GO:0016874	Ligase activity
+Function	GO:0016886	Ligase activity, forming phosphoric ester bonds
+Function	GO:0016887	ATP hydrolysis activity
+Function	GO:0016889	DNA endonuclease activity, producing 3-phosphomonoesters
+Function	GO:0016891	RNA endonuclease activity producing 5-phosphomonoesters, hydrolytic mechanism
+Function	GO:0016895	DNA exonuclease activity, producing 5-phosphomonoesters
+Function	GO:0017076	Purine nucleotide binding
+Function	GO:0017111	Ribonucleoside triphosphate phosphatase activity
+Function	GO:0017116	Single-stranded DNA helicase activity
+Function	GO:0017171	Serine hydrolase activity
+Function	GO:0019001	Guanyl nucleotide binding
+Function	GO:0019104	DNA N-glycosylase activity
+Function	GO:0019843	rRNA binding
+Function	GO:0019899	Enzyme binding
+Function	GO:0030234	Enzyme regulator activity
+Function	GO:0030554	Adenyl nucleotide binding
+Function	GO:0030983	Mismatched DNA binding
+Function	GO:0032356	Oxidized DNA binding
+Function	GO:0032357	Oxidized purine DNA binding
+Function	GO:0032553	Ribonucleotide binding
+Function	GO:0032555	Purine ribonucleotide binding
+Function	GO:0032559	Adenyl ribonucleotide binding
+Function	GO:0032561	Guanyl ribonucleotide binding
+Function	GO:0034039	8-oxo-7,8-dihydroguanine DNA N-glycosylase activity
+Function	GO:0034061	DNA polymerase activity
+Function	GO:0035312	5-3 DNA exonuclease activity
+Function	GO:0035485	Adenine/guanine mispair binding
+Function	GO:0035639	Purine ribonucleoside triphosphate binding
+Function	GO:0036094	Small molecule binding
+Function	GO:0042578	Phosphoric ester hydrolase activity
+Function	GO:0042802	Identical protein binding
+Function	GO:0043021	Ribonucleoprotein complex binding
+Function	GO:0043022	Ribosome binding
+Function	GO:0043023	Ribosomal large subunit binding
+Function	GO:0043138	3-5 DNA helicase activity
+Function	GO:0043167	Ion binding
+Function	GO:0043168	Anion binding
+Function	GO:0043169	Cation binding
+Function	GO:0043175	RNA polymerase core enzyme binding
+Function	GO:0043565	Sequence-specific DNA binding
+Function	GO:0044877	Protein-containing complex binding
+Function	GO:0045145	Single-stranded DNA 5-3 DNA exonuclease activity
+Function	GO:0046872	Metal ion binding
+Function	GO:0046914	Transition metal ion binding
+Function	GO:0051536	Iron-sulfur cluster binding
+Function	GO:0051539	4 iron, 4 sulfur cluster binding
+Function	GO:0051540	Metal cluster binding
+Function	GO:0070063	RNA polymerase binding
+Function	GO:0097367	Carbohydrate derivative binding
+Function	GO:0097506	Deaminated base DNA N-glycosylase activity
+Function	GO:0098772	Molecular function regulator activity
+Function	GO:0120543	Macromolecular conformation isomerase activity
+Function	GO:0120545	Nucleic acid conformation isomerase activity
+Function	GO:0140078	Class I DNA-(apurinic or apyrimidinic site) endonuclease activity
+Function	GO:0140096	Catalytic activity, acting on a protein
+Function	GO:0140097	Catalytic activity, acting on DNA
+Function	GO:0140098	Catalytic activity, acting on RNA
+Function	GO:0140110	Transcription regulator activity
+Function	GO:0140299	Molecular sensor activity
+Function	GO:0140612	DNA damage sensor activity
+Function	GO:0140640	Catalytic activity, acting on a nucleic acid
+Function	GO:0140657	ATP-dependent activity
+Function	GO:0140664	ATP-dependent DNA damage sensor activity
+Function	GO:0140677	Molecular function activator activity
+Function	GO:1901265	Nucleoside phosphate binding
+Function	GO:1901363	Heterocyclic compound binding
+InterPro	IPR000212	DNA helicase, UvrD/REP type
+InterPro	IPR000214	Zinc finger, DNA glycosylase/AP lyase-type
+InterPro	IPR000305	GIY-YIG endonuclease
+InterPro	IPR000432	DNA mismatch repair protein MutS, C-terminal
+InterPro	IPR001098	DNA-directed DNA polymerase, family A, palm domain
+InterPro	IPR001352	Ribonuclease HII/HIII
+InterPro	IPR001357	BRCT domain
+InterPro	IPR001650	Helicase, C-terminal domain-like
+InterPro	IPR002043	Uracil-DNA glycosylase family 1
+InterPro	IPR002054	DNA-directed DNA polymerase X
+InterPro	IPR002099	DNA mismatch repair protein MutL/Mlh/PMS
+InterPro	IPR002121	HRDC domain
+InterPro	IPR002298	DNA polymerase A
+InterPro	IPR002818	DJ-1/PfpI
+InterPro	IPR003180	Methylpurine-DNA glycosylase
+InterPro	IPR003265	HhH-GPD domain
+InterPro	IPR003395	RecF/RecN/SMC, N-terminal
+InterPro	IPR003583	Helix-hairpin-helix DNA-binding motif, class 1
+InterPro	IPR003593	AAA+ ATPase domain
+InterPro	IPR003651	Endonuclease III-like, iron-sulphur cluster loop motif
+InterPro	IPR003959	ATPase, AAA-type, core
+InterPro	IPR004035	Endonuclease III, iron-sulphur binding site
+InterPro	IPR004589	DNA helicase, ATP-dependent, RecQ type
+InterPro	IPR004808	AP endonuclease 1
+InterPro	IPR004843	Calcineurin-like, phosphoesterase domain
+InterPro	IPR005122	Uracil-DNA glycosylase-like
+InterPro	IPR005135	Endonuclease/exonuclease/phosphatase
+InterPro	IPR006171	TOPRIM domain
+InterPro	IPR006935	Helicase/UvrB, N-terminal
+InterPro	IPR007696	DNA mismatch repair protein MutS, core
+InterPro	IPR008918	Helix-hairpin-helix motif, class 2
+InterPro	IPR008921	DNA polymerase III, clamp loader complex, gamma/delta/delta subunit, C-terminal
+InterPro	IPR010979	Small ribosomal subunit protein uS13-like, H2TH
+InterPro	IPR010994	RuvA domain 2-like
+InterPro	IPR010996	Crossover junction endonuclease MUS81-like, HHH domain
+InterPro	IPR010997	HRDC-like superfamily
+InterPro	IPR011034	Formyl transferase-like, C-terminal domain superfamily
+InterPro	IPR011257	DNA glycosylase
+InterPro	IPR011545	DEAD/DEAH-box helicase domain
+InterPro	IPR012319	Formamidopyrimidine-DNA glycosylase, catalytic domain
+InterPro	IPR012337	Ribonuclease H-like superfamily
+InterPro	IPR012340	Nucleic acid-binding, OB-fold
+InterPro	IPR013507	DNA mismatch repair protein, S5 domain 2-like
+InterPro	IPR013520	Ribonuclease H-like domain
+InterPro	IPR014001	Helicase superfamily 1/2, ATP-binding domain
+InterPro	IPR014016	UvrD-like helicase, ATP-binding domain
+InterPro	IPR014017	UvrD-like DNA helicase, C-terminal
+InterPro	IPR014048	Methylated-DNA-[protein]-cysteine S-methyltransferase, DNA binding
+InterPro	IPR014721	Small ribosomal subunit protein uS5 domain 2-type fold, subgroup
+InterPro	IPR014762	DNA mismatch repair, conserved site
+InterPro	IPR014790	MutL, C-terminal, dimerisation
+InterPro	IPR015637	Uracil DNA glycosylase family 2
+InterPro	IPR015797	NUDIX hydrolase-like domain superfamily
+InterPro	IPR015886	Formamidopyrimidine-DNA glycosylase, H2TH DNA-binding
+InterPro	IPR015887	DNA glycosylase/AP lyase, zinc finger domain, DNA-binding site
+InterPro	IPR018085	Uracil-DNA glycosylase, active site
+InterPro	IPR018982	RQC domain
+InterPro	IPR019760	DNA-directed DNA polymerase, family A, conserved site
+InterPro	IPR020568	Ribosomal protein uS5 domain 2-type superfamily
+InterPro	IPR020587	DNA recombination and repair protein RecA, monomer-monomer interface
+InterPro	IPR020588	DNA recombination and repair protein RecA-like, ATP-binding domain
+InterPro	IPR021886	MgsA AAA+ ATPase, C-terminal
+InterPro	IPR023170	Helix-hairpin-helix, base-excision DNA repair, C-terminal
+InterPro	IPR023214	HAD superfamily
+InterPro	IPR024567	Ribonuclease HII/HIII domain
+InterPro	IPR027417	P-loop containing nucleoside triphosphate hydrolase
+InterPro	IPR027421	DNA polymerase lambda lyase domain superfamily
+InterPro	IPR029052	Metallo-dependent phosphatase-like
+InterPro	IPR029060	PIN-like domain superfamily
+InterPro	IPR029062	Class I glutamine amidotransferase-like
+InterPro	IPR029119	Adenine DNA glycosylase, C-terminal
+InterPro	IPR029398	DNA polymerase beta, thumb domain
+InterPro	IPR032284	ATP-dependent DNA helicase RecQ, zinc-binding domain
+InterPro	IPR032423	AAA C-terminal domain
+InterPro	IPR035901	GIY-YIG endonuclease superfamily
+InterPro	IPR035937	Formamidopyrimidine-DNA glycosylase, N-terminal
+InterPro	IPR036187	DNA mismatch repair protein MutS, core domain superfamily
+InterPro	IPR036217	Methylated DNA-protein cysteine methyltransferase, DNA binding domain
+InterPro	IPR036279	5-3 exonuclease, C-terminal domain superfamily
+InterPro	IPR036388	Winged helix-like DNA-binding domain superfamily
+InterPro	IPR036390	Winged helix DNA-binding domain superfamily
+InterPro	IPR036397	Ribonuclease H superfamily
+InterPro	IPR036412	HAD-like superfamily
+InterPro	IPR036420	BRCT domain superfamily
+InterPro	IPR036691	Endonuclease/exonuclease/phosphatase superfamily
+InterPro	IPR036890	Histidine kinase/HSP90-like ATPase superfamily
+InterPro	IPR036895	Uracil-DNA glycosylase-like domain superfamily
+InterPro	IPR036995	Methylpurine-DNA glycosylase superfamily
+InterPro	IPR037160	DNA polymerase, thumb domain superfamily
+InterPro	IPR037198	MutL, C-terminal domain superfamily
+InterPro	IPR038729	Rad50/SbcC-type AAA domain
+InterPro	IPR038973	DNA mismatch repair protein MutL/Mlh/Pms-like
+InterPro	IPR041247	Rad52 family
+InterPro	IPR041663	DisA/LigA, helix-hairpin-helix motif
+InterPro	IPR041796	DNA double-strand break repair protein Mre11, N-terminal metallophosphatase domain
+InterPro	IPR042120	MutL, C-terminal domain, dimerisation subdomain
+InterPro	IPR042121	MutL, C-terminal domain, regulatory subdomain
+InterPro	IPR043129	ATPase, nucleotide binding domain
+InterPro	IPR043502	DNA/RNA polymerase superfamily
+InterPro	IPR043519	Nucleotidyltransferase superfamily
+InterPro	IPR044298	Adenine/Thymine-DNA glycosylase
+InterPro	IPR044876	HRDC domain superfamily
+InterPro	IPR045076	DNA mismatch repair MutS
+InterPro	IPR051314	AAA ATPase RarA/MGS1/WRNIP1
+KEGG	03018	RNA degradation
+KEGG	03030	DNA replication
+KEGG	03410	Base excision repair
+KEGG	03420	Nucleotide excision repair
+KEGG	03430	Mismatch repair
+KEGG	03440	Homologous recombination
+Pfam	PF00580	UvrD/REP helicase N-terminal domain
+Pfam	PF01035	6-O-methylguanine DNA methyltransferase, DNA binding domain
+Pfam	PF01351	Ribonuclease HII
+Pfam	PF01965	DJ-1/PfpI family
+Pfam	PF02245	Methylpurine-DNA glycosylase (MPG)
+Pfam	PF03372	Endonuclease/Exonuclease/phosphatase family
+Pfam	PF04098	Rad52/22 family double-strand break repair protein
+Pfam	PF12002	MgsA AAA+ ATPase C terminal
+Pfam	PF13476	AAA domain
+Pfam	PF13538	UvrD-like helicase C-terminal domain
+Pfam	PF14815	NUDIX domain
+Pfam	PF16124	RecQ zinc-binding
+Pfam	PF16193	AAA C-terminal domain
+Process	GO:0000018	Regulation of DNA recombination
+Process	GO:0000715	Nucleotide-excision repair, DNA damage recognition
+Process	GO:0000725	Recombinational repair
+Process	GO:0000731	DNA synthesis involved in DNA repair
+Process	GO:0001101	Response to acid chemical
+Process	GO:0006081	Aldehyde metabolic process
+Process	GO:0006082	Organic acid metabolic process
+Process	GO:0006089	Lactate metabolic process
+Process	GO:0006139	Nucleobase-containing compound metabolic process
+Process	GO:0006259	DNA metabolic process
+Process	GO:0006260	DNA replication
+Process	GO:0006261	DNA-templated DNA replication
+Process	GO:0006281	DNA repair
+Process	GO:0006283	Transcription-coupled nucleotide-excision repair
+Process	GO:0006284	Base-excision repair
+Process	GO:0006285	Base-excision repair, AP site formation
+Process	GO:0006289	Nucleotide-excision repair
+Process	GO:0006290	Pyrimidine dimer repair
+Process	GO:0006298	Mismatch repair
+Process	GO:0006302	Double-strand break repair
+Process	GO:0006303	Double-strand break repair via nonhomologous end joining
+Process	GO:0006307	DNA alkylation repair
+Process	GO:0006310	DNA recombination
+Process	GO:0006355	Regulation of DNA-templated transcription
+Process	GO:0006396	RNA processing
+Process	GO:0006399	tRNA metabolic process
+Process	GO:0006400	tRNA modification
+Process	GO:0006401	RNA catabolic process
+Process	GO:0006412	Translation
+Process	GO:0006414	Translational elongation
+Process	GO:0006508	Proteolysis
+Process	GO:0006753	Nucleoside phosphate metabolic process
+Process	GO:0006793	Phosphorus metabolic process
+Process	GO:0006796	Phosphate-containing compound metabolic process
+Process	GO:0006950	Response to stress
+Process	GO:0006974	DNA damage response
+Process	GO:0006996	Organelle organization
+Process	GO:0008033	tRNA processing
+Process	GO:0008152	Metabolic process
+Process	GO:0009056	Catabolic process
+Process	GO:0009057	Macromolecule catabolic process
+Process	GO:0009058	Biosynthetic process
+Process	GO:0009059	Macromolecule biosynthetic process
+Process	GO:0009117	Nucleotide metabolic process
+Process	GO:0009314	Response to radiation
+Process	GO:0009411	Response to UV
+Process	GO:0009416	Response to light stimulus
+Process	GO:0009438	Methylglyoxal metabolic process
+Process	GO:0009451	RNA modification
+Process	GO:0009628	Response to abiotic stimulus
+Process	GO:0009636	Response to toxic substance
+Process	GO:0009889	Regulation of biosynthetic process
+Process	GO:0009890	Negative regulation of biosynthetic process
+Process	GO:0009892	Negative regulation of metabolic process
+Process	GO:0009987	Cellular process
+Process	GO:0010212	Response to ionizing radiation
+Process	GO:0010332	Response to gamma radiation
+Process	GO:0010467	Gene expression
+Process	GO:0010468	Regulation of gene expression
+Process	GO:0010556	Regulation of macromolecule biosynthetic process
+Process	GO:0010558	Negative regulation of macromolecule biosynthetic process
+Process	GO:0010605	Negative regulation of macromolecule metabolic process
+Process	GO:0016043	Cellular component organization
+Process	GO:0016053	Organic acid biosynthetic process
+Process	GO:0016070	RNA metabolic process
+Process	GO:0019219	Regulation of nucleobase-containing compound metabolic process
+Process	GO:0019222	Regulation of metabolic process
+Process	GO:0019249	Lactate biosynthetic process
+Process	GO:0019538	Protein metabolic process
+Process	GO:0019637	Organophosphate metabolic process
+Process	GO:0019752	Carboxylic acid metabolic process
+Process	GO:0022411	Cellular component disassembly
+Process	GO:0032774	RNA biosynthetic process
+Process	GO:0032787	Monocarboxylic acid metabolic process
+Process	GO:0032790	Ribosome disassembly
+Process	GO:0033554	Cellular response to stress
+Process	GO:0034654	Nucleobase-containing compound biosynthetic process
+Process	GO:0034655	Nucleobase-containing compound catabolic process
+Process	GO:0036297	Interstrand cross-link repair
+Process	GO:0042180	Ketone metabolic process
+Process	GO:0042182	Ketone catabolic process
+Process	GO:0042221	Response to chemical
+Process	GO:0042245	RNA repair
+Process	GO:0043137	DNA replication, removal of RNA primer
+Process	GO:0043170	Macromolecule metabolic process
+Process	GO:0043412	Macromolecule modification
+Process	GO:0043436	Oxoacid metabolic process
+Process	GO:0044238	Primary metabolic process
+Process	GO:0044281	Small molecule metabolic process
+Process	GO:0044282	Small molecule catabolic process
+Process	GO:0044283	Small molecule biosynthetic process
+Process	GO:0045002	Double-strand break repair via single-strand annealing
+Process	GO:0045004	DNA replication proofreading
+Process	GO:0045005	DNA-templated DNA replication maintenance of fidelity
+Process	GO:0045892	Negative regulation of DNA-templated transcription
+Process	GO:0045910	Negative regulation of DNA recombination
+Process	GO:0045934	Negative regulation of nucleobase-containing compound metabolic process
+Process	GO:0046185	Aldehyde catabolic process
+Process	GO:0046394	Carboxylic acid biosynthetic process
+Process	GO:0048519	Negative regulation of biological process
+Process	GO:0048523	Negative regulation of cellular process
+Process	GO:0050789	Regulation of biological process
+Process	GO:0050794	Regulation of cellular process
+Process	GO:0050896	Response to stimulus
+Process	GO:0051052	Regulation of DNA metabolic process
+Process	GO:0051053	Negative regulation of DNA metabolic process
+Process	GO:0051252	Regulation of RNA metabolic process
+Process	GO:0051253	Negative regulation of RNA metabolic process
+Process	GO:0051276	Chromosome organization
+Process	GO:0051595	Response to methylglyoxal
+Process	GO:0051596	Methylglyoxal catabolic process
+Process	GO:0051716	Cellular response to stimulus
+Process	GO:0055086	Nucleobase-containing small molecule metabolic process
+Process	GO:0060255	Regulation of macromolecule metabolic process
+Process	GO:0061727	Methylglyoxal catabolic process to lactate
+Process	GO:0065007	Biological regulation
+Process	GO:0070887	Cellular response to chemical stimulus
+Process	GO:0071214	Cellular response to abiotic stimulus
+Process	GO:0071229	Cellular response to acid chemical
+Process	GO:0071478	Cellular response to radiation
+Process	GO:0071479	Cellular response to ionizing radiation
+Process	GO:0071480	Cellular response to gamma radiation
+Process	GO:0071840	Cellular component organization or biogenesis
+Process	GO:0071897	DNA biosynthetic process
+Process	GO:0072330	Monocarboxylic acid biosynthetic process
+Process	GO:0072344	Rescue of stalled ribosome
+Process	GO:0080090	Regulation of primary metabolic process
+Process	GO:0090304	Nucleic acid metabolic process
+Process	GO:0097237	Cellular response to toxic substance
+Process	GO:0097238	Cellular response to methylglyoxal
+Process	GO:0097510	Base-excision repair, AP site formation via deaminated base removal
+Process	GO:0098754	Detoxification
+Process	GO:0104004	Cellular response to environmental stimulus
+Process	GO:0106044	Guanine deglycation
+Process	GO:0110095	Cellular detoxification of aldehyde
+Process	GO:0110096	Cellular response to aldehyde
+Process	GO:0140041	Cellular detoxification of methylglyoxal
+Process	GO:0141187	Nucleic acid biosynthetic process
+Process	GO:0141188	Nucleic acid catabolic process
+Process	GO:1901654	Response to ketone
+Process	GO:1901655	Cellular response to ketone
+Process	GO:1901700	Response to oxygen-containing compound
+Process	GO:1901701	Cellular response to oxygen-containing compound
+Process	GO:1902679	Negative regulation of RNA biosynthetic process
+Process	GO:1903008	Organelle disassembly
+Process	GO:1990748	Cellular detoxification
+Process	GO:2001141	Regulation of RNA biosynthetic process

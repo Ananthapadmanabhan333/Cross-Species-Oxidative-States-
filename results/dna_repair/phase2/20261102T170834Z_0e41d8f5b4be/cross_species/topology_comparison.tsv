@@ -1,0 +1,3 @@
+species	nodes	edges	density	isolated_nodes	connected_nodes	connected_components	non_trivial_components	largest_component_nodes	largest_component_edges	degree_mean	degree_median	degree_max	transitivity	average_clustering	lcc_average_shortest_path_hops	lcc_diameter_hops	degree_assortativity	hubs	bottlenecks	median_betweenness_connected	median_clustering_connected
+deinococcus_radiodurans	52	119	0.089744	11	41	12	1	41	119	4.576923	3	21	0.406931	0.435586	2.429268	5	-0.198533	8	9	0	0.638888888889
+homo_sapiens	426	5285	0.058382	23	403	25	2	400	5282	24.812207	17	161	0.405976	0.490214	2.489799	7	0.030863	80	81	0.000255271920089	0.502732240437

@@ -1,0 +1,77 @@
+# Phase 1 configuration: DNA-repair networks (second process; same pipeline and QC).
+# Every value here is copied verbatim into each run's results directory and its manifest.
+
+project:
+  name: cross_species_network_discovery
+  phase: 1
+  topic: dna_repair
+
+paths:
+  raw_dir: data/raw              # immutable API responses + .meta.json sidecars (the cache)
+  processed_dir: data/processed  # per-run cleaned tables
+  manifests_dir: data/manifests  # per-run provenance manifests
+  results_dir: results/dna_repair  # per-run graphs, statistics, QC reports, logs
+
+# Data-acquisition mode:
+#   online  - use a cached response if one exists for the exact request, otherwise fetch it
+#   refresh - always re-fetch from the API (the new response is cached; old files are kept)
+#   offline - never touch the network; fail loudly if a required response is not cached
+mode: online
+
+http:
+  timeout_seconds: 60
+  max_retries: 4
+  backoff_seconds: 2.0          # wait = backoff_seconds * 2**attempt (or Retry-After if sent)
+  min_interval_seconds: 1.0     # STRING asks clients to wait ~1 s between calls
+  # If a refresh fails, may an older cached copy be used? It is logged as a WARNING and recorded
+  # in the manifest as served_from=stale_cache. Off by default so nothing is silently substituted.
+  allow_stale_cache_on_failure: false
+  user_agent: "extremonet/0.1 (research pipeline; contact: talent.torsar@gmail.com)"
+
+string:
+  base_url: https://string-db.org/api
+  # Identifies this client to STRING, as the STRING API documentation requests.
+  caller_identity: extremonet_dna_repair
+  # Interactions are downloaded at this (lower) STRING required_score so the stricter analysis
+  # threshold below can be changed and re-applied offline, and so excluded edges can be reported.
+  retrieval_required_score: 400   # STRING integer scale 0-1000 (400 = STRING "medium")
+  network_types: [functional, physical]
+  add_nodes: 0                    # 0 = only interactions among the seed proteins
+  # STRING's batch get_string_ids answers once per STRING protein; accessions missing from the
+  # batch answer are re-queried one by one (up to this many) to separate collapses from true gaps.
+  max_individual_remap: 50
+
+network:
+  edge_score_threshold: 0.7       # combined (integrated) STRING score, 0-1 scale
+  # Edges with an experiments-channel score >= this value are flagged has_experimental_evidence.
+  experimental_score_threshold: 0.0
+  keep_isolated_nodes: true       # seeds with no retained edge stay in the graph (flagged)
+
+seeds:
+  source: uniprot
+  uniprot_base_url: https://rest.uniprot.org/uniprotkb
+  # DNA repair is defined operationally by GO annotation in UniProtKB (descendant terms such as
+  # double-strand break repair, nucleotide-excision and base-excision repair are included by
+  # UniProt's go: search). GO:0006974 (DNA damage response) is deliberately not used: it adds
+  # signalling and checkpoint proteins (731 human entries) that are not repair machinery.
+  go_terms:
+    - GO:0006281   # DNA repair (BP)
+
+species:
+  deinococcus_radiodurans:
+    label: Deinococcus radiodurans
+    ncbi_taxon_id: 1299
+    # STRING indexes the sequenced strain R1 (taxon 243230). Queries with 1299 are resolved by
+    # STRING to 243230; this expected value is checked, never assumed.
+    string_taxon_id: 243230
+    uniprot_taxon_query: "taxonomy_id:1299"   # includes strains below the species node
+    reviewed_only: false   # only ~526 Swiss-Prot entries exist for this organism
+  homo_sapiens:
+    label: Homo sapiens
+    ncbi_taxon_id: 9606
+    string_taxon_id: 9606
+    uniprot_taxon_query: "organism_id:9606"
+    reviewed_only: true    # Swiss-Prot human proteome; avoids redundant TrEMBL fragments
+
+logging:
+  level: INFO

@@ -157,6 +157,7 @@ def run_phase2(cfg: dict[str, Any], session: Any = None, sleep: Any = None) -> d
                                              set(sim["kegg_excluded_maps"]), ko_links[k],
                                              curated[curated["species_key"] == k])
                 for k, sp in species.items()}
+    signature_pruning = similarity.separate_frequent_signatures(profiles, float(sim.get("max_signature_fraction", 1.0)))
 
     # 3. baseline analysis at the primary threshold ---------------------------------------------
     thr = float(cfg["network"]["edge_score_threshold"])
@@ -168,6 +169,16 @@ def run_phase2(cfg: dict[str, Any], session: Any = None, sleep: Any = None) -> d
         _tsv(pd.DataFrame([s["summary"] for s in res["stability"].values()]), d / "louvain_stability.tsv")
         _json(res["stats"], d / "graph_statistics.json")
         nx.write_graphml(_graphml_safe(res["graph"], res["metrics"]), d / "network_with_metrics.graphml")
+
+    # 3b. experimentally confirmed physical interactions (IntAct) --------------------------------
+    intact_summary: dict[str, Any] = {}
+    if cfg.get("intact", {}).get("enabled"):
+        for k, sp in species.items():
+            records = ev.intact_within_set(http, _accessions(sp.nodes), k, int(cfg["intact"].get("chunk", 60)))
+            table, summ = _experimental_confirmation(base[k]["graph"], sp, records)
+            intact_summary[k] = summ
+            _tsv(records, out / "evidence" / f"intact_records_{k}.tsv")
+            _tsv(table, out / k / "edges_with_experimental_confirmation.tsv")
 
     # 4. module enrichment ------------------------------------------------------------------------
     enr_cfg = cfg["enrichment"]
@@ -278,8 +289,8 @@ def run_phase2(cfg: dict[str, Any], session: Any = None, sleep: Any = None) -> d
                              f"top{rk['sensitivity']['top_k']}_overlap_with_primary":
                                  ranking.top_k_overlap(ranked, ranked_m, rk["sensitivity"]["top_k"]),
                              "candidate_analogues": int((ranked_m["category"] == "candidate_analogue").sum()),
-                             "rank_of_sodA_SOD2": _pair_rank(ranked_m, "sodA", "SOD2"),
-                             "rank_of_katA_CAT": _pair_rank(ranked_m, "katA", "CAT")})
+                             **{f"rank_of_{a}_{b}": _pair_rank(ranked_m, a, b)
+                                for a, b in rk.get("reference_pairs", [])}})
     _tsv(pd.DataFrame(measure_rows), out / "evaluation" / "similarity_measure_sensitivity.tsv")
 
     # 9. threshold sensitivity (network, modules, ranking) ---------------------------------------
@@ -342,6 +353,8 @@ def run_phase2(cfg: dict[str, Any], session: Any = None, sleep: Any = None) -> d
         "enrichment": enrichment_summary, "size_matched_context": size_matched,
         "annotation_overlap": overlap["summary"], "alignment": align["summary"],
         "coverage_variant": coverage_summary,
+        "experimental_interactions": intact_summary,
+        "signature_pruning": signature_pruning,
         "curated_evidence": {"rows": len(curated),
                              "proteins": int(curated["string_id"].nunique()) if len(curated) else 0,
                              "source": cfg.get("curated_evidence")},
@@ -388,6 +401,73 @@ def run_phase2(cfg: dict[str, Any], session: Any = None, sleep: Any = None) -> d
 
 
 # --------------------------------------------------------------------------------------- helpers
+def _accessions(nodes: pd.DataFrame) -> list[str]:
+    accs: set[str] = set()
+    for one, many in zip(nodes["uniprot_accession"], nodes.get("uniprot_accessions", nodes["uniprot_accession"])):
+        for value in (one, many):
+            if isinstance(value, str):
+                accs.update(a for a in value.split(";") if a)
+    return sorted(accs)
+
+
+def _experimental_confirmation(graph: nx.Graph, sp, records: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
+    """Flag each STRING edge (at the analysis threshold) that IntAct supports with a physical
+    interaction type, and summarise the overlap in both directions."""
+    acc_to_sid: dict[str, str] = {}
+    for sid, one, many in zip(sp.nodes["string_id"], sp.nodes["uniprot_accession"],
+                              sp.nodes.get("uniprot_accessions", sp.nodes["uniprot_accession"])):
+        for value in (one, many):
+            if isinstance(value, str):
+                for acc in value.split(";"):
+                    acc_to_sid.setdefault(acc, sid)
+    phys = records[records["physical"]].copy()
+    phys["u"] = phys["uniprot_a"].map(acc_to_sid)
+    phys["v"] = phys["uniprot_b"].map(acc_to_sid)
+    phys = phys.dropna(subset=["u", "v"])
+    self_interactions = int((phys["u"] == phys["v"]).sum())
+    phys = phys[phys["u"] != phys["v"]]
+    pairs: dict[tuple[str, str], dict] = {}
+    for r in phys.itertuples():
+        key = tuple(sorted((r.u, r.v)))
+        entry = pairs.setdefault(key, {"records": 0, "methods": set(), "pubs": set(), "miscore": None})
+        entry["records"] += 1
+        entry["methods"].add(r.detection_method.split("(")[-1].rstrip(")"))
+        entry["pubs"].update(p for p in r.publications.split(";") if p)
+        if r.intact_miscore is not None and not pd.isna(r.intact_miscore):
+            entry["miscore"] = max(entry["miscore"] or 0.0, float(r.intact_miscore))
+    rows = []
+    for u, v, d in sorted(graph.edges(data=True)):
+        key = tuple(sorted((u, v)))
+        hit = pairs.get(key)
+        rows.append({"node_u": key[0], "node_v": key[1], "combined_score": d.get("combined_score"),
+                     "in_physical_subnetwork": bool(d.get("in_physical_subnetwork")),
+                     "intact_confirmed": hit is not None,
+                     "intact_records": hit["records"] if hit else 0,
+                     "intact_max_miscore": hit["miscore"] if hit else None,
+                     "intact_methods": ";".join(sorted(hit["methods"])) if hit else "",
+                     "intact_publications": ";".join(sorted(hit["pubs"])) if hit else ""})
+    table = pd.DataFrame(rows, columns=["node_u", "node_v", "combined_score", "in_physical_subnetwork",
+                                        "intact_confirmed", "intact_records", "intact_max_miscore",
+                                        "intact_methods", "intact_publications"])
+    string_edges = {tuple(sorted(e)) for e in graph.edges}
+    retrieved = {tuple(sorted(p)) for p in zip(sp.functional_records["string_id_a"], sp.functional_records["string_id_b"])}
+    n_edges = len(table)
+    confirmed = int(table["intact_confirmed"].sum()) if n_edges else 0
+    phys_sub = table[table["in_physical_subnetwork"]] if n_edges else table
+    summary = {
+        "accessions_queried": len(acc_to_sid), "intact_records": len(records),
+        "physical_records": int(records["physical"].sum()) if len(records) else 0,
+        "physical_pairs_between_seeds": len(pairs), "self_interactions": self_interactions,
+        "string_edges": n_edges, "string_edges_confirmed": confirmed,
+        "fraction_string_edges_confirmed": round(confirmed / n_edges, 4) if n_edges else None,
+        "string_physical_subnetwork_edges": len(phys_sub),
+        "string_physical_subnetwork_edges_confirmed": int(phys_sub["intact_confirmed"].sum()) if len(phys_sub) else 0,
+        "intact_pairs_not_in_string_graph": len(set(pairs) - string_edges),
+        "intact_pairs_absent_from_string_records_ge_0_4": len(set(pairs) - retrieved),
+    }
+    return table, summary
+
+
 CURATED_COLUMNS = ["species_key", "string_id", "uniprot", "gene", "evidence_type", "effect_on_role", "assay",
                    "finding", "pmid", "doi", "curation_basis", "curated_on"]
 
@@ -403,11 +483,20 @@ def _load_curated(path: str | None, species: dict) -> pd.DataFrame:
     bad_effect = ~frame["effect_on_role"].isin(["supports", "contradicts"])
     bad_type = ~frame["evidence_type"].isin(["perturbation", "biochemical"])
     bad_pmid = ~frame["pmid"].str.fullmatch(r"\d+")
-    unknown = [r.string_id for r in frame.itertuples()
-               if r.species_key not in species or r.string_id not in set(species[r.species_key].nodes["string_id"])]
-    if bad_effect.any() or bad_type.any() or bad_pmid.any() or unknown:
+    unknown, wrong_accession = [], []
+    for r in frame.itertuples():
+        if r.species_key not in species or r.string_id not in set(species[r.species_key].nodes["string_id"]):
+            unknown.append(r.string_id)
+            continue
+        node = species[r.species_key].nodes.set_index("string_id").loc[r.string_id]
+        accessions = {a for v in (node.get("uniprot_accession"), node.get("uniprot_accessions"))
+                      if isinstance(v, str) for a in v.split(";")}
+        if r.uniprot not in accessions:
+            wrong_accession.append(f"{r.string_id}:{r.uniprot}")
+    if bad_effect.any() or bad_type.any() or bad_pmid.any() or unknown or wrong_accession:
         raise ValueError(f"invalid curated evidence rows in {path}: effect={int(bad_effect.sum())} "
-                         f"type={int(bad_type.sum())} pmid={int(bad_pmid.sum())} unknown_proteins={unknown}")
+                         f"type={int(bad_type.sum())} pmid={int(bad_pmid.sum())} unknown_proteins={unknown} "
+                         f"accession_mismatch={wrong_accession}")
     return frame[CURATED_COLUMNS]
 
 
@@ -543,7 +632,9 @@ def _proxy_evaluation(ranked: pd.DataFrame) -> dict[str, Any]:
         out["components"][comp] = {"evaluable": len(pos) >= MIN_PROXY_POSITIVES,
                                    "auc_descriptive": embedding._auc(pos, neg),
                                    "positives_with_value": int(len(pos)), "negatives_with_value": int(len(neg)),
-                                   "leakage_risk": comp in ("go", "ec", "pathway")}
+                                   # module similarity is computed from GO/KEGG core terms, so it shares
+                                   # the annotation-transfer leakage of the annotation components
+                                   "leakage_risk": comp in ("go", "ec", "pathway", "module")}
     out["note"] = (f"An AUC is called evaluable only with >= {MIN_PROXY_POSITIVES} positives; below that it is "
                    "listed as descriptive and must not be read as a performance estimate.")
     return out

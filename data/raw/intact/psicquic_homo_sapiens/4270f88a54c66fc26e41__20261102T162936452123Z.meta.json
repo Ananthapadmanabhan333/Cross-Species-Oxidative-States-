@@ -1,0 +1,22 @@
+{
+  "source": "intact",
+  "endpoint": "psicquic_homo_sapiens",
+  "description": "IntAct interactions within homo_sapiens seed proteins",
+  "request_key": "4270f88a54c66fc26e41",
+  "method": "GET",
+  "url": "https://www.ebi.ac.uk/Tools/webservices/psicquic/intact/webservices/current/search/query/idA%3A%28Q9UBK2%20OR%20Q9UBN7%20OR%20Q9UBV4%20OR%20Q9UGH3%20OR%20Q9UHB4%20OR%20Q9UHP3%20OR%20Q9UJ68%20OR%20Q9UJM8%20OR%20Q9UK33%20OR%20Q9UL45%20OR%20Q9UL46%20OR%20Q9ULP9%20OR%20Q9ULX5%20OR%20Q9UNM6%20OR%20Q9Y2Q3%20OR%20Q9Y3D2%20OR%20Q9Y572%20OR%20Q9Y5W3%20OR%20Q9Y5Z9%20OR%20Q9Y6D0%20OR%20Q9Y6E0%20OR%20Q9Y6H1%20OR%20Q9Y6P5%29%20AND%20idB%3A%28Q9UBK2%20OR%20Q9UBN7%20OR%20Q9UBV4%20OR%20Q9UGH3%20OR%20Q9UHB4%20OR%20Q9UHP3%20OR%20Q9UJ68%20OR%20Q9UJM8%20OR%20Q9UK33%20OR%20Q9UL45%20OR%20Q9UL46%20OR%20Q9ULP9%20OR%20Q9ULX5%20OR%20Q9UNM6%20OR%20Q9Y2Q3%20OR%20Q9Y3D2%20OR%20Q9Y572%20OR%20Q9Y5W3%20OR%20Q9Y5Z9%20OR%20Q9Y6D0%20OR%20Q9Y6E0%20OR%20Q9Y6H1%20OR%20Q9Y6P5%29",
+  "params": {
+    "firstResult": "0",
+    "format": "tab25",
+    "maxResults": "2500"
+  },
+  "retrieved_at_utc": "2026-11-02T16:29:36.452123+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/plain",
+    "date": "Mon, 02 Nov 2026 16:29:36 GMT"
+  },
+  "bytes": 20393,
+  "sha256": "f5bd266aec246f5b9f32c7135aac1f59ad50c81d2b26c9c5e6fa5788cc2a1793",
+  "data_file": "4270f88a54c66fc26e41__20261102T162936452123Z.tsv"
+}

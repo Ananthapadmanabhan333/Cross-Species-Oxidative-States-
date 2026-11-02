@@ -1,0 +1,4 @@
+measure	top20_overlap_with_primary	candidate_analogues	rank_of_recA_RAD51	rank_of_ligA_LIG1	rank_of_mutL_MLH1
+ochiai	1	90	180	516	123
+simgic	0.9	67	467	1067	306
+min	0.5	108	20	598	4

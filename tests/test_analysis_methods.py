@@ -153,6 +153,22 @@ def test_homology_tiers():
     assert similarity.homology(prot("d2"), prot("h9"), tables, 100)[1] == "none_detected"   # below min bitscore
 
 
+def test_frequent_signatures_become_weak_common_fold_tier():
+    common = {"IPR_PLOOP"}
+    dr = {f"d{i}": prot(f"d{i}", interpro=common | ({"IPR_RARE"} if i == 0 else set()), pfam={"PF_X"}) for i in range(5)}
+    hs = {f"h{i}": prot(f"h{i}", interpro=common | ({"IPR_RARE"} if i == 0 else set())) for i in range(15)}
+    result = similarity.separate_frequent_signatures({"dr": dr, "hs": hs}, max_fraction=0.2)
+    assert set(result["common_fold_signatures"]["interpro"]) == {"IPR_PLOOP"}   # 20/20 carry it
+    assert set(result["common_fold_signatures"]["pfam"]) == {"PF_X"}           # 5/20 = 25 % > 20 %
+    assert dr["d0"].interpro == {"IPR_RARE"} and dr["d0"].common_folds == {"IPR_PLOOP", "PF_X"}
+    tables = similarity.HomologyTables({}, {})
+    assert similarity.homology(dr["d0"], hs["h0"], tables, 50)[1] == "shared_interpro_entry"
+    score, tier, _ = similarity.homology(dr["d1"], hs["h1"], tables, 50)
+    assert (score, tier) == (0.2, "shared_common_fold")                         # still homology, weakly
+    assert ranking.assign_category(base_row(homology_tier="shared_common_fold", ec=1.0, pathway=0.9), 0.3, 0.3) \
+        == "distant_homolog"                                                     # never an analogue
+
+
 def test_role_similarity_not_assessable_for_isolates():
     a = pd.Series({"is_isolated": False, "degree_pct": 0.9, "betweenness_pct": 0.8})
     b = pd.Series({"is_isolated": False, "degree_pct": 0.7, "betweenness_pct": 0.8})

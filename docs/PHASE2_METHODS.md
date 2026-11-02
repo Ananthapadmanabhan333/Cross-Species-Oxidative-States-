@@ -1,5 +1,9 @@
 # Phase 2 methods: cross-species analysis
 
+The same methods are applied to both biological processes: oxidative-stress defence
+(`config/phase2_analysis.yaml`) and DNA repair (`config/phase2_dna_repair.yaml`). Only the inputs,
+output folder, curated evidence table and tracked reference pairs differ.
+
 All parameters are in `config/phase2_analysis.yaml` and are copied into every run's
 `config_used.yaml` and manifest. Every stochastic step derives its seed from `random_seed` with
 SHA-256 (`derived_seed(master, name)`), so a run is fully determined by its config.
@@ -21,6 +25,7 @@ New evidence is retrieved via the Phase 1 cached HTTP client (same modes, retrie
 | UniProtKB | `stream` (same seed query, extra fields) | EC numbers, PANTHER families, Pfam, KEGG genes, PubMed ids |
 | QuickGO | `annotation/search` (paged) | GO evidence codes and references for the seed terms and descendants |
 | KEGG REST | `link/ko/<org>` (once per organism) | KEGG Orthology (KO) group of every gene |
+| IntAct PSICQUIC | MITAB 2.5 query `idA:(...) AND idB:(...)` | experimentally determined interactions between seed proteins |
 | curated table | `config/curated_evidence.tsv` | literature findings that GO evidence codes miss |
 
 KEGG REST is called once per organism (`dra`, `hsa`) and cached. KEGG's terms allow free academic
@@ -104,10 +109,29 @@ Homology tiers (first match wins):
 | one-way best hit | 0.6 |
 | shared Pfam domain | 0.5 |
 | shared InterPro entry | 0.4 |
+| shared common-fold signature only | 0.2 |
 | none detected | 0.0 |
 
-Every protein was searched, so "none detected" is an observation. A reciprocal best hit whose two
-proteins carry different KO groups is reported as contradictory evidence. InterPro is included so that
+Every protein was searched, so "none detected" is an observation.
+
+Two cautions apply to the homology tiers:
+
+- **Frequent signatures form a separate, weak tier.** Pfam and InterPro entries carried by more
+  than `max_signature_fraction` (default 5 %) of all network proteins, both species pooled, are
+  common folds (P-loop NTPase, helicase domains, thioredoxin fold). Sharing only such a signature
+  gives `shared_common_fold` (score 0.2) and the category `distant_homolog`, not full domain
+  homology. Common folds are kept, not discarded, for two reasons:
+  - they would otherwise inflate scores (e.g. RecA vs the helicase ZGRF1 via the P-loop fold);
+  - discarding them turned true homologs into false "analogues" (RecQ helicase DR_1289 vs WRN;
+    peroxiredoxin Q vs glutathione peroxidases).
+
+  The common-fold signatures are listed in each report.
+- **Different KO groups do not contradict a reciprocal best hit.** KEGG often assigns separate
+  KO groups to the bacterial and eukaryotic members of one family; MutL/MLH1, for example, are
+  K03572/K08734. Such a difference is therefore an uncertainty note, never contradictory evidence.
+  Reciprocal best hits can also arise from a single shared domain: in the DNA-repair network,
+  ligA–RFC1 (bitscore 65.5) most likely shares only a BRCT domain. The category label alone must
+  therefore be read together with the score, the shared EC numbers and the shared domains. InterPro is included so that
 "analogue" requires the absence of *any* shared signature (e.g. thioredoxin-fold peroxiredoxin
 subfamilies with different Pfam models).
 
@@ -146,7 +170,8 @@ Categories are assigned by fixed rules, independently of the score:
 |---|---|
 | `ortholog_rbh` | reciprocal best hit |
 | `ortholog_ko` | shared KEGG KO group, not a reciprocal best hit |
-| `homolog` | any other homology tier |
+| `homolog` | PANTHER, one-way best hit, Pfam or InterPro tier |
+| `distant_homolog` | only a common-fold signature in common |
 | `candidate_analogue` | no homology, EC ≥ 0.5, and at least one of: pathway ≥ threshold, GO ≥ threshold, or experimental evidence for both proteins |
 | `shared_function_annotation` | no homology, EC ≥ 0.5 or GO ≥ threshold |
 | `similar_pathway_role` | no homology, pathway ≥ threshold only |
@@ -155,6 +180,9 @@ Categories are assigned by fixed rules, independently of the score:
 
 Every pair carries its supporting evidence, contradictory evidence, references (experimental GO
 annotations), uncertainty notes and a category-specific proposed validation.
+
+Reference pairs (`ranking.reference_pairs`) are well-known pairs whose ranks are tracked across
+similarity measures for orientation. They are never used as ground truth.
 
 Sensitivity analyses:
 
@@ -171,6 +199,26 @@ IC sums therefore run over sorted terms. Scores are rounded to 12 significant di
 ranking, and ties are broken by protein identifiers with a stable sort. Tables are written with
 12 significant digits. Outputs are byte-identical across `PYTHONHASHSEED` values (checked for
 0–3 on the reference run).
+
+## 5a. Experimentally confirmed physical interactions (IntAct)
+
+STRING edges are functional associations. To mark which of them are *experimentally confirmed
+physical interactions*, the pipeline queries IntAct (PSICQUIC, MITAB 2.5):
+
+- **Query:** every interaction whose two partners are both seed proteins, in chunked
+  `idA:(...) AND idB:(...)` queries, paged and cached.
+- **What counts as physical:** the PSI-MI types physical association (MI:0915), direct
+  interaction (MI:0407), association (MI:0914), covalent binding (MI:0195) and disulfide bond
+  (MI:0408). Proximity labelling (MI:2364) and colocalisation are recorded but not counted.
+- **Self-interactions** are counted separately.
+- **Output:** each STRING edge at the analysis threshold carries `intact_confirmed`, the record
+  count, detection methods, PubMed ids and the maximum IntAct MI-score. The summary reports the
+  confirmed fraction of STRING edges and of STRING physical-subnetwork edges, and the IntAct pairs
+  that STRING lacks.
+
+This is a reporting layer, not a ranking component. IntAct, BioGRID (PSICQUIC) and MINT hold
+essentially no *D. radiodurans* interactions (IntAct and BioGRID: 0; MINT: 1 crystal-structure
+complex outside the seed sets; checked 2026-11-02), so it cannot inform cross-species comparison.
 
 ## 5b. Coverage variant (`analysis/coverage.py`)
 

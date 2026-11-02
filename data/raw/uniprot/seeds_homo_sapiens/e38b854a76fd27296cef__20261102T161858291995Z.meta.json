@@ -1,0 +1,25 @@
+{
+  "source": "uniprot",
+  "endpoint": "seeds_homo_sapiens",
+  "description": "UniProtKB entries annotated with GO:0006281 for organism_id:9606",
+  "request_key": "e38b854a76fd27296cef",
+  "method": "GET",
+  "url": "https://rest.uniprot.org/uniprotkb/stream",
+  "params": {
+    "fields": "accession,id,reviewed,gene_primary,gene_names,protein_name,organism_id,organism_name,xref_string,go_id,annotation_score",
+    "format": "tsv",
+    "query": "((go:0006281)) AND (organism_id:9606) AND (reviewed:true)"
+  },
+  "retrieved_at_utc": "2026-11-02T16:18:58.291995+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/plain;format=tsv",
+    "date": "Mon, 02 Nov 2026 16:18:57 GMT",
+    "x-uniprot-release": "2026_03",
+    "x-uniprot-release-date": "02-September-2026",
+    "x-api-deployment-date": "02-November-2026"
+  },
+  "bytes": 222363,
+  "sha256": "9c0c163d9ca8ce59354b27f7db282221298168c2670847b659769020b99b2847",
+  "data_file": "e38b854a76fd27296cef__20261102T161858291995Z.tsv"
+}

@@ -1,0 +1,23 @@
+{
+  "source": "string",
+  "endpoint": "functional_annotation_deinococcus_radiodurans",
+  "description": "STRING functional annotation of 52 proteins",
+  "request_key": "73f5ae5b4539802d3dae",
+  "method": "POST",
+  "url": "https://string-db.org/api/json/functional_annotation",
+  "params": {
+    "allow_pubmed": "0",
+    "caller_identity": "extremonet_dna_repair",
+    "identifiers": "243230.DR_0065\r243230.DR_0070\r243230.DR_0099\r243230.DR_0198\r243230.DR_0289\r243230.DR_0354\r243230.DR_0423\r243230.DR_0428\r243230.DR_0430\r243230.DR_0440\r243230.DR_0467\r243230.DR_0493\r243230.DR_0596\r243230.DR_0689\r243230.DR_0715\r243230.DR_0729\r243230.DR_0756\r243230.DR_0819\r243230.DR_0856\r243230.DR_0928\r243230.DR_1089\r243230.DR_1105\r243230.DR_1126\r243230.DR_1199\r243230.DR_1274\r243230.DR_1289\r243230.DR_1354\r243230.DR_1477\r243230.DR_1532\r243230.DR_1696\r243230.DR_1707\r243230.DR_1751\r243230.DR_1771\r243230.DR_1775\r243230.DR_1819\r243230.DR_1898\r243230.DR_1916\r243230.DR_1921\r243230.DR_1922\r243230.DR_1949\r243230.DR_1976\r243230.DR_2069\r243230.DR_2072\r243230.DR_2074\r243230.DR_2275\r243230.DR_2285\r243230.DR_2340\r243230.DR_2438\r243230.DR_2584\r243230.DR_A0188\r243230.DR_A0344\r243230.DR_A0346",
+    "species": "243230"
+  },
+  "retrieved_at_utc": "2026-11-02T16:19:38.482539+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/json; charset=utf-8",
+    "date": "Mon, 02 Nov 2026 16:19:39 GMT"
+  },
+  "bytes": 259475,
+  "sha256": "a6eae2d3ec099c681af09700498cf2b116062e48d7539acace703eabc14a401a",
+  "data_file": "73f5ae5b4539802d3dae__20261102T161938482539Z.json"
+}

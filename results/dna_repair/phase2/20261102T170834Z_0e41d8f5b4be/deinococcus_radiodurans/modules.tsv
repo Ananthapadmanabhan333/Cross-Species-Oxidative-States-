@@ -1,0 +1,17 @@
+module	size	members	mean_coassignment	significant_terms	top_terms
+0	12	DR_0467;DR_1289;DR_1775;DR_1949;ligA;mutL;mutM;mutS2;polA;sbcC;sbcD;ssb	0.848181818182	1	DNA replication (GO:0006260, FDR=0.023)
+1	9	DR_0354;DR_0928;DR_2072;DR_2074;DR_2285;DR_2438;DR_2584;nth;ung	1	13	Base-excision repair (GO:0006284, FDR=0.0003) | Hydrolase activity, acting on glycosyl bonds (GO:0016798, FDR=0.0035) | Hydrolase activity, hydrolyzing N-glycosyl compounds (GO:0016799, FDR=0.0035) | DNA N-glycosylase activity (GO:0019104, FDR=0.0035) | Base excision repair (dra03410, FDR=0.0035)
+2	8	radA;recF;recG;recN;recO;recR;ruvA;ruvC	0.867142857143	2	DNA recombination (GO:0006310, FDR=0.0087) | Homologous recombination (dra03440, FDR=0.018)
+3	7	DR_0856;DR_A0188;mfd;ruvB;uvrA;uvrB;uvrC	0.971428571429	9	Excinuclease repair complex (GO:0009380, FDR=0.0083) | Endodeoxyribonuclease complex (GO:1905347, FDR=0.0083) | Endonuclease complex (GO:1905348, FDR=0.0083) | Intracellular protein-containing complex (GO:0140535, FDR=0.0087) | Nucleotide excision repair (dra03420, FDR=0.0087)
+4	5	ddrA;ddrB;lexA;pprA;recA	0.988	21	Response to acid chemical (GO:0001101, FDR=0.0087) | Response to desiccation (GO:0009269, FDR=0.0087) | Response to water deprivation (GO:0009414, FDR=0.0087) | Response to water (GO:0009415, FDR=0.0087) | Response to ionizing radiation (GO:0010212, FDR=0.0087)
+5	1	DR_0065		0	
+6	1	DR_0428		0	
+7	1	DR_0430		0	
+8	1	DR_0715		0	
+9	1	DR_0729		0	
+10	1	DR_0756		0	
+11	1	DR_1126		0	
+12	1	DR_1199		0	
+13	1	DR_1751		0	
+14	1	uvsE		0	
+15	1	DR_1898		0	

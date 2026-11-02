@@ -10,6 +10,7 @@ Sources (all documented public APIs, all responses cached with provenance by Cac
   * QuickGO (EBI)                    - GO annotations with evidence codes and references
 
   * KEGG REST ``link/ko/<org>``      - KEGG Orthology (KO) assignment of every gene of an organism
+  * IntAct PSICQUIC (EBI)            - experimentally determined molecular interactions (MITAB)
 
 KEGG REST is used once per organism (cached) for KO assignments. KEGG's terms allow free academic
 use; commercial use requires a licence (https://www.kegg.jp/kegg/legal.html). Pathway maps are
@@ -20,7 +21,9 @@ from __future__ import annotations
 
 import io
 import json
+import re
 from typing import Any
+from urllib.parse import quote
 
 import pandas as pd
 
@@ -170,3 +173,63 @@ def kegg_ko_links(http: CachedHttpClient, org_code: str) -> dict[str, set[str]]:
     if not links:
         raise DataSourceError(f"KEGG link/ko/{org_code} returned no KO assignments")
     return links
+
+
+# ------------------------------------------------------------------------------------ IntAct
+INTACT_PSICQUIC = "https://www.ebi.ac.uk/Tools/webservices/psicquic/intact/webservices/current/search/query"
+# PSI-MI interaction types accepted as evidence of physical binding. Proximity labelling (MI:2364)
+# and colocalization (MI:0403) are recorded but do not count as confirmed physical interactions.
+PHYSICAL_INTERACTION_TYPES = {"MI:0915": "physical association", "MI:0407": "direct interaction",
+                              "MI:0914": "association", "MI:0195": "covalent binding",
+                              "MI:0408": "disulfide bond"}
+INTACT_PAGE = 2500
+
+
+def _mi_id(field: str) -> str | None:
+    match = re.search(r"MI:\d{4}", field or "")
+    return match.group(0) if match else None
+
+
+def intact_within_set(http: CachedHttpClient, accessions: list[str], species_key: str,
+                      chunk: int = 60) -> pd.DataFrame:
+    """IntAct interactions whose BOTH partners are in `accessions` (MITAB 2.5, all pages cached).
+
+    Queries are split into chunk x chunk blocks so that URLs stay short; duplicate rows from
+    overlapping blocks are removed by IntAct interaction id."""
+    accs = sorted({a for a in accessions if a})
+    blocks = [accs[i:i + chunk] for i in range(0, len(accs), chunk)]
+    rows: list[list[str]] = []
+    for i, a in enumerate(blocks):
+        for b in blocks[i:]:
+            query = f"idA:({' OR '.join(a)}) AND idB:({' OR '.join(b)})"
+            for swap in ((query,) if a is b else (query, f"idA:({' OR '.join(b)}) AND idB:({' OR '.join(a)})")):
+                first = 0
+                while True:
+                    url = f"{INTACT_PSICQUIC}/{quote(swap, safe='')}"
+                    raw = http.fetch("intact", f"psicquic_{species_key}", url,
+                                     {"format": "tab25", "firstResult": first, "maxResults": INTACT_PAGE},
+                                     method="GET", ext="tsv",
+                                     description=f"IntAct interactions within {species_key} seed proteins")
+                    page = [line.split("\t") for line in raw.text.splitlines() if line.strip()]
+                    rows.extend(r for r in page if len(r) >= 15)
+                    if len(page) < INTACT_PAGE:
+                        break
+                    first += INTACT_PAGE
+    records = []
+    for r in rows:
+        a = r[0].split(":", 1)[-1].split("-")[0]  # drop isoform suffixes (P04040-2 -> P04040)
+        b = r[1].split(":", 1)[-1].split("-")[0]
+        interaction_id = next((x.split(":", 1)[1] for x in r[13].split("|") if x.startswith("intact:")), r[13])
+        miscore = next((x.split(":", 1)[1] for x in r[14].split("|") if x.startswith("intact-miscore:")), "")
+        records.append({
+            "uniprot_a": a, "uniprot_b": b, "interaction_id": interaction_id,
+            "detection_method": r[6], "interaction_type": r[11], "interaction_type_mi": _mi_id(r[11]),
+            "publications": ";".join(x for x in r[8].split("|") if x.startswith("pubmed:")),
+            "intact_miscore": float(miscore) if miscore else None,
+        })
+    frame = pd.DataFrame(records, columns=["uniprot_a", "uniprot_b", "interaction_id", "detection_method",
+                                           "interaction_type", "interaction_type_mi", "publications",
+                                           "intact_miscore"])
+    frame = frame.drop_duplicates("interaction_id").reset_index(drop=True)
+    frame["physical"] = frame["interaction_type_mi"].isin(PHYSICAL_INTERACTION_TYPES)
+    return frame

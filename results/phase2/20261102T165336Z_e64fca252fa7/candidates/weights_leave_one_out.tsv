@@ -1,0 +1,9 @@
+dropped_component	spearman_vs_base	top20_overlap
+ec	0.945019057099	0.65
+go	0.976640849394	0.65
+pathway	0.957454849712	1
+literature	0.931566157242	0.7
+perturbation	0.883543378824	0.85
+module	0.987016762186	0.95
+role	0.974700056664	1
+homology	0.993880751154	0.6

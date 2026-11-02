@@ -1,0 +1,107 @@
+{
+  "run_id": "20261102T161839Z_7128c0f5ca4e",
+  "species_key": "homo_sapiens",
+  "species_label": "Homo sapiens",
+  "string_version": "12.5",
+  "edge_score_threshold": 0.7,
+  "retrieval_required_score": 400,
+  "seed_query": "((go:0006281)) AND (organism_id:9606) AND (reviewed:true)",
+  "taxonomy": {
+    "ncbi_taxon_id": 9606,
+    "expected_string_taxon_id": 9606,
+    "string_taxa_returned": [
+      9606
+    ],
+    "uniprot_organism_ids_in_seeds": [
+      "9606"
+    ],
+    "all_retained_match": true
+  },
+  "excluded": {
+    "seeds": {},
+    "mapping": {
+      "unmapped_in_string": 6
+    },
+    "functional_edges": {
+      "below_threshold": 7767
+    },
+    "physical_edges": {
+      "below_threshold": 3057
+    }
+  },
+  "edges": {
+    "functional_records_retrieved": 13052,
+    "functional_retained": 5285,
+    "physical_records_retrieved": 5450,
+    "physical_retained": 2393,
+    "physical_without_functional": 0
+  },
+  "network_coverage": {
+    "uniprot_entries_for_organism": 20431,
+    "seed_records_retrieved": 432,
+    "seed_fraction_of_organism_entries": 0.0211,
+    "seeds_valid": 432,
+    "seeds_mapped_to_string": 426,
+    "mapping_rate": 0.9861,
+    "nodes_in_graph": 426,
+    "nodes_with_edges": 403,
+    "isolated_nodes": 23,
+    "connected_fraction_of_mapped_seeds": 0.946
+  },
+  "annotation_coverage": {
+    "nodes": 426,
+    "with_uniprot_accession": {
+      "count": 426,
+      "fraction": 1.0
+    },
+    "uniprot_reviewed": {
+      "count": 426,
+      "fraction": 1.0
+    },
+    "with_gene_name": {
+      "count": 426,
+      "fraction": 1.0
+    },
+    "with_protein_name": {
+      "count": 426,
+      "fraction": 1.0
+    },
+    "with_string_annotation": {
+      "count": 426,
+      "fraction": 1.0
+    },
+    "with_seed_go_term_listed_verbatim": {
+      "count": 167,
+      "fraction": 0.392
+    },
+    "uniprot_xref_disagrees_with_string_mapping": {
+      "count": 0,
+      "fraction": 0.0
+    }
+  },
+  "summary_statistics": {
+    "nodes": 426,
+    "edges": 5285,
+    "isolated_nodes": 23,
+    "density": 0.058382,
+    "connected_components": 25,
+    "largest_component_nodes": 400,
+    "largest_component_fraction": 0.939,
+    "degree_mean": 24.8122,
+    "degree_max": 161,
+    "weighted_degree_mean": 21.6861,
+    "edge_weight_min": 0.7,
+    "edge_weight_median": 0.879,
+    "edge_weight_max": 0.999,
+    "average_clustering_unweighted": 0.4902,
+    "edges_in_physical_subnetwork": 2393,
+    "edges_with_experiments_channel_score": 4106
+  },
+  "limitations": [
+    "STRING edges are functional associations (combined evidence channels), not physical interactions. `in_physical_subnetwork` marks pairs in STRING's physical-complex subnetwork, which is itself a scored prediction; `has_experiments_channel_score` reflects STRING's experiments channel, which can include evidence transferred from other organisms. Neither is equivalent to an experimentally confirmed physical interaction (e.g. from BioGRID/IntAct).",
+    "Seeds are defined by GO annotation in UniProtKB, so the network covers only proteins already annotated to the configured terms; poorly annotated proteomes yield smaller seed sets.",
+    "With string.add_nodes = 0 only interactions among seeds are retrieved; associations to non-seed proteins are outside the graph by design.",
+    "23 of 426 seed proteins have no association at combined score >= 0.7 with another seed.",
+    "6 valid seed records were not carried into the graph at the identifier-mapping stage (see excluded_records.tsv)."
+  ]
+}

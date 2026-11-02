@@ -1,0 +1,20 @@
+{
+  "source": "string",
+  "endpoint": "version",
+  "description": "STRING database version",
+  "request_key": "bad470d16ab28a21b0eb",
+  "method": "GET",
+  "url": "https://string-db.org/api/json/version",
+  "params": {
+    "caller_identity": "extremonet_dna_repair"
+  },
+  "retrieved_at_utc": "2026-11-02T16:18:40.385898+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/json; charset=utf-8",
+    "date": "Mon, 02 Nov 2026 16:18:40 GMT"
+  },
+  "bytes": 84,
+  "sha256": "2ccaf342a8fbcf2db550da164579b675cf3e615c039eaa59c3b67b3448bafa5c",
+  "data_file": "bad470d16ab28a21b0eb__20261102T161840385898Z.json"
+}

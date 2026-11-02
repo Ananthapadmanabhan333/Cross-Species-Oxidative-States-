@@ -1,0 +1,1081 @@
+{
+  "run_id": "20261102T170150Z_5a2a85f66091",
+  "random_seed": 20261026,
+  "phase1": {
+    "run_id": "20261102T161839Z_7128c0f5ca4e",
+    "string_version": "12.5",
+    "outputs_verified": 33,
+    "raw_inputs_verified": 21,
+    "manifest": "data\\manifests\\20261102T161839Z_7128c0f5ca4e.json"
+  },
+  "string_version": "12.5",
+  "primary_threshold": 0.7,
+  "graph_statistics": {
+    "deinococcus_radiodurans": {
+      "nodes": 52,
+      "edges": 119,
+      "density": 0.089744,
+      "isolated_nodes": 11,
+      "connected_nodes": 41,
+      "connected_components": 12,
+      "non_trivial_components": 1,
+      "largest_component_nodes": 41,
+      "largest_component_edges": 119,
+      "degree_mean": 4.576923,
+      "degree_median": 3.0,
+      "degree_max": 21,
+      "transitivity": 0.406931,
+      "average_clustering": 0.435586,
+      "lcc_average_shortest_path_hops": 2.429268,
+      "lcc_diameter_hops": 5,
+      "degree_assortativity": -0.198533
+    },
+    "homo_sapiens": {
+      "nodes": 426,
+      "edges": 5285,
+      "density": 0.058382,
+      "isolated_nodes": 23,
+      "connected_nodes": 403,
+      "connected_components": 25,
+      "non_trivial_components": 2,
+      "largest_component_nodes": 400,
+      "largest_component_edges": 5282,
+      "degree_mean": 24.812207,
+      "degree_median": 17.0,
+      "degree_max": 161,
+      "transitivity": 0.405976,
+      "average_clustering": 0.490214,
+      "lcc_average_shortest_path_hops": 2.489799,
+      "lcc_diameter_hops": 7,
+      "degree_assortativity": 0.030863
+    }
+  },
+  "louvain": {
+    "deinococcus_radiodurans": [
+      {
+        "resolution": 0.5,
+        "n_runs": 50,
+        "ari_mean": 0.8348465044981852,
+        "ari_min": 0.5146626314359989,
+        "modules_median": 14.0,
+        "modules_min": 13,
+        "modules_max": 14,
+        "non_singleton_modules_medoid": 3,
+        "modularity_medoid": 0.5889698285293747,
+        "medoid_seed": 1886728545
+      },
+      {
+        "resolution": 1.0,
+        "n_runs": 50,
+        "ari_mean": 0.7644754586390666,
+        "ari_min": 0.48004052783609613,
+        "modules_median": 16.0,
+        "modules_min": 15,
+        "modules_max": 16,
+        "non_singleton_modules_medoid": 5,
+        "modularity_medoid": 0.3878776023988067,
+        "medoid_seed": 478901238
+      },
+      {
+        "resolution": 1.5,
+        "n_runs": 50,
+        "ari_mean": 0.9008186992134992,
+        "ari_min": 0.7420181541289573,
+        "modules_median": 19.0,
+        "modules_min": 18,
+        "modules_max": 19,
+        "non_singleton_modules_medoid": 8,
+        "modularity_medoid": 0.28580262799391737,
+        "medoid_seed": 1886728545
+      },
+      {
+        "resolution": 2.0,
+        "n_runs": 50,
+        "ari_mean": 0.894838360010942,
+        "ari_min": 0.7521680622009569,
+        "modules_median": 19.0,
+        "modules_min": 18,
+        "modules_max": 19,
+        "non_singleton_modules_medoid": 8,
+        "modularity_medoid": 0.21501909013680412,
+        "medoid_seed": 1774833849
+      }
+    ],
+    "homo_sapiens": [
+      {
+        "resolution": 0.5,
+        "n_runs": 50,
+        "ari_mean": 0.7565523526952833,
+        "ari_min": 0.3194455200591182,
+        "modules_median": 28.5,
+        "modules_min": 27,
+        "modules_max": 29,
+        "non_singleton_modules_medoid": 6,
+        "modularity_medoid": 0.5433187555849218,
+        "medoid_seed": 555791981
+      },
+      {
+        "resolution": 1.0,
+        "n_runs": 50,
+        "ari_mean": 0.636741724222664,
+        "ari_min": 0.4049830915393447,
+        "modules_median": 32.0,
+        "modules_min": 30,
+        "modules_max": 34,
+        "non_singleton_modules_medoid": 9,
+        "modularity_medoid": 0.37006523139797814,
+        "medoid_seed": 1400310973
+      },
+      {
+        "resolution": 1.5,
+        "n_runs": 50,
+        "ari_mean": 0.738354549776775,
+        "ari_min": 0.4241999200739672,
+        "modules_median": 37.0,
+        "modules_min": 35,
+        "modules_max": 38,
+        "non_singleton_modules_medoid": 15,
+        "modularity_medoid": 0.2971737479150485,
+        "medoid_seed": 1697399689
+      },
+      {
+        "resolution": 2.0,
+        "n_runs": 50,
+        "ari_mean": 0.8140333349577016,
+        "ari_min": 0.6255506884715478,
+        "modules_median": 41.0,
+        "modules_min": 39,
+        "modules_max": 43,
+        "non_singleton_modules_medoid": 18,
+        "modularity_medoid": 0.25383661203977576,
+        "medoid_seed": 863493421
+      }
+    ]
+  },
+  "enrichment": {
+    "deinococcus_radiodurans": {
+      "background_size": 52,
+      "modules_total": 16,
+      "modules_tested": 5,
+      "tests": 581,
+      "categories": [
+        "Process",
+        "Function",
+        "Component",
+        "KEGG",
+        "Pfam",
+        "InterPro",
+        "RCTM"
+      ],
+      "annotated_background_nodes": 52,
+      "significant_tests": 46,
+      "modules_with_significant_term": 5
+    },
+    "homo_sapiens": {
+      "background_size": 426,
+      "modules_total": 32,
+      "modules_tested": 9,
+      "tests": 12037,
+      "categories": [
+        "Process",
+        "Function",
+        "Component",
+        "KEGG",
+        "Pfam",
+        "InterPro",
+        "RCTM"
+      ],
+      "annotated_background_nodes": 425,
+      "significant_tests": 1378,
+      "modules_with_significant_term": 9
+    }
+  },
+  "size_matched_context": {
+    "edges": {
+      "observed": 119.0,
+      "null_mean": 77.221,
+      "null_sd": 22.88833840703678,
+      "null_q05": 42.0,
+      "null_q95": 116.0,
+      "fraction_null_below": 0.953,
+      "fraction_null_at_or_above": 0.047
+    },
+    "density": {
+      "observed": 0.089744,
+      "null_mean": 0.05823604826546003,
+      "null_sd": 0.017261190352214767,
+      "null_q05": 0.03167420814479638,
+      "null_q95": 0.08748114630467571,
+      "fraction_null_below": 0.955,
+      "fraction_null_at_or_above": 0.045
+    },
+    "connected_nodes": {
+      "observed": 41.0,
+      "null_mean": 37.124,
+      "null_sd": 3.7218915186335666,
+      "null_q05": 31.0,
+      "null_q95": 43.0,
+      "fraction_null_below": 0.819,
+      "fraction_null_at_or_above": 0.181
+    },
+    "largest_component_nodes": {
+      "observed": 41.0,
+      "null_mean": 33.39,
+      "null_sd": 5.638944732633731,
+      "null_q05": 23.0,
+      "null_q95": 41.0,
+      "fraction_null_below": 0.926,
+      "fraction_null_at_or_above": 0.074
+    },
+    "reference_network": "homo_sapiens",
+    "observed_network": "deinococcus_radiodurans"
+  },
+  "annotation_overlap": {
+    "note": "Descriptive overlap of annotation vocabularies; no statistical test is implied.",
+    "categories": [
+      {
+        "category": "Component",
+        "dr_terms": 36,
+        "hs_terms": 541,
+        "shared_terms": 31,
+        "jaccard": 0.056776556776556776,
+        "fraction_of_dr_terms_shared": 0.8611111111111112,
+        "comparable_across_species": true
+      },
+      {
+        "category": "DISEASES",
+        "dr_terms": 0,
+        "hs_terms": 446,
+        "shared_terms": 0,
+        "jaccard": 0.0,
+        "fraction_of_dr_terms_shared": NaN,
+        "comparable_across_species": true
+      },
+      {
+        "category": "Function",
+        "dr_terms": 148,
+        "hs_terms": 866,
+        "shared_terms": 137,
+        "jaccard": 0.15621436716077536,
+        "fraction_of_dr_terms_shared": 0.9256756756756757,
+        "comparable_across_species": true
+      },
+      {
+        "category": "GWAS",
+        "dr_terms": 0,
+        "hs_terms": 2518,
+        "shared_terms": 0,
+        "jaccard": 0.0,
+        "fraction_of_dr_terms_shared": NaN,
+        "comparable_across_species": true
+      },
+      {
+        "category": "HPO",
+        "dr_terms": 0,
+        "hs_terms": 3411,
+        "shared_terms": 0,
+        "jaccard": 0.0,
+        "fraction_of_dr_terms_shared": NaN,
+        "comparable_across_species": true
+      },
+      {
+        "category": "Hallmark",
+        "dr_terms": 0,
+        "hs_terms": 38,
+        "shared_terms": 0,
+        "jaccard": 0.0,
+        "fraction_of_dr_terms_shared": NaN,
+        "comparable_across_species": true
+      },
+      {
+        "category": "InterPro",
+        "dr_terms": 225,
+        "hs_terms": 1228,
+        "shared_terms": 104,
+        "jaccard": 0.0770941438102298,
+        "fraction_of_dr_terms_shared": 0.4622222222222222,
+        "comparable_across_species": true
+      },
+      {
+        "category": "KEGG",
+        "dr_terms": 6,
+        "hs_terms": 144,
+        "shared_terms": 6,
+        "jaccard": 0.041666666666666664,
+        "fraction_of_dr_terms_shared": 1.0,
+        "comparable_across_species": true
+      },
+      {
+        "category": "Keyword",
+        "dr_terms": 47,
+        "hs_terms": 255,
+        "shared_terms": 45,
+        "jaccard": 0.17509727626459143,
+        "fraction_of_dr_terms_shared": 0.9574468085106383,
+        "comparable_across_species": true
+      },
+      {
+        "category": "Pfam",
+        "dr_terms": 38,
+        "hs_terms": 258,
+        "shared_terms": 13,
+        "jaccard": 0.045936395759717315,
+        "fraction_of_dr_terms_shared": 0.34210526315789475,
+        "comparable_across_species": true
+      },
+      {
+        "category": "Process",
+        "dr_terms": 157,
+        "hs_terms": 3687,
+        "shared_terms": 147,
+        "jaccard": 0.03976196916418718,
+        "fraction_of_dr_terms_shared": 0.9363057324840764,
+        "comparable_across_species": true
+      },
+      {
+        "category": "SMART",
+        "dr_terms": 27,
+        "hs_terms": 149,
+        "shared_terms": 21,
+        "jaccard": 0.13548387096774195,
+        "fraction_of_dr_terms_shared": 0.7777777777777778,
+        "comparable_across_species": true
+      },
+      {
+        "category": "WikiPathways",
+        "dr_terms": 0,
+        "hs_terms": 298,
+        "shared_terms": 0,
+        "jaccard": 0.0,
+        "fraction_of_dr_terms_shared": NaN,
+        "comparable_across_species": true
+      }
+    ]
+  },
+  "alignment": [
+    {
+      "alpha": 1.0,
+      "iterations": 202,
+      "final_l1_change": 9.804813560739078e-10,
+      "converged": true,
+      "aligned_pairs": 52,
+      "edges_conserved": 114,
+      "edges_in_dr": 119,
+      "edge_conservation": 0.957983193277311,
+      "null_mean_conserved": 6.862,
+      "null_q95_conserved": 14.0,
+      "p_vs_random_mapping": 0.000999000999000999,
+      "rewired_null_samples": 100,
+      "rewired_graphs_distinct": 100,
+      "rewired_null_mean_conserved": 109.74,
+      "p_vs_rewired_null": 0.04950495049504951,
+      "aligned_pairs_that_are_rbh": 0
+    },
+    {
+      "alpha": 0.8,
+      "iterations": 59,
+      "final_l1_change": 7.937889976306e-10,
+      "converged": true,
+      "aligned_pairs": 52,
+      "edges_conserved": 87,
+      "edges_in_dr": 119,
+      "edge_conservation": 0.7310924369747899,
+      "null_mean_conserved": 6.862,
+      "null_q95_conserved": 14.0,
+      "p_vs_random_mapping": 0.000999000999000999,
+      "rewired_null_samples": 100,
+      "rewired_graphs_distinct": 100,
+      "rewired_null_mean_conserved": 77.72,
+      "p_vs_rewired_null": 0.019801980198019802,
+      "aligned_pairs_that_are_rbh": 14
+    },
+    {
+      "alpha": 0.5,
+      "iterations": 23,
+      "final_l1_change": 6.55860047317686e-10,
+      "converged": true,
+      "aligned_pairs": 52,
+      "edges_conserved": 89,
+      "edges_in_dr": 119,
+      "edge_conservation": 0.7478991596638656,
+      "null_mean_conserved": 6.862,
+      "null_q95_conserved": 14.0,
+      "p_vs_random_mapping": 0.000999000999000999,
+      "rewired_null_samples": 100,
+      "rewired_graphs_distinct": 100,
+      "rewired_null_mean_conserved": 75.28,
+      "p_vs_rewired_null": 0.009900990099009901,
+      "aligned_pairs_that_are_rbh": 14
+    }
+  ],
+  "coverage_variant": {
+    "enabled": true,
+    "method": "ko_projection",
+    "human_seed_kos": 399,
+    "projected_dr_genes": 8,
+    "original_seeds": 52,
+    "queried": 53,
+    "mapped_to_string": 53,
+    "unmapped": 0,
+    "original_seeds_mapped": 52,
+    "string_records_retrieved": 347,
+    "edges_retained": 119,
+    "excluded_edges": {
+      "below_threshold": 228
+    },
+    "graph_statistics": {
+      "nodes": 53,
+      "edges": 119,
+      "density": 0.086357,
+      "isolated_nodes": 12,
+      "connected_nodes": 41,
+      "connected_components": 13,
+      "non_trivial_components": 1,
+      "largest_component_nodes": 41,
+      "largest_component_edges": 119,
+      "degree_mean": 4.490566,
+      "degree_median": 3.0,
+      "degree_max": 21,
+      "transitivity": 0.406931,
+      "average_clustering": 0.427367,
+      "lcc_average_shortest_path_hops": 2.429268,
+      "lcc_diameter_hops": 5,
+      "degree_assortativity": -0.198533
+    },
+    "alignment": [
+      {
+        "alpha": 1.0,
+        "iterations": 200,
+        "final_l1_change": 1.1571941429237113e-09,
+        "converged": false,
+        "aligned_pairs": 53,
+        "edges_conserved": 114,
+        "edges_in_dr": 119,
+        "edge_conservation": 0.957983193277311,
+        "null_mean_conserved": 6.905,
+        "null_q95_conserved": 13.0,
+        "p_vs_random_mapping": 0.000999000999000999,
+        "rewired_null_samples": 200,
+        "rewired_graphs_distinct": 200,
+        "rewired_null_mean_conserved": 109.825,
+        "p_vs_rewired_null": 0.07960199004975124,
+        "aligned_pairs_that_are_rbh": 0
+      },
+      {
+        "alpha": 0.8,
+        "iterations": 76,
+        "final_l1_change": 9.225650526300395e-10,
+        "converged": true,
+        "aligned_pairs": 53,
+        "edges_conserved": 109,
+        "edges_in_dr": 119,
+        "edge_conservation": 0.9159663865546218,
+        "null_mean_conserved": 6.905,
+        "null_q95_conserved": 13.0,
+        "p_vs_random_mapping": 0.000999000999000999,
+        "rewired_null_samples": 200,
+        "rewired_graphs_distinct": 200,
+        "rewired_null_mean_conserved": 94.28,
+        "p_vs_rewired_null": 0.004975124378109453,
+        "aligned_pairs_that_are_rbh": 6
+      }
+    ],
+    "note": "orthology-defined; used for coverage sensitivity only, not for ranking"
+  },
+  "experimental_interactions": {
+    "deinococcus_radiodurans": {
+      "accessions_queried": 52,
+      "intact_records": 0,
+      "physical_records": 0,
+      "physical_pairs_between_seeds": 0,
+      "self_interactions": 0,
+      "string_edges": 119,
+      "string_edges_confirmed": 0,
+      "fraction_string_edges_confirmed": 0.0,
+      "string_physical_subnetwork_edges": 14,
+      "string_physical_subnetwork_edges_confirmed": 0,
+      "intact_pairs_not_in_string_graph": 0,
+      "intact_pairs_absent_from_string_records_ge_0_4": 0
+    },
+    "homo_sapiens": {
+      "accessions_queried": 426,
+      "intact_records": 1845,
+      "physical_records": 1707,
+      "physical_pairs_between_seeds": 599,
+      "self_interactions": 133,
+      "string_edges": 5285,
+      "string_edges_confirmed": 431,
+      "fraction_string_edges_confirmed": 0.0816,
+      "string_physical_subnetwork_edges": 2393,
+      "string_physical_subnetwork_edges_confirmed": 395,
+      "intact_pairs_not_in_string_graph": 168,
+      "intact_pairs_absent_from_string_records_ge_0_4": 111
+    }
+  },
+  "signature_pruning": {
+    "max_fraction": 0.05,
+    "proteins": 478,
+    "common_fold_signatures": {
+      "pfam": {
+        "PF00271": 0.0586
+      },
+      "interpro": {
+        "IPR001650": 0.0607,
+        "IPR003593": 0.0523,
+        "IPR012340": 0.0523,
+        "IPR013083": 0.0649,
+        "IPR014001": 0.0649,
+        "IPR027417": 0.1841
+      }
+    }
+  },
+  "curated_evidence": {
+    "rows": 13,
+    "proteins": 7,
+    "source": "config/curated_evidence_dna_repair.tsv"
+  },
+  "rbh_pairs_within_networks": 14,
+  "weight_sensitivity": {
+    "dirichlet": {
+      "samples": 500,
+      "concentration": 50,
+      "seed": 645033067,
+      "spearman_median": 0.9755067986532123,
+      "spearman_q05": 0.9266200943102987,
+      "top20_overlap_median": 0.7,
+      "top20_overlap_q05": 0.5
+    },
+    "leave_one_out": [
+      {
+        "dropped_component": "ec",
+        "spearman_vs_base": 0.9633535840792603,
+        "top20_overlap": 0.55
+      },
+      {
+        "dropped_component": "go",
+        "spearman_vs_base": 0.9742102774354412,
+        "top20_overlap": 0.7
+      },
+      {
+        "dropped_component": "pathway",
+        "spearman_vs_base": 0.9336214735309777,
+        "top20_overlap": 0.7
+      },
+      {
+        "dropped_component": "literature",
+        "spearman_vs_base": 0.9352452736832016,
+        "top20_overlap": 0.75
+      },
+      {
+        "dropped_component": "perturbation",
+        "spearman_vs_base": 0.8857884162335112,
+        "top20_overlap": 0.7
+      },
+      {
+        "dropped_component": "module",
+        "spearman_vs_base": 0.9816064005035509,
+        "top20_overlap": 0.75
+      },
+      {
+        "dropped_component": "role",
+        "spearman_vs_base": 0.9699798118799708,
+        "top20_overlap": 0.8
+      },
+      {
+        "dropped_component": "homology",
+        "spearman_vs_base": 0.9923481543413502,
+        "top20_overlap": 0.35
+      }
+    ],
+    "eligible_pairs": 20020
+  },
+  "ranking_threshold_sensitivity": [
+    {
+      "threshold": 0.4,
+      "top20_overlap_with_primary": 0.65,
+      "eligible_pairs": 20831,
+      "candidate_analogues": 90
+    },
+    {
+      "threshold": 0.5,
+      "top20_overlap_with_primary": 0.75,
+      "eligible_pairs": 20737,
+      "candidate_analogues": 90
+    },
+    {
+      "threshold": 0.6,
+      "top20_overlap_with_primary": 0.8,
+      "eligible_pairs": 20657,
+      "candidate_analogues": 90
+    },
+    {
+      "threshold": 0.7,
+      "top20_overlap_with_primary": 1.0,
+      "eligible_pairs": 20020,
+      "candidate_analogues": 90
+    },
+    {
+      "threshold": 0.8,
+      "top20_overlap_with_primary": 0.7,
+      "eligible_pairs": 19543,
+      "candidate_analogues": 90
+    },
+    {
+      "threshold": 0.9,
+      "top20_overlap_with_primary": 0.6,
+      "eligible_pairs": 18884,
+      "candidate_analogues": 90
+    }
+  ],
+  "similarity_measure_sensitivity": [
+    {
+      "measure": "ochiai",
+      "top20_overlap_with_primary": 1.0,
+      "candidate_analogues": 90,
+      "rank_of_recA_RAD51": 169.0,
+      "rank_of_ligA_LIG1": 514.0,
+      "rank_of_mutL_MLH1": 127.0
+    },
+    {
+      "measure": "simgic",
+      "top20_overlap_with_primary": 0.85,
+      "candidate_analogues": 67,
+      "rank_of_recA_RAD51": 466.0,
+      "rank_of_ligA_LIG1": 1080.0,
+      "rank_of_mutL_MLH1": 316.0
+    },
+    {
+      "measure": "min",
+      "top20_overlap_with_primary": 0.5,
+      "candidate_analogues": 108,
+      "rank_of_recA_RAD51": 19.0,
+      "rank_of_ligA_LIG1": 576.0,
+      "rank_of_mutL_MLH1": 4.0
+    }
+  ],
+  "embedding": {
+    "deinococcus_radiodurans": {
+      "evaluated": true,
+      "summary": [
+        {
+          "method": "adamic_adar",
+          "mean": 0.9312,
+          "std": 0.0392,
+          "min": 0.8854,
+          "max": 0.9861,
+          "count": 5
+        },
+        {
+          "method": "common_neighbours",
+          "mean": 0.9201,
+          "std": 0.0372,
+          "min": 0.8819,
+          "max": 0.9722,
+          "count": 5
+        },
+        {
+          "method": "jaccard",
+          "mean": 0.9042,
+          "std": 0.0185,
+          "min": 0.8889,
+          "max": 0.934,
+          "count": 5
+        },
+        {
+          "method": "preferential_attachment",
+          "mean": 0.8354,
+          "std": 0.117,
+          "min": 0.6979,
+          "max": 0.9653,
+          "count": 5
+        },
+        {
+          "method": "netmf_cosine",
+          "mean": 0.7368,
+          "std": 0.0541,
+          "min": 0.6667,
+          "max": 0.8056,
+          "count": 5
+        }
+      ]
+    },
+    "homo_sapiens": {
+      "evaluated": true,
+      "summary": [
+        {
+          "method": "adamic_adar",
+          "mean": 0.9517,
+          "std": 0.0062,
+          "min": 0.9463,
+          "max": 0.9609,
+          "count": 5
+        },
+        {
+          "method": "common_neighbours",
+          "mean": 0.9451,
+          "std": 0.0065,
+          "min": 0.9386,
+          "max": 0.9544,
+          "count": 5
+        },
+        {
+          "method": "jaccard",
+          "mean": 0.945,
+          "std": 0.0074,
+          "min": 0.9349,
+          "max": 0.9546,
+          "count": 5
+        },
+        {
+          "method": "netmf_cosine",
+          "mean": 0.8771,
+          "std": 0.0081,
+          "min": 0.8635,
+          "max": 0.8836,
+          "count": 5
+        },
+        {
+          "method": "preferential_attachment",
+          "mean": 0.8712,
+          "std": 0.0091,
+          "min": 0.8619,
+          "max": 0.8842,
+          "count": 5
+        }
+      ]
+    }
+  },
+  "proxy_evaluation": {
+    "ground_truth": "none available; orthologs (reciprocal best hits or shared KEGG KO) used as a proxy positive set",
+    "positives": 16,
+    "components": {
+      "role": {
+        "evaluable": true,
+        "auc_descriptive": 0.46037659112345647,
+        "positives_with_value": 14,
+        "negatives_with_value": 16509,
+        "leakage_risk": false
+      },
+      "module": {
+        "evaluable": true,
+        "auc_descriptive": 0.832098076373926,
+        "positives_with_value": 14,
+        "negatives_with_value": 16509,
+        "leakage_risk": true
+      },
+      "pathway": {
+        "evaluable": true,
+        "auc_descriptive": 0.8732489622697338,
+        "positives_with_value": 13,
+        "negatives_with_value": 9099,
+        "leakage_risk": true
+      },
+      "go": {
+        "evaluable": true,
+        "auc_descriptive": 0.9651840699148705,
+        "positives_with_value": 16,
+        "negatives_with_value": 22084,
+        "leakage_risk": true
+      },
+      "ec": {
+        "evaluable": false,
+        "auc_descriptive": 0.9864796435082034,
+        "positives_with_value": 8,
+        "negatives_with_value": 4937,
+        "leakage_risk": true
+      }
+    },
+    "note": "An AUC is called evaluable only with >= 10 positives; below that it is listed as descriptive and must not be read as a performance estimate."
+  },
+  "module_correspondence_top": [
+    {
+      "dr_module": 0,
+      "hs_module": 3,
+      "core_term_similarity": 0.39575624549558486,
+      "shared_core_terms": 22,
+      "dr_core_terms": 28,
+      "hs_core_terms": 29,
+      "dr_members": "DR_0467;DR_1289;DR_1775;DR_1949;ligA;mutL;mutM;mutS2;polA;sbcC;sbcD;ssb",
+      "hs_module_size": 60
+    },
+    {
+      "dr_module": 0,
+      "hs_module": 2,
+      "core_term_similarity": 0.34332263706590066,
+      "shared_core_terms": 20,
+      "dr_core_terms": 28,
+      "hs_core_terms": 25,
+      "dr_members": "DR_0467;DR_1289;DR_1775;DR_1949;ligA;mutL;mutM;mutS2;polA;sbcC;sbcD;ssb",
+      "hs_module_size": 79
+    },
+    {
+      "dr_module": 1,
+      "hs_module": 3,
+      "core_term_similarity": 0.2761026591244525,
+      "shared_core_terms": 20,
+      "dr_core_terms": 27,
+      "hs_core_terms": 29,
+      "dr_members": "DR_0354;DR_0928;DR_2072;DR_2074;DR_2285;DR_2438;DR_2584;nth;ung",
+      "hs_module_size": 60
+    },
+    {
+      "dr_module": 0,
+      "hs_module": 7,
+      "core_term_similarity": 0.21578923638695025,
+      "shared_core_terms": 21,
+      "dr_core_terms": 28,
+      "hs_core_terms": 34,
+      "dr_members": "DR_0467;DR_1289;DR_1775;DR_1949;ligA;mutL;mutM;mutS2;polA;sbcC;sbcD;ssb",
+      "hs_module_size": 15
+    },
+    {
+      "dr_module": 0,
+      "hs_module": 0,
+      "core_term_similarity": 0.20612286459627105,
+      "shared_core_terms": 21,
+      "dr_core_terms": 28,
+      "hs_core_terms": 34,
+      "dr_members": "DR_0467;DR_1289;DR_1775;DR_1949;ligA;mutL;mutM;mutS2;polA;sbcC;sbcD;ssb",
+      "hs_module_size": 83
+    },
+    {
+      "dr_module": 3,
+      "hs_module": 3,
+      "core_term_similarity": 0.20316874131875212,
+      "shared_core_terms": 22,
+      "dr_core_terms": 45,
+      "hs_core_terms": 29,
+      "dr_members": "DR_0856;DR_A0188;mfd;ruvB;uvrA;uvrB;uvrC",
+      "hs_module_size": 60
+    },
+    {
+      "dr_module": 2,
+      "hs_module": 3,
+      "core_term_similarity": 0.1946251662151396,
+      "shared_core_terms": 21,
+      "dr_core_terms": 37,
+      "hs_core_terms": 29,
+      "dr_members": "radA;recF;recG;recN;recO;recR;ruvA;ruvC",
+      "hs_module_size": 60
+    },
+    {
+      "dr_module": 2,
+      "hs_module": 0,
+      "core_term_similarity": 0.1845186777800637,
+      "shared_core_terms": 22,
+      "dr_core_terms": 37,
+      "hs_core_terms": 34,
+      "dr_members": "radA;recF;recG;recN;recO;recR;ruvA;ruvC",
+      "hs_module_size": 83
+    },
+    {
+      "dr_module": 1,
+      "hs_module": 7,
+      "core_term_similarity": 0.1471699295505018,
+      "shared_core_terms": 19,
+      "dr_core_terms": 27,
+      "hs_core_terms": 34,
+      "dr_members": "DR_0354;DR_0928;DR_2072;DR_2074;DR_2285;DR_2438;DR_2584;nth;ung",
+      "hs_module_size": 15
+    },
+    {
+      "dr_module": 2,
+      "hs_module": 7,
+      "core_term_similarity": 0.14317674009802672,
+      "shared_core_terms": 21,
+      "dr_core_terms": 37,
+      "hs_core_terms": 34,
+      "dr_members": "radA;recF;recG;recN;recO;recR;ruvA;ruvC",
+      "hs_module_size": 15
+    }
+  ],
+  "ppi_enrichment": {
+    "deinococcus_radiodurans": [
+      {
+        "number_of_nodes": 52,
+        "number_of_edges": 346,
+        "average_node_degree": 13.31,
+        "local_clustering_coefficient": 0.608,
+        "expected_number_of_edges": 30,
+        "p_value": 1e-64,
+        "required_score": 400
+      },
+      {
+        "number_of_nodes": 52,
+        "number_of_edges": 253,
+        "average_node_degree": 9.73,
+        "local_clustering_coefficient": 0.565,
+        "expected_number_of_edges": 16,
+        "p_value": 1e-64,
+        "required_score": 500
+      },
+      {
+        "number_of_nodes": 52,
+        "number_of_edges": 179,
+        "average_node_degree": 6.88,
+        "local_clustering_coefficient": 0.458,
+        "expected_number_of_edges": 7,
+        "p_value": 1e-64,
+        "required_score": 600
+      },
+      {
+        "number_of_nodes": 52,
+        "number_of_edges": 119,
+        "average_node_degree": 4.58,
+        "local_clustering_coefficient": 0.436,
+        "expected_number_of_edges": 3,
+        "p_value": 1e-64,
+        "required_score": 700
+      },
+      {
+        "number_of_nodes": 52,
+        "number_of_edges": 60,
+        "average_node_degree": 2.31,
+        "local_clustering_coefficient": 0.301,
+        "expected_number_of_edges": 1,
+        "p_value": 1e-64,
+        "required_score": 800
+      },
+      {
+        "number_of_nodes": 52,
+        "number_of_edges": 28,
+        "average_node_degree": 1.08,
+        "local_clustering_coefficient": 0.221,
+        "expected_number_of_edges": 0,
+        "p_value": 1.52e-44,
+        "required_score": 900
+      }
+    ],
+    "homo_sapiens": [
+      {
+        "number_of_nodes": 426,
+        "number_of_edges": 13052,
+        "average_node_degree": 61.28,
+        "local_clustering_coefficient": 0.558,
+        "expected_number_of_edges": 2428,
+        "p_value": 1e-64,
+        "required_score": 400
+      },
+      {
+        "number_of_nodes": 426,
+        "number_of_edges": 10053,
+        "average_node_degree": 47.2,
+        "local_clustering_coefficient": 0.549,
+        "expected_number_of_edges": 1666,
+        "p_value": 1e-64,
+        "required_score": 500
+      },
+      {
+        "number_of_nodes": 426,
+        "number_of_edges": 7338,
+        "average_node_degree": 34.45,
+        "local_clustering_coefficient": 0.523,
+        "expected_number_of_edges": 1078,
+        "p_value": 1e-64,
+        "required_score": 600
+      },
+      {
+        "number_of_nodes": 426,
+        "number_of_edges": 5285,
+        "average_node_degree": 24.81,
+        "local_clustering_coefficient": 0.49,
+        "expected_number_of_edges": 790,
+        "p_value": 1e-64,
+        "required_score": 700
+      },
+      {
+        "number_of_nodes": 426,
+        "number_of_edges": 3762,
+        "average_node_degree": 17.66,
+        "local_clustering_coefficient": 0.446,
+        "expected_number_of_edges": 564,
+        "p_value": 1e-64,
+        "required_score": 800
+      },
+      {
+        "number_of_nodes": 426,
+        "number_of_edges": 2387,
+        "average_node_degree": 11.21,
+        "local_clustering_coefficient": 0.427,
+        "expected_number_of_edges": 309,
+        "p_value": 1e-64,
+        "required_score": 900
+      }
+    ]
+  },
+  "category_counts": [
+    {
+      "category": "candidate_analogue",
+      "pairs": 90,
+      "eligible": 90
+    },
+    {
+      "category": "distant_homolog",
+      "pairs": 1157,
+      "eligible": 1083
+    },
+    {
+      "category": "homolog",
+      "pairs": 302,
+      "eligible": 267
+    },
+    {
+      "category": "ortholog_ko",
+      "pairs": 2,
+      "eligible": 2
+    },
+    {
+      "category": "ortholog_rbh",
+      "pairs": 14,
+      "eligible": 13
+    },
+    {
+      "category": "shared_function_annotation",
+      "pairs": 328,
+      "eligible": 305
+    },
+    {
+      "category": "similar_pathway_role",
+      "pairs": 1006,
+      "eligible": 1006
+    },
+    {
+      "category": "speculative",
+      "pairs": 11693,
+      "eligible": 11629
+    },
+    {
+      "category": "unsupported",
+      "pairs": 7560,
+      "eligible": 5625
+    }
+  ],
+  "evidence_availability": {
+    "deinococcus_radiodurans": {
+      "proteins": 52,
+      "with_ec": 23,
+      "with_go": 52,
+      "with_kegg_map": 34,
+      "with_panther": 47,
+      "with_pfam": 52,
+      "with_quickgo_annotation": 52,
+      "with_experimental_go": 10,
+      "with_perturbation_evidence": 11,
+      "with_kegg_ko": 48,
+      "with_curated_literature": 7
+    },
+    "homo_sapiens": {
+      "proteins": 426,
+      "with_ec": 215,
+      "with_go": 425,
+      "with_kegg_map": 268,
+      "with_panther": 425,
+      "with_pfam": 417,
+      "with_quickgo_annotation": 424,
+      "with_experimental_go": 258,
+      "with_perturbation_evidence": 158,
+      "with_kegg_ko": 413,
+      "with_curated_literature": 0
+    }
+  }
+}

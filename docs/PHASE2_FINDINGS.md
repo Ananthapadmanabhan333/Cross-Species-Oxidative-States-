@@ -1,8 +1,8 @@
 # Phase 2 findings: oxidative-stress defence networks, D. radiodurans vs human
 
-Reference run: `results/phase2/20261025T222114Z_a6bb58dd4682/` (generated report:
-`technical_report.md`). Seed-sensitivity runs: `20261025T222736Z_58b73da6abf5` (seed 1) and
-`20261025T222911Z_073fbaf0033f` (seed 987654). Input: Phase 1 run `20261025T174736Z_5bbc7e723df4`
+Reference run: `results/phase2/20261102T165336Z_e64fca252fa7/` (generated report:
+`technical_report.md`). Seed-sensitivity runs: `20261102T165750Z_08cd65edddb8` (seed 1) and
+`20261102T170002Z_39fa731cabef` (seed 987654). Input: Phase 1 run `20261025T174736Z_5bbc7e723df4`
 (STRING 12.5, UniProt 2026_03), re-verified by checksum before analysis.
 
 This revision adds three things:
@@ -19,6 +19,14 @@ It also fixes two problems:
   which quietly treated missing evidence as negative.
 - **Row order:** ties are now broken deterministically, so outputs are byte-identical across
   Python hash seeds.
+
+A later revision (2026-11-02) added two more:
+
+- **IntAct experimentally confirmed interactions** (section 4.6);
+- **a `distant_homolog` tier.** Pairs sharing only a frequent fold-level signature (thioredoxin
+  fold, P-loop NTPase, kinase domain) are distant homologs, never analogues.
+
+The same pipeline was also applied to DNA repair; see [DNA_REPAIR_FINDINGS.md](DNA_REPAIR_FINDINGS.md).
 
 Every number below comes from the run outputs. **These are computational candidate relationships
 ranked by available evidence. None demonstrates biological equivalence, and none has been tested
@@ -87,7 +95,8 @@ All 6,112 pairs were scored. Eligible / all pairs per category:
 |---|---|
 | reciprocal-best-hit orthologs | 5 / 5 |
 | KO-only orthologs | 3 / 3 |
-| homologs | 135 / 165 |
+| homologs | 55 / 65 |
+| distant homologs (common fold only) | 80 / 100 |
 | candidate analogues | 81 / 81 |
 | shared function annotation | 152 / 207 |
 | similar pathway role | 41 / 41 |
@@ -99,14 +108,14 @@ The five reciprocal best hits, with rank and 5–95 % rank interval under weight
 
 | D. radiodurans | human | rank | interval |
 |---|---|---|---|
-| katA | CAT | 7 | 1–16 |
-| msrB | MSRB3 | 10 | 1–370 |
-| sodA | SOD2 | 16 | 10–84 |
-| DR_2242 | PRDX2 | 26 | – |
-| DR_A0202 | SOD1 | 42 | – |
+| katA | CAT | 7 | 1–15 |
+| msrB | MSRB3 | 10 | 1–368 |
+| sodA | SOD2 | 16 | 10–82 |
+| DR_2242 | PRDX2 | 25 | – |
+| DR_A0202 | SOD1 | 38 | – |
 
 KEGG KO adds three orthologs that are not reciprocal best hits: DRA0259–CAT (K03781, rank 9),
-msrB–MSRB2 (K07305, rank 33) and sodC–SOD1 (K04565, rank 46). No reciprocal-best-hit pair
+msrB–MSRB2 (K07305, rank 32) and sodC–SOD1 (K04565, rank 43). No reciprocal-best-hit pair
 contradicts its KO assignment. Recovering these conserved enzymes is a sanity check, not a discovery.
 
 ### 4.2 The best-supported bacterial protein: peroxiredoxin Q (DR0846)
@@ -116,15 +125,18 @@ intervals within 1–10). These are homolog pairs. DR0846 rises because it has d
 evidence. According to PubMed, it is a peroxiredoxin Q with peroxidase and chaperone activity, and
 a DR0846/DR1998 double deletion is less tolerant of oxidative stress than either single mutant
 (Cho et al. 2018, FEBS Lett, [doi:10.1002/1873-3468.13302](https://doi.org/10.1002/1873-3468.13302)).
+DR0846 vs the human glutathione peroxidases (GPX2–8, ranks 30–118) are `distant_homolog`: the only
+shared signature is the thioredoxin-like fold (IPR036249), carried by 8.8 % of all network proteins.
+They are related peroxidases, not analogues.
 
 ### 4.3 Candidate analogues: same reaction, no detected homology
 
 These pairs share catalytic activity (EC) and have independent pathway, GO or experimental support,
-but show no homology signal in best-hit search, KO, PANTHER, Pfam or InterPro.
+but show no homology signal in best-hit search, KO, PANTHER, Pfam, InterPro or common-fold signatures.
 
 **Superoxide dismutation by two unrelated enzyme families.** Mn/Fe SOD sodA pairs with Cu/Zn SOD3
-(rank 19, interval 9–74) and SOD1 (rank 123). The bacterial Cu/Zn proteins sodC and DRA0202 pair
-with human Mn-SOD2 (ranks 81 and 86). This matches the established view that Cu/Zn and Mn/Fe SODs
+(rank 19, interval 9–72) and SOD1 (rank 121). The bacterial Cu/Zn proteins sodC and DRA0202 pair
+with human Mn-SOD2 (ranks 76 and 81). This matches the established view that Cu/Zn and Mn/Fe SODs
 are structurally unrelated families catalysing the same reaction.
 
 **The sodA evidence is mixed, and the pipeline now says so.** According to PubMed, sodA insertion
@@ -140,7 +152,7 @@ the functional analogue of human enzymatic SOD may be partly non-protein (Mn²�
 complexes), which a protein network cannot represent.
 
 **Peroxide removal by catalase versus peroxiredoxins.** katA and DRA0259 (catalases, EC 1.11.1.6)
-pair with human PRDX2–5 (EC 1.11.1.24) at ranks 73–99. They share only the EC sub-subclass 1.11.1,
+pair with human PRDX2–5 (EC 1.11.1.24) at ranks 68–102. They share only the EC sub-subclass 1.11.1,
 have different folds, and their chemistry differs (dismutation vs thiol-based reduction). This is an
 analogy of reaction class only. According to PubMed, Δdr1998 (katA) shows the greatest loss of H₂O₂
 resistance of the three catalase mutants (Jeong et al. 2015, BBRC,
@@ -148,7 +160,7 @@ resistance of the three catalase mutants (Jeong et al. 2015, BBRC,
 DRA0259 reduces antioxidant activity (Wang et al. 2016, Int J Radiat Biol,
 [doi:10.3109/09553002.2016.1150618](https://doi.org/10.3109/09553002.2016.1150618)).
 
-**Cytoglobin as a non-canonical SOD.** sodA–CYGB ranks 70 (interval 35–449). CYGB's EC 1.15.1.1
+**Cytoglobin as a non-canonical SOD.** sodA–CYGB ranks 65 (interval 34–444). CYGB's EC 1.15.1.1
 rests on one study: according to PubMed, cytoglobin dismutates superoxide via iron redox cycling
 (Zweier et al. 2021, PNAS, [doi:10.1073/pnas.2105053118](https://doi.org/10.1073/pnas.2105053118)).
 This is hypothesis-generating and weakly established.
@@ -172,16 +184,31 @@ because it would become a candidate analogue if a shared catalytic activity were
   share only a fold-level InterPro signature with ribosomal protein S3 (IPR015946), which is not
   functionally informative. These are the natural targets for Phase 3 characterisation.
 
+### 4.6 Experimentally confirmed physical interactions (IntAct)
+
+| | *D. radiodurans* | *H. sapiens* |
+|---|---|---|
+| physical interaction pairs between seeds | 0 | 508 |
+| STRING edges (≥ 0.7) confirmed | 0 of 11 | 275 of 2,210 (12.4 %) |
+| STRING physical-subnetwork edges confirmed | 0 of 4 | 243 of 1,152 (21.1 %) |
+| IntAct pairs absent from the STRING graph | – | 233 (176 absent even at score ≥ 0.4) |
+
+Most STRING edges are functional associations without a deposited physical interaction; even
+STRING's predicted physical subnetwork is only about one-fifth confirmed in IntAct. IntAct, BioGRID
+(PSICQUIC) and MINT hold no physical interactions for the bacterial seed proteins. The bacterial
+network is therefore entirely functional-association based, and physical-interaction comparisons
+across the two species are not possible with current public data.
+
 ## 5. Robustness
 
 | perturbation | result |
 |---|---|
 | Ranking weights (500 Dirichlet samples) | median Spearman 0.98 (5 %: 0.93); median top-20 overlap 0.80 (5 %: 0.65) |
-| Leave one component out | top-20 overlap falls most without `ec` (0.60), `homology` (0.60), `go` (0.65) or `literature` (0.70); Spearman falls most without `perturbation` (0.89) |
+| Leave one component out | top-20 overlap falls most without `homology` (0.60), `ec` (0.65), `go` (0.65) or `literature` (0.70); Spearman falls most without `perturbation` (0.88) |
 | Similarity measure | top-20 overlap with Ochiai: 0.90 (simGIC), 0.60 (min); candidate analogues 65 / 81 / 120 |
 | STRING threshold 0.4–0.9 | top-20 overlap with the 0.7 ranking 0.80–1.00 |
 | Random seed (two alternatives) | top-50 overlap 1.0, score Spearman ≥ 0.9995, category agreement ≥ 99.7 % |
-| Python hash seed (3 alternatives, offline) | all 37 result tables byte-identical |
+| Python hash seed (offline reruns) | all 41 result tables byte-identical |
 
 **The top of the ranking is less stable than before** (top-20 overlap 0.80 vs 0.90). The new
 curated and KO evidence is concentrated on a few bacterial proteins, so the weight given to that
@@ -209,7 +236,7 @@ transferred between homologs.
   excluded because its abstract names no locus tag. Human perturbation evidence still comes only
   from GO evidence codes.
 - **Most bacterial GO evidence is inferred** (IEA/IBA). "No detected homology" does not exclude
-  remote homology, although KO and InterPro checks reduce this risk.
+  remote homology, although the KO, InterPro and common-fold checks reduce this risk.
 - **Non-protein defences are outside the network.** These include the Mn²⁺–metabolite antioxidants
   that the sodA evidence points to.
 - **STRING edges are functional associations,** partly transferred between organisms through
@@ -223,7 +250,5 @@ transferred between homologs.
    - An activity assay for DR1538 (OsmC) to resolve the GPX comparison.
 2. **Represent non-protein antioxidants explicitly** (Mn²⁺–metabolite complexes), e.g. as
    annotated network context. Without them, the bacterial–human comparison is incomplete.
-3. **Broaden curated evidence systematically.** Full-text curation, BioGRID/IntAct for physical
-   interactions, and human mutant phenotypes beyond GO.
-
-DNA repair remains out of scope until you have reviewed these results.
+3. **Broaden curated evidence systematically.** Full-text curation and human mutant phenotypes
+   beyond GO. IntAct has now been checked: it has no bacterial data (section 4.6).

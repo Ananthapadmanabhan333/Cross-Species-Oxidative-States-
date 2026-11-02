@@ -31,6 +31,7 @@ class ProteinEvidence:
     panther: set[str] = field(default_factory=set)
     pfam: set[str] = field(default_factory=set)
     interpro: set[str] = field(default_factory=set)
+    common_folds: set[str] = field(default_factory=set)   # frequent Pfam/InterPro signatures (weak tier)
     literature_level: float | None = None      # 1 experimental, 0.5 curated/phylo/computational, 0.25 IEA only
     evidence_codes: set[str] = field(default_factory=set)
     experimental_references: set[str] = field(default_factory=set)
@@ -109,6 +110,27 @@ def build_profiles(nodes: pd.DataFrame, annotations: pd.DataFrame, uniprot: pd.D
             prof.perturbation_score = 0.5 if supports and contradicts else (1.0 if supports else 0.0)
         profiles[sid] = prof
     return profiles
+
+
+def separate_frequent_signatures(profiles: dict[str, dict[str, ProteinEvidence]], max_fraction: float) -> dict:
+    """Move Pfam and InterPro entries carried by more than `max_fraction` of all network proteins
+    (both species pooled) from `pfam`/`interpro` into `common_folds`.
+
+    A frequent signature (P-loop NTPase, helicase domains, thioredoxin fold) is weak evidence about
+    two *specific* proteins, so it gets its own low homology tier. It is not discarded: in a network
+    enriched for one family it is still real homology, and dropping it would turn homologs (e.g.
+    RecQ helicases, thioredoxin-fold peroxidases) into false "analogues"."""
+    proteins = [p for species in profiles.values() for p in species.values()]
+    n = len(proteins)
+    removed = {}
+    for attr in ("pfam", "interpro"):
+        counts = Counter(s for p in proteins for s in getattr(p, attr))
+        frequent = {s for s, c in counts.items() if n and c / n > max_fraction}
+        for p in proteins:
+            p.common_folds |= getattr(p, attr) & frequent
+            setattr(p, attr, getattr(p, attr) - frequent)
+        removed[attr] = {s: round(counts[s] / n, 4) for s in sorted(frequent)}
+    return {"max_fraction": max_fraction, "proteins": n, "common_fold_signatures": removed}
 
 
 def curated_contradictions(profile: ProteinEvidence) -> list[str]:
@@ -196,11 +218,12 @@ def homology(a: ProteinEvidence, b: ProteinEvidence, tables: HomologyTables,
     shared_pfam = sorted(a.pfam & b.pfam)
     shared_interpro = sorted(a.interpro & b.interpro)
     shared_ko = sorted(a.ko & b.ko)
+    shared_folds = sorted(a.common_folds & b.common_folds)
     detail = {"best_hit_dr_to_hs": hit_ab[0] if hit_ab else None,
               "bitscore_dr_to_hs": hit_ab[1] if hit_ab else None,
               "best_hit_hs_to_dr": hit_ba[0] if hit_ba else None,
               "shared_panther": shared_panther, "shared_pfam": shared_pfam, "shared_interpro": shared_interpro,
-              "shared_ko": shared_ko,
+              "shared_ko": shared_ko, "shared_common_folds": shared_folds,
               "ko_conflict": bool(a.ko and b.ko and not shared_ko)}
     if ab and ba:
         return 1.0, "reciprocal_best_hit", detail
@@ -219,6 +242,9 @@ def homology(a: ProteinEvidence, b: ProteinEvidence, tables: HomologyTables,
         # peroxiredoxin subfamilies). Treated as weak homology so that "analogue" claims require
         # the absence of any shared signature.
         return 0.4, "shared_interpro_entry", detail
+    if shared_folds:
+        # only a frequent fold-level signature in common: distant homology, weak evidence
+        return 0.2, "shared_common_fold", detail
     return 0.0, "none_detected", detail
 
 

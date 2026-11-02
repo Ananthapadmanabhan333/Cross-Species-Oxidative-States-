@@ -1,0 +1,24 @@
+{
+  "source": "string",
+  "endpoint": "get_string_ids_deinococcus_radiodurans",
+  "description": "map 56 identifiers to STRING (species=1299)",
+  "request_key": "3cfa6c2c7482c038304f",
+  "method": "POST",
+  "url": "https://string-db.org/api/json/get_string_ids",
+  "params": {
+    "caller_identity": "extremonet_dna_repair",
+    "echo_query": "1",
+    "identifiers": "D0EM60\rG9I562\rO32504\rO32506\rP0DXX8\rP42443\rP52027\rQ46577\rQ7BD32\rQ9RRB0\rQ9RRQ0\rQ9RS42\rQ9RS52\rQ9RSQ0\rQ9RSQ2\rQ9RSQ5\rQ9RSZ3\rQ9RT20\rQ9RT44\rQ9RT45\rQ9RT50\rQ9RT67\rQ9RTE6\rQ9RTI9\rQ9RTK9\rQ9RTR0\rQ9RU62\rQ9RUN0\rQ9RUU2\rQ9RUV7\rQ9RV31\rQ9RVA3\rQ9RVC4\rQ9RVE0\rQ9RVU4\rQ9RW13\rQ9RW50\rQ9RWB3\rQ9RWE0\rQ9RWF4\rQ9RWH9\rQ9RX22\rQ9RX48\rQ9RX75\rQ9RX85\rQ9RX87\rQ9RX92\rQ9RXF9\rQ9RXM1\rQ9RY51\rQ9RY80\rQ9RY85\rQ9RYW8\rQ9WXF2\rQ9X719\rQ9ZNA2",
+    "limit": "1",
+    "species": "1299"
+  },
+  "retrieved_at_utc": "2026-11-02T16:18:42.338168+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/json; charset=utf-8",
+    "date": "Mon, 02 Nov 2026 16:18:42 GMT"
+  },
+  "bytes": 23314,
+  "sha256": "aed5797321f6b8c8df9075e9beb4a7b96c5dce515f6235076a00b4b33dd38c04",
+  "data_file": "3cfa6c2c7482c038304f__20261102T161842338168Z.json"
+}

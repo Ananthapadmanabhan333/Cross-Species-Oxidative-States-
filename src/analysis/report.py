@@ -145,6 +145,8 @@ def build(summary: dict, ranked: pd.DataFrame, module_tables: dict, base: dict, 
         "### 4.1 Annotation vocabulary overlap (descriptive)",
         _table(ov, ["category", "dr_terms", "hs_terms", "shared_terms", "jaccard", "fraction_of_dr_terms_shared"]),
         "",
+        _pruning_line(s.get("signature_pruning")),
+        "",
         "### 4.2 Sequence homology (STRING best hits, D. radiodurans -> human)",
         _table(hom),
         "",
@@ -154,14 +156,19 @@ def build(summary: dict, ranked: pd.DataFrame, module_tables: dict, base: dict, 
         _table(al),
         "",
         "`p_vs_random_mapping` only shows that the optimiser beats a random assignment. `p_vs_rewired_null`",
-        "compares against degree-preserving rewired D. radiodurans graphs aligned the same way; with ~11",
-        "edges few distinct rewirings exist (`rewired_graphs_distinct`).",
+        "compares against degree-preserving rewired D. radiodurans graphs aligned the same way",
+        f"({gs[DR]['edges']} source edges; `rewired_graphs_distinct` counts rewirings that differ from the",
+        "observed graph). With a homology prior, conservation is partly built in: STRING transfers",
+        "association evidence between orthologs of different organisms.",
         "",
         "Module correspondence (core-term similarity of non-singleton modules; top 10):",
         "",
         _table(pd.DataFrame(s["module_correspondence_top"])),
         "",
-        "### 4.4 Coverage variant: KO-projected D. radiodurans network",
+        "### 4.4 Experimentally confirmed physical interactions (IntAct)",
+        *_intact_lines(s.get("experimental_interactions", {})),
+        "",
+        "### 4.5 Coverage variant: KO-projected D. radiodurans network",
         *_coverage_lines(s.get("coverage_variant", {})),
         "",
         "## 5. Candidate ranking",
@@ -215,7 +222,8 @@ def build(summary: dict, ranked: pd.DataFrame, module_tables: dict, base: dict, 
         "",
         proxy.get("note", ""),
         "",
-        "AUCs of annotation components (`leakage_risk = True`) are inflated by construction, because GO/EC",
+        "AUCs of annotation-derived components (`leakage_risk = True`: EC, GO, pathway, module) are inflated by",
+        "construction; only `role` (topology) is free of annotation leakage. For annotation components, GO/EC",
         "annotations are often transferred between homologs. No accuracy for analogue prediction is claimed.",
         "",
         "## 9. Limitations",
@@ -253,3 +261,29 @@ def _coverage_lines(cov: dict) -> list[str]:
         f"{cov['note']}.",
     ]
     return lines
+
+
+def _intact_lines(summary: dict) -> list[str]:
+    if not summary:
+        return ["_not run_"]
+    rows = pd.DataFrame([{"species": LABEL.get(k, k), **v} for k, v in summary.items()])
+    return [
+        "STRING edges are functional associations. IntAct records with a physical interaction type and both",
+        "partners among the seeds mark which of them are experimentally confirmed physical interactions.",
+        "",
+        _table(rows, ["species", "accessions_queried", "physical_pairs_between_seeds", "string_edges",
+                      "string_edges_confirmed", "fraction_string_edges_confirmed",
+                      "string_physical_subnetwork_edges", "string_physical_subnetwork_edges_confirmed",
+                      "intact_pairs_not_in_string_graph", "self_interactions"]),
+        "",
+        "Zero records for a species means none are deposited in IntAct, not that the proteins do not interact.",
+    ]
+
+
+def _pruning_line(pruning: dict | None) -> str:
+    if not pruning:
+        return ""
+    folds = pruning["common_fold_signatures"]
+    items = [f"{k}: " + (", ".join(f"{s} ({v:.0%})" for s, v in d.items()) or "none") for k, d in folds.items()]
+    return (f"Common-fold signatures (carried by > {pruning['max_fraction']:.0%} of the {pruning['proteins']} network "
+            "proteins) count only as weak `distant_homolog` evidence: " + "; ".join(items) + ".")

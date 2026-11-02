@@ -12,7 +12,9 @@ and weighted NetworkX graphs.
   [docs/PHASE2_METHODS.md](docs/PHASE2_METHODS.md) and
   [docs/PHASE2_FINDINGS.md](docs/PHASE2_FINDINGS.md).
 
-DNA repair and any Phase 3 work are out of scope until the Phase 2 results have been reviewed.
+- **DNA repair:** the second process, run through the same Phase 1 and Phase 2 pipeline with its
+  own configuration ([DNA repair](#dna-repair-second-process),
+  [docs/DNA_REPAIR_FINDINGS.md](docs/DNA_REPAIR_FINDINGS.md)).
 
 > **Research plan.** The guiding document (Prof. Pietro Hiram Guzzi, *2026-Graph-AnanthapadmanabhanDS*)
 > and its Overleaf source were not available in this workspace when the pipeline was built, so the
@@ -182,7 +184,8 @@ its checksums before doing anything else. It then retrieves the additional evide
 - STRING functional annotation, best-hit homology and PPI-enrichment results;
 - UniProt EC numbers, PANTHER families and Pfam domains;
 - QuickGO evidence codes;
-- KEGG Orthology (KO) assignments (academic use).
+- KEGG Orthology (KO) assignments (academic use);
+- experimentally determined interactions between seed proteins (IntAct).
 
 It also reads a literature-curated evidence table, `config/curated_evidence.tsv`, in which every
 row is verified against its PubMed record.
@@ -235,7 +238,7 @@ figures/                   degree CCDF, threshold sensitivity, size-matched cont
                            ranking weight sensitivity, D. radiodurans module network, link-prediction AUC
 ```
 
-**Reference Phase 2 run.** `20261025T222114Z_a6bb58dd4682` is the reference run. Its
+**Reference Phase 2 run.** `20261102T165336Z_e64fca252fa7` is the reference run. Its
 interpretation, including all coverage limitations, is in
 [docs/PHASE2_FINDINGS.md](docs/PHASE2_FINDINGS.md). Briefly:
 
@@ -248,6 +251,32 @@ interpretation, including all coverage limitations, is in
 - NetMF embeddings do not beat neighbourhood baselines and are not used in the ranking.
 
 No result here is experimental validation.
+
+## DNA repair (second process)
+
+The DNA-repair networks use the same code with separate configuration files:
+
+- `config/phase1_dna_repair.yaml`: seeds from GO:0006281 (DNA repair), with results in
+  `results/dna_repair/`;
+- `config/phase2_dna_repair.yaml`: identical analysis parameters to oxidative stress, with results
+  in `results/dna_repair/phase2/`;
+- `config/curated_evidence_dna_repair.tsv`: PubMed-verified mutant findings for *D. radiodurans*.
+
+The raw-data cache in `data/raw/` is shared, because identical requests are fetched only once.
+
+```bash
+.venv/Scripts/python -m extremonet --config config/phase1_dna_repair.yaml
+```
+
+```bash
+.venv/Scripts/python -m extremonet.analysis --config config/phase2_dna_repair.yaml
+```
+
+```bash
+.venv/Scripts/python scripts/compare_phase2_runs.py --root results/dna_repair/phase2 <reference_run_id> <seed_run_id>
+```
+
+Findings: [docs/DNA_REPAIR_FINDINGS.md](docs/DNA_REPAIR_FINDINGS.md).
 
 ## Repository layout
 
@@ -266,7 +295,8 @@ tests/                        pytest suite; HTTP mocked via a fake session
 scripts/                      run_pipeline.py, verify_checksums.py, compare_phase2_runs.py
 docs/METHODS.md               Phase 1 methods, data model and QC rules
 docs/PHASE2_METHODS.md        Phase 2 methods
-docs/PHASE2_FINDINGS.md       Phase 2 interpretation and limitations
+docs/PHASE2_FINDINGS.md       Phase 2 interpretation and limitations (oxidative stress)
+docs/DNA_REPAIR_FINDINGS.md   Phase 2 interpretation and limitations (DNA repair)
 ```
 
 ## Data sources and licences
@@ -276,4 +306,6 @@ docs/PHASE2_FINDINGS.md       Phase 2 interpretation and limitations
   the documentation asks.
 - UniProtKB REST API (https://www.uniprot.org/help/api), CC BY 4.0.
 - QuickGO (https://www.ebi.ac.uk/QuickGO/api), GO annotations, CC BY 4.0.
-- KEGG is used only as redistributed by STRING and UniProt; the KEGG API is not called.
+- KEGG REST (https://www.kegg.jp/kegg/rest/keggapi.html) for KO assignments: free for academic
+  use; commercial use needs a licence. Pathway maps are taken from STRING's redistribution.
+- IntAct (https://www.ebi.ac.uk/intact), via PSICQUIC; CC BY 4.0.

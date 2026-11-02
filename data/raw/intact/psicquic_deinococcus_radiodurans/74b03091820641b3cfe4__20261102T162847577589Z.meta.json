@@ -1,0 +1,22 @@
+{
+  "source": "intact",
+  "endpoint": "psicquic_deinococcus_radiodurans",
+  "description": "IntAct interactions within deinococcus_radiodurans seed proteins",
+  "request_key": "74b03091820641b3cfe4",
+  "method": "GET",
+  "url": "https://www.ebi.ac.uk/Tools/webservices/psicquic/intact/webservices/current/search/query/idA%3A%28Q59337%20OR%20Q9RS85%20OR%20Q9RSY7%20OR%20Q9RTA8%20OR%20Q9RU48%20OR%20Q9RU56%20OR%20Q9RUK6%20OR%20Q9RUV2%20OR%20Q9RV21%20OR%20Q9RV22%20OR%20Q9RW23%20OR%20Q9RXW6%20OR%20Q9RYL1%20OR%20Q9RYQ0%20OR%20Q9RYV4%20OR%20Q9RZ08%29%20AND%20idB%3A%28Q59337%20OR%20Q9RS85%20OR%20Q9RSY7%20OR%20Q9RTA8%20OR%20Q9RU48%20OR%20Q9RU56%20OR%20Q9RUK6%20OR%20Q9RUV2%20OR%20Q9RV21%20OR%20Q9RV22%20OR%20Q9RW23%20OR%20Q9RXW6%20OR%20Q9RYL1%20OR%20Q9RYQ0%20OR%20Q9RYV4%20OR%20Q9RZ08%29",
+  "params": {
+    "firstResult": "0",
+    "format": "tab25",
+    "maxResults": "2500"
+  },
+  "retrieved_at_utc": "2026-11-02T16:28:47.577589+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/plain",
+    "date": "Mon, 02 Nov 2026 16:28:48 GMT"
+  },
+  "bytes": 0,
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "data_file": "74b03091820641b3cfe4__20261102T162847577589Z.tsv"
+}

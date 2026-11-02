@@ -1,0 +1,22 @@
+{
+  "source": "intact",
+  "endpoint": "psicquic_homo_sapiens",
+  "description": "IntAct interactions within homo_sapiens seed proteins",
+  "request_key": "bcbc15da73bdf51f35c8",
+  "method": "GET",
+  "url": "https://www.ebi.ac.uk/Tools/webservices/psicquic/intact/webservices/current/search/query/idA%3A%28Q9Y5K1%20OR%20Q9Y620%20OR%20Q9Y6F1%20OR%20Q9Y6H3%20OR%20Q9Y6I4%20OR%20Q9Y6I9%29%20AND%20idB%3A%28Q9Y5K1%20OR%20Q9Y620%20OR%20Q9Y6F1%20OR%20Q9Y6H3%20OR%20Q9Y6I4%20OR%20Q9Y6I9%29",
+  "params": {
+    "firstResult": "0",
+    "format": "tab25",
+    "maxResults": "2500"
+  },
+  "retrieved_at_utc": "2026-11-02T16:22:02.070950+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/plain",
+    "date": "Mon, 02 Nov 2026 16:22:02 GMT"
+  },
+  "bytes": 824,
+  "sha256": "7cd457d80fe376a188c81f928c9b14c4fdc278fea619dd1e32bb564a41bcdbd1",
+  "data_file": "bcbc15da73bdf51f35c8__20261102T162202070950Z.tsv"
+}

@@ -1,0 +1,3236 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d42" for="edge" attr.name="physical_score" attr.type="double" />
+  <key id="d41" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d40" for="edge" attr.name="source_record" attr.type="long" />
+  <key id="d39" for="edge" attr.name="evidence_source" attr.type="string" />
+  <key id="d38" for="edge" attr.name="has_experiments_channel_score" attr.type="boolean" />
+  <key id="d37" for="edge" attr.name="in_physical_subnetwork" attr.type="boolean" />
+  <key id="d36" for="edge" attr.name="textmining_score" attr.type="double" />
+  <key id="d35" for="edge" attr.name="database_score" attr.type="double" />
+  <key id="d34" for="edge" attr.name="experimental_score" attr.type="double" />
+  <key id="d33" for="edge" attr.name="coexpression_score" attr.type="double" />
+  <key id="d32" for="edge" attr.name="cooccurrence_score" attr.type="double" />
+  <key id="d31" for="edge" attr.name="fusion_score" attr.type="double" />
+  <key id="d30" for="edge" attr.name="neighborhood_score" attr.type="double" />
+  <key id="d29" for="edge" attr.name="combined_score" attr.type="double" />
+  <key id="d28" for="edge" attr.name="preferred_name_b" attr.type="string" />
+  <key id="d27" for="edge" attr.name="preferred_name_a" attr.type="string" />
+  <key id="d26" for="node" attr.name="is_isolated" attr.type="boolean" />
+  <key id="d25" for="node" attr.name="is_seed" attr.type="boolean" />
+  <key id="d24" for="node" attr.name="xref_agrees" attr.type="boolean" />
+  <key id="d23" for="node" attr.name="matched_seed_go_terms" attr.type="string" />
+  <key id="d22" for="node" attr.name="go_ids" attr.type="string" />
+  <key id="d21" for="node" attr.name="uniprot_organism_id" attr.type="string" />
+  <key id="d20" for="node" attr.name="protein_name" attr.type="string" />
+  <key id="d19" for="node" attr.name="gene_names" attr.type="string" />
+  <key id="d18" for="node" attr.name="gene_primary" attr.type="string" />
+  <key id="d17" for="node" attr.name="uniprot_reviewed" attr.type="boolean" />
+  <key id="d16" for="node" attr.name="uniprot_entry_name" attr.type="string" />
+  <key id="d15" for="node" attr.name="uniprot_accessions" attr.type="string" />
+  <key id="d14" for="node" attr.name="uniprot_accession" attr.type="string" />
+  <key id="d13" for="node" attr.name="string_annotation" attr.type="string" />
+  <key id="d12" for="node" attr.name="string_preferred_name" attr.type="string" />
+  <key id="d11" for="node" attr.name="string_taxon_id" attr.type="long" />
+  <key id="d10" for="node" attr.name="ncbi_taxon_id" attr.type="long" />
+  <key id="d9" for="node" attr.name="species_label" attr.type="string" />
+  <key id="d8" for="node" attr.name="species_key" attr.type="string" />
+  <key id="d7" for="node" attr.name="string_id" attr.type="string" />
+  <key id="d6" for="graph" attr.name="run_id" attr.type="string" />
+  <key id="d5" for="graph" attr.name="edge_weight" attr.type="string" />
+  <key id="d4" for="graph" attr.name="edge_score_threshold" attr.type="double" />
+  <key id="d3" for="graph" attr.name="string_version" attr.type="string" />
+  <key id="d2" for="graph" attr.name="string_taxon_id" attr.type="long" />
+  <key id="d1" for="graph" attr.name="ncbi_taxon_id" attr.type="long" />
+  <key id="d0" for="graph" attr.name="species" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="243230.DR_0065">
+      <data key="d7">243230.DR_0065</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_0065</data>
+      <data key="d13">ATP-dependent helicase, putative; Similar to GB:AE000666 percent identity: 52.53; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RY85</data>
+      <data key="d15">Q9RY85</data>
+      <data key="d16">Q9RY85_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_0065</data>
+      <data key="d20">ATP-dependent helicase, putative</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003676; GO:0005524; GO:0005634; GO:0006289; GO:0043138</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">True</data>
+    </node>
+    <node id="243230.DR_0070">
+      <data key="d7">243230.DR_0070</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">ddrB</data>
+      <data key="d13">Hypothetical protein; ssDNA-binding protein that contributes to the ionizing radiation resistance of D.radiodurans. Plays a role in DNA repair and genome reconstitution in a RecA-independent process. Required for recovery from severe genomic fragmentation as a result of exposure to severe levels of ionizing radiation. Binds ssDNA but not dsDNA. Stimulates annealing of complementary ssDNA. Does not complement an ssb disruption.</data>
+      <data key="d14">Q9RY80</data>
+      <data key="d15">Q9RY80</data>
+      <data key="d16">DDRB_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">ddrB</data>
+      <data key="d19">ddrB DR_0070</data>
+      <data key="d20">Single-stranded DNA-binding protein DdrB (DNA damage response protein B)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003697; GO:0006281; GO:0045002; GO:0071465; GO:0071480</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_0099">
+      <data key="d7">243230.DR_0099</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">ssb</data>
+      <data key="d13">Single-stranded DNA-binding protein; Plays an important role in DNA replication, recombination and repair. Binds to ssDNA and to an array of partner proteins to recruit them to their sites of action during DNA metabolism (By similarity). Essential for ionizing radiation resistance. Stimulates the 5'-3' DNA helicase activity of RecD-like helicase. Stimulates RecA protein- promoted DNA three-strand exchange reactions in vitro with both D.radiodurans and E.coli-derived RecA. Complements an ssb deletion in E.coli, but does not complement a ddrb disruption in D.radiodurans.</data>
+      <data key="d14">Q9RY51</data>
+      <data key="d15">Q9RY51</data>
+      <data key="d16">SSB_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">ssb</data>
+      <data key="d19">ssb DR_0099</data>
+      <data key="d20">Single-stranded DNA-binding protein (SSB)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003697; GO:0005737; GO:0006260; GO:0006281; GO:0006310; GO:0008047; GO:0009295</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_0198">
+      <data key="d7">243230.DR_0198</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">recR</data>
+      <data key="d13">recR protein; May play a role in DNA repair. It seems to be involved in an RecBC-independent recombinational process of DNA repair. It may act with RecF and RecO.</data>
+      <data key="d14">Q9ZNA2</data>
+      <data key="d15">Q9ZNA2</data>
+      <data key="d16">RECR_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">recR</data>
+      <data key="d19">recR DR_0198</data>
+      <data key="d20">Recombination protein RecR</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0000725; GO:0003677; GO:0006302; GO:0046872</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_0289">
+      <data key="d7">243230.DR_0289</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">nth</data>
+      <data key="d13">Endonuclease III; DNA repair enzyme that has both DNA N-glycosylase activity and AP-lyase activity. The DNA N-glycosylase activity releases various damaged pyrimidines from DNA by cleaving the N-glycosidic bond, leaving an AP (apurinic/apyrimidinic) site. The AP-lyase activity cleaves the phosphodiester bond 3' to the AP site by a beta-elimination, leaving a 3'-terminal unsaturated sugar and a product with a terminal 5'- phosphate.</data>
+      <data key="d14">Q9RXM1</data>
+      <data key="d15">Q9RXM1</data>
+      <data key="d16">Q9RXM1_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18">nth</data>
+      <data key="d19">nth DR_0289</data>
+      <data key="d20">Endonuclease III (EC 4.2.99.18) (DNA-(apurinic or apyrimidinic site) lyase)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003677; GO:0006285; GO:0019104; GO:0051539; GO:0140078</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_0354">
+      <data key="d7">243230.DR_0354</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_0354</data>
+      <data key="d13">Exodeoxyribonuclease III; Similar to GB:AE000666 percent identity: 59.11; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RXF9</data>
+      <data key="d15">Q9RXF9</data>
+      <data key="d16">Q9RXF9_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_0354</data>
+      <data key="d20">Exodeoxyribonuclease III (EC 3.1.11.2)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0006284; GO:0008311</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_0423">
+      <data key="d7">243230.DR_0423</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">ddrA</data>
+      <data key="d13">Hypothetical protein; ssDNA-binding protein that contributes to the ionizing radiation resistance of D.radiodurans. Plays a role in DNA repair and genome reconstitution, in a RecA-independent process, since DdrA is essential for recovery from severe genomic fragmentation as a result of exposure to severe levels of ionizing radiation in an environment lacking nutrients. In vitro, binds to the 3'-ends of single-stranded DNA, protecting them from nuclease degradation. Thus, DdrA is part of a DNA end-protection system that helps to preserve genome integrity following irradiation or desicca [...] </data>
+      <data key="d14">Q9RX92</data>
+      <data key="d15">Q9RX92</data>
+      <data key="d16">DDRA_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">ddrA</data>
+      <data key="d19">ddrA DR_0423</data>
+      <data key="d20">Single-stranded DNA-binding protein DdrA (DNA damage response protein A)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0006281; GO:0071465; GO:0071480</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_0428">
+      <data key="d7">243230.DR_0428</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_0428</data>
+      <data key="d13">Conserved hypothetical protein; Similar to GB:AL123456 percent identity: 62.50; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RX87</data>
+      <data key="d15">Q9RX87</data>
+      <data key="d16">Q9RX87_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_0428</data>
+      <data key="d20">Methylated-DNA-[protein]-cysteine S-methyltransferase DNA binding domain-containing protein</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003684; GO:0003824; GO:0006281</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">True</data>
+    </node>
+    <node id="243230.DR_0430">
+      <data key="d7">243230.DR_0430</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_0430</data>
+      <data key="d13">rtcB protein; Similar to SP:P46850 PID:606356 GB:U00096 PID:2367224 percent identity: 54.01; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RX85</data>
+      <data key="d15">Q9RX85</data>
+      <data key="d16">Q9RX85_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_0430</data>
+      <data key="d20">3'-phosphate/5'-hydroxy nucleic acid ligase (EC 6.5.1.8)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0006281; GO:0006396; GO:0042245; GO:0170057</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">True</data>
+    </node>
+    <node id="243230.DR_0440">
+      <data key="d7">243230.DR_0440</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">ruvC</data>
+      <data key="d13">Holliday junction resolvase; Nuclease that resolves Holliday junction intermediates in genetic recombination. Cleaves the cruciform structure in supercoiled DNA by nicking to strands with the same polarity at sites symmetrically opposed at the junction in the homologous arms and leaves a 5'-terminal phosphate and a 3'-terminal hydroxyl group (By similarity).</data>
+      <data key="d14">Q9RX75</data>
+      <data key="d15">Q9RX75</data>
+      <data key="d16">RUVC_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">ruvC</data>
+      <data key="d19">ruvC DR_0440</data>
+      <data key="d20">Crossover junction endodeoxyribonuclease RuvC (EC 3.1.21.10) (Holliday junction nuclease RuvC) (Holliday junction resolvase RuvC)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0000287; GO:0003676; GO:0005737; GO:0006281; GO:0006310; GO:0008821; GO:0048476</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_0467">
+      <data key="d7">243230.DR_0467</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_0467</data>
+      <data key="d13">Conserved hypothetical protein; Similar to GB:AL009126 percent identity: 54.32; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RX48</data>
+      <data key="d15">Q9RX48</data>
+      <data key="d16">Q9RX48_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_0467</data>
+      <data key="d20">DNA-directed DNA polymerase (EC 2.7.7.7)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003677; GO:0003887; GO:0005829; GO:0006281; GO:0008270; GO:0042578</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_0493">
+      <data key="d7">243230.DR_0493</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">mutM</data>
+      <data key="d13">formamidopyrimidine-DNA glycosylase; Involved in base excision repair of DNA damaged by oxidation or by mutagenic agents. Acts as DNA glycosylase that recognizes and removes damaged bases. Has a preference for oxidized purines, such as 7,8-dihydro-8-oxoguanine (8-oxoG). Has AP (apurinic/apyrimidinic) lyase activity and introduces nicks in the DNA strand. Cleaves the DNA backbone by beta-delta elimination to generate a single-strand break at the site of the removed base with both 3'- and 5'-phosphates (By similarity).</data>
+      <data key="d14">Q9RX22</data>
+      <data key="d15">Q9RX22</data>
+      <data key="d16">FPG_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">mutM</data>
+      <data key="d19">mutM fpg DR_0493</data>
+      <data key="d20">Formamidopyrimidine-DNA glycosylase (Fapy-DNA glycosylase) (EC 3.2.2.23) (DNA-(apurinic or apyrimidinic site) lyase MutM) (AP lyase MutM) (EC 4.2.99.18)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003684; GO:0003906; GO:0006284; GO:0008270; GO:0034039; GO:0140078</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_0596">
+      <data key="d7">243230.DR_0596</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">ruvB</data>
+      <data key="d13">Holliday junction DNA helicase; The RuvA-RuvB complex in the presence of ATP renatures cruciform structure in supercoiled DNA with palindromic sequence, indicating that it may promote strand exchange reactions in homologous recombination. RuvAB is a helicase that mediates the Holliday junction migration by localized denaturation and reannealing.</data>
+      <data key="d14">Q9X719</data>
+      <data key="d15">Q9X719</data>
+      <data key="d16">RUVB_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">ruvB</data>
+      <data key="d19">ruvB DR_0596</data>
+      <data key="d20">Holliday junction branch migration complex subunit RuvB (EC 3.6.4.-)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0000400; GO:0000725; GO:0005524; GO:0005737; GO:0009378; GO:0009379; GO:0009432; GO:0016887; GO:0048476</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_0689">
+      <data key="d7">243230.DR_0689</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">ung</data>
+      <data key="d13">uracil-DNA N-glycosylase; Excises uracil residues from the DNA which can arise as a result of misincorporation of dUMP residues by DNA polymerase or due to deamination of cytosine.</data>
+      <data key="d14">Q9RWH9</data>
+      <data key="d15">Q9RWH9</data>
+      <data key="d16">UNG_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">ung</data>
+      <data key="d19">ung DR_0689</data>
+      <data key="d20">Uracil-DNA glycosylase (UDG) (EC 3.2.2.27)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0004844; GO:0005737; GO:0097510</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_0715">
+      <data key="d7">243230.DR_0715</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_0715</data>
+      <data key="d13">G/U mismatch-specific DNA glycosylase; Similar to SP:P43343 percent identity: 53.90; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RWF4</data>
+      <data key="d15">Q9RWF4</data>
+      <data key="d16">Q9RWF4_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_0715</data>
+      <data key="d20">G/U mismatch-specific DNA glycosylase</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0004844; GO:0006285; GO:0008263</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">True</data>
+    </node>
+    <node id="243230.DR_0729">
+      <data key="d7">243230.DR_0729</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_0729</data>
+      <data key="d13">Hydrolase, CbbY/CbbZ/GpH/YieH family; Similar to GP:1518395 percent identity: 49.05; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RWE0</data>
+      <data key="d15">Q9RWE0</data>
+      <data key="d16">Q9RWE0_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_0729</data>
+      <data key="d20">Hydrolase, CbbY/CbbZ/GpH/YieH family</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0005829; GO:0006281; GO:0008967</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">True</data>
+    </node>
+    <node id="243230.DR_0756">
+      <data key="d7">243230.DR_0756</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_0756</data>
+      <data key="d13">Conserved hypothetical protein; Similar to GP:3449262 percent identity: 52.70; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RWB3</data>
+      <data key="d15">Q9RWB3</data>
+      <data key="d16">Q9RWB3_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_0756</data>
+      <data key="d20">Gcp-like domain-containing protein</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0002949; GO:0005829; GO:0036297</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">True</data>
+    </node>
+    <node id="243230.DR_0819">
+      <data key="d7">243230.DR_0819</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">recO</data>
+      <data key="d13">Hypothetical protein; Involved in DNA repair and RecF pathway recombination.</data>
+      <data key="d14">Q9RW50</data>
+      <data key="d15">Q9RW50</data>
+      <data key="d16">Q9RW50_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18">recO</data>
+      <data key="d19">recO DR_0819</data>
+      <data key="d20">DNA repair protein RecO (Recombination protein O)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0006302; GO:0006310; GO:0043590</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_0856">
+      <data key="d7">243230.DR_0856</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_0856</data>
+      <data key="d13">DNA polymerase III, epsilon subunit, putative; Similar to GB:AE000657 percent identity: 51.01; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RW13</data>
+      <data key="d15">Q9RW13</data>
+      <data key="d16">Q9RW13_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_0856</data>
+      <data key="d20">DNA polymerase III subunit epsilon</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003677; GO:0003887; GO:0005829; GO:0008408; GO:0045004</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_0928">
+      <data key="d7">243230.DR_0928</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_0928</data>
+      <data key="d13">Endonuclease III, putative; Similar to GB:Pyro_h percent identity: 51.34; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RVU4</data>
+      <data key="d15">Q9RVU4</data>
+      <data key="d16">Q9RVU4_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_0928</data>
+      <data key="d20">Endonuclease III, putative</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003824; GO:0006284; GO:0051539</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1089">
+      <data key="d7">243230.DR_1089</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">recF</data>
+      <data key="d13">recF protein; The RecF protein is involved in DNA metabolism; it is required for DNA replication and normal SOS inducibility. RecF binds preferentially to single-stranded, linear DNA. It also seems to bind ATP (By similarity).</data>
+      <data key="d14">Q9RVE0</data>
+      <data key="d15">Q9RVE0</data>
+      <data key="d16">RECF_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">recF</data>
+      <data key="d19">recF DR_1089</data>
+      <data key="d20">DNA replication and repair protein RecF</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0000731; GO:0003697; GO:0005524; GO:0005737; GO:0006260; GO:0006302; GO:0009432</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1105">
+      <data key="d7">243230.DR_1105</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">radA</data>
+      <data key="d13">DNA repair protein; DNA-dependent ATPase involved in processing of recombination intermediates, plays a role in repairing DNA breaks. Stimulates the branch migration of RecA-mediated strand transfer reactions, allowing the 3' invading strand to extend heteroduplex DNA faster. Binds ssDNA in the presence of ADP but not other nucleotides, has ATPase activity that is stimulated by ssDNA and various branched DNA structures, but inhibited by SSB. Does not have RecA's homology-searching function. Belongs to the RecA family. RadA subfamily.</data>
+      <data key="d14">Q9RVC4</data>
+      <data key="d15">Q9RVC4</data>
+      <data key="d16">RADA_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">radA</data>
+      <data key="d19">radA DR_1105</data>
+      <data key="d20">DNA repair protein RadA (EC 3.6.4.-) (Branch migration protein RadA)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0000725; GO:0003684; GO:0005524; GO:0140664</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1126">
+      <data key="d7">243230.DR_1126</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_1126</data>
+      <data key="d13">single-stranded-DNA-specific exonuclease, putative; Similar to GB:M54884 SP:P21893 PID:147550 PID:887842 GB:U00096 percent identity: 53.93; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RVA3</data>
+      <data key="d15">Q9RVA3</data>
+      <data key="d16">Q9RVA3_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_1126</data>
+      <data key="d20">Single-stranded-DNA-specific exonuclease RecJ</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003676; GO:0006281; GO:0006310; GO:0045145</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">True</data>
+    </node>
+    <node id="243230.DR_1199">
+      <data key="d7">243230.DR_1199</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_1199</data>
+      <data key="d13">Similar to SP:P45470 PID:606093 GB:U00096 PID:1789543 percent identity: 58.90; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RV31</data>
+      <data key="d15">Q9RV31</data>
+      <data key="d16">Q9RV31_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_1199</data>
+      <data key="d20">Protease I</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0005829; GO:0106044</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">True</data>
+    </node>
+    <node id="243230.DR_1274">
+      <data key="d7">243230.DR_1274</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">ruvA</data>
+      <data key="d13">Holliday junction binding protein; The RuvA-RuvB complex in the presence of ATP renatures cruciform structure in supercoiled DNA with palindromic sequence, indicating that it may promote strand exchange reactions in homologous recombination. RuvAB is a helicase that mediates the Holliday junction migration by localized denaturation and reannealing. RuvA stimulates, in the presence of DNA, the weak ATPase activity of RuvB.</data>
+      <data key="d14">Q9RUV7</data>
+      <data key="d15">Q9RUV7</data>
+      <data key="d16">RUVA_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">ruvA</data>
+      <data key="d19">ruvA DR_1274</data>
+      <data key="d20">Holliday junction branch migration complex subunit RuvA</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0000400; GO:0005524; GO:0005737; GO:0006281; GO:0006310; GO:0009378; GO:0009379; GO:0048476</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1289">
+      <data key="d7">243230.DR_1289</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_1289</data>
+      <data key="d13">DNA helicase RecQ; Similar to GB:M87049 SP:P15043 GB:M30198 PID:147559 PID:148221 percent identity: 65.38; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RUU2</data>
+      <data key="d15">Q9RUU2</data>
+      <data key="d16">Q9RUU2_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_1289</data>
+      <data key="d20">DNA helicase RecQ (EC 5.6.2.4)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003676; GO:0005524; GO:0005694; GO:0005737; GO:0006260; GO:0006281; GO:0006310; GO:0009432; GO:0030894; GO:0043138; GO:0043590</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1354">
+      <data key="d7">243230.DR_1354</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">uvrC</data>
+      <data key="d13">Excinuclease ABC, subunit C; The UvrABC repair system catalyzes the recognition and processing of DNA lesions. UvrC both incises the 5' and 3' sides of the lesion. The N-terminal half is responsible for the 3' incision and the C-terminal half is responsible for the 5' incision.</data>
+      <data key="d14">Q9RUN0</data>
+      <data key="d15">Q9RUN0</data>
+      <data key="d16">UVRC_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">uvrC</data>
+      <data key="d19">uvrC DR_1354</data>
+      <data key="d20">UvrABC system protein C (Protein UvrC) (Excinuclease ABC subunit C)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003677; GO:0005737; GO:0006289; GO:0006974; GO:0009380; GO:0009381; GO:0009432</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1477">
+      <data key="d7">243230.DR_1477</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">recN</data>
+      <data key="d13">DNA repair protein; May be involved in recombinational repair of damaged DNA. Belongs to the RecN family.</data>
+      <data key="d14">Q9WXF2</data>
+      <data key="d15">Q9WXF2</data>
+      <data key="d16">RECN_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">recN</data>
+      <data key="d19">recN DR_1477</data>
+      <data key="d20">DNA repair protein RecN (Recombination protein N)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0005524; GO:0006281; GO:0006310; GO:0009432; GO:0042802; GO:0043590</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1532">
+      <data key="d7">243230.DR_1532</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">mfd</data>
+      <data key="d13">Transcription-repair coupling factor; Couples transcription and DNA repair by recognizing RNA polymerase (RNAP) stalled at DNA lesions. Mediates ATP-dependent release of RNAP and its truncated transcript from the DNA, and recruitment of nucleotide excision repair machinery to the damaged site; In the C-terminal section; belongs to the helicase family. RecG subfamily.</data>
+      <data key="d14">Q9RU62</data>
+      <data key="d15">Q9RU62</data>
+      <data key="d16">Q9RU62_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18">mfd</data>
+      <data key="d19">mfd DR_1532</data>
+      <data key="d20">Transcription-repair-coupling factor (TRCF) (EC 3.6.4.-)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0000716; GO:0003677; GO:0003684; GO:0005524; GO:0005737; GO:0006355; GO:0015616; GO:0043175</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1696">
+      <data key="d7">243230.DR_1696</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">mutL</data>
+      <data key="d13">DNA mismatch repair protein MutL; This protein is involved in the repair of mismatches in DNA. It is required for dam-dependent methyl-directed DNA mismatch repair. May act as a 'molecular matchmaker', a protein that promotes the formation of a stable complex between two or more DNA-binding proteins in an ATP-dependent manner without itself being part of a final effector complex.</data>
+      <data key="d14">Q9RTR0</data>
+      <data key="d15">Q9RTR0</data>
+      <data key="d16">MUTL_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">mutL</data>
+      <data key="d19">mutL DR_1696</data>
+      <data key="d20">DNA mismatch repair protein MutL</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0005524; GO:0006298; GO:0016887; GO:0030983; GO:0032300; GO:0140664</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1707">
+      <data key="d7">243230.DR_1707</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">polA</data>
+      <data key="d13">DNA-directed DNA polymerase; A DNA polymerase, required for DNA repair after DNA damage induced by ionizing radiation (IR); this is not the major DNA polymerase. Following severe irradiation (7 kGy of gamma irradiation) genomic DNA is fragmented. DNA is progressively degraded for the first 1.5 hours after IR, in a step promoted by RecA and counterbalanced by DNA Pol I and Pol III, followed by massive DNA synthesis and genome reassembly in the next hour. Optimal priming of DNA synthesis requires both RecA and RadA, Pol III initiates DNA synthesis while both Pol I and Pol III are require [...] </data>
+      <data key="d14">P52027</data>
+      <data key="d15">P52027</data>
+      <data key="d16">DPO1_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">polA</data>
+      <data key="d19">polA DR_1707</data>
+      <data key="d20">DNA polymerase I (POL I) (EC 2.7.7.7)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0001882; GO:0003677; GO:0003887; GO:0006261; GO:0006281; GO:0008409</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1751">
+      <data key="d7">243230.DR_1751</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_1751</data>
+      <data key="d13">DNA polymerase-related protein; Similar to GB:AE000520 percent identity: 61.58; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RTK9</data>
+      <data key="d15">Q9RTK9</data>
+      <data key="d16">Q9RTK9_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_1751</data>
+      <data key="d20">Type-4 uracil-DNA glycosylase (EC 3.2.2.27)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0004844; GO:0006281</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">True</data>
+    </node>
+    <node id="243230.DR_1771">
+      <data key="d7">243230.DR_1771</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">uvrA</data>
+      <data key="d13">Excinuclease ABC, subunit A; The UvrABC repair system catalyzes the recognition and processing of DNA lesions. UvrA is an ATPase and a DNA-binding protein. A damage recognition complex composed of 2 UvrA and 2 UvrB subunits scans DNA for abnormalities. When the presence of a lesion has been verified by UvrB, the UvrA molecules dissociate.</data>
+      <data key="d14">Q46577</data>
+      <data key="d15">Q46577</data>
+      <data key="d16">UVRA_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">uvrA</data>
+      <data key="d19">uvrA DR_1771</data>
+      <data key="d20">UvrABC system protein A (UvrA protein) (Excinuclease ABC subunit A)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003677; GO:0005524; GO:0005829; GO:0006289; GO:0006974; GO:0008270; GO:0009380; GO:0009381; GO:0009432; GO:0016887</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1775">
+      <data key="d7">243230.DR_1775</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_1775</data>
+      <data key="d13">DNA helicase II; Similar to GB:M87049 SP:P03018 GB:D00069 GB:X00225 GB:X00738 percent identity: 61.60; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RTI9</data>
+      <data key="d15">Q9RTI9</data>
+      <data key="d16">Q9RTI9_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_1775</data>
+      <data key="d20">DNA 3'-5' helicase (EC 5.6.2.4)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0000725; GO:0003677; GO:0005524; GO:0005829; GO:0016887; GO:0033202; GO:0043138</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1819">
+      <data key="d7">243230.DR_1819</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">uvsE</data>
+      <data key="d13">UV damage endonuclease, putative; Component in a DNA repair pathway. Removal of UV LIGHT damaged nucleotides. Recognizes pyrimidine dimers and cleave a phosphodiester bond immediately 5' to the lesion. Belongs to the uve1/UvsE family.</data>
+      <data key="d14">Q9RTE6</data>
+      <data key="d15">Q9RTE6</data>
+      <data key="d16">UVSE_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">uvsE</data>
+      <data key="d19">uvsE DR_1819</data>
+      <data key="d20">UV DNA damage endonuclease (UV-endonuclease) (UVED) (EC 3.-.-.-) (Endonuclease beta)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0004519; GO:0006289; GO:0006290; GO:0009411</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">True</data>
+    </node>
+    <node id="243230.DR_1898">
+      <data key="d7">243230.DR_1898</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_1898</data>
+      <data key="d13">Conserved hypothetical protein; Similar to SP:P45526 GB:U00096 PID:1787119 percent identity: 69.08; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RT67</data>
+      <data key="d15">Q9RT67</data>
+      <data key="d16">Q9RT67_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_1898</data>
+      <data key="d20">AAA+ ATPase domain-containing protein</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0000731; GO:0003677; GO:0005524; GO:0006261; GO:0008047; GO:0016887; GO:0017116</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">True</data>
+    </node>
+    <node id="243230.DR_1916">
+      <data key="d7">243230.DR_1916</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">recG</data>
+      <data key="d13">DNA helicase RecG; Critical role in recombination and DNA repair. Helps process Holliday junction intermediates to mature products by catalyzing branch migration. Has a DNA unwinding activity characteristic of a DNA helicase with a 3'- to 5'- polarity. Unwinds branched duplex DNA (Y- DNA); Belongs to the helicase family. RecG subfamily.</data>
+      <data key="d14">Q9RT50</data>
+      <data key="d15">Q9RT50</data>
+      <data key="d16">Q9RT50_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_1916</data>
+      <data key="d20">ATP-dependent DNA helicase RecG (EC 5.6.2.4)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003676; GO:0003678; GO:0005524; GO:0006281; GO:0006310; GO:0016887; GO:0043138</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1921">
+      <data key="d7">243230.DR_1921</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">sbcD</data>
+      <data key="d13">Exonuclease SbcD, putative; SbcCD cleaves DNA hairpin structures. These structures can inhibit DNA replication and are intermediates in certain DNA recombination reactions. The complex acts as a 3'-&gt;5' double strand exonuclease that can open hairpins. It also has a 5' single-strand endonuclease activity; Belongs to the SbcD family.</data>
+      <data key="d14">Q9RT45</data>
+      <data key="d15">Q9RT45</data>
+      <data key="d16">Q9RT45_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18">sbcD</data>
+      <data key="d19">sbcD DR_1921</data>
+      <data key="d20">Nuclease SbcCD subunit D</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003677; GO:0004519; GO:0004529; GO:0006281; GO:0008408</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1922">
+      <data key="d7">243230.DR_1922</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">sbcC</data>
+      <data key="d13">Exonuclease SbcC; SbcCD cleaves DNA hairpin structures. These structures can inhibit DNA replication and are intermediates in certain DNA recombination reactions. The complex acts as a 3'-&gt;5' double strand exonuclease that can open hairpins. It also has a 5' single-strand endonuclease activity (By similarity); Belongs to the SMC family. SbcC subfamily.</data>
+      <data key="d14">Q9RT44</data>
+      <data key="d15">Q9RT44</data>
+      <data key="d16">SBCC_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">sbcC</data>
+      <data key="d19">sbcC DR_1922</data>
+      <data key="d20">Nuclease SbcCD subunit C</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0004529; GO:0006281; GO:0006302; GO:0016887; GO:1990391</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1949">
+      <data key="d7">243230.DR_1949</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_1949</data>
+      <data key="d13">Ribonuclease HII; Endonuclease that specifically degrades the RNA of RNA-DNA hybrids.</data>
+      <data key="d14">Q9RT20</data>
+      <data key="d15">Q9RT20</data>
+      <data key="d16">Q9RT20_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_1949</data>
+      <data key="d20">Ribonuclease (EC 3.1.26.4)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003723; GO:0004523; GO:0005737; GO:0006401; GO:0032299; GO:1990516</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_1976">
+      <data key="d7">243230.DR_1976</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">mutS2</data>
+      <data key="d13">DNA mismatch repair protein MutS, putative; Endonuclease that is involved in the suppression of homologous recombination and may therefore have a key role in the control of bacterial genetic diversity; Belongs to the DNA mismatch repair MutS family. MutS2 subfamily.</data>
+      <data key="d14">Q9RSZ3</data>
+      <data key="d15">Q9RSZ3</data>
+      <data key="d16">Q9RSZ3_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18">mutS2</data>
+      <data key="d19">mutS2 rqcU DR_1976</data>
+      <data key="d20">Endonuclease MutS2 (EC 3.1.-.-) (Ribosome-associated protein quality control-upstream factor) (RQC-upstream factor) (RqcU) (EC 3.6.4.-)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0004519; GO:0005524; GO:0006298; GO:0016887; GO:0019843; GO:0030983; GO:0043023; GO:0045910; GO:0072344; GO:0140664</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_2069">
+      <data key="d7">243230.DR_2069</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">ligA</data>
+      <data key="d13">DNA ligase; DNA ligase that catalyzes the formation of phosphodiester linkages between 5'-phosphoryl and 3'-hydroxyl groups in double- stranded DNA using NAD as a coenzyme and as the energy source for the reaction. It is essential for DNA replication and repair of damaged DNA.</data>
+      <data key="d14">Q9RSQ5</data>
+      <data key="d15">Q9RSQ5</data>
+      <data key="d16">DNLJ_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">ligA</data>
+      <data key="d19">ligA DR_2069</data>
+      <data key="d20">DNA ligase (EC 6.5.1.2) (Polydeoxyribonucleotide synthase [NAD(+)])</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003911; GO:0005829; GO:0006260; GO:0006281</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_2072">
+      <data key="d7">243230.DR_2072</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_2072</data>
+      <data key="d13">Conserved hypothetical protein; Similar to GB:U00096 PID:1787145 percent identity: 46.37; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RSQ2</data>
+      <data key="d15">Q9RSQ2</data>
+      <data key="d16">Q9RSQ2_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_2072</data>
+      <data key="d20">Cytoplasmic protein</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0019104; GO:0036297</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_2074">
+      <data key="d7">243230.DR_2074</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_2074</data>
+      <data key="d13">3-methyladenine glycosidase; Similar to GB:AL009126 percent identity: 50.53; identified by sequence similarity; putative; Belongs to the DNA glycosylase MPG family.</data>
+      <data key="d14">Q9RSQ0</data>
+      <data key="d15">Q9RSQ0</data>
+      <data key="d16">3MGH_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18" />
+      <data key="d19">DR_2074</data>
+      <data key="d20">Putative 3-methyladenine DNA glycosylase (EC 3.2.2.-)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003677; GO:0003905; GO:0006284</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_2275">
+      <data key="d7">243230.DR_2275</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">uvrB</data>
+      <data key="d13">Excinuclease ABC, subunit B; The UvrABC repair system catalyzes the recognition and processing of DNA lesions. A damage recognition complex composed of 2 UvrA and 2 UvrB subunits scans DNA for abnormalities. Upon binding of the UvrA(2)B(2) complex to a putative damaged site, the DNA wraps around one UvrB monomer. DNA wrap is dependent on ATP binding by UvrB and probably causes local melting of the DNA helix, facilitating insertion of UvrB beta-hairpin between the DNA strands. Then UvrB probes one DNA strand for the presence of a lesion. If a lesion is found the UvrA subunits dissociate [...] </data>
+      <data key="d14">Q9RS52</data>
+      <data key="d15">Q9RS52</data>
+      <data key="d16">Q9RS52_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18">uvrB</data>
+      <data key="d19">uvrB DR_2275</data>
+      <data key="d20">UvrABC system protein B (Protein UvrB) (Excinuclease ABC subunit B)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0000715; GO:0003677; GO:0005524; GO:0005737; GO:0009380; GO:0009381; GO:0009432; GO:0016887</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_2285">
+      <data key="d7">243230.DR_2285</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_2285</data>
+      <data key="d13">A/G-specific adenine glycosylase; Adenine glycosylase active on G-A mispairs.</data>
+      <data key="d14">Q9RS42</data>
+      <data key="d15">Q9RS42</data>
+      <data key="d16">Q9RS42_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_2285</data>
+      <data key="d20">Adenine DNA glycosylase (EC 3.2.2.31)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0000701; GO:0006284; GO:0006298; GO:0032357; GO:0034039; GO:0035485; GO:0051539</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_2340">
+      <data key="d7">243230.DR_2340</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">recA</data>
+      <data key="d13">recA protein; Can catalyze the hydrolysis of ATP in the presence of single- stranded DNA, the ATP-dependent uptake of single-stranded DNA by duplex DNA, and the ATP-dependent hybridization of homologous single-stranded DNAs. It interacts with LexA causing its activation and leading to its autocatalytic cleavage (By similarity). Probably involved in base excision repair ; Belongs to the RecA family.</data>
+      <data key="d14">P42443</data>
+      <data key="d15">P42443</data>
+      <data key="d16">RECA_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">recA</data>
+      <data key="d19">recA DR_2340</data>
+      <data key="d20">Protein RecA (Recombinase A)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0000150; GO:0000725; GO:0003684; GO:0003697; GO:0004520; GO:0005524; GO:0005737; GO:0006302; GO:0009355; GO:0009432; GO:0140664</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_2438">
+      <data key="d7">243230.DR_2438</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_2438</data>
+      <data key="d13">Endonuclease III; Similar to GB:AE000666 percent identity: 53.30; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RRQ0</data>
+      <data key="d15">Q9RRQ0</data>
+      <data key="d16">Q9RRQ0_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_2438</data>
+      <data key="d20">Endonuclease III</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0000703; GO:0006285; GO:0006289; GO:0051539</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_2584">
+      <data key="d7">243230.DR_2584</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_2584</data>
+      <data key="d13">DNA-3-methyladenine glycosidase II, putative; Similar to SP:Q92383 PID:1669516 percent identity: 58.64; identified by sequence similarity; putative.</data>
+      <data key="d14">Q9RRB0</data>
+      <data key="d15">Q9RRB0</data>
+      <data key="d16">Q9RRB0_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_2584</data>
+      <data key="d20">DNA-3-methyladenine glycosylase II (EC 3.2.2.21)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0005737; GO:0006285; GO:0006307; GO:0008725; GO:0032131; GO:0043916</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_A0188">
+      <data key="d7">243230.DR_A0188</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">DR_A0188</data>
+      <data key="d13">Excinuclease ABC, subunit A; The UvrABC repair system catalyzes the recognition and processing of DNA lesions. UvrA is an ATPase and a DNA-binding protein. A damage recognition complex composed of 2 UvrA and 2 UvrB subunits scans DNA for abnormalities. When the presence of a lesion has been verified by UvrB, the UvrA molecules dissociate. Belongs to the ABC transporter superfamily. UvrA family.</data>
+      <data key="d14">Q9RYW8</data>
+      <data key="d15">Q9RYW8</data>
+      <data key="d16">Q9RYW8_DEIRA</data>
+      <data key="d17">False</data>
+      <data key="d18" />
+      <data key="d19">DR_A0188</data>
+      <data key="d20">UvrABC system protein A (Excinuclease ABC subunit A)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003677; GO:0005524; GO:0005829; GO:0006289; GO:0006974; GO:0009380; GO:0016887; GO:0042802</data>
+      <data key="d23" />
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_A0344">
+      <data key="d7">243230.DR_A0344</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">lexA</data>
+      <data key="d13">lexA repressor; Represses a number of genes involved in the response to DNA damage (SOS response), including recA and lexA. In the presence of single-stranded DNA, RecA interacts with LexA causing an autocatalytic cleavage which disrupts the DNA-binding part of LexA, leading to derepression of the SOS regulon and eventually DNA repair.</data>
+      <data key="d14">O32506</data>
+      <data key="d15">O32506</data>
+      <data key="d16">LEXA_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">lexA</data>
+      <data key="d19">lexA DR_A0344</data>
+      <data key="d20">LexA repressor (EC 3.4.21.88)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0001217; GO:0004252; GO:0006260; GO:0006281; GO:0009432; GO:0032993; GO:0043565; GO:0045892</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <node id="243230.DR_A0346">
+      <data key="d7">243230.DR_A0346</data>
+      <data key="d8">deinococcus_radiodurans</data>
+      <data key="d9">Deinococcus radiodurans</data>
+      <data key="d10">1299</data>
+      <data key="d11">243230</data>
+      <data key="d12">pprA</data>
+      <data key="d13">DNA damage repair protein; dsDNA-binding protein that contributes to the ionizing radiation resistance of D.radiodurans. Plays a role in DNA repair and genome reconstitution, and is necessary for recovery from severe genomic fragmentation as a result of exposure to severe levels of ionizing radiation. In vitro, binds to double-stranded DNA carrying strand breaks and stimulates the DNA end-joining reaction catalyzed by DNA ligases. Thus, PprA plays a critical role in a non-homologous end- joining (NHEJ) pathway for the repair of radiation-induced DNA double- strands breaks. Cannot bind  [...] </data>
+      <data key="d14">O32504</data>
+      <data key="d15">O32504</data>
+      <data key="d16">PPRA_DEIRA</data>
+      <data key="d17">True</data>
+      <data key="d18">pprA</data>
+      <data key="d19">pprA DR_A0346</data>
+      <data key="d20">DNA repair protein PprA (Pleiotropic protein promoting DNA repair)</data>
+      <data key="d21">243230</data>
+      <data key="d22">GO:0003684; GO:0003690; GO:0006281; GO:0006303; GO:0071465; GO:0071480</data>
+      <data key="d23">GO:0006281</data>
+      <data key="d24">True</data>
+      <data key="d25">True</data>
+      <data key="d26">False</data>
+    </node>
+    <edge source="243230.DR_0070" target="243230.DR_0423">
+      <data key="d27">ddrB</data>
+      <data key="d28">ddrA</data>
+      <data key="d29">0.85</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.85</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">7</data>
+      <data key="d41">0.85</data>
+    </edge>
+    <edge source="243230.DR_0070" target="243230.DR_2340">
+      <data key="d27">ddrB</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.835</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.835</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">5</data>
+      <data key="d41">0.835</data>
+    </edge>
+    <edge source="243230.DR_0070" target="243230.DR_A0346">
+      <data key="d27">ddrB</data>
+      <data key="d28">pprA</data>
+      <data key="d29">0.836</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.836</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">6</data>
+      <data key="d41">0.836</data>
+    </edge>
+    <edge source="243230.DR_0099" target="243230.DR_1707">
+      <data key="d27">ssb</data>
+      <data key="d28">polA</data>
+      <data key="d29">0.795</data>
+      <data key="d30">0.208</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.072</data>
+      <data key="d34">0.313</data>
+      <data key="d35">0.446</data>
+      <data key="d36">0.382</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">13</data>
+      <data key="d41">0.795</data>
+    </edge>
+    <edge source="243230.DR_0198" target="243230.DR_0819">
+      <data key="d27">recR</data>
+      <data key="d28">recO</data>
+      <data key="d29">0.992</data>
+      <data key="d30">0.097</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.162</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.921</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.885</data>
+      <data key="d37">True</data>
+      <data key="d42">0.923</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">33</data>
+      <data key="d41">0.992</data>
+    </edge>
+    <edge source="243230.DR_0198" target="243230.DR_1089">
+      <data key="d27">recR</data>
+      <data key="d28">recF</data>
+      <data key="d29">0.992</data>
+      <data key="d30">0.08</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.56</data>
+      <data key="d33">0.147</data>
+      <data key="d34">0.842</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.89</data>
+      <data key="d37">True</data>
+      <data key="d42">0.804</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">34</data>
+      <data key="d41">0.992</data>
+    </edge>
+    <edge source="243230.DR_0198" target="243230.DR_1477">
+      <data key="d27">recR</data>
+      <data key="d28">recN</data>
+      <data key="d29">0.711</data>
+      <data key="d30">0.069</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.186</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.65</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">30</data>
+      <data key="d41">0.711</data>
+    </edge>
+    <edge source="243230.DR_0198" target="243230.DR_1775">
+      <data key="d27">recR</data>
+      <data key="d28">DR_1775</data>
+      <data key="d29">0.721</data>
+      <data key="d30">0.075</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.511</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.434</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">31</data>
+      <data key="d41">0.721</data>
+    </edge>
+    <edge source="243230.DR_0198" target="243230.DR_2340">
+      <data key="d27">recR</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.915</data>
+      <data key="d30">0.147</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.206</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.885</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">32</data>
+      <data key="d41">0.915</data>
+    </edge>
+    <edge source="243230.DR_0289" target="243230.DR_0354">
+      <data key="d27">nth</data>
+      <data key="d28">DR_0354</data>
+      <data key="d29">0.974</data>
+      <data key="d30">0.068</data>
+      <data key="d31">0.899</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.105</data>
+      <data key="d34">0.428</data>
+      <data key="d35">0.265</data>
+      <data key="d36">0.418</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">45</data>
+      <data key="d41">0.974</data>
+    </edge>
+    <edge source="243230.DR_0289" target="243230.DR_0493">
+      <data key="d27">nth</data>
+      <data key="d28">mutM</data>
+      <data key="d29">0.732</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.732</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">41</data>
+      <data key="d41">0.732</data>
+    </edge>
+    <edge source="243230.DR_0289" target="243230.DR_0689">
+      <data key="d27">nth</data>
+      <data key="d28">ung</data>
+      <data key="d29">0.738</data>
+      <data key="d30">0.049</data>
+      <data key="d31">0.533</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.083</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.433</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">42</data>
+      <data key="d41">0.738</data>
+    </edge>
+    <edge source="243230.DR_0289" target="243230.DR_0928">
+      <data key="d27">nth</data>
+      <data key="d28">DR_0928</data>
+      <data key="d29">0.931</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.276</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.9</data>
+      <data key="d36">0.124</data>
+      <data key="d37">True</data>
+      <data key="d42">0.9</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">43</data>
+      <data key="d41">0.931</data>
+    </edge>
+    <edge source="243230.DR_0289" target="243230.DR_1707">
+      <data key="d27">nth</data>
+      <data key="d28">polA</data>
+      <data key="d29">0.729</data>
+      <data key="d30">0.188</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.045</data>
+      <data key="d34">0.296</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.563</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">40</data>
+      <data key="d41">0.729</data>
+    </edge>
+    <edge source="243230.DR_0289" target="243230.DR_2438">
+      <data key="d27">nth</data>
+      <data key="d28">DR_2438</data>
+      <data key="d29">0.931</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.255</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.9</data>
+      <data key="d36">0.156</data>
+      <data key="d37">True</data>
+      <data key="d42">0.9</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">44</data>
+      <data key="d41">0.931</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_0467">
+      <data key="d27">DR_0354</data>
+      <data key="d28">DR_0467</data>
+      <data key="d29">0.755</data>
+      <data key="d30">0.077</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.231</data>
+      <data key="d35">0.631</data>
+      <data key="d36">0.176</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">53</data>
+      <data key="d41">0.755</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_0689">
+      <data key="d27">DR_0354</data>
+      <data key="d28">ung</data>
+      <data key="d29">0.721</data>
+      <data key="d30">0.044</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.072</data>
+      <data key="d34">0.42</data>
+      <data key="d35">0.434</data>
+      <data key="d36">0.19</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">52</data>
+      <data key="d41">0.721</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_0928">
+      <data key="d27">DR_0354</data>
+      <data key="d28">DR_0928</data>
+      <data key="d29">0.816</data>
+      <data key="d30">0.068</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.105</data>
+      <data key="d34">0.428</data>
+      <data key="d35">0.265</data>
+      <data key="d36">0.558</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">54</data>
+      <data key="d41">0.816</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_1707">
+      <data key="d27">DR_0354</data>
+      <data key="d28">polA</data>
+      <data key="d29">0.866</data>
+      <data key="d30">0.086</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.195</data>
+      <data key="d34">0.158</data>
+      <data key="d35">0.631</data>
+      <data key="d36">0.507</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">56</data>
+      <data key="d41">0.866</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_2074">
+      <data key="d27">DR_0354</data>
+      <data key="d28">DR_2074</data>
+      <data key="d29">0.7</data>
+      <data key="d30">0.067</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.284</data>
+      <data key="d36">0.588</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">51</data>
+      <data key="d41">0.7</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_2285">
+      <data key="d27">DR_0354</data>
+      <data key="d28">DR_2285</data>
+      <data key="d29">0.853</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.657</data>
+      <data key="d35">0.449</data>
+      <data key="d36">0.286</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">55</data>
+      <data key="d41">0.853</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_2438">
+      <data key="d27">DR_0354</data>
+      <data key="d28">DR_2438</data>
+      <data key="d29">0.91</data>
+      <data key="d30">0.068</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.105</data>
+      <data key="d34">0.428</data>
+      <data key="d35">0.265</data>
+      <data key="d36">0.784</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">57</data>
+      <data key="d41">0.91</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_2584">
+      <data key="d27">DR_0354</data>
+      <data key="d28">DR_2584</data>
+      <data key="d29">0.927</data>
+      <data key="d30">0.103</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.312</data>
+      <data key="d35">0.459</data>
+      <data key="d36">0.809</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">58</data>
+      <data key="d41">0.927</data>
+    </edge>
+    <edge source="243230.DR_0423" target="243230.DR_2340">
+      <data key="d27">ddrA</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.781</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.781</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">63</data>
+      <data key="d41">0.781</data>
+    </edge>
+    <edge source="243230.DR_0423" target="243230.DR_A0346">
+      <data key="d27">ddrA</data>
+      <data key="d28">pprA</data>
+      <data key="d29">0.838</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.838</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">64</data>
+      <data key="d41">0.838</data>
+    </edge>
+    <edge source="243230.DR_0440" target="243230.DR_0596">
+      <data key="d27">ruvC</data>
+      <data key="d28">ruvB</data>
+      <data key="d29">0.984</data>
+      <data key="d30">0.158</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.623</data>
+      <data key="d33">0.568</data>
+      <data key="d34">0.147</data>
+      <data key="d35">0.36</data>
+      <data key="d36">0.831</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">84</data>
+      <data key="d41">0.984</data>
+    </edge>
+    <edge source="243230.DR_0440" target="243230.DR_1089">
+      <data key="d27">ruvC</data>
+      <data key="d28">recF</data>
+      <data key="d29">0.709</data>
+      <data key="d30">0.149</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.107</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.649</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">80</data>
+      <data key="d41">0.709</data>
+    </edge>
+    <edge source="243230.DR_0440" target="243230.DR_1274">
+      <data key="d27">ruvC</data>
+      <data key="d28">ruvA</data>
+      <data key="d29">0.999</data>
+      <data key="d30">0.158</data>
+      <data key="d31">0.555</data>
+      <data key="d32">0.688</data>
+      <data key="d33">0.846</data>
+      <data key="d34">0.577</data>
+      <data key="d35">0.36</data>
+      <data key="d36">0.877</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">85</data>
+      <data key="d41">0.999</data>
+    </edge>
+    <edge source="243230.DR_0440" target="243230.DR_1354">
+      <data key="d27">ruvC</data>
+      <data key="d28">uvrC</data>
+      <data key="d29">0.725</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.36</data>
+      <data key="d36">0.589</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">81</data>
+      <data key="d41">0.725</data>
+    </edge>
+    <edge source="243230.DR_0440" target="243230.DR_1707">
+      <data key="d27">ruvC</data>
+      <data key="d28">polA</data>
+      <data key="d29">0.728</data>
+      <data key="d30">0.378</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.183</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.509</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">82</data>
+      <data key="d41">0.728</data>
+    </edge>
+    <edge source="243230.DR_0440" target="243230.DR_1916">
+      <data key="d27">ruvC</data>
+      <data key="d28">recG</data>
+      <data key="d29">0.736</data>
+      <data key="d30">0.059</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.731</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">83</data>
+      <data key="d41">0.736</data>
+    </edge>
+    <edge source="243230.DR_0440" target="243230.DR_2340">
+      <data key="d27">ruvC</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.708</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.237</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.633</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">79</data>
+      <data key="d41">0.708</data>
+    </edge>
+    <edge source="243230.DR_0467" target="243230.DR_1707">
+      <data key="d27">DR_0467</data>
+      <data key="d28">polA</data>
+      <data key="d29">0.854</data>
+      <data key="d30">0.046</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.371</data>
+      <data key="d34">0.123</data>
+      <data key="d35">0.616</data>
+      <data key="d36">0.39</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">90</data>
+      <data key="d41">0.854</data>
+    </edge>
+    <edge source="243230.DR_0493" target="243230.DR_1354">
+      <data key="d27">mutM</data>
+      <data key="d28">uvrC</data>
+      <data key="d29">0.81</data>
+      <data key="d30">0.07</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.519</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.611</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">106</data>
+      <data key="d41">0.81</data>
+    </edge>
+    <edge source="243230.DR_0493" target="243230.DR_1707">
+      <data key="d27">mutM</data>
+      <data key="d28">polA</data>
+      <data key="d29">0.812</data>
+      <data key="d30">0.378</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.39</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.546</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">107</data>
+      <data key="d41">0.812</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_1274">
+      <data key="d27">ruvB</data>
+      <data key="d28">ruvA</data>
+      <data key="d29">0.999</data>
+      <data key="d30">0.158</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.774</data>
+      <data key="d33">0.902</data>
+      <data key="d34">0.86</data>
+      <data key="d35">0.36</data>
+      <data key="d36">0.877</data>
+      <data key="d37">True</data>
+      <data key="d42">0.943</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">128</data>
+      <data key="d41">0.999</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_1354">
+      <data key="d27">ruvB</data>
+      <data key="d28">uvrC</data>
+      <data key="d29">0.83</data>
+      <data key="d30">0.081</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.169</data>
+      <data key="d33">0.068</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.54</data>
+      <data key="d36">0.561</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">125</data>
+      <data key="d41">0.83</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_1477">
+      <data key="d27">ruvB</data>
+      <data key="d28">recN</data>
+      <data key="d29">0.72</data>
+      <data key="d30">0.132</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.331</data>
+      <data key="d33">0.055</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.55</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">120</data>
+      <data key="d41">0.72</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_1707">
+      <data key="d27">ruvB</data>
+      <data key="d28">polA</data>
+      <data key="d29">0.764</data>
+      <data key="d30">0.373</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.371</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.451</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">122</data>
+      <data key="d41">0.764</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_1771">
+      <data key="d27">ruvB</data>
+      <data key="d28">uvrA</data>
+      <data key="d29">0.83</data>
+      <data key="d30">0.069</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.182</data>
+      <data key="d33">0.07</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.36</data>
+      <data key="d36">0.683</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">126</data>
+      <data key="d41">0.83</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_1775">
+      <data key="d27">ruvB</data>
+      <data key="d28">DR_1775</data>
+      <data key="d29">0.772</data>
+      <data key="d30">0.151</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.213</data>
+      <data key="d33">0.123</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.54</data>
+      <data key="d36">0.286</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">123</data>
+      <data key="d41">0.772</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_1916">
+      <data key="d27">ruvB</data>
+      <data key="d28">recG</data>
+      <data key="d29">0.79</data>
+      <data key="d30">0.082</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.173</data>
+      <data key="d33">0.072</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.738</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">124</data>
+      <data key="d41">0.79</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_2069">
+      <data key="d27">ruvB</data>
+      <data key="d28">ligA</data>
+      <data key="d29">0.761</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.631</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.381</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">121</data>
+      <data key="d41">0.761</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_2275">
+      <data key="d27">ruvB</data>
+      <data key="d28">uvrB</data>
+      <data key="d29">0.855</data>
+      <data key="d30">0.077</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.54</data>
+      <data key="d36">0.688</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">127</data>
+      <data key="d41">0.855</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_2340">
+      <data key="d27">ruvB</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.704</data>
+      <data key="d30">0.092</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.072</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.678</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">119</data>
+      <data key="d41">0.704</data>
+    </edge>
+    <edge source="243230.DR_0819" target="243230.DR_1089">
+      <data key="d27">recO</data>
+      <data key="d28">recF</data>
+      <data key="d29">0.897</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.147</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.885</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">150</data>
+      <data key="d41">0.897</data>
+    </edge>
+    <edge source="243230.DR_0819" target="243230.DR_1105">
+      <data key="d27">recO</data>
+      <data key="d28">radA</data>
+      <data key="d29">0.756</data>
+      <data key="d30">0.06</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.752</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">148</data>
+      <data key="d41">0.756</data>
+    </edge>
+    <edge source="243230.DR_0819" target="243230.DR_1477">
+      <data key="d27">recO</data>
+      <data key="d28">recN</data>
+      <data key="d29">0.745</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.108</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.726</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">147</data>
+      <data key="d41">0.745</data>
+    </edge>
+    <edge source="243230.DR_0819" target="243230.DR_1707">
+      <data key="d27">recO</data>
+      <data key="d28">polA</data>
+      <data key="d29">0.704</data>
+      <data key="d30">0.375</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.546</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">145</data>
+      <data key="d41">0.704</data>
+    </edge>
+    <edge source="243230.DR_0819" target="243230.DR_1916">
+      <data key="d27">recO</data>
+      <data key="d28">recG</data>
+      <data key="d29">0.742</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.105</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.724</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">146</data>
+      <data key="d41">0.742</data>
+    </edge>
+    <edge source="243230.DR_0819" target="243230.DR_2340">
+      <data key="d27">recO</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.885</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.885</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">149</data>
+      <data key="d41">0.885</data>
+    </edge>
+    <edge source="243230.DR_0856" target="243230.DR_1354">
+      <data key="d27">DR_0856</data>
+      <data key="d28">uvrC</data>
+      <data key="d29">0.851</data>
+      <data key="d30">0.047</data>
+      <data key="d31">0.827</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.172</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">153</data>
+      <data key="d41">0.851</data>
+    </edge>
+    <edge source="243230.DR_0928" target="243230.DR_2438">
+      <data key="d27">DR_0928</data>
+      <data key="d28">DR_2438</data>
+      <data key="d29">0.934</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.268</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.9</data>
+      <data key="d36">0.173</data>
+      <data key="d37">True</data>
+      <data key="d42">0.9</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">158</data>
+      <data key="d41">0.934</data>
+    </edge>
+    <edge source="243230.DR_1089" target="243230.DR_1105">
+      <data key="d27">recF</data>
+      <data key="d28">radA</data>
+      <data key="d29">0.736</data>
+      <data key="d30">0.054</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.166</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.693</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">171</data>
+      <data key="d41">0.736</data>
+    </edge>
+    <edge source="243230.DR_1089" target="243230.DR_1274">
+      <data key="d27">recF</data>
+      <data key="d28">ruvA</data>
+      <data key="d29">0.732</data>
+      <data key="d30">0.045</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.221</data>
+      <data key="d33">0.139</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.631</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">170</data>
+      <data key="d41">0.732</data>
+    </edge>
+    <edge source="243230.DR_1089" target="243230.DR_1477">
+      <data key="d27">recF</data>
+      <data key="d28">recN</data>
+      <data key="d29">0.848</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.357</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.774</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">173</data>
+      <data key="d41">0.848</data>
+    </edge>
+    <edge source="243230.DR_1089" target="243230.DR_1696">
+      <data key="d27">recF</data>
+      <data key="d28">mutL</data>
+      <data key="d29">0.709</data>
+      <data key="d30">0.078</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.125</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.669</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">168</data>
+      <data key="d41">0.709</data>
+    </edge>
+    <edge source="243230.DR_1089" target="243230.DR_1775">
+      <data key="d27">recF</data>
+      <data key="d28">DR_1775</data>
+      <data key="d29">0.726</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.528</data>
+      <data key="d33">0.054</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.436</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">169</data>
+      <data key="d41">0.726</data>
+    </edge>
+    <edge source="243230.DR_1089" target="243230.DR_1916">
+      <data key="d27">recF</data>
+      <data key="d28">recG</data>
+      <data key="d29">0.757</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.293</data>
+      <data key="d33">0.071</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.661</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">172</data>
+      <data key="d41">0.757</data>
+    </edge>
+    <edge source="243230.DR_1089" target="243230.DR_2340">
+      <data key="d27">recF</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.885</data>
+      <data key="d30">0.043</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.885</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">174</data>
+      <data key="d41">0.885</data>
+    </edge>
+    <edge source="243230.DR_1105" target="243230.DR_1274">
+      <data key="d27">radA</data>
+      <data key="d28">ruvA</data>
+      <data key="d29">0.707</data>
+      <data key="d30">0.079</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.086</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.68</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">185</data>
+      <data key="d41">0.707</data>
+    </edge>
+    <edge source="243230.DR_1105" target="243230.DR_1354">
+      <data key="d27">radA</data>
+      <data key="d28">uvrC</data>
+      <data key="d29">0.722</data>
+      <data key="d30">0.049</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.401</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.552</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">186</data>
+      <data key="d41">0.722</data>
+    </edge>
+    <edge source="243230.DR_1105" target="243230.DR_1477">
+      <data key="d27">radA</data>
+      <data key="d28">recN</data>
+      <data key="d29">0.743</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.3</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.648</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">187</data>
+      <data key="d41">0.743</data>
+    </edge>
+    <edge source="243230.DR_1105" target="243230.DR_1696">
+      <data key="d27">radA</data>
+      <data key="d28">mutL</data>
+      <data key="d29">0.702</data>
+      <data key="d30">0.078</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.691</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">184</data>
+      <data key="d41">0.702</data>
+    </edge>
+    <edge source="243230.DR_1105" target="243230.DR_1775">
+      <data key="d27">radA</data>
+      <data key="d28">DR_1775</data>
+      <data key="d29">0.78</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.178</data>
+      <data key="d33">0.566</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.434</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">188</data>
+      <data key="d41">0.78</data>
+    </edge>
+    <edge source="243230.DR_1105" target="243230.DR_1916">
+      <data key="d27">radA</data>
+      <data key="d28">recG</data>
+      <data key="d29">0.782</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.207</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.737</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">189</data>
+      <data key="d41">0.782</data>
+    </edge>
+    <edge source="243230.DR_1105" target="243230.DR_2340">
+      <data key="d27">radA</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.973</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.849</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.834</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">190</data>
+      <data key="d41">0.973</data>
+    </edge>
+    <edge source="243230.DR_1274" target="243230.DR_1354">
+      <data key="d27">ruvA</data>
+      <data key="d28">uvrC</data>
+      <data key="d29">0.793</data>
+      <data key="d30">0.045</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.194</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.36</data>
+      <data key="d36">0.63</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">214</data>
+      <data key="d41">0.793</data>
+    </edge>
+    <edge source="243230.DR_1274" target="243230.DR_1477">
+      <data key="d27">ruvA</data>
+      <data key="d28">recN</data>
+      <data key="d29">0.823</data>
+      <data key="d30">0.062</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.55</data>
+      <data key="d33">0.105</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.589</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">216</data>
+      <data key="d41">0.823</data>
+    </edge>
+    <edge source="243230.DR_1274" target="243230.DR_1916">
+      <data key="d27">ruvA</data>
+      <data key="d28">recG</data>
+      <data key="d29">0.801</data>
+      <data key="d30">0.06</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.211</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.754</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">215</data>
+      <data key="d41">0.801</data>
+    </edge>
+    <edge source="243230.DR_1274" target="243230.DR_2275">
+      <data key="d27">ruvA</data>
+      <data key="d28">uvrB</data>
+      <data key="d29">0.751</data>
+      <data key="d30">0.158</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.072</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.36</data>
+      <data key="d36">0.561</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">213</data>
+      <data key="d41">0.751</data>
+    </edge>
+    <edge source="243230.DR_1274" target="243230.DR_2340">
+      <data key="d27">ruvA</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.714</data>
+      <data key="d30">0.153</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.313</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.548</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">212</data>
+      <data key="d41">0.714</data>
+    </edge>
+    <edge source="243230.DR_1289" target="243230.DR_1707">
+      <data key="d27">DR_1289</data>
+      <data key="d28">polA</data>
+      <data key="d29">0.871</data>
+      <data key="d30">0.114</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.232</data>
+      <data key="d34">0.688</data>
+      <data key="d35">0.228</data>
+      <data key="d36">0.339</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">225</data>
+      <data key="d41">0.871</data>
+    </edge>
+    <edge source="243230.DR_1289" target="243230.DR_1775">
+      <data key="d27">DR_1289</data>
+      <data key="d28">DR_1775</data>
+      <data key="d29">0.767</data>
+      <data key="d30">0.078</data>
+      <data key="d31">0.241</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.134</data>
+      <data key="d34">0.497</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.356</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">223</data>
+      <data key="d41">0.767</data>
+    </edge>
+    <edge source="243230.DR_1289" target="243230.DR_2340">
+      <data key="d27">DR_1289</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.768</data>
+      <data key="d30">0.05</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.067</data>
+      <data key="d34">0.517</data>
+      <data key="d35">0.229</data>
+      <data key="d36">0.406</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">224</data>
+      <data key="d41">0.768</data>
+    </edge>
+    <edge source="243230.DR_1354" target="243230.DR_1696">
+      <data key="d27">uvrC</data>
+      <data key="d28">mutL</data>
+      <data key="d29">0.771</data>
+      <data key="d30">0.151</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.259</data>
+      <data key="d33">0.106</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.642</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">237</data>
+      <data key="d41">0.771</data>
+    </edge>
+    <edge source="243230.DR_1354" target="243230.DR_1707">
+      <data key="d27">uvrC</data>
+      <data key="d28">polA</data>
+      <data key="d29">0.764</data>
+      <data key="d30">0.302</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.217</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.604</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">236</data>
+      <data key="d41">0.764</data>
+    </edge>
+    <edge source="243230.DR_1354" target="243230.DR_1771">
+      <data key="d27">uvrC</data>
+      <data key="d28">uvrA</data>
+      <data key="d29">0.983</data>
+      <data key="d30">0.09</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.765</data>
+      <data key="d33">0.14</data>
+      <data key="d34">0.122</data>
+      <data key="d35">0.36</data>
+      <data key="d36">0.867</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">240</data>
+      <data key="d41">0.983</data>
+    </edge>
+    <edge source="243230.DR_1354" target="243230.DR_1775">
+      <data key="d27">uvrC</data>
+      <data key="d28">DR_1775</data>
+      <data key="d29">0.788</data>
+      <data key="d30">0.073</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.378</data>
+      <data key="d33">0.546</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.286</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">238</data>
+      <data key="d41">0.788</data>
+    </edge>
+    <edge source="243230.DR_1354" target="243230.DR_2275">
+      <data key="d27">uvrC</data>
+      <data key="d28">uvrB</data>
+      <data key="d29">0.999</data>
+      <data key="d30">0.158</data>
+      <data key="d31">0.054</data>
+      <data key="d32">0.774</data>
+      <data key="d33">0.574</data>
+      <data key="d34">0.69</data>
+      <data key="d35">0.9</data>
+      <data key="d36">0.885</data>
+      <data key="d37">True</data>
+      <data key="d42">0.957</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">241</data>
+      <data key="d41">0.999</data>
+    </edge>
+    <edge source="243230.DR_1354" target="243230.DR_A0188">
+      <data key="d27">uvrC</data>
+      <data key="d28">DR_A0188</data>
+      <data key="d29">0.91</data>
+      <data key="d30">0.09</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.749</data>
+      <data key="d33">0.14</data>
+      <data key="d34">0.122</data>
+      <data key="d35">0.36</data>
+      <data key="d36">0.343</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">239</data>
+      <data key="d41">0.91</data>
+    </edge>
+    <edge source="243230.DR_1477" target="243230.DR_1696">
+      <data key="d27">recN</data>
+      <data key="d28">mutL</data>
+      <data key="d29">0.721</data>
+      <data key="d30">0.114</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.214</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.632</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">253</data>
+      <data key="d41">0.721</data>
+    </edge>
+    <edge source="243230.DR_1477" target="243230.DR_1916">
+      <data key="d27">recN</data>
+      <data key="d28">recG</data>
+      <data key="d29">0.74</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.188</data>
+      <data key="d33">0.1</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.673</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">254</data>
+      <data key="d41">0.74</data>
+    </edge>
+    <edge source="243230.DR_1477" target="243230.DR_2340">
+      <data key="d27">recN</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.924</data>
+      <data key="d30">0.12</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.496</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.844</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">256</data>
+      <data key="d41">0.924</data>
+    </edge>
+    <edge source="243230.DR_1477" target="243230.DR_A0344">
+      <data key="d27">recN</data>
+      <data key="d28">lexA</data>
+      <data key="d29">0.772</data>
+      <data key="d30">0.042</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.204</data>
+      <data key="d33">0.442</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.528</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">255</data>
+      <data key="d41">0.772</data>
+    </edge>
+    <edge source="243230.DR_1532" target="243230.DR_1696">
+      <data key="d27">mfd</data>
+      <data key="d28">mutL</data>
+      <data key="d29">0.775</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.324</data>
+      <data key="d33">0.321</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.551</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">264</data>
+      <data key="d41">0.775</data>
+    </edge>
+    <edge source="243230.DR_1532" target="243230.DR_1707">
+      <data key="d27">mfd</data>
+      <data key="d28">polA</data>
+      <data key="d29">0.756</data>
+      <data key="d30">0.077</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.408</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.591</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">263</data>
+      <data key="d41">0.756</data>
+    </edge>
+    <edge source="243230.DR_1532" target="243230.DR_1771">
+      <data key="d27">mfd</data>
+      <data key="d28">uvrA</data>
+      <data key="d29">0.88</data>
+      <data key="d30">0.077</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.68</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.627</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">265</data>
+      <data key="d41">0.88</data>
+    </edge>
+    <edge source="243230.DR_1532" target="243230.DR_A0188">
+      <data key="d27">mfd</data>
+      <data key="d28">DR_A0188</data>
+      <data key="d29">0.728</data>
+      <data key="d30">0.077</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.68</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.155</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">262</data>
+      <data key="d41">0.728</data>
+    </edge>
+    <edge source="243230.DR_1696" target="243230.DR_1707">
+      <data key="d27">mutL</data>
+      <data key="d28">polA</data>
+      <data key="d29">0.896</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.11</data>
+      <data key="d34">0.689</data>
+      <data key="d35">0.465</data>
+      <data key="d36">0.382</data>
+      <data key="d37">True</data>
+      <data key="d42">0.76</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">276</data>
+      <data key="d41">0.896</data>
+    </edge>
+    <edge source="243230.DR_1696" target="243230.DR_1775">
+      <data key="d27">mutL</data>
+      <data key="d28">DR_1775</data>
+      <data key="d29">0.796</data>
+      <data key="d30">0.143</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.053</data>
+      <data key="d34">0.69</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.286</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">274</data>
+      <data key="d41">0.796</data>
+    </edge>
+    <edge source="243230.DR_1696" target="243230.DR_1921">
+      <data key="d27">mutL</data>
+      <data key="d28">sbcD</data>
+      <data key="d29">0.71</data>
+      <data key="d30">0.044</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.071</data>
+      <data key="d34">0.296</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.591</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">273</data>
+      <data key="d41">0.71</data>
+    </edge>
+    <edge source="243230.DR_1696" target="243230.DR_1976">
+      <data key="d27">mutL</data>
+      <data key="d28">mutS2</data>
+      <data key="d29">0.911</data>
+      <data key="d30">0.078</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.716</data>
+      <data key="d33">0.071</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.68</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">277</data>
+      <data key="d41">0.911</data>
+    </edge>
+    <edge source="243230.DR_1696" target="243230.DR_2340">
+      <data key="d27">mutL</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.839</data>
+      <data key="d30">0.158</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.052</data>
+      <data key="d34">0.387</data>
+      <data key="d35">0.143</data>
+      <data key="d36">0.676</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">275</data>
+      <data key="d41">0.839</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_1775">
+      <data key="d27">polA</data>
+      <data key="d28">DR_1775</data>
+      <data key="d29">0.838</data>
+      <data key="d30">0.378</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.181</data>
+      <data key="d33">0.059</data>
+      <data key="d34">0.48</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.452</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">288</data>
+      <data key="d41">0.838</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_1916">
+      <data key="d27">polA</data>
+      <data key="d28">recG</data>
+      <data key="d29">0.702</data>
+      <data key="d30">0.144</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.225</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.588</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">286</data>
+      <data key="d41">0.702</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_1921">
+      <data key="d27">polA</data>
+      <data key="d28">sbcD</data>
+      <data key="d29">0.977</data>
+      <data key="d30">0.048</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.159</data>
+      <data key="d34">0.818</data>
+      <data key="d35">0.766</data>
+      <data key="d36">0.431</data>
+      <data key="d37">True</data>
+      <data key="d42">0.766</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">292</data>
+      <data key="d41">0.977</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_1922">
+      <data key="d27">polA</data>
+      <data key="d28">sbcC</data>
+      <data key="d29">0.953</data>
+      <data key="d30">0.097</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.098</data>
+      <data key="d34">0.678</data>
+      <data key="d35">0.766</data>
+      <data key="d36">0.353</data>
+      <data key="d37">True</data>
+      <data key="d42">0.789</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">291</data>
+      <data key="d41">0.953</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_1949">
+      <data key="d27">polA</data>
+      <data key="d28">DR_1949</data>
+      <data key="d29">0.843</data>
+      <data key="d30">0.378</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.186</data>
+      <data key="d34">0.558</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.382</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">289</data>
+      <data key="d41">0.843</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_2069">
+      <data key="d27">polA</data>
+      <data key="d28">ligA</data>
+      <data key="d29">0.881</data>
+      <data key="d30">0.374</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.384</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.717</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">290</data>
+      <data key="d41">0.881</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_2275">
+      <data key="d27">polA</data>
+      <data key="d28">uvrB</data>
+      <data key="d29">0.786</data>
+      <data key="d30">0.378</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.202</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.604</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">287</data>
+      <data key="d41">0.786</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_2340">
+      <data key="d27">polA</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.989</data>
+      <data key="d30">0.229</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.313</data>
+      <data key="d33">0.101</data>
+      <data key="d34">0.919</data>
+      <data key="d35">0.228</data>
+      <data key="d36">0.704</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">293</data>
+      <data key="d41">0.989</data>
+    </edge>
+    <edge source="243230.DR_1771" target="243230.DR_2275">
+      <data key="d27">uvrA</data>
+      <data key="d28">uvrB</data>
+      <data key="d29">0.998</data>
+      <data key="d30">0.09</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.772</data>
+      <data key="d33">0.653</data>
+      <data key="d34">0.802</data>
+      <data key="d35">0.36</data>
+      <data key="d36">0.896</data>
+      <data key="d37">True</data>
+      <data key="d42">0.817</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">302</data>
+      <data key="d41">0.998</data>
+    </edge>
+    <edge source="243230.DR_1771" target="243230.DR_2340">
+      <data key="d27">uvrA</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.913</data>
+      <data key="d30">0.077</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.274</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.881</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">300</data>
+      <data key="d41">0.913</data>
+    </edge>
+    <edge source="243230.DR_1771" target="243230.DR_A0188">
+      <data key="d27">uvrA</data>
+      <data key="d28">DR_A0188</data>
+      <data key="d29">0.914</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.151</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.9</data>
+      <data key="d36">0.071</data>
+      <data key="d37">True</data>
+      <data key="d42">0.9</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">301</data>
+      <data key="d41">0.914</data>
+    </edge>
+    <edge source="243230.DR_1775" target="243230.DR_2069">
+      <data key="d27">DR_1775</data>
+      <data key="d28">ligA</data>
+      <data key="d29">0.761</data>
+      <data key="d30">0.158</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.162</data>
+      <data key="d33">0.583</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.286</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">308</data>
+      <data key="d41">0.761</data>
+    </edge>
+    <edge source="243230.DR_1775" target="243230.DR_2340">
+      <data key="d27">DR_1775</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.928</data>
+      <data key="d30">0.077</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.169</data>
+      <data key="d33">0.158</data>
+      <data key="d34">0.804</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.524</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">309</data>
+      <data key="d41">0.928</data>
+    </edge>
+    <edge source="243230.DR_1916" target="243230.DR_2340">
+      <data key="d27">recG</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.76</data>
+      <data key="d30">0.085</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.749</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">319</data>
+      <data key="d41">0.76</data>
+    </edge>
+    <edge source="243230.DR_1921" target="243230.DR_1922">
+      <data key="d27">sbcD</data>
+      <data key="d28">sbcC</data>
+      <data key="d29">0.999</data>
+      <data key="d30">0.835</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.775</data>
+      <data key="d33">0.629</data>
+      <data key="d34">0.701</data>
+      <data key="d35">0.405</data>
+      <data key="d36">0.888</data>
+      <data key="d37">True</data>
+      <data key="d42">0.803</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">323</data>
+      <data key="d41">0.999</data>
+    </edge>
+    <edge source="243230.DR_1921" target="243230.DR_2340">
+      <data key="d27">sbcD</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.739</data>
+      <data key="d30">0.09</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.098</data>
+      <data key="d34">0.439</data>
+      <data key="d35">0.23</data>
+      <data key="d36">0.379</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">322</data>
+      <data key="d41">0.739</data>
+    </edge>
+    <edge source="243230.DR_1922" target="243230.DR_2340">
+      <data key="d27">sbcC</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.876</data>
+      <data key="d30">0.158</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.514</data>
+      <data key="d35">0.437</data>
+      <data key="d36">0.529</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">327</data>
+      <data key="d41">0.876</data>
+    </edge>
+    <edge source="243230.DR_2072" target="243230.DR_2074">
+      <data key="d27">DR_2072</data>
+      <data key="d28">DR_2074</data>
+      <data key="d29">0.787</data>
+      <data key="d30">0.787</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.0</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">334</data>
+      <data key="d41">0.787</data>
+    </edge>
+    <edge source="243230.DR_2074" target="243230.DR_2584">
+      <data key="d27">DR_2074</data>
+      <data key="d28">DR_2584</data>
+      <data key="d29">0.855</data>
+      <data key="d30">0.051</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.854</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">336</data>
+      <data key="d41">0.855</data>
+    </edge>
+    <edge source="243230.DR_2275" target="243230.DR_2340">
+      <data key="d27">uvrB</data>
+      <data key="d28">recA</data>
+      <data key="d29">0.846</data>
+      <data key="d30">0.125</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.366</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.746</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">339</data>
+      <data key="d41">0.846</data>
+    </edge>
+    <edge source="243230.DR_2275" target="243230.DR_A0188">
+      <data key="d27">uvrB</data>
+      <data key="d28">DR_A0188</data>
+      <data key="d29">0.99</data>
+      <data key="d30">0.09</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.768</data>
+      <data key="d33">0.653</data>
+      <data key="d34">0.802</data>
+      <data key="d35">0.36</data>
+      <data key="d36">0.184</data>
+      <data key="d37">True</data>
+      <data key="d42">0.702</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">340</data>
+      <data key="d41">0.99</data>
+    </edge>
+    <edge source="243230.DR_2340" target="243230.DR_A0344">
+      <data key="d27">recA</data>
+      <data key="d28">lexA</data>
+      <data key="d29">0.986</data>
+      <data key="d30">0.085</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.175</data>
+      <data key="d33">0.574</data>
+      <data key="d34">0.738</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.867</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">343</data>
+      <data key="d41">0.986</data>
+    </edge>
+    <edge source="243230.DR_2340" target="243230.DR_A0346">
+      <data key="d27">recA</data>
+      <data key="d28">pprA</data>
+      <data key="d29">0.85</data>
+      <data key="d30">0.0</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.85</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">342</data>
+      <data key="d41">0.85</data>
+    </edge>
+    <edge source="243230.DR_2438" target="243230.DR_2584">
+      <data key="d27">DR_2438</data>
+      <data key="d28">DR_2584</data>
+      <data key="d29">0.828</data>
+      <data key="d30">0.05</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.254</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.778</data>
+      <data key="d37">False</data>
+      <data key="d38">True</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">344</data>
+      <data key="d41">0.828</data>
+    </edge>
+    <edge source="243230.DR_A0344" target="243230.DR_A0346">
+      <data key="d27">lexA</data>
+      <data key="d28">pprA</data>
+      <data key="d29">0.717</data>
+      <data key="d30">0.436</data>
+      <data key="d31">0.0</data>
+      <data key="d32">0.0</data>
+      <data key="d33">0.0</data>
+      <data key="d34">0.0</data>
+      <data key="d35">0.0</data>
+      <data key="d36">0.519</data>
+      <data key="d37">False</data>
+      <data key="d38">False</data>
+      <data key="d39">STRING v12.5 functional association</data>
+      <data key="d40">345</data>
+      <data key="d41">0.717</data>
+    </edge>
+    <data key="d0">Deinococcus radiodurans</data>
+    <data key="d1">1299</data>
+    <data key="d2">243230</data>
+    <data key="d3">12.5</data>
+    <data key="d4">0.7</data>
+    <data key="d5">STRING combined score (0-1)</data>
+    <data key="d6">20261102T161839Z_7128c0f5ca4e</data>
+  </graph>
+</graphml>

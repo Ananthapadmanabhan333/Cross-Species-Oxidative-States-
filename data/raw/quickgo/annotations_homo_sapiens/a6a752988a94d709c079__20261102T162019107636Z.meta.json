@@ -1,0 +1,26 @@
+{
+  "source": "quickgo",
+  "endpoint": "annotations_homo_sapiens",
+  "description": "QuickGO annotations to GO:0006281 (+descendants), page 16",
+  "request_key": "a6a752988a94d709c079",
+  "method": "GET",
+  "url": "https://www.ebi.ac.uk/QuickGO/services/annotation/search",
+  "params": {
+    "goId": "GO:0006281",
+    "goUsage": "descendants",
+    "goUsageRelationships": "is_a,part_of,occurs_in",
+    "limit": "200",
+    "page": "16",
+    "taxonId": "9606",
+    "taxonUsage": "descendants"
+  },
+  "retrieved_at_utc": "2026-11-02T16:20:19.107636+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "application/json",
+    "date": "Mon, 02 Nov 2026 16:20:19 GMT"
+  },
+  "bytes": 95311,
+  "sha256": "a23dfca8142f6f63fd8d76f089676caea4a8eed3d6fdaee9699975d9769fabd1",
+  "data_file": "a6a752988a94d709c079__20261102T162019107636Z.json"
+}

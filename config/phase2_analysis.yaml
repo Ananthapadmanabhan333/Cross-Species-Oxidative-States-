@@ -55,6 +55,11 @@ similarity:
   # KEGG global / overview maps say little about specific roles and are dropped from pathway sets.
   kegg_excluded_maps: ["01100", "01110", "01120", "01200", "01210", "01212", "01230", "01232", "01250", "01240", "01220"]
   min_homology_bitscore: 50.0   # STRING homology_best hit treated as detectable sequence similarity
+  # Pfam/InterPro entries carried by more than this fraction of all network proteins (both species)
+  # are common folds (P-loop NTPase, helicase domains, thioredoxin fold): sharing only those gives
+  # the weak tier "distant_homolog" (0.2) instead of full domain homology, and still blocks the
+  # "candidate_analogue" label.
+  max_signature_fraction: 0.05
 
 alignment:
   method: isorank               # Singh, Xu & Berger 2008, power iteration on A_dr (x) A_hs
@@ -73,6 +78,13 @@ kegg:
 # Literature-curated findings (PubMed-verified, abstract level) that GO evidence codes miss,
 # e.g. mutant phenotypes coded as IDA. Contradicting findings are kept and reported.
 curated_evidence: config/curated_evidence.tsv
+
+intact:
+  # Experimentally determined interactions (IntAct PSICQUIC, MITAB 2.5) with BOTH partners in the
+  # seed set. Counted as physical: physical association, direct interaction, association,
+  # covalent binding, disulfide bond. Reporting layer only (no D. radiodurans data exist).
+  enabled: true
+  chunk: 60
 
 coverage_variant:
   # KO-projected D. radiodurans network: seeds plus every gene in a KO group carried by a human
@@ -104,6 +116,9 @@ ranking:
     dirichlet_concentration: 50   # higher = perturbed weights closer to the base weights
     top_k: 20
   report_top_n: 25
+  # Well-known pairs whose rank is tracked across similarity measures (orientation only;
+  # they are not used as ground truth). Names are STRING preferred names.
+  reference_pairs: [[sodA, SOD2], [katA, CAT]]
 
 embedding:
   enabled: true

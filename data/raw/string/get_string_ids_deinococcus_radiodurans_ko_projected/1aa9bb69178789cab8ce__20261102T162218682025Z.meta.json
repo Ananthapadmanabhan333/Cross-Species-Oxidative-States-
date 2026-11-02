@@ -1,0 +1,24 @@
+{
+  "source": "string",
+  "endpoint": "get_string_ids_deinococcus_radiodurans_ko_projected",
+  "description": "map 53 identifiers to STRING (species=243230)",
+  "request_key": "1aa9bb69178789cab8ce",
+  "method": "POST",
+  "url": "https://string-db.org/api/json/get_string_ids",
+  "params": {
+    "caller_identity": "extremonet_dna_repair",
+    "echo_query": "1",
+    "identifiers": "DR_0065\rDR_0070\rDR_0099\rDR_0198\rDR_0289\rDR_0354\rDR_0423\rDR_0428\rDR_0430\rDR_0440\rDR_0467\rDR_0493\rDR_0596\rDR_0689\rDR_0715\rDR_0729\rDR_0756\rDR_0819\rDR_0856\rDR_0928\rDR_1089\rDR_1105\rDR_1126\rDR_1199\rDR_1274\rDR_1289\rDR_1354\rDR_1477\rDR_1532\rDR_1696\rDR_1707\rDR_1751\rDR_1771\rDR_1775\rDR_1819\rDR_1898\rDR_1916\rDR_1921\rDR_1922\rDR_1949\rDR_1976\rDR_2069\rDR_2072\rDR_2074\rDR_2275\rDR_2285\rDR_2340\rDR_2438\rDR_2499\rDR_2584\rDR_A0188\rDR_A0344\rDR_A0346",
+    "limit": "1",
+    "species": "243230"
+  },
+  "retrieved_at_utc": "2026-11-02T16:22:18.682025+00:00",
+  "http_status": 200,
+  "response_headers": {
+    "content-type": "text/json; charset=utf-8",
+    "date": "Mon, 02 Nov 2026 16:22:19 GMT"
+  },
+  "bytes": 23814,
+  "sha256": "e9d54879fdd56458df5b8afce79924c84adcd890b31fb2cb291c6399c995c9bc",
+  "data_file": "1aa9bb69178789cab8ce__20261102T162218682025Z.json"
+}

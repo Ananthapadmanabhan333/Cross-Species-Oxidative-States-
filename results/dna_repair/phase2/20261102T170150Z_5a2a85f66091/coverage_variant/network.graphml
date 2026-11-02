@@ -1,0 +1,877 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d8" for="edge" attr.name="experimental_score" attr.type="double" />
+  <key id="d7" for="edge" attr.name="combined_score" attr.type="double" />
+  <key id="d6" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d5" for="node" attr.name="shared_kos" attr.type="string" />
+  <key id="d4" for="node" attr.name="is_original_seed" attr.type="boolean" />
+  <key id="d3" for="node" attr.name="string_preferred_name" attr.type="string" />
+  <key id="d2" for="graph" attr.name="threshold" attr.type="double" />
+  <key id="d1" for="graph" attr.name="string_taxon_id" attr.type="long" />
+  <key id="d0" for="graph" attr.name="variant" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="243230.DR_0065">
+      <data key="d3">DR_0065</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0070">
+      <data key="d3">ddrB</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0099">
+      <data key="d3">ssb</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0198">
+      <data key="d3">recR</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0289">
+      <data key="d3">nth</data>
+      <data key="d4">True</data>
+      <data key="d5">K10773</data>
+    </node>
+    <node id="243230.DR_0354">
+      <data key="d3">DR_0354</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0423">
+      <data key="d3">ddrA</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0428">
+      <data key="d3">DR_0428</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0430">
+      <data key="d3">DR_0430</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0440">
+      <data key="d3">ruvC</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0467">
+      <data key="d3">DR_0467</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0493">
+      <data key="d3">mutM</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0596">
+      <data key="d3">ruvB</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0689">
+      <data key="d3">ung</data>
+      <data key="d4">True</data>
+      <data key="d5">K03648</data>
+    </node>
+    <node id="243230.DR_0715">
+      <data key="d3">DR_0715</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0729">
+      <data key="d3">DR_0729</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0756">
+      <data key="d3">DR_0756</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0819">
+      <data key="d3">recO</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0856">
+      <data key="d3">DR_0856</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_0928">
+      <data key="d3">DR_0928</data>
+      <data key="d4">True</data>
+      <data key="d5">K10773</data>
+    </node>
+    <node id="243230.DR_1089">
+      <data key="d3">recF</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1105">
+      <data key="d3">radA</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1126">
+      <data key="d3">DR_1126</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1199">
+      <data key="d3">DR_1199</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1274">
+      <data key="d3">ruvA</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1289">
+      <data key="d3">DR_1289</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1354">
+      <data key="d3">uvrC</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1477">
+      <data key="d3">recN</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1532">
+      <data key="d3">mfd</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1696">
+      <data key="d3">mutL</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1707">
+      <data key="d3">polA</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1751">
+      <data key="d3">DR_1751</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1771">
+      <data key="d3">uvrA</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1775">
+      <data key="d3">DR_1775</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1819">
+      <data key="d3">uvsE</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1898">
+      <data key="d3">DR_1898</data>
+      <data key="d4">True</data>
+      <data key="d5">K07478</data>
+    </node>
+    <node id="243230.DR_1916">
+      <data key="d3">recG</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1921">
+      <data key="d3">sbcD</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1922">
+      <data key="d3">sbcC</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1949">
+      <data key="d3">DR_1949</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_1976">
+      <data key="d3">mutS2</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_2069">
+      <data key="d3">ligA</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_2072">
+      <data key="d3">DR_2072</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_2074">
+      <data key="d3">DR_2074</data>
+      <data key="d4">True</data>
+      <data key="d5">K03652</data>
+    </node>
+    <node id="243230.DR_2275">
+      <data key="d3">uvrB</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_2285">
+      <data key="d3">DR_2285</data>
+      <data key="d4">True</data>
+      <data key="d5">K03575</data>
+    </node>
+    <node id="243230.DR_2340">
+      <data key="d3">recA</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_2438">
+      <data key="d3">DR_2438</data>
+      <data key="d4">True</data>
+      <data key="d5">K10773</data>
+    </node>
+    <node id="243230.DR_2499">
+      <data key="d3">ndk</data>
+      <data key="d4">False</data>
+      <data key="d5">K00940</data>
+    </node>
+    <node id="243230.DR_2584">
+      <data key="d3">DR_2584</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_A0188">
+      <data key="d3">DR_A0188</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_A0344">
+      <data key="d3">lexA</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <node id="243230.DR_A0346">
+      <data key="d3">pprA</data>
+      <data key="d4">True</data>
+      <data key="d5" />
+    </node>
+    <edge source="243230.DR_0070" target="243230.DR_2340">
+      <data key="d6">0.835</data>
+      <data key="d7">0.835</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0070" target="243230.DR_A0346">
+      <data key="d6">0.836</data>
+      <data key="d7">0.836</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0070" target="243230.DR_0423">
+      <data key="d6">0.85</data>
+      <data key="d7">0.85</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0099" target="243230.DR_1707">
+      <data key="d6">0.795</data>
+      <data key="d7">0.795</data>
+      <data key="d8">0.313</data>
+    </edge>
+    <edge source="243230.DR_0198" target="243230.DR_1477">
+      <data key="d6">0.711</data>
+      <data key="d7">0.711</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0198" target="243230.DR_1775">
+      <data key="d6">0.721</data>
+      <data key="d7">0.721</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0198" target="243230.DR_2340">
+      <data key="d6">0.915</data>
+      <data key="d7">0.915</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0198" target="243230.DR_0819">
+      <data key="d6">0.992</data>
+      <data key="d7">0.992</data>
+      <data key="d8">0.921</data>
+    </edge>
+    <edge source="243230.DR_0198" target="243230.DR_1089">
+      <data key="d6">0.992</data>
+      <data key="d7">0.992</data>
+      <data key="d8">0.842</data>
+    </edge>
+    <edge source="243230.DR_0289" target="243230.DR_1707">
+      <data key="d6">0.729</data>
+      <data key="d7">0.729</data>
+      <data key="d8">0.296</data>
+    </edge>
+    <edge source="243230.DR_0289" target="243230.DR_0493">
+      <data key="d6">0.732</data>
+      <data key="d7">0.732</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0289" target="243230.DR_0689">
+      <data key="d6">0.738</data>
+      <data key="d7">0.738</data>
+      <data key="d8">0.083</data>
+    </edge>
+    <edge source="243230.DR_0289" target="243230.DR_0928">
+      <data key="d6">0.931</data>
+      <data key="d7">0.931</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0289" target="243230.DR_2438">
+      <data key="d6">0.931</data>
+      <data key="d7">0.931</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0289" target="243230.DR_0354">
+      <data key="d6">0.974</data>
+      <data key="d7">0.974</data>
+      <data key="d8">0.428</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_2074">
+      <data key="d6">0.7</data>
+      <data key="d7">0.7</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_0689">
+      <data key="d6">0.721</data>
+      <data key="d7">0.721</data>
+      <data key="d8">0.42</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_0467">
+      <data key="d6">0.755</data>
+      <data key="d7">0.755</data>
+      <data key="d8">0.231</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_0928">
+      <data key="d6">0.816</data>
+      <data key="d7">0.816</data>
+      <data key="d8">0.428</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_2285">
+      <data key="d6">0.853</data>
+      <data key="d7">0.853</data>
+      <data key="d8">0.657</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_1707">
+      <data key="d6">0.866</data>
+      <data key="d7">0.866</data>
+      <data key="d8">0.158</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_2438">
+      <data key="d6">0.91</data>
+      <data key="d7">0.91</data>
+      <data key="d8">0.428</data>
+    </edge>
+    <edge source="243230.DR_0354" target="243230.DR_2584">
+      <data key="d6">0.927</data>
+      <data key="d7">0.927</data>
+      <data key="d8">0.312</data>
+    </edge>
+    <edge source="243230.DR_0423" target="243230.DR_2340">
+      <data key="d6">0.781</data>
+      <data key="d7">0.781</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0423" target="243230.DR_A0346">
+      <data key="d6">0.838</data>
+      <data key="d7">0.838</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0440" target="243230.DR_2340">
+      <data key="d6">0.708</data>
+      <data key="d7">0.708</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0440" target="243230.DR_1089">
+      <data key="d6">0.709</data>
+      <data key="d7">0.709</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0440" target="243230.DR_1354">
+      <data key="d6">0.725</data>
+      <data key="d7">0.725</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0440" target="243230.DR_1707">
+      <data key="d6">0.728</data>
+      <data key="d7">0.728</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0440" target="243230.DR_1916">
+      <data key="d6">0.736</data>
+      <data key="d7">0.736</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0440" target="243230.DR_0596">
+      <data key="d6">0.984</data>
+      <data key="d7">0.984</data>
+      <data key="d8">0.147</data>
+    </edge>
+    <edge source="243230.DR_0440" target="243230.DR_1274">
+      <data key="d6">0.999</data>
+      <data key="d7">0.999</data>
+      <data key="d8">0.577</data>
+    </edge>
+    <edge source="243230.DR_0467" target="243230.DR_1707">
+      <data key="d6">0.854</data>
+      <data key="d7">0.854</data>
+      <data key="d8">0.123</data>
+    </edge>
+    <edge source="243230.DR_0493" target="243230.DR_1354">
+      <data key="d6">0.81</data>
+      <data key="d7">0.81</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0493" target="243230.DR_1707">
+      <data key="d6">0.812</data>
+      <data key="d7">0.812</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_2340">
+      <data key="d6">0.704</data>
+      <data key="d7">0.704</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_1477">
+      <data key="d6">0.72</data>
+      <data key="d7">0.72</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_2069">
+      <data key="d6">0.761</data>
+      <data key="d7">0.761</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_1707">
+      <data key="d6">0.764</data>
+      <data key="d7">0.764</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_1775">
+      <data key="d6">0.772</data>
+      <data key="d7">0.772</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_1916">
+      <data key="d6">0.79</data>
+      <data key="d7">0.79</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_1354">
+      <data key="d6">0.83</data>
+      <data key="d7">0.83</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_1771">
+      <data key="d6">0.83</data>
+      <data key="d7">0.83</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_2275">
+      <data key="d6">0.855</data>
+      <data key="d7">0.855</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0596" target="243230.DR_1274">
+      <data key="d6">0.999</data>
+      <data key="d7">0.999</data>
+      <data key="d8">0.86</data>
+    </edge>
+    <edge source="243230.DR_0819" target="243230.DR_1707">
+      <data key="d6">0.704</data>
+      <data key="d7">0.704</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0819" target="243230.DR_1916">
+      <data key="d6">0.742</data>
+      <data key="d7">0.742</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0819" target="243230.DR_1477">
+      <data key="d6">0.745</data>
+      <data key="d7">0.745</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0819" target="243230.DR_1105">
+      <data key="d6">0.756</data>
+      <data key="d7">0.756</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0819" target="243230.DR_2340">
+      <data key="d6">0.885</data>
+      <data key="d7">0.885</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0819" target="243230.DR_1089">
+      <data key="d6">0.897</data>
+      <data key="d7">0.897</data>
+      <data key="d8">0.147</data>
+    </edge>
+    <edge source="243230.DR_0856" target="243230.DR_1354">
+      <data key="d6">0.851</data>
+      <data key="d7">0.851</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_0928" target="243230.DR_2438">
+      <data key="d6">0.934</data>
+      <data key="d7">0.934</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1089" target="243230.DR_1696">
+      <data key="d6">0.709</data>
+      <data key="d7">0.709</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1089" target="243230.DR_1775">
+      <data key="d6">0.726</data>
+      <data key="d7">0.726</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1089" target="243230.DR_1274">
+      <data key="d6">0.732</data>
+      <data key="d7">0.732</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1089" target="243230.DR_1105">
+      <data key="d6">0.736</data>
+      <data key="d7">0.736</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1089" target="243230.DR_1916">
+      <data key="d6">0.757</data>
+      <data key="d7">0.757</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1089" target="243230.DR_1477">
+      <data key="d6">0.848</data>
+      <data key="d7">0.848</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1089" target="243230.DR_2340">
+      <data key="d6">0.885</data>
+      <data key="d7">0.885</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1105" target="243230.DR_1696">
+      <data key="d6">0.702</data>
+      <data key="d7">0.702</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1105" target="243230.DR_1274">
+      <data key="d6">0.707</data>
+      <data key="d7">0.707</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1105" target="243230.DR_1354">
+      <data key="d6">0.722</data>
+      <data key="d7">0.722</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1105" target="243230.DR_1477">
+      <data key="d6">0.743</data>
+      <data key="d7">0.743</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1105" target="243230.DR_1775">
+      <data key="d6">0.78</data>
+      <data key="d7">0.78</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1105" target="243230.DR_1916">
+      <data key="d6">0.782</data>
+      <data key="d7">0.782</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1105" target="243230.DR_2340">
+      <data key="d6">0.973</data>
+      <data key="d7">0.973</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1274" target="243230.DR_2340">
+      <data key="d6">0.714</data>
+      <data key="d7">0.714</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1274" target="243230.DR_2275">
+      <data key="d6">0.751</data>
+      <data key="d7">0.751</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1274" target="243230.DR_1354">
+      <data key="d6">0.793</data>
+      <data key="d7">0.793</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1274" target="243230.DR_1916">
+      <data key="d6">0.801</data>
+      <data key="d7">0.801</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1274" target="243230.DR_1477">
+      <data key="d6">0.823</data>
+      <data key="d7">0.823</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1289" target="243230.DR_1775">
+      <data key="d6">0.767</data>
+      <data key="d7">0.767</data>
+      <data key="d8">0.497</data>
+    </edge>
+    <edge source="243230.DR_1289" target="243230.DR_2340">
+      <data key="d6">0.768</data>
+      <data key="d7">0.768</data>
+      <data key="d8">0.517</data>
+    </edge>
+    <edge source="243230.DR_1289" target="243230.DR_1707">
+      <data key="d6">0.871</data>
+      <data key="d7">0.871</data>
+      <data key="d8">0.688</data>
+    </edge>
+    <edge source="243230.DR_1354" target="243230.DR_1707">
+      <data key="d6">0.764</data>
+      <data key="d7">0.764</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1354" target="243230.DR_1696">
+      <data key="d6">0.771</data>
+      <data key="d7">0.771</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1354" target="243230.DR_1775">
+      <data key="d6">0.788</data>
+      <data key="d7">0.788</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1354" target="243230.DR_A0188">
+      <data key="d6">0.91</data>
+      <data key="d7">0.91</data>
+      <data key="d8">0.122</data>
+    </edge>
+    <edge source="243230.DR_1354" target="243230.DR_1771">
+      <data key="d6">0.983</data>
+      <data key="d7">0.983</data>
+      <data key="d8">0.122</data>
+    </edge>
+    <edge source="243230.DR_1354" target="243230.DR_2275">
+      <data key="d6">0.999</data>
+      <data key="d7">0.999</data>
+      <data key="d8">0.69</data>
+    </edge>
+    <edge source="243230.DR_1477" target="243230.DR_1696">
+      <data key="d6">0.721</data>
+      <data key="d7">0.721</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1477" target="243230.DR_1916">
+      <data key="d6">0.74</data>
+      <data key="d7">0.74</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1477" target="243230.DR_A0344">
+      <data key="d6">0.772</data>
+      <data key="d7">0.772</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1477" target="243230.DR_2340">
+      <data key="d6">0.924</data>
+      <data key="d7">0.924</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1532" target="243230.DR_A0188">
+      <data key="d6">0.728</data>
+      <data key="d7">0.728</data>
+      <data key="d8">0.68</data>
+    </edge>
+    <edge source="243230.DR_1532" target="243230.DR_1707">
+      <data key="d6">0.756</data>
+      <data key="d7">0.756</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1532" target="243230.DR_1696">
+      <data key="d6">0.775</data>
+      <data key="d7">0.775</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1532" target="243230.DR_1771">
+      <data key="d6">0.88</data>
+      <data key="d7">0.88</data>
+      <data key="d8">0.68</data>
+    </edge>
+    <edge source="243230.DR_1696" target="243230.DR_1921">
+      <data key="d6">0.71</data>
+      <data key="d7">0.71</data>
+      <data key="d8">0.296</data>
+    </edge>
+    <edge source="243230.DR_1696" target="243230.DR_1775">
+      <data key="d6">0.796</data>
+      <data key="d7">0.796</data>
+      <data key="d8">0.69</data>
+    </edge>
+    <edge source="243230.DR_1696" target="243230.DR_2340">
+      <data key="d6">0.839</data>
+      <data key="d7">0.839</data>
+      <data key="d8">0.387</data>
+    </edge>
+    <edge source="243230.DR_1696" target="243230.DR_1707">
+      <data key="d6">0.896</data>
+      <data key="d7">0.896</data>
+      <data key="d8">0.689</data>
+    </edge>
+    <edge source="243230.DR_1696" target="243230.DR_1976">
+      <data key="d6">0.911</data>
+      <data key="d7">0.911</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_1916">
+      <data key="d6">0.702</data>
+      <data key="d7">0.702</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_2275">
+      <data key="d6">0.786</data>
+      <data key="d7">0.786</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_1775">
+      <data key="d6">0.838</data>
+      <data key="d7">0.838</data>
+      <data key="d8">0.48</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_1949">
+      <data key="d6">0.843</data>
+      <data key="d7">0.843</data>
+      <data key="d8">0.558</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_2069">
+      <data key="d6">0.881</data>
+      <data key="d7">0.881</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_1922">
+      <data key="d6">0.953</data>
+      <data key="d7">0.953</data>
+      <data key="d8">0.678</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_1921">
+      <data key="d6">0.977</data>
+      <data key="d7">0.977</data>
+      <data key="d8">0.818</data>
+    </edge>
+    <edge source="243230.DR_1707" target="243230.DR_2340">
+      <data key="d6">0.989</data>
+      <data key="d7">0.989</data>
+      <data key="d8">0.919</data>
+    </edge>
+    <edge source="243230.DR_1771" target="243230.DR_2340">
+      <data key="d6">0.913</data>
+      <data key="d7">0.913</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1771" target="243230.DR_A0188">
+      <data key="d6">0.914</data>
+      <data key="d7">0.914</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1771" target="243230.DR_2275">
+      <data key="d6">0.998</data>
+      <data key="d7">0.998</data>
+      <data key="d8">0.802</data>
+    </edge>
+    <edge source="243230.DR_1775" target="243230.DR_2069">
+      <data key="d6">0.761</data>
+      <data key="d7">0.761</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1775" target="243230.DR_2340">
+      <data key="d6">0.928</data>
+      <data key="d7">0.928</data>
+      <data key="d8">0.804</data>
+    </edge>
+    <edge source="243230.DR_1916" target="243230.DR_2340">
+      <data key="d6">0.76</data>
+      <data key="d7">0.76</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_1921" target="243230.DR_2340">
+      <data key="d6">0.739</data>
+      <data key="d7">0.739</data>
+      <data key="d8">0.439</data>
+    </edge>
+    <edge source="243230.DR_1921" target="243230.DR_1922">
+      <data key="d6">0.999</data>
+      <data key="d7">0.999</data>
+      <data key="d8">0.701</data>
+    </edge>
+    <edge source="243230.DR_1922" target="243230.DR_2340">
+      <data key="d6">0.876</data>
+      <data key="d7">0.876</data>
+      <data key="d8">0.514</data>
+    </edge>
+    <edge source="243230.DR_2072" target="243230.DR_2074">
+      <data key="d6">0.787</data>
+      <data key="d7">0.787</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_2074" target="243230.DR_2584">
+      <data key="d6">0.855</data>
+      <data key="d7">0.855</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_2275" target="243230.DR_2340">
+      <data key="d6">0.846</data>
+      <data key="d7">0.846</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_2275" target="243230.DR_A0188">
+      <data key="d6">0.99</data>
+      <data key="d7">0.99</data>
+      <data key="d8">0.802</data>
+    </edge>
+    <edge source="243230.DR_2340" target="243230.DR_A0346">
+      <data key="d6">0.85</data>
+      <data key="d7">0.85</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <edge source="243230.DR_2340" target="243230.DR_A0344">
+      <data key="d6">0.986</data>
+      <data key="d7">0.986</data>
+      <data key="d8">0.738</data>
+    </edge>
+    <edge source="243230.DR_2438" target="243230.DR_2584">
+      <data key="d6">0.828</data>
+      <data key="d7">0.828</data>
+      <data key="d8">0.254</data>
+    </edge>
+    <edge source="243230.DR_A0344" target="243230.DR_A0346">
+      <data key="d6">0.717</data>
+      <data key="d7">0.717</data>
+      <data key="d8">0.0</data>
+    </edge>
+    <data key="d0">ko_projected</data>
+    <data key="d1">243230</data>
+    <data key="d2">0.7</data>
+  </graph>
+</graphml>

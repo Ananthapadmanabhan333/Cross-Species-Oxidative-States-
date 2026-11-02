@@ -1,0 +1,695 @@
+{
+  "manifest_written_at_utc": "2026-11-02T16:19:10.258304+00:00",
+  "run_id": "20261102T161839Z_7128c0f5ca4e",
+  "mode": "online",
+  "string_version": "12.5",
+  "edge_score_threshold": 0.7,
+  "config_path": "config\\phase1_dna_repair.yaml",
+  "config_fingerprint": "7128c0f5ca4e",
+  "served_from_counts": {
+    "network": 19,
+    "cache": 2
+  },
+  "project": {
+    "name": "cross_species_network_discovery",
+    "phase": 1,
+    "topic": "dna_repair"
+  },
+  "string_release": {
+    "string_version": "12.5",
+    "stable_address": "https://version-12-5.string-db.org"
+  },
+  "software": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "networkx": "3.4.2",
+    "pandas": "2.2.3",
+    "numpy": "2.1.3",
+    "PyYAML": "6.0.2",
+    "requests": "2.32.3",
+    "extremonet": "0.2.0"
+  },
+  "config": {
+    "project": {
+      "name": "cross_species_network_discovery",
+      "phase": 1,
+      "topic": "dna_repair"
+    },
+    "paths": {
+      "raw_dir": "data/raw",
+      "processed_dir": "data/processed",
+      "manifests_dir": "data/manifests",
+      "results_dir": "results/dna_repair"
+    },
+    "mode": "online",
+    "http": {
+      "timeout_seconds": 60,
+      "max_retries": 4,
+      "backoff_seconds": 2.0,
+      "min_interval_seconds": 1.0,
+      "allow_stale_cache_on_failure": false,
+      "user_agent": "extremonet/0.1 (research pipeline; contact: talent.torsar@gmail.com)"
+    },
+    "string": {
+      "base_url": "https://string-db.org/api",
+      "caller_identity": "extremonet_dna_repair",
+      "retrieval_required_score": 400,
+      "network_types": [
+        "functional",
+        "physical"
+      ],
+      "add_nodes": 0,
+      "max_individual_remap": 50
+    },
+    "network": {
+      "edge_score_threshold": 0.7,
+      "experimental_score_threshold": 0.0,
+      "keep_isolated_nodes": true
+    },
+    "seeds": {
+      "source": "uniprot",
+      "uniprot_base_url": "https://rest.uniprot.org/uniprotkb",
+      "go_terms": [
+        "GO:0006281"
+      ]
+    },
+    "species": {
+      "deinococcus_radiodurans": {
+        "label": "Deinococcus radiodurans",
+        "ncbi_taxon_id": 1299,
+        "string_taxon_id": 243230,
+        "uniprot_taxon_query": "taxonomy_id:1299",
+        "reviewed_only": false
+      },
+      "homo_sapiens": {
+        "label": "Homo sapiens",
+        "ncbi_taxon_id": 9606,
+        "string_taxon_id": 9606,
+        "uniprot_taxon_query": "organism_id:9606",
+        "reviewed_only": true
+      }
+    },
+    "logging": {
+      "level": "INFO"
+    }
+  },
+  "taxonomy_resolution": {
+    "deinococcus_radiodurans": {
+      "ncbi_taxon_id": 1299,
+      "expected_string_taxon_id": 243230,
+      "string_taxa_returned": [
+        243230
+      ],
+      "uniprot_organism_ids_in_seeds": [
+        "1299",
+        "243230"
+      ],
+      "all_retained_match": true
+    },
+    "homo_sapiens": {
+      "ncbi_taxon_id": 9606,
+      "expected_string_taxon_id": 9606,
+      "string_taxa_returned": [
+        9606
+      ],
+      "uniprot_organism_ids_in_seeds": [
+        "9606"
+      ],
+      "all_retained_match": true
+    }
+  },
+  "data_sources": {
+    "string": {
+      "base_url": "https://string-db.org/api",
+      "documentation": "https://string-db.org/help/api/",
+      "license": "CC BY 4.0 (https://string-db.org/cgi/access)"
+    },
+    "uniprot": {
+      "base_url": "https://rest.uniprot.org/uniprotkb",
+      "documentation": "https://www.uniprot.org/help/api",
+      "license": "CC BY 4.0"
+    }
+  },
+  "raw_inputs": [
+    {
+      "source": "string",
+      "endpoint": "version",
+      "description": "STRING database version",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/version",
+      "method": "GET",
+      "params": {
+        "caller_identity": "extremonet_dna_repair"
+      },
+      "retrieved_at_utc": "2026-11-02T16:18:40.385898+00:00",
+      "sha256": "2ccaf342a8fbcf2db550da164579b675cf3e615c039eaa59c3b67b3448bafa5c",
+      "data_file": "data\\raw\\string\\version\\bad470d16ab28a21b0eb__20261102T161840385898Z.json"
+    },
+    {
+      "source": "uniprot",
+      "endpoint": "seeds_deinococcus_radiodurans",
+      "description": "UniProtKB entries annotated with GO:0006281 for taxonomy_id:1299",
+      "served_from": "network",
+      "url": "https://rest.uniprot.org/uniprotkb/stream",
+      "method": "GET",
+      "params": {
+        "fields": "accession,id,reviewed,gene_primary,gene_names,protein_name,organism_id,organism_name,xref_string,go_id,annotation_score",
+        "format": "tsv",
+        "query": "((go:0006281)) AND (taxonomy_id:1299)"
+      },
+      "retrieved_at_utc": "2026-11-02T16:18:41.981357+00:00",
+      "sha256": "3a66888377341faf5c3209bce3ea38d7c1ac12b2e416aa282af7fe97d56f551e",
+      "data_file": "data\\raw\\uniprot\\seeds_deinococcus_radiodurans\\a3348e51bdc8747ce864__20261102T161841981357Z.tsv"
+    },
+    {
+      "source": "uniprot",
+      "endpoint": "entry_count_deinococcus_radiodurans",
+      "description": "UniProtKB entry count for (taxonomy_id:1299) (read from the X-Total-Results header)",
+      "served_from": "cache",
+      "url": "https://rest.uniprot.org/uniprotkb/search",
+      "method": "GET",
+      "params": {
+        "fields": "accession",
+        "format": "tsv",
+        "query": "(taxonomy_id:1299)",
+        "size": "1"
+      },
+      "retrieved_at_utc": "2026-10-25T17:44:21.053726+00:00",
+      "sha256": "574488e0c05e86810eee0d8e8ab7ad64c371afd9e7af5e77e9e56cdfae89d2c1",
+      "data_file": "data\\raw\\uniprot\\entry_count_deinococcus_radiodurans\\ea88b0f78d33850152fa__20261025T174421053726Z.tsv"
+    },
+    {
+      "source": "string",
+      "endpoint": "get_string_ids_deinococcus_radiodurans",
+      "description": "map 56 identifiers to STRING (species=1299)",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/get_string_ids",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_dna_repair",
+        "echo_query": "1",
+        "identifiers": "D0EM60\rG9I562\rO32504\rO32506\rP0DXX8\rP42443\rP52027\rQ46577\rQ7BD32\rQ9RRB0\rQ9RRQ0\rQ9RS42\rQ9RS52\rQ9RSQ0\rQ9RSQ2\rQ9RSQ5\rQ9RSZ3\rQ9RT20\rQ9RT44\rQ9RT45\rQ9RT50\rQ9RT67\rQ9RTE6\rQ9RTI9\rQ9RTK9\rQ9RTR0\rQ9RU62\rQ9RUN0\rQ9RUU2\rQ9RUV7\rQ9RV31\rQ9RVA3\rQ9RVC4\rQ9RVE0\rQ9RVU4\rQ9RW13\rQ9RW50\rQ9RWB3\rQ9RWE0\rQ9RWF4\rQ9RWH9\rQ9RX22\rQ9RX48\rQ9RX75\rQ9RX85\rQ9RX87\rQ9RX92\rQ9RXF9\rQ9RXM1\rQ9RY51\rQ9RY80\rQ9RY85\rQ9RYW8\rQ9WXF2\rQ9X719\rQ9ZNA2",
+        "limit": "1",
+        "species": "1299"
+      },
+      "retrieved_at_utc": "2026-11-02T16:18:42.338168+00:00",
+      "sha256": "aed5797321f6b8c8df9075e9beb4a7b96c5dce515f6235076a00b4b33dd38c04",
+      "data_file": "data\\raw\\string\\get_string_ids_deinococcus_radiodurans\\3cfa6c2c7482c038304f__20261102T161842338168Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "get_string_ids_deinococcus_radiodurans_single",
+      "description": "map 1 identifiers to STRING (species=1299)",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/get_string_ids",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_dna_repair",
+        "echo_query": "1",
+        "identifiers": "D0EM60",
+        "limit": "1",
+        "species": "1299"
+      },
+      "retrieved_at_utc": "2026-11-02T16:18:43.226114+00:00",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "data_file": "data\\raw\\string\\get_string_ids_deinococcus_radiodurans_single\\1ee75531f3dcf8103e61__20261102T161843226114Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "get_string_ids_deinococcus_radiodurans_single",
+      "description": "map 1 identifiers to STRING (species=1299)",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/get_string_ids",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_dna_repair",
+        "echo_query": "1",
+        "identifiers": "G9I562",
+        "limit": "1",
+        "species": "1299"
+      },
+      "retrieved_at_utc": "2026-11-02T16:18:44.223093+00:00",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "data_file": "data\\raw\\string\\get_string_ids_deinococcus_radiodurans_single\\76582b658ac66638e47c__20261102T161844223093Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "get_string_ids_deinococcus_radiodurans_single",
+      "description": "map 1 identifiers to STRING (species=1299)",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/get_string_ids",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_dna_repair",
+        "echo_query": "1",
+        "identifiers": "P0DXX8",
+        "limit": "1",
+        "species": "1299"
+      },
+      "retrieved_at_utc": "2026-11-02T16:18:45.258968+00:00",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "data_file": "data\\raw\\string\\get_string_ids_deinococcus_radiodurans_single\\70da7dff70e821377a39__20261102T161845258968Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "get_string_ids_deinococcus_radiodurans_single",
+      "description": "map 1 identifiers to STRING (species=1299)",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/get_string_ids",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_dna_repair",
+        "echo_query": "1",
+        "identifiers": "Q7BD32",
+        "limit": "1",
+        "species": "1299"
+      },
+      "retrieved_at_utc": "2026-11-02T16:18:46.260139+00:00",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "data_file": "data\\raw\\string\\get_string_ids_deinococcus_radiodurans_single\\ddafbdc74831169425d9__20261102T161846260139Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "network_functional_deinococcus_radiodurans",
+      "description": "STRING functional network among 52 proteins, required_score=400",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/network",
+      "method": "POST",
+      "params": {
+        "add_nodes": "0",
+        "caller_identity": "extremonet_dna_repair",
+        "identifiers": "243230.DR_0065\r243230.DR_0070\r243230.DR_0099\r243230.DR_0198\r243230.DR_0289\r243230.DR_0354\r243230.DR_0423\r243230.DR_0428\r243230.DR_0430\r243230.DR_0440\r243230.DR_0467\r243230.DR_0493\r243230.DR_0596\r243230.DR_0689\r243230.DR_0715\r243230.DR_0729\r243230.DR_0756\r243230.DR_0819\r243230.DR_0856\r243230.DR_0928\r243230.DR_1089\r243230.DR_1105\r243230.DR_1126\r243230.DR_1199\r243230.DR_1274\r243230.DR_1289\r243230.DR_1354\r243230.DR_1477\r243230.DR_1532\r243230.DR_1696\r243230.DR_1707\r243230.DR_1751\r243230.DR_1771\r243230.DR_1775\r243230.DR_1819\r243230.DR_1898\r243230.DR_1916\r243230.DR_1921\r243230.DR_1922\r243230.DR_1949\r243230.DR_1976\r243230.DR_2069\r243230.DR_2072\r243230.DR_2074\r243230.DR_2275\r243230.DR_2285\r243230.DR_2340\r243230.DR_2438\r243230.DR_2584\r243230.DR_A0188\r243230.DR_A0344\r243230.DR_A0346",
+        "network_type": "functional",
+        "required_score": "400",
+        "species": "243230"
+      },
+      "retrieved_at_utc": "2026-11-02T16:18:47.278717+00:00",
+      "sha256": "67d8bc36c1876fe410a47b332e157d04bd3b72fa6ec8dc7130ac271b647ce729",
+      "data_file": "data\\raw\\string\\network_functional_deinococcus_radiodurans\\b2a6e1e1abc520c1f865__20261102T161847278717Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "network_physical_deinococcus_radiodurans",
+      "description": "STRING physical network among 52 proteins, required_score=400",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/network",
+      "method": "POST",
+      "params": {
+        "add_nodes": "0",
+        "caller_identity": "extremonet_dna_repair",
+        "identifiers": "243230.DR_0065\r243230.DR_0070\r243230.DR_0099\r243230.DR_0198\r243230.DR_0289\r243230.DR_0354\r243230.DR_0423\r243230.DR_0428\r243230.DR_0430\r243230.DR_0440\r243230.DR_0467\r243230.DR_0493\r243230.DR_0596\r243230.DR_0689\r243230.DR_0715\r243230.DR_0729\r243230.DR_0756\r243230.DR_0819\r243230.DR_0856\r243230.DR_0928\r243230.DR_1089\r243230.DR_1105\r243230.DR_1126\r243230.DR_1199\r243230.DR_1274\r243230.DR_1289\r243230.DR_1354\r243230.DR_1477\r243230.DR_1532\r243230.DR_1696\r243230.DR_1707\r243230.DR_1751\r243230.DR_1771\r243230.DR_1775\r243230.DR_1819\r243230.DR_1898\r243230.DR_1916\r243230.DR_1921\r243230.DR_1922\r243230.DR_1949\r243230.DR_1976\r243230.DR_2069\r243230.DR_2072\r243230.DR_2074\r243230.DR_2275\r243230.DR_2285\r243230.DR_2340\r243230.DR_2438\r243230.DR_2584\r243230.DR_A0188\r243230.DR_A0344\r243230.DR_A0346",
+        "network_type": "physical",
+        "required_score": "400",
+        "species": "243230"
+      },
+      "retrieved_at_utc": "2026-11-02T16:18:48.256076+00:00",
+      "sha256": "bddc754224113bc727c3d29beda0e00402778271fbd2deaf32986e23f55bea6f",
+      "data_file": "data\\raw\\string\\network_physical_deinococcus_radiodurans\\20d28538876eec485a87__20261102T161848256076Z.json"
+    },
+    {
+      "source": "uniprot",
+      "endpoint": "seeds_homo_sapiens",
+      "description": "UniProtKB entries annotated with GO:0006281 for organism_id:9606",
+      "served_from": "network",
+      "url": "https://rest.uniprot.org/uniprotkb/stream",
+      "method": "GET",
+      "params": {
+        "fields": "accession,id,reviewed,gene_primary,gene_names,protein_name,organism_id,organism_name,xref_string,go_id,annotation_score",
+        "format": "tsv",
+        "query": "((go:0006281)) AND (organism_id:9606) AND (reviewed:true)"
+      },
+      "retrieved_at_utc": "2026-11-02T16:18:58.291995+00:00",
+      "sha256": "9c0c163d9ca8ce59354b27f7db282221298168c2670847b659769020b99b2847",
+      "data_file": "data\\raw\\uniprot\\seeds_homo_sapiens\\e38b854a76fd27296cef__20261102T161858291995Z.tsv"
+    },
+    {
+      "source": "uniprot",
+      "endpoint": "entry_count_homo_sapiens",
+      "description": "UniProtKB entry count for (organism_id:9606) AND (reviewed:true) (read from the X-Total-Results header)",
+      "served_from": "cache",
+      "url": "https://rest.uniprot.org/uniprotkb/search",
+      "method": "GET",
+      "params": {
+        "fields": "accession",
+        "format": "tsv",
+        "query": "(organism_id:9606) AND (reviewed:true)",
+        "size": "1"
+      },
+      "retrieved_at_utc": "2026-10-25T17:44:26.764268+00:00",
+      "sha256": "f32e1544afa22f6363bdfa5f194db61090701c741cdeb78c4bcbc6455396074d",
+      "data_file": "data\\raw\\uniprot\\entry_count_homo_sapiens\\e05d04b72b6c4810bd71__20261025T174426764268Z.tsv"
+    },
+    {
+      "source": "string",
+      "endpoint": "get_string_ids_homo_sapiens",
+      "description": "map 432 identifiers to STRING (species=9606)",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/get_string_ids",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_dna_repair",
+        "echo_query": "1",
+        "identifiers": "A2RUB1\rA4D2B8\rA4GXA9\rA6NHR9\rA8MQ11\rA8MT69\rA8MVJ9\rC0HM98\rO00255\rO00311\rO00487\rO14757\rO14818\rO14867\rO15287\rO15315\rO15350\rO15360\rO15457\rO15527\rO43196\rO43299\rO43502\rO43542\rO43543\rO43719\rO60216\rO60264\rO60671\rO60673\rO60921\rO60934\rO75031\rO75367\rO75417\rO75419\rO75717\rO75771\rO75792\rO75943\rO76064\rO94761\rO94762\rO95072\rO95243\rO95365\rO95551\rO95744\rO96017\rO96028\rP00519\rP02545\rP04053\rP04637\rP06493\rP06746\rP06748\rP07992\rP09429\rP09430\rP09874\rP09884\rP12004\rP12956\rP13010\rP13051\rP15531\rP15927\rP16104\rP16455\rP17096\rP18074\rP18858\rP18887\rP19447\rP19784\rP20585\rP20618\rP23025\rP23246\rP23396\rP23921\rP24522\rP25205\rP25490\rP25786\rP25787\rP25788\rP25789\rP26583\rP27694\rP27695\rP28066\rP28070\rP28072\rP28074\rP28340\rP28715\rP29372\rP31350\rP32780\rP33991\rP33992\rP33993\rP35244\rP35249\rP35250\rP35251\rP36639\rP36954\rP38398\rP39687\rP39748\rP40692\rP40937\rP40938\rP41208\rP43246\rP43351\rP43681\rP46063\rP46736\rP49459\rP49674\rP49720\rP49721\rP49736\rP49916\rP49917\rP49959\rP50613\rP51530\rP51587\rP51946\rP51948\rP52701\rP52926\rP53041\rP53350\rP54098\rP54132\rP54252\rP54277\rP54278\rP54725\rP54727\rP55072\rP55273\rP56282\rP60002\rP60510\rP60900\rP61088\rP62877\rP63146\rP63165\rP68400\rP78527\rP78543\rP78549\rQ00597\rQ01105\rQ01726\rQ01804\rQ01831\rQ03468\rQ05BQ5\rQ06609\rQ06787\rQ07864\rQ0D2I5\rQ0VDD7\rQ0VG06\rQ12888\rQ13156\rQ13216\rQ13232\rQ13263\rQ13315\rQ13330\rQ13401\rQ13426\rQ13472\rQ13535\rQ13569\rQ13619\rQ13620\rQ13686\rQ13888\rQ13889\rQ14159\rQ14191\rQ14565\rQ14566\rQ14683\rQ14807\rQ14839\rQ14997\rQ15054\rQ15431\rQ15645\rQ15819\rQ16531\rQ17RS7\rQ19AV6\rQ1ZZU3\rQ2TAK8\rQ2TB18\rQ2YD98\rQ4FZB7\rQ4G0Z9\rQ53H47\rQ53HV7\rQ5FWF4\rQ5T890\rQ5TBB1\rQ5VVX9\rQ5XG87\rQ68DK2\rQ68E01\rQ6B0I6\rQ6KC79\rQ6NS38\rQ6NVH7\rQ6NZ36\rQ6P1K8\rQ6PCD5\rQ6PIW4\rQ6PJP8\rQ6PML9\rQ6SJ93\rQ6UWZ7\rQ6WBX8\rQ6ZNA4\rQ6ZNB5\rQ6ZRQ5\rQ6ZVN7\rQ6ZYL4\rQ70EL2\rQ7L7L0\rQ7L9B9\rQ7LG56\rQ7Z2E3\rQ7Z2Z1\rQ7Z333\rQ7Z3K3\rQ7Z5Q5\rQ7Z6Z7\rQ86UU5\rQ86W56\rQ86WJ1\rQ86XK3\rQ86Y97\rQ86YA3\rQ86YC2\rQ8IW19\rQ8IX21\rQ8IXQ6\rQ8IY18\rQ8IY92\rQ8IYD8\rQ8IYW5\rQ8N140\rQ8N1H7\rQ8N2W9\rQ8N2Z9\rQ8N3C0\rQ8N3J3\rQ8N594\rQ8N635\rQ8N668\rQ8N6T7\rQ8N9N2\rQ8NAG6\rQ8NB91\rQ8NCN4\rQ8NEV1\rQ8NFZ0\rQ8NHS9\rQ8NHY5\rQ8TAF3\rQ8TAT5\rQ8TDB6\rQ8TDG4\rQ8TDP1\rQ8TEK3\rQ8WV22\rQ8WVD3\rQ8WXE1\rQ92466\rQ92499\rQ92547\rQ92698\rQ92759\rQ92878\rQ92889\rQ92900\rQ92993\rQ93008\rQ93009\rQ969S2\rQ96AH0\rQ96AY2\rQ96B01\rQ96E14\rQ96EB6\rQ96FF9\rQ96FI4\rQ96FZ2\rQ96HA7\rQ96JH7\rQ96JN8\rQ96K58\rQ96K76\rQ96L91\rQ96LA8\rQ96LW4\rQ96MF7\rQ96MG7\rQ96NY9\rQ96PZ2\rQ96Q83\rQ96QF7\rQ96RL1\rQ96S55\rQ96SB8\rQ96SD1\rQ96T60\rQ96T88\rQ99436\rQ99497\rQ99502\rQ99504\rQ99638\rQ99708\rQ99728\rQ99828\rQ9BQ15\rQ9BQ50\rQ9BQ83\rQ9BQA5\rQ9BQI6\rQ9BQP7\rQ9BRT9\rQ9BSD3\rQ9BTP7\rQ9BUH6\rQ9BWF2\rQ9BWK5\rQ9BX63\rQ9BXW9\rQ9BYW2\rQ9C0B1\rQ9C0C2\rQ9GZR2\rQ9H040\rQ9H0E7\rQ9H1E3\rQ9H1I8\rQ9H2F5\rQ9H4I0\rQ9H4L7\rQ9H611\rQ9H790\rQ9H7T9\rQ9H816\rQ9H8M2\rQ9H981\rQ9H9A7\rQ9H9F9\rQ9H9Q4\rQ9HB96\rQ9HCS7\rQ9HCU8\rQ9NP87\rQ9NPD8\rQ9NPF5\rQ9NPI8\rQ9NQV7\rQ9NRD1\rQ9NRY2\rQ9NRZ9\rQ9NS91\rQ9NSG2\rQ9NSU2\rQ9NTI5\rQ9NUS5\rQ9NUW8\rQ9NVH0\rQ9NVI1\rQ9NW38\rQ9NWV8\rQ9NWY4\rQ9NX46\rQ9NXL9\rQ9NXR7\rQ9NXX6\rQ9NZ71\rQ9NZC9\rQ9NZM5\rQ9P2Y5\rQ9UBT6\rQ9UBU8\rQ9UBZ4\rQ9UBZ9\rQ9UGN5\rQ9UGP5\rQ9UHC1\rQ9UI95\rQ9UIF7\rQ9UJA3\rQ9UKK3\rQ9ULG1\rQ9ULU4\rQ9UMS4\rQ9UNA4\rQ9UNS1\rQ9UQ84\rQ9Y230\rQ9Y248\rQ9Y253\rQ9Y294\rQ9Y2K1\rQ9Y2K7\rQ9Y2M0\rQ9Y3Z3\rQ9Y5K1\rQ9Y620\rQ9Y6F1\rQ9Y6H3\rQ9Y6I4\rQ9Y6I9",
+        "limit": "1",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-11-02T16:18:59.134807+00:00",
+      "sha256": "8a1b648b3b445ee33552175073f120e2e42fddd33e5c05a7fdfd5f7909bf74dc",
+      "data_file": "data\\raw\\string\\get_string_ids_homo_sapiens\\9f9c1dcda82a94da2446__20261102T161859134807Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "get_string_ids_homo_sapiens_single",
+      "description": "map 1 identifiers to STRING (species=9606)",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/get_string_ids",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_dna_repair",
+        "echo_query": "1",
+        "identifiers": "A4D2B8",
+        "limit": "1",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-11-02T16:18:59.545832+00:00",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "data_file": "data\\raw\\string\\get_string_ids_homo_sapiens_single\\9388735af3ac196b7b32__20261102T161859545832Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "get_string_ids_homo_sapiens_single",
+      "description": "map 1 identifiers to STRING (species=9606)",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/get_string_ids",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_dna_repair",
+        "echo_query": "1",
+        "identifiers": "A8MQ11",
+        "limit": "1",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-11-02T16:19:00.537203+00:00",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "data_file": "data\\raw\\string\\get_string_ids_homo_sapiens_single\\376ff85a1d89b640f3e9__20261102T161900537203Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "get_string_ids_homo_sapiens_single",
+      "description": "map 1 identifiers to STRING (species=9606)",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/get_string_ids",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_dna_repair",
+        "echo_query": "1",
+        "identifiers": "A8MVJ9",
+        "limit": "1",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-11-02T16:19:01.530089+00:00",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "data_file": "data\\raw\\string\\get_string_ids_homo_sapiens_single\\10e06a8ea3dd4ca963c8__20261102T161901530089Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "get_string_ids_homo_sapiens_single",
+      "description": "map 1 identifiers to STRING (species=9606)",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/get_string_ids",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_dna_repair",
+        "echo_query": "1",
+        "identifiers": "C0HM98",
+        "limit": "1",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-11-02T16:19:02.545166+00:00",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "data_file": "data\\raw\\string\\get_string_ids_homo_sapiens_single\\a6b5152415a9b49d3ed4__20261102T161902545166Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "get_string_ids_homo_sapiens_single",
+      "description": "map 1 identifiers to STRING (species=9606)",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/get_string_ids",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_dna_repair",
+        "echo_query": "1",
+        "identifiers": "O95744",
+        "limit": "1",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-11-02T16:19:03.546831+00:00",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "data_file": "data\\raw\\string\\get_string_ids_homo_sapiens_single\\0b51375abdc1379415c9__20261102T161903546831Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "get_string_ids_homo_sapiens_single",
+      "description": "map 1 identifiers to STRING (species=9606)",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/get_string_ids",
+      "method": "POST",
+      "params": {
+        "caller_identity": "extremonet_dna_repair",
+        "echo_query": "1",
+        "identifiers": "Q13401",
+        "limit": "1",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-11-02T16:19:04.542455+00:00",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "data_file": "data\\raw\\string\\get_string_ids_homo_sapiens_single\\4b036e6a0348337d238e__20261102T161904542455Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "network_functional_homo_sapiens",
+      "description": "STRING functional network among 426 proteins, required_score=400",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/network",
+      "method": "POST",
+      "params": {
+        "add_nodes": "0",
+        "caller_identity": "extremonet_dna_repair",
+        "identifiers": "9606.ENSP00000012443\r9606.ENSP00000013807\r9606.ENSP00000044462\r9606.ENSP00000055077\r9606.ENSP00000160827\r9606.ENSP00000166345\r9606.ENSP00000212015\r9606.ENSP00000216024\r9606.ENSP00000216122\r9606.ENSP00000216225\r9606.ENSP00000216367\r9606.ENSP00000216455\r9606.ENSP00000216489\r9606.ENSP00000216714\r9606.ENSP00000217244\r9606.ENSP00000219066\r9606.ENSP00000219302\r9606.ENSP00000219431\r9606.ENSP00000221486\r9606.ENSP00000221859\r9606.ENSP00000223129\r9606.ENSP00000223321\r9606.ENSP00000224140\r9606.ENSP00000227524\r9606.ENSP00000228843\r9606.ENSP00000229595\r9606.ENSP00000229769\r9606.ENSP00000231790\r9606.ENSP00000233146\r9606.ENSP00000234420\r9606.ENSP00000235310\r9606.ENSP00000236979\r9606.ENSP00000241436\r9606.ENSP00000242108\r9606.ENSP00000242576\r9606.ENSP00000243903\r9606.ENSP00000246802\r9606.ENSP00000249910\r9606.ENSP00000250416\r9606.ENSP00000251119\r9606.ENSP00000251303\r9606.ENSP00000251810\r9606.ENSP00000253024\r9606.ENSP00000253462\r9606.ENSP00000254336\r9606.ENSP00000254719\r9606.ENSP00000255613\r9606.ENSP00000256443\r9606.ENSP00000256996\r9606.ENSP00000258428\r9606.ENSP00000258499\r9606.ENSP00000258774\r9606.ENSP00000259008\r9606.ENSP00000259457\r9606.ENSP00000259895\r9606.ENSP00000260810\r9606.ENSP00000260947\r9606.ENSP00000261245\r9606.ENSP00000261479\r9606.ENSP00000261584\r9606.ENSP00000261593\r9606.ENSP00000262105\r9606.ENSP00000262193\r9606.ENSP00000262238\r9606.ENSP00000262506\r9606.ENSP00000262887\r9606.ENSP00000262971\r9606.ENSP00000263062\r9606.ENSP00000263187\r9606.ENSP00000263274\r9606.ENSP00000263681\r9606.ENSP00000264156\r9606.ENSP00000264159\r9606.ENSP00000264233\r9606.ENSP00000264451\r9606.ENSP00000264596\r9606.ENSP00000264926\r9606.ENSP00000265038\r9606.ENSP00000265056\r9606.ENSP00000265081\r9606.ENSP00000265140\r9606.ENSP00000265339\r9606.ENSP00000265421\r9606.ENSP00000265433\r9606.ENSP00000265849\r9606.ENSP00000265963\r9606.ENSP00000267430\r9606.ENSP00000268138\r9606.ENSP00000269305\r9606.ENSP00000270586\r9606.ENSP00000271308\r9606.ENSP00000271715\r9606.ENSP00000274400\r9606.ENSP00000275053\r9606.ENSP00000275517\r9606.ENSP00000276533\r9606.ENSP00000278572\r9606.ENSP00000278616\r9606.ENSP00000279387\r9606.ENSP00000282516\r9606.ENSP00000283131\r9606.ENSP00000284503\r9606.ENSP00000285021\r9606.ENSP00000285398\r9606.ENSP00000286031\r9606.ENSP00000287437\r9606.ENSP00000287647\r9606.ENSP00000289081\r9606.ENSP00000290541\r9606.ENSP00000290551\r9606.ENSP00000291560\r9606.ENSP00000294008\r9606.ENSP00000295050\r9606.ENSP00000295488\r9606.ENSP00000296161\r9606.ENSP00000296503\r9606.ENSP00000296682\r9606.ENSP00000296930\r9606.ENSP00000297338\r9606.ENSP00000297423\r9606.ENSP00000298139\r9606.ENSP00000299563\r9606.ENSP00000300093\r9606.ENSP00000300145\r9606.ENSP00000300738\r9606.ENSP00000301764\r9606.ENSP00000302111\r9606.ENSP00000302232\r9606.ENSP00000305480\r9606.ENSP00000305899\r9606.ENSP00000306561\r9606.ENSP00000307004\r9606.ENSP00000307288\r9606.ENSP00000307491\r9606.ENSP00000307853\r9606.ENSP00000308193\r9606.ENSP00000308236\r9606.ENSP00000308583\r9606.ENSP00000309031\r9606.ENSP00000310008\r9606.ENSP00000310356\r9606.ENSP00000310520\r9606.ENSP00000310842\r9606.ENSP00000311360\r9606.ENSP00000311368\r9606.ENSP00000313140\r9606.ENSP00000313420\r9606.ENSP00000313500\r9606.ENSP00000313851\r9606.ENSP00000314484\r9606.ENSP00000314505\r9606.ENSP00000316176\r9606.ENSP00000316357\r9606.ENSP00000316609\r9606.ENSP00000317039\r9606.ENSP00000317636\r9606.ENSP00000318085\r9606.ENSP00000318641\r9606.ENSP00000320898\r9606.ENSP00000321636\r9606.ENSP00000322570\r9606.ENSP00000323099\r9606.ENSP00000323421\r9606.ENSP00000323511\r9606.ENSP00000323670\r9606.ENSP00000324920\r9606.ENSP00000325863\r9606.ENSP00000326603\r9606.ENSP00000328174\r9606.ENSP00000328203\r9606.ENSP00000330694\r9606.ENSP00000330875\r9606.ENSP00000331310\r9606.ENSP00000333283\r9606.ENSP00000333376\r9606.ENSP00000333441\r9606.ENSP00000333633\r9606.ENSP00000334181\r9606.ENSP00000334940\r9606.ENSP00000336606\r9606.ENSP00000336701\r9606.ENSP00000336842\r9606.ENSP00000337060\r9606.ENSP00000337088\r9606.ENSP00000337332\r9606.ENSP00000337353\r9606.ENSP00000337623\r9606.ENSP00000339404\r9606.ENSP00000340278\r9606.ENSP00000340330\r9606.ENSP00000340648\r9606.ENSP00000341565\r9606.ENSP00000343412\r9606.ENSP00000343535\r9606.ENSP00000343741\r9606.ENSP00000345347\r9606.ENSP00000347170\r9606.ENSP00000347232\r9606.ENSP00000348020\r9606.ENSP00000348089\r9606.ENSP00000348455\r9606.ENSP00000349313\r9606.ENSP00000349748\r9606.ENSP00000349823\r9606.ENSP00000350708\r9606.ENSP00000351137\r9606.ENSP00000351185\r9606.ENSP00000351284\r9606.ENSP00000351697\r9606.ENSP00000351777\r9606.ENSP00000351947\r9606.ENSP00000352257\r9606.ENSP00000352271\r9606.ENSP00000352408\r9606.ENSP00000353332\r9606.ENSP00000353512\r9606.ENSP00000353770\r9606.ENSP00000353793\r9606.ENSP00000354361\r9606.ENSP00000354497\r9606.ENSP00000354957\r9606.ENSP00000355077\r9606.ENSP00000355185\r9606.ENSP00000355325\r9606.ENSP00000355506\r9606.ENSP00000355656\r9606.ENSP00000355759\r9606.ENSP00000356110\r9606.ENSP00000357283\r9606.ENSP00000358019\r9606.ENSP00000358159\r9606.ENSP00000358262\r9606.ENSP00000358474\r9606.ENSP00000358535\r9606.ENSP00000358742\r9606.ENSP00000359095\r9606.ENSP00000359181\r9606.ENSP00000359285\r9606.ENSP00000359292\r9606.ENSP00000359300\r9606.ENSP00000359506\r9606.ENSP00000359910\r9606.ENSP00000360025\r9606.ENSP00000360116\r9606.ENSP00000360216\r9606.ENSP00000360310\r9606.ENSP00000360613\r9606.ENSP00000360682\r9606.ENSP00000361010\r9606.ENSP00000361043\r9606.ENSP00000361310\r9606.ENSP00000361363\r9606.ENSP00000361423\r9606.ENSP00000361777\r9606.ENSP00000361788\r9606.ENSP00000362131\r9606.ENSP00000362273\r9606.ENSP00000362334\r9606.ENSP00000362578\r9606.ENSP00000362799\r9606.ENSP00000362978\r9606.ENSP00000363017\r9606.ENSP00000363360\r9606.ENSP00000364126\r9606.ENSP00000364270\r9606.ENSP00000364589\r9606.ENSP00000364855\r9606.ENSP00000365944\r9606.ENSP00000366939\r9606.ENSP00000367440\r9606.ENSP00000367527\r9606.ENSP00000367545\r9606.ENSP00000367787\r9606.ENSP00000367910\r9606.ENSP00000368100\r9606.ENSP00000368164\r9606.ENSP00000368358\r9606.ENSP00000368458\r9606.ENSP00000369145\r9606.ENSP00000369335\r9606.ENSP00000369411\r9606.ENSP00000369497\r9606.ENSP00000369545\r9606.ENSP00000369681\r9606.ENSP00000369857\r9606.ENSP00000370150\r9606.ENSP00000370293\r9606.ENSP00000370653\r9606.ENSP00000370745\r9606.ENSP00000371321\r9606.ENSP00000371419\r9606.ENSP00000371469\r9606.ENSP00000371475\r9606.ENSP00000372023\r9606.ENSP00000372351\r9606.ENSP00000372955\r9606.ENSP00000373354\r9606.ENSP00000373952\r9606.ENSP00000374212\r9606.ENSP00000375809\r9606.ENSP00000375978\r9606.ENSP00000376077\r9606.ENSP00000376272\r9606.ENSP00000376440\r9606.ENSP00000376611\r9606.ENSP00000376823\r9606.ENSP00000376952\r9606.ENSP00000377224\r9606.ENSP00000377601\r9606.ENSP00000377971\r9606.ENSP00000378699\r9606.ENSP00000379174\r9606.ENSP00000380044\r9606.ENSP00000380241\r9606.ENSP00000380877\r9606.ENSP00000381657\r9606.ENSP00000381740\r9606.ENSP00000382218\r9606.ENSP00000382382\r9606.ENSP00000382390\r9606.ENSP00000382628\r9606.ENSP00000382805\r9606.ENSP00000383710\r9606.ENSP00000384109\r9606.ENSP00000384211\r9606.ENSP00000384408\r9606.ENSP00000385021\r9606.ENSP00000386239\r9606.ENSP00000386414\r9606.ENSP00000386452\r9606.ENSP00000386541\r9606.ENSP00000386759\r9606.ENSP00000391090\r9606.ENSP00000393139\r9606.ENSP00000396628\r9606.ENSP00000398181\r9606.ENSP00000399851\r9606.ENSP00000399888\r9606.ENSP00000403683\r9606.ENSP00000404092\r9606.ENSP00000405726\r9606.ENSP00000406490\r9606.ENSP00000406598\r9606.ENSP00000408295\r9606.ENSP00000409279\r9606.ENSP00000410811\r9606.ENSP00000413632\r9606.ENSP00000414359\r9606.ENSP00000416739\r9606.ENSP00000417864\r9606.ENSP00000418823\r9606.ENSP00000418960\r9606.ENSP00000419765\r9606.ENSP00000419881\r9606.ENSP00000420860\r9606.ENSP00000421491\r9606.ENSP00000421926\r9606.ENSP00000422907\r9606.ENSP00000423563\r9606.ENSP00000424191\r9606.ENSP00000424737\r9606.ENSP00000425130\r9606.ENSP00000426191\r9606.ENSP00000426421\r9606.ENSP00000428209\r9606.ENSP00000432786\r9606.ENSP00000434024\r9606.ENSP00000434435\r9606.ENSP00000434508\r9606.ENSP00000435506\r9606.ENSP00000435619\r9606.ENSP00000437271\r9606.ENSP00000437621\r9606.ENSP00000439800\r9606.ENSP00000440542\r9606.ENSP00000442573\r9606.ENSP00000442699\r9606.ENSP00000443647\r9606.ENSP00000445162\r9606.ENSP00000450607\r9606.ENSP00000451000\r9606.ENSP00000451605\r9606.ENSP00000451974\r9606.ENSP00000453015\r9606.ENSP00000457353\r9606.ENSP00000459580\r9606.ENSP00000462664\r9606.ENSP00000464357\r9606.ENSP00000465765\r9606.ENSP00000466121\r9606.ENSP00000466399\r9606.ENSP00000467024\r9606.ENSP00000468304\r9606.ENSP00000470142\r9606.ENSP00000471735\r9606.ENSP00000472445\r9606.ENSP00000473172\r9606.ENSP00000473553\r9606.ENSP00000476100\r9606.ENSP00000479598\r9606.ENSP00000479617\r9606.ENSP00000479860\r9606.ENSP00000480987\r9606.ENSP00000481021\r9606.ENSP00000481750\r9606.ENSP00000482285\r9606.ENSP00000482313\r9606.ENSP00000482546\r9606.ENSP00000483688\r9606.ENSP00000484288\r9606.ENSP00000486676\r9606.ENSP00000488642\r9606.ENSP00000493536\r9606.ENSP00000493712\r9606.ENSP00000494957\r9606.ENSP00000496255\r9606.ENSP00000496695\r9606.ENSP00000497609\r9606.ENSP00000497815\r9606.ENSP00000498042\r9606.ENSP00000498215\r9606.ENSP00000498656\r9606.ENSP00000498750\r9606.ENSP00000498881\r9606.ENSP00000499371\r9606.ENSP00000500891",
+        "network_type": "functional",
+        "required_score": "400",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-11-02T16:19:07.992252+00:00",
+      "sha256": "2fa349f6aabe1e70efde071154408c93a362d7ef69600aedf1b3390e3415686f",
+      "data_file": "data\\raw\\string\\network_functional_homo_sapiens\\cc28296e24a2bf59806b__20261102T161907992252Z.json"
+    },
+    {
+      "source": "string",
+      "endpoint": "network_physical_homo_sapiens",
+      "description": "STRING physical network among 426 proteins, required_score=400",
+      "served_from": "network",
+      "url": "https://string-db.org/api/json/network",
+      "method": "POST",
+      "params": {
+        "add_nodes": "0",
+        "caller_identity": "extremonet_dna_repair",
+        "identifiers": "9606.ENSP00000012443\r9606.ENSP00000013807\r9606.ENSP00000044462\r9606.ENSP00000055077\r9606.ENSP00000160827\r9606.ENSP00000166345\r9606.ENSP00000212015\r9606.ENSP00000216024\r9606.ENSP00000216122\r9606.ENSP00000216225\r9606.ENSP00000216367\r9606.ENSP00000216455\r9606.ENSP00000216489\r9606.ENSP00000216714\r9606.ENSP00000217244\r9606.ENSP00000219066\r9606.ENSP00000219302\r9606.ENSP00000219431\r9606.ENSP00000221486\r9606.ENSP00000221859\r9606.ENSP00000223129\r9606.ENSP00000223321\r9606.ENSP00000224140\r9606.ENSP00000227524\r9606.ENSP00000228843\r9606.ENSP00000229595\r9606.ENSP00000229769\r9606.ENSP00000231790\r9606.ENSP00000233146\r9606.ENSP00000234420\r9606.ENSP00000235310\r9606.ENSP00000236979\r9606.ENSP00000241436\r9606.ENSP00000242108\r9606.ENSP00000242576\r9606.ENSP00000243903\r9606.ENSP00000246802\r9606.ENSP00000249910\r9606.ENSP00000250416\r9606.ENSP00000251119\r9606.ENSP00000251303\r9606.ENSP00000251810\r9606.ENSP00000253024\r9606.ENSP00000253462\r9606.ENSP00000254336\r9606.ENSP00000254719\r9606.ENSP00000255613\r9606.ENSP00000256443\r9606.ENSP00000256996\r9606.ENSP00000258428\r9606.ENSP00000258499\r9606.ENSP00000258774\r9606.ENSP00000259008\r9606.ENSP00000259457\r9606.ENSP00000259895\r9606.ENSP00000260810\r9606.ENSP00000260947\r9606.ENSP00000261245\r9606.ENSP00000261479\r9606.ENSP00000261584\r9606.ENSP00000261593\r9606.ENSP00000262105\r9606.ENSP00000262193\r9606.ENSP00000262238\r9606.ENSP00000262506\r9606.ENSP00000262887\r9606.ENSP00000262971\r9606.ENSP00000263062\r9606.ENSP00000263187\r9606.ENSP00000263274\r9606.ENSP00000263681\r9606.ENSP00000264156\r9606.ENSP00000264159\r9606.ENSP00000264233\r9606.ENSP00000264451\r9606.ENSP00000264596\r9606.ENSP00000264926\r9606.ENSP00000265038\r9606.ENSP00000265056\r9606.ENSP00000265081\r9606.ENSP00000265140\r9606.ENSP00000265339\r9606.ENSP00000265421\r9606.ENSP00000265433\r9606.ENSP00000265849\r9606.ENSP00000265963\r9606.ENSP00000267430\r9606.ENSP00000268138\r9606.ENSP00000269305\r9606.ENSP00000270586\r9606.ENSP00000271308\r9606.ENSP00000271715\r9606.ENSP00000274400\r9606.ENSP00000275053\r9606.ENSP00000275517\r9606.ENSP00000276533\r9606.ENSP00000278572\r9606.ENSP00000278616\r9606.ENSP00000279387\r9606.ENSP00000282516\r9606.ENSP00000283131\r9606.ENSP00000284503\r9606.ENSP00000285021\r9606.ENSP00000285398\r9606.ENSP00000286031\r9606.ENSP00000287437\r9606.ENSP00000287647\r9606.ENSP00000289081\r9606.ENSP00000290541\r9606.ENSP00000290551\r9606.ENSP00000291560\r9606.ENSP00000294008\r9606.ENSP00000295050\r9606.ENSP00000295488\r9606.ENSP00000296161\r9606.ENSP00000296503\r9606.ENSP00000296682\r9606.ENSP00000296930\r9606.ENSP00000297338\r9606.ENSP00000297423\r9606.ENSP00000298139\r9606.ENSP00000299563\r9606.ENSP00000300093\r9606.ENSP00000300145\r9606.ENSP00000300738\r9606.ENSP00000301764\r9606.ENSP00000302111\r9606.ENSP00000302232\r9606.ENSP00000305480\r9606.ENSP00000305899\r9606.ENSP00000306561\r9606.ENSP00000307004\r9606.ENSP00000307288\r9606.ENSP00000307491\r9606.ENSP00000307853\r9606.ENSP00000308193\r9606.ENSP00000308236\r9606.ENSP00000308583\r9606.ENSP00000309031\r9606.ENSP00000310008\r9606.ENSP00000310356\r9606.ENSP00000310520\r9606.ENSP00000310842\r9606.ENSP00000311360\r9606.ENSP00000311368\r9606.ENSP00000313140\r9606.ENSP00000313420\r9606.ENSP00000313500\r9606.ENSP00000313851\r9606.ENSP00000314484\r9606.ENSP00000314505\r9606.ENSP00000316176\r9606.ENSP00000316357\r9606.ENSP00000316609\r9606.ENSP00000317039\r9606.ENSP00000317636\r9606.ENSP00000318085\r9606.ENSP00000318641\r9606.ENSP00000320898\r9606.ENSP00000321636\r9606.ENSP00000322570\r9606.ENSP00000323099\r9606.ENSP00000323421\r9606.ENSP00000323511\r9606.ENSP00000323670\r9606.ENSP00000324920\r9606.ENSP00000325863\r9606.ENSP00000326603\r9606.ENSP00000328174\r9606.ENSP00000328203\r9606.ENSP00000330694\r9606.ENSP00000330875\r9606.ENSP00000331310\r9606.ENSP00000333283\r9606.ENSP00000333376\r9606.ENSP00000333441\r9606.ENSP00000333633\r9606.ENSP00000334181\r9606.ENSP00000334940\r9606.ENSP00000336606\r9606.ENSP00000336701\r9606.ENSP00000336842\r9606.ENSP00000337060\r9606.ENSP00000337088\r9606.ENSP00000337332\r9606.ENSP00000337353\r9606.ENSP00000337623\r9606.ENSP00000339404\r9606.ENSP00000340278\r9606.ENSP00000340330\r9606.ENSP00000340648\r9606.ENSP00000341565\r9606.ENSP00000343412\r9606.ENSP00000343535\r9606.ENSP00000343741\r9606.ENSP00000345347\r9606.ENSP00000347170\r9606.ENSP00000347232\r9606.ENSP00000348020\r9606.ENSP00000348089\r9606.ENSP00000348455\r9606.ENSP00000349313\r9606.ENSP00000349748\r9606.ENSP00000349823\r9606.ENSP00000350708\r9606.ENSP00000351137\r9606.ENSP00000351185\r9606.ENSP00000351284\r9606.ENSP00000351697\r9606.ENSP00000351777\r9606.ENSP00000351947\r9606.ENSP00000352257\r9606.ENSP00000352271\r9606.ENSP00000352408\r9606.ENSP00000353332\r9606.ENSP00000353512\r9606.ENSP00000353770\r9606.ENSP00000353793\r9606.ENSP00000354361\r9606.ENSP00000354497\r9606.ENSP00000354957\r9606.ENSP00000355077\r9606.ENSP00000355185\r9606.ENSP00000355325\r9606.ENSP00000355506\r9606.ENSP00000355656\r9606.ENSP00000355759\r9606.ENSP00000356110\r9606.ENSP00000357283\r9606.ENSP00000358019\r9606.ENSP00000358159\r9606.ENSP00000358262\r9606.ENSP00000358474\r9606.ENSP00000358535\r9606.ENSP00000358742\r9606.ENSP00000359095\r9606.ENSP00000359181\r9606.ENSP00000359285\r9606.ENSP00000359292\r9606.ENSP00000359300\r9606.ENSP00000359506\r9606.ENSP00000359910\r9606.ENSP00000360025\r9606.ENSP00000360116\r9606.ENSP00000360216\r9606.ENSP00000360310\r9606.ENSP00000360613\r9606.ENSP00000360682\r9606.ENSP00000361010\r9606.ENSP00000361043\r9606.ENSP00000361310\r9606.ENSP00000361363\r9606.ENSP00000361423\r9606.ENSP00000361777\r9606.ENSP00000361788\r9606.ENSP00000362131\r9606.ENSP00000362273\r9606.ENSP00000362334\r9606.ENSP00000362578\r9606.ENSP00000362799\r9606.ENSP00000362978\r9606.ENSP00000363017\r9606.ENSP00000363360\r9606.ENSP00000364126\r9606.ENSP00000364270\r9606.ENSP00000364589\r9606.ENSP00000364855\r9606.ENSP00000365944\r9606.ENSP00000366939\r9606.ENSP00000367440\r9606.ENSP00000367527\r9606.ENSP00000367545\r9606.ENSP00000367787\r9606.ENSP00000367910\r9606.ENSP00000368100\r9606.ENSP00000368164\r9606.ENSP00000368358\r9606.ENSP00000368458\r9606.ENSP00000369145\r9606.ENSP00000369335\r9606.ENSP00000369411\r9606.ENSP00000369497\r9606.ENSP00000369545\r9606.ENSP00000369681\r9606.ENSP00000369857\r9606.ENSP00000370150\r9606.ENSP00000370293\r9606.ENSP00000370653\r9606.ENSP00000370745\r9606.ENSP00000371321\r9606.ENSP00000371419\r9606.ENSP00000371469\r9606.ENSP00000371475\r9606.ENSP00000372023\r9606.ENSP00000372351\r9606.ENSP00000372955\r9606.ENSP00000373354\r9606.ENSP00000373952\r9606.ENSP00000374212\r9606.ENSP00000375809\r9606.ENSP00000375978\r9606.ENSP00000376077\r9606.ENSP00000376272\r9606.ENSP00000376440\r9606.ENSP00000376611\r9606.ENSP00000376823\r9606.ENSP00000376952\r9606.ENSP00000377224\r9606.ENSP00000377601\r9606.ENSP00000377971\r9606.ENSP00000378699\r9606.ENSP00000379174\r9606.ENSP00000380044\r9606.ENSP00000380241\r9606.ENSP00000380877\r9606.ENSP00000381657\r9606.ENSP00000381740\r9606.ENSP00000382218\r9606.ENSP00000382382\r9606.ENSP00000382390\r9606.ENSP00000382628\r9606.ENSP00000382805\r9606.ENSP00000383710\r9606.ENSP00000384109\r9606.ENSP00000384211\r9606.ENSP00000384408\r9606.ENSP00000385021\r9606.ENSP00000386239\r9606.ENSP00000386414\r9606.ENSP00000386452\r9606.ENSP00000386541\r9606.ENSP00000386759\r9606.ENSP00000391090\r9606.ENSP00000393139\r9606.ENSP00000396628\r9606.ENSP00000398181\r9606.ENSP00000399851\r9606.ENSP00000399888\r9606.ENSP00000403683\r9606.ENSP00000404092\r9606.ENSP00000405726\r9606.ENSP00000406490\r9606.ENSP00000406598\r9606.ENSP00000408295\r9606.ENSP00000409279\r9606.ENSP00000410811\r9606.ENSP00000413632\r9606.ENSP00000414359\r9606.ENSP00000416739\r9606.ENSP00000417864\r9606.ENSP00000418823\r9606.ENSP00000418960\r9606.ENSP00000419765\r9606.ENSP00000419881\r9606.ENSP00000420860\r9606.ENSP00000421491\r9606.ENSP00000421926\r9606.ENSP00000422907\r9606.ENSP00000423563\r9606.ENSP00000424191\r9606.ENSP00000424737\r9606.ENSP00000425130\r9606.ENSP00000426191\r9606.ENSP00000426421\r9606.ENSP00000428209\r9606.ENSP00000432786\r9606.ENSP00000434024\r9606.ENSP00000434435\r9606.ENSP00000434508\r9606.ENSP00000435506\r9606.ENSP00000435619\r9606.ENSP00000437271\r9606.ENSP00000437621\r9606.ENSP00000439800\r9606.ENSP00000440542\r9606.ENSP00000442573\r9606.ENSP00000442699\r9606.ENSP00000443647\r9606.ENSP00000445162\r9606.ENSP00000450607\r9606.ENSP00000451000\r9606.ENSP00000451605\r9606.ENSP00000451974\r9606.ENSP00000453015\r9606.ENSP00000457353\r9606.ENSP00000459580\r9606.ENSP00000462664\r9606.ENSP00000464357\r9606.ENSP00000465765\r9606.ENSP00000466121\r9606.ENSP00000466399\r9606.ENSP00000467024\r9606.ENSP00000468304\r9606.ENSP00000470142\r9606.ENSP00000471735\r9606.ENSP00000472445\r9606.ENSP00000473172\r9606.ENSP00000473553\r9606.ENSP00000476100\r9606.ENSP00000479598\r9606.ENSP00000479617\r9606.ENSP00000479860\r9606.ENSP00000480987\r9606.ENSP00000481021\r9606.ENSP00000481750\r9606.ENSP00000482285\r9606.ENSP00000482313\r9606.ENSP00000482546\r9606.ENSP00000483688\r9606.ENSP00000484288\r9606.ENSP00000486676\r9606.ENSP00000488642\r9606.ENSP00000493536\r9606.ENSP00000493712\r9606.ENSP00000494957\r9606.ENSP00000496255\r9606.ENSP00000496695\r9606.ENSP00000497609\r9606.ENSP00000497815\r9606.ENSP00000498042\r9606.ENSP00000498215\r9606.ENSP00000498656\r9606.ENSP00000498750\r9606.ENSP00000498881\r9606.ENSP00000499371\r9606.ENSP00000500891",
+        "network_type": "physical",
+        "required_score": "400",
+        "species": "9606"
+      },
+      "retrieved_at_utc": "2026-11-02T16:19:08.904826+00:00",
+      "sha256": "9fc178b4a401198e04fa6b1048d67765aad81d0f2cabe7f9d5b8e2826d62b1b2",
+      "data_file": "data\\raw\\string\\network_physical_homo_sapiens\\7051530086408b48748e__20261102T161908904826Z.json"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/config_used.yaml",
+      "bytes": 1270,
+      "sha256": "f2c6d83c4bbef2e56b7228f85873738418b869045c8c759275238fa80ffab689"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/degree_table.tsv",
+      "bytes": 1887,
+      "sha256": "a3a65af308b3656cd94ead943a8ee0f47449a36b692e6bc60de665b243fa4f1e"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/network.graphml",
+      "bytes": 137589,
+      "sha256": "27fd9bea53d9288b3f95a15bc33449876c7e6cbeb77b5145331d1cdb7ca29edd"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/protein_table.tsv",
+      "bytes": 28448,
+      "sha256": "1c326ddda746b957216a039cde3db33eaae6897e549831f5deb6681d47e0f9ff"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/qc_report.json",
+      "bytes": 3763,
+      "sha256": "d410bb78b43fa3c39ded22e0fb92bc7a616a7ead452557bf778ff75170f65027"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/qc_report.md",
+      "bytes": 3560,
+      "sha256": "36f2c08772d142c78048280e5cbd0a4e03f0c0c6ff22da6c6cdfc9e077465015"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/summary_statistics.json",
+      "bytes": 491,
+      "sha256": "19e6bfb7119bf1d1628ab453a926c92daec16ea047aad53687f901a4d39046df"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/weighted_edge_list.tsv",
+      "bytes": 16373,
+      "sha256": "93104752f9670f8828c6f7a55ce064fa2a3d0594edea7c5bf4efc19daad158eb"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/homo_sapiens/degree_table.tsv",
+      "bytes": 17979,
+      "sha256": "ffec8d8b325a7d662407f8a4732d3d3f82d59ea3b74cbc5f14dcf8eb429f223d"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/homo_sapiens/network.graphml",
+      "bytes": 4102103,
+      "sha256": "27ab8462f6a775d2e3695d3a0065507e12fea82be31cc43aa731eef42bde4ef9"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/homo_sapiens/protein_table.tsv",
+      "bytes": 439300,
+      "sha256": "2095d117b53cf2fcc0005c38e38d7693693abc8f0618ae41ec0c38e5fccf1591"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/homo_sapiens/qc_report.json",
+      "bytes": 3601,
+      "sha256": "a05b9ed64d4dbb110ca175a4b8d4f84b7bf28e81115c12ba92cbe3f41486b5d2"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/homo_sapiens/qc_report.md",
+      "bytes": 3421,
+      "sha256": "ac8f3419515da12779c2f7360ca827eec2b7deb097459416ebcd3881c0b640a3"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/homo_sapiens/summary_statistics.json",
+      "bytes": 500,
+      "sha256": "1b1d369f1fd8657e5fce7572279f48727a3703367fdb85f3eacea9a493d5e044"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/homo_sapiens/weighted_edge_list.tsv",
+      "bytes": 786141,
+      "sha256": "502ba84c9f0ad4b3ef0ea5c91a250812fbdae944b26c9833a41159bd8efa3ab6"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/run_report.md",
+      "bytes": 1143,
+      "sha256": "fc011c252433780ca14977bb9582a1d661d3ee89cb73fdaf30a5894cebe75d02"
+    },
+    {
+      "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/species_comparison.tsv",
+      "bytes": 423,
+      "sha256": "9445a83fc292431a8e2c31a809a0e0b713d44d3dafa7b220d84bf8d11cf87206"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/edges_functional_retained.tsv",
+      "bytes": 16373,
+      "sha256": "93104752f9670f8828c6f7a55ce064fa2a3d0594edea7c5bf4efc19daad158eb"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/edges_physical_retained.tsv",
+      "bytes": 2038,
+      "sha256": "4de458455ff1ac7f928456f16a550326182754c21cac28b971db8ec186e473c1"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/excluded_records.tsv",
+      "bytes": 22981,
+      "sha256": "2d93a339f07899b7a51f840db4dc87755cd56e2e392a9c217cc14740cec9c5eb"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/nodes.tsv",
+      "bytes": 28448,
+      "sha256": "1c326ddda746b957216a039cde3db33eaae6897e549831f5deb6681d47e0f9ff"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/string_functional_records_parsed.tsv",
+      "bytes": 35928,
+      "sha256": "4e624dce35ff9a40500698dfdb413415738b6a479d737190c222d8477bfe1617"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/string_id_mapping_parsed.tsv",
+      "bytes": 17722,
+      "sha256": "af67767f66f683cfec46964d94d140e5c0bfe2c3edc61f578714d2b4ae2006cf"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/string_physical_records_parsed.tsv",
+      "bytes": 3965,
+      "sha256": "cdf74b5e53fce7d479a7283a3787cf31607dbac9243827da972c94394f78dabb"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/deinococcus_radiodurans/uniprot_seed_records_parsed.tsv",
+      "bytes": 17666,
+      "sha256": "28da6a775fa60a09bfb641d2404dde743b57c3d0686103bc0d850e4b0e354e09"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/homo_sapiens/edges_functional_retained.tsv",
+      "bytes": 786141,
+      "sha256": "502ba84c9f0ad4b3ef0ea5c91a250812fbdae944b26c9833a41159bd8efa3ab6"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/homo_sapiens/edges_physical_retained.tsv",
+      "bytes": 363199,
+      "sha256": "8d6f4d79fe8767a18f1dd05eaed18478fdf1bce1ab70ab3a5f719ebac590b220"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/homo_sapiens/excluded_records.tsv",
+      "bytes": 1077942,
+      "sha256": "f4bc5b355f1d831dc53dbe280efa75dbc1f230637b2623d6fd83b333c249f5e7"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/homo_sapiens/nodes.tsv",
+      "bytes": 439300,
+      "sha256": "2095d117b53cf2fcc0005c38e38d7693693abc8f0618ae41ec0c38e5fccf1591"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/homo_sapiens/string_functional_records_parsed.tsv",
+      "bytes": 1492735,
+      "sha256": "014ebdfef4f357c53a3d331031cf97f1b032c05898ec1fa0a78b6fbef1e38cdb"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/homo_sapiens/string_id_mapping_parsed.tsv",
+      "bytes": 228556,
+      "sha256": "aa38d821385389ebffe9b2363899b22770af9b597a51c83586698689b3e20e79"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/homo_sapiens/string_physical_records_parsed.tsv",
+      "bytes": 592496,
+      "sha256": "de5a896df48dfbe877915e1c1460999a45b3a53ca10ec3dfd5058381ad9bab82"
+    },
+    {
+      "path": "data/processed/20261102T161839Z_7128c0f5ca4e/homo_sapiens/uniprot_seed_records_parsed.tsv",
+      "bytes": 220699,
+      "sha256": "5dc09bf79bf295149d7ff36c4bd38dec90db58566307e93a86b186105a4fe085"
+    }
+  ],
+  "outputs_not_checksummed": {
+    "path": "results/dna_repair/20261102T161839Z_7128c0f5ca4e/logs",
+    "reason": "run log is still being appended to when the manifest is written"
+  },
+  "limitations": {
+    "deinococcus_radiodurans": [
+      "STRING edges are functional associations (combined evidence channels), not physical interactions. `in_physical_subnetwork` marks pairs in STRING's physical-complex subnetwork, which is itself a scored prediction; `has_experiments_channel_score` reflects STRING's experiments channel, which can include evidence transferred from other organisms. Neither is equivalent to an experimentally confirmed physical interaction (e.g. from BioGRID/IntAct).",
+      "Seeds are defined by GO annotation in UniProtKB, so the network covers only proteins already annotated to the configured terms; poorly annotated proteomes yield smaller seed sets.",
+      "With string.add_nodes = 0 only interactions among seeds are retrieved; associations to non-seed proteins are outside the graph by design.",
+      "STRING represents Deinococcus radiodurans by taxon 243230 (a single strain), not the configured species taxon 1299; results describe that strain's proteome.",
+      "11 of 52 seed proteins have no association at combined score >= 0.7 with another seed.",
+      "4 valid seed records were not carried into the graph at the identifier-mapping stage (see excluded_records.tsv)."
+    ],
+    "homo_sapiens": [
+      "STRING edges are functional associations (combined evidence channels), not physical interactions. `in_physical_subnetwork` marks pairs in STRING's physical-complex subnetwork, which is itself a scored prediction; `has_experiments_channel_score` reflects STRING's experiments channel, which can include evidence transferred from other organisms. Neither is equivalent to an experimentally confirmed physical interaction (e.g. from BioGRID/IntAct).",
+      "Seeds are defined by GO annotation in UniProtKB, so the network covers only proteins already annotated to the configured terms; poorly annotated proteomes yield smaller seed sets.",
+      "With string.add_nodes = 0 only interactions among seeds are retrieved; associations to non-seed proteins are outside the graph by design.",
+      "23 of 426 seed proteins have no association at combined score >= 0.7 with another seed.",
+      "6 valid seed records were not carried into the graph at the identifier-mapping stage (see excluded_records.tsv)."
+    ]
+  }
+}
