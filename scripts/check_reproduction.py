@@ -11,6 +11,7 @@ Usage (from the project root):
 
 from __future__ import annotations
 
+import csv
 import hashlib
 import json
 import math
@@ -49,6 +50,28 @@ def same_json(a: Any, b: Any) -> bool:
     return a == b
 
 
+def describe_tsv_difference(path_a: Path, path_b: Path, limit: int = 8) -> list[str]:
+    """List the differing cells of two TSV tables, with the relative difference of numbers."""
+    rows_a = list(csv.reader(path_a.read_text(encoding="utf-8").splitlines(), delimiter="\t"))
+    rows_b = list(csv.reader(path_b.read_text(encoding="utf-8").splitlines(), delimiter="\t"))
+    if len(rows_a) != len(rows_b):
+        return [f"    {len(rows_a)} vs {len(rows_b)} rows"]
+    header = rows_a[0] if rows_a else []
+    notes = []
+    for i, (ra, rb) in enumerate(zip(rows_a, rows_b)):
+        for j, (a, b) in enumerate(zip(ra, rb)):
+            if a == b:
+                continue
+            column = header[j] if j < len(header) else str(j)
+            try:
+                fa, fb = float(a), float(b)
+                rel = abs(fa - fb) / max(abs(fa), abs(fb), 1e-300)
+                notes.append(f"    row {i} {column}: {a} vs {b} (relative difference {rel:.1e})")
+            except ValueError:
+                notes.append(f"    row {i} {column}: {a!r} vs {b!r}")
+    return notes[:limit] + ([f"    ... {len(notes) - limit} more"] if len(notes) > limit else [])
+
+
 def same(path_a: Path, path_b: Path) -> bool:
     if path_a.suffix == ".json":
         return same_json(json.loads(path_a.read_text(encoding="utf-8")),
@@ -68,6 +91,8 @@ def main(argv: list[str]) -> int:
     differ = [rel for rel in sorted(set(ref_files) & set(new_files)) if not same(ref_files[rel], new_files[rel])]
     for rel in differ:
         print(f"DIFFERS: {rel}")
+        if rel.endswith(".tsv"):
+            print("\n".join(describe_tsv_difference(ref_files[rel], new_files[rel])))
     print(f"{ref.name} vs {new.name}: {len(ref_files)} result files, "
           f"{len(missing)} missing, {len(differ)} differing")
     return 1 if missing or differ else 0

@@ -56,8 +56,18 @@ jobs:
           python scripts/check_reproduction.py results/phase2/20261102T165336Z_e64fca252fa7 \
             "results/phase2/$(cat results/phase2/LATEST_RUN.txt)"
       - name: DNA repair, Phase 2 offline
+        if: success() || failure()
         shell: bash
         run: |
           python -m extremonet.analysis --config config/phase2_dna_repair.yaml --mode offline
           python scripts/check_reproduction.py results/dna_repair/phase2/20261102T170150Z_5a2a85f66091 \
             "results/dna_repair/phase2/$(cat results/dna_repair/phase2/LATEST_RUN.txt)"
+      - name: Keep the re-run outputs if a check failed
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reproduction-runs
+          path: |
+            results/phase2/2026*/
+            results/dna_repair/phase2/2026*/
+          retention-days: 14
