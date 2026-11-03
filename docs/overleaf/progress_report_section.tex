@@ -102,8 +102,8 @@ IntAct-confirmed STRING edges & 0 of 119 & 431 of 5,285 (8.2\%) \\
     (recA, lexA, ddrA, ddrB, pprA).
   \item \textbf{Module correspondence is weak.} Several bacterial modules match the human
     base-excision module best, because generic repair terms dominate the module profiles.
-  \item \textbf{Alignment.} Without a prior the result is borderline (p = 0.05 against rewired
-    networks). Anchored on homologs, conservation exceeds chance (p = 0.01--0.02), but STRING
+  \item \textbf{Alignment.} Without a prior there is no significant conservation (p = 0.08 against
+    rewired networks). Anchored on homologs, conservation exceeds chance (p = 0.01--0.02), but STRING
     transfers evidence between orthologs, so this is not independent evidence of conserved
     wiring.
   \item \textbf{Orthologs.} nth--NTHL1, DR\_0354--APEX1, DR\_2285--MUTYH, ung--UNG,
@@ -139,7 +139,7 @@ check & oxidative stress & DNA repair \\
 500 random weight sets: top-20 overlap (median) & 0.80 & 0.70 \\
 STRING threshold 0.4--0.9: top-20 overlap & 0.80--1.00 & 0.60--1.00 \\
 candidate analogues (3 GO similarity measures) & 65 / 81 / 120 & 67 / 90 / 108 \\
-NetMF link-prediction AUC (human) & 0.933 (Adamic--Adar 0.949) & 0.877 (Adamic--Adar 0.952) \\
+NetMF link-prediction AUC (human) & 0.935 (Adamic--Adar 0.949) & 0.879 (Adamic--Adar 0.952) \\
 \bottomrule
 \end{tabular}
 \caption{Sensitivity checks. Embeddings did not beat simple neighbourhood baselines and are
@@ -204,9 +204,9 @@ Code, cached data, reference runs and detailed reports are in the project reposi
 
 \begin{itemize}
   \item Repository: \url{https://github.com/Ananthapadmanabhan333/Cross-Species-Oxidative-States-}
-    (commit \texttt{65aa853})
-  \item Oxidative-stress reference run: \texttt{20261102T165336Z\_e64fca252fa7}
-  \item DNA-repair reference run: \texttt{20261102T170150Z\_5a2a85f66091}
+    (release \texttt{v0.3.0})
+  \item Oxidative-stress reference run: \texttt{20261103T111919Z\_860ea5376e14}
+  \item DNA-repair reference run: \texttt{20261103T112433Z\_73788e2787df}
 \end{itemize}
 
 \begin{thebibliography}{9}

@@ -293,8 +293,8 @@ random mappings ($p = 1/1001$, the smallest value 1,000 samples can give), but t
 that the optimiser works. Against degree-preserving rewired networks, oxidative-stress topology showed no conservation, either for
 the seed network or for the KO-projected network. The only low $p$-value (0.02) came from the
 KO-prior alignment of the projected network, which is not independent evidence (see below). For
-DNA repair, topology alone was borderline ($p = 0.05$), and homology-anchored alignment exceeded
-the null ($p = 0.01$--$0.02$; KO-projected variant $p = 0.005$). With 100 rewired samples the
+DNA repair, topology alone was not significant either ($p = 0.08$), while homology-anchored alignment
+exceeded the null ($p = 0.01$--$0.02$; KO-projected variant $p = 0.005$). With 100 rewired samples the
 smallest attainable $p$ is $1/101 \approx 0.01$ (and $1/201$ with 200 samples), so these values
 sit at the resolution limit of the test.
 
@@ -324,7 +324,7 @@ prior ($\alpha$) & conserved edges & $p$ \\
 \quad shared KO (0.8) & 13 & 0.02 \\
 \addlinespace
 \multicolumn{3}{l}{\emph{DNA repair, seed network (119 edges)}} \\
-\quad none (1.0) & 114 & 0.05 \\
+\quad none (1.0) & 114 & 0.08 \\
 \quad homology (0.8) & 87 & 0.02 \\
 \quad homology (0.5) & 89 & 0.01 \\
 \bottomrule
@@ -493,7 +493,7 @@ check & oxidative & DNA repair \\
 weights: median top-20 overlap & 0.80 & 0.70 \\
 STRING threshold 0.4--0.9: top-20 overlap & 0.80--1.00 & 0.60--1.00 \\
 candidate analogues (Ochiai / simGIC / min) & 81 / 65 / 120 & 90 / 67 / 108 \\
-NetMF AUC, human (Adamic--Adar) & 0.933 (0.949) & 0.877 (0.952) \\
+NetMF AUC, human (Adamic--Adar) & 0.935 (0.949) & 0.879 (0.952) \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -502,7 +502,7 @@ NetMF AUC, human (Adamic--Adar) & 0.933 (0.949) & 0.877 (0.952) \\
 
 The two processes give a consistent picture. Where homology exists, the networks and the evidence
 agree and recover the expected orthologs. Where it does not, network topology on its own carries
-little signal: it did not beat degree-matched random graphs for oxidative stress, and role
+little signal: it did not beat degree-matched random graphs for either process, and role
 similarity did not identify orthologs. The analogues that the analysis does propose rest on
 shared catalytic activity with independent support, not on network position. They are convergent
 enzymes, such as the two superoxide-dismutase families and the two families of oxidised-base
@@ -545,9 +545,9 @@ cross-check of the shortlist against human genetic constraint and disease associ
 
 {\raggedright
 Code, cached raw data, configuration, reference runs and full result tables are available at
-\url{https://github.com/Ananthapadmanabhan333/Cross-Species-Oxidative-States-} (commit
-\texttt{65aa853}). Reference runs: oxidative stress \texttt{20261102T165336Z\_e64fca252fa7}; DNA
-repair \texttt{20261102T170150Z\_5a2a85f66091}.\par}
+\url{https://github.com/Ananthapadmanabhan333/Cross-Species-Oxidative-States-} (release
+\texttt{v0.3.0}). Reference runs: oxidative stress \texttt{20261103T111919Z\_860ea5376e14}; DNA
+repair \texttt{20261103T112433Z\_73788e2787df}.\par}
 
 \IEEEtriggeratref{39}
 \begin{thebibliography}{99}

@@ -1,0 +1,4 @@
+alpha	iterations	final_l1_change	converged	aligned_pairs	edges_conserved	edges_in_dr	edge_conservation	null_mean_conserved	null_q95_conserved	p_vs_random_mapping	rewired_null_samples	rewired_graphs_distinct	rewired_null_mean_conserved	p_vs_rewired_null	aligned_pairs_that_are_rbh
+1	500	0.00641	False	16	9	11	0.818181818182	0.306	1	0.000999000999001	100	89	7.46	0.118811881188	0
+0.8	101	8.67e-10	True	16	8	11	0.727272727273	0.306	1	0.000999000999001	100	89	7.47	0.584158415842	5
+0.5	28	9.27e-10	True	16	7	11	0.636363636364	0.306	1	0.000999000999001	100	89	7.44	0.930693069307	5

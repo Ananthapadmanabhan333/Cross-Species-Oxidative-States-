@@ -40,7 +40,7 @@ run (this is what CI does):
 
 ```bash
 .venv/bin/python -m extremonet.analysis --config config/phase2_analysis.yaml --mode offline
-.venv/bin/python scripts/check_reproduction.py results/phase2/20261102T165336Z_e64fca252fa7 results/phase2/<new_run_id>
+.venv/bin/python scripts/check_reproduction.py results/phase2/20261103T111919Z_860ea5376e14 results/phase2/<new_run_id>
 ```
 
 A change that alters results on purpose needs new reference runs and updated findings documents

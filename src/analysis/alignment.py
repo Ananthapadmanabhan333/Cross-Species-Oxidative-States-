@@ -49,11 +49,16 @@ def isorank(g1: nx.Graph, g2: nx.Graph, prior: np.ndarray | None, alpha: float,
         r = nxt
         if delta < tol:
             break
-    return r, n1, n2, {"iterations": it, "final_l1_change": delta, "converged": delta < tol}
+    # The residual is a convergence diagnostic; digits beyond the third are rounding noise.
+    return r, n1, n2, {"iterations": it, "final_l1_change": float(f"{delta:.3g}"), "converged": delta < tol}
 
 
 def greedy_matching(r: np.ndarray, n1: list[str], n2: list[str]) -> list[tuple[str, str, float]]:
-    order = np.dstack(np.unravel_index(np.argsort(-r, axis=None, kind="stable"), r.shape))[0]
+    """Greedy one-to-one matching in decreasing score order. Scores are compared at 10 significant
+    digits relative to the maximum, so near-ties that differ only by floating-point noise become
+    exact ties, broken deterministically by node order instead of by the hardware's rounding."""
+    key = np.round(r / r.max(), 10) if r.size and r.max() > 0 else r
+    order = np.dstack(np.unravel_index(np.argsort(-key, axis=None, kind="stable"), r.shape))[0]
     used1, used2, pairs = set(), set(), []
     for i, j in order:
         if i in used1 or j in used2:

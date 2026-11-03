@@ -1,8 +1,8 @@
 # DNA-repair findings: D. radiodurans vs human
 
-Reference run: `results/dna_repair/phase2/20261102T170150Z_5a2a85f66091/` (generated report:
-`technical_report.md`). Seed-sensitivity runs: `20261102T170834Z_0e41d8f5b4be` (seed 1) and
-`20261102T171329Z_41c672396042` (seed 987654). Input: Phase 1 run `20261102T161839Z_7128c0f5ca4e`
+Reference run: `results/dna_repair/phase2/20261103T112433Z_73788e2787df/` (generated report:
+`technical_report.md`). Seed-sensitivity runs: `20261103T114216Z_0e41d8f5b4be` (seed 1) and
+`20261103T114851Z_41c672396042` (seed 987654). Input: Phase 1 run `20261102T161839Z_7128c0f5ca4e`
 (`config/phase1_dna_repair.yaml`; STRING 12.5), re-verified by checksum before analysis.
 
 The code and analysis parameters are identical to the oxidative-stress analysis
@@ -61,15 +61,21 @@ profiles, so this layer says "DNA repair resembles DNA repair" more than it maps
 
 | prior | edges conserved / 119 | rewired-null mean | p vs rewired null |
 |---|---|---|---|
-| none (α = 1) | 114 | 109.7 | 0.05 (100 samples) |
+| none (α = 1) | 114 | 110.0 | 0.08 (100 samples) |
 | homology (α = 0.8) | 87 | 77.7 | 0.02 |
 | homology (α = 0.5) | 89 | 75.3 | 0.01 |
 
-- **Topology alone is borderline.** The α = 1 result (p = 0.05) sits at the edge of what 100
-  rewired samples can resolve, and a dense human network lets most small graphs align well. The
-  KO-projected variant gives p = 0.08.
+- **Topology alone shows no significant conservation** (p = 0.08; KO-projected variant
+  p = 0.10). A dense human network lets most small graphs align well, so 114 of 119 edges are
+  conserved even for degree-matched random graphs (null mean 110.0).
 - **Anchored on homologs, the bacterial association structure is conserved more than chance.**
-  This holds against degree-preserving rewired graphs (p = 0.01–0.02; KO variant p = 0.005).
+  This holds against degree-preserving rewired graphs (p = 0.01–0.02; KO variant p = 0.005). With
+  100 rewired samples the smallest attainable p is 1/101 ≈ 0.01 (1/201 with 200), so these values
+  sit at the resolution limit of the test.
+- **Correction (2026-11-03).** An earlier version of this analysis reported p = 0.05 for topology
+  alone (KO variant 0.08). Near-ties in IsoRank's greedy matching were then decided by
+  floating-point rounding, which varies between CPUs; ties are now broken deterministically by
+  node order, and the result is identical on different hardware.
 - **This is not independent evidence of conserved wiring.** STRING transfers association evidence
   between orthologs of different organisms, so part of this conservation is built into the input
   scores. It is consistent with conserved pathway structure but cannot demonstrate it.
@@ -206,7 +212,7 @@ IntAct, BioGRID or MINT**, so the bacterial network is entirely functional-assoc
 | STRING threshold 0.4–0.9 | top-20 overlap with the 0.7 ranking 0.60–1.00 |
 | Random seed (two alternatives) | top-20 overlap 1.0; score Spearman ≥ 0.9988 |
 | Python hash seed (offline) | all 42 result tables byte-identical |
-| Embeddings (NetMF) | link-prediction AUC 0.877 (human) and 0.737 (*D. radiodurans*), below Adamic–Adar (0.952 / 0.931). Not used. |
+| Embeddings (NetMF) | link-prediction AUC 0.879 (human) and 0.728 (*D. radiodurans*), below Adamic–Adar (0.952 / 0.931). Not used. |
 | Proxy (16 ortholog pairs; evaluable) | `role` (topology only, no leakage) AUC 0.46: topology does not recover orthologs. Annotation components 0.83–0.97 (inflated by annotation transfer) |
 
 **The top of this ranking is less stable than for oxidative stress.** Without the homology

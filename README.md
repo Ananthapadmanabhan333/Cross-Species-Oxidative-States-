@@ -23,7 +23,7 @@ checksummed, and the reference analyses are reproduced offline in CI.
 | | Oxidative stress | DNA repair |
 |---|---|---|
 | Networks (*D. radiodurans* / human proteins, STRING score ≥ 0.7) | 16 / 382 | 52 / 426 |
-| Topology conserved beyond degree-preserving nulls? | no (p = 0.10) | borderline (p = 0.05); with homology prior p = 0.01–0.02 |
+| Topology conserved beyond degree-preserving nulls? | no (p = 0.10) | no (p = 0.08); with a homology prior p = 0.01–0.02 |
 | Clearest candidate analogues | Mn/Fe vs Cu/Zn superoxide dismutases | Fpg/MutM vs HhH-GPD DNA glycosylases (e.g. MutM–OGG1) |
 | Experimentally confirmed bacterial interactions (IntAct, BioGRID, MINT) | none | none |
 
@@ -82,15 +82,15 @@ All raw API responses are committed under `data/raw/`, so the analyses re-run of
 
 | Process | Phase 1 (networks) | Phase 2 (analysis) |
 |---|---|---|
-| Oxidative stress | `results/20261025T174736Z_5bbc7e723df4` | `results/phase2/20261102T165336Z_e64fca252fa7` |
-| DNA repair | `results/dna_repair/20261102T161839Z_7128c0f5ca4e` | `results/dna_repair/phase2/20261102T170150Z_5a2a85f66091` |
+| Oxidative stress | `results/20261025T174736Z_5bbc7e723df4` | `results/phase2/20261103T111919Z_860ea5376e14` |
+| DNA repair | `results/dna_repair/20261102T161839Z_7128c0f5ca4e` | `results/dna_repair/phase2/20261103T112433Z_73788e2787df` |
 
 ```bash
 .venv/bin/python -m extremonet.analysis --config config/phase2_analysis.yaml --mode offline
 ```
 
 ```bash
-.venv/bin/python scripts/check_reproduction.py results/phase2/20261102T165336Z_e64fca252fa7 results/phase2/<new_run_id>
+.venv/bin/python scripts/check_reproduction.py results/phase2/20261103T111919Z_860ea5376e14 results/phase2/<new_run_id>
 ```
 
 `check_reproduction.py` requires every result table to be byte-identical and every JSON summary

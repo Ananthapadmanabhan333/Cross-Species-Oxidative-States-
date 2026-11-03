@@ -309,3 +309,29 @@ def test_link_prediction_never_sees_held_out_edges(monkeypatch):
 def test_auc():
     assert embedding._auc(np.array([3.0, 4.0]), np.array([1.0, 2.0])) == 1.0
     assert embedding._auc(np.array([1.0]), np.array([1.0])) == 0.5
+
+
+def test_unit_rows_treat_rounding_noise_as_zero():
+    # An isolated node's NetMF row is zero only up to SVD rounding; it must not become a unit vector.
+    emb = np.array([[3.0, 4.0], [1e-16, -2e-16], [0.0, 0.0]])
+    unit = embedding._unit_rows(emb)
+    assert np.allclose(unit[0], [0.6, 0.8])
+    assert not unit[1].any() and not unit[2].any()
+
+
+def test_isolated_nodes_get_zero_cosine_in_link_prediction():
+    g = two_cliques()
+    for i in range(6):
+        g.add_node(f"iso{i}")
+    emb, order = embedding.netmf_embedding(g, 4, 3, 1.0)
+    unit = embedding._unit_rows(emb)
+    for n in ("iso", "iso0", "iso5"):
+        assert not unit[order.index(n)].any()
+
+
+def test_greedy_matching_breaks_noise_level_ties_by_node_order():
+    # Two scores that differ only by floating-point noise must tie, whichever is larger.
+    for noise in (1e-15, -1e-15):
+        r = np.array([[0.5, 0.5 + noise], [0.1, 0.1]])
+        pairs = alignment.greedy_matching(r, ["d1", "d2"], ["h1", "h2"])
+        assert [(a, b) for a, b, _ in pairs] == [("d1", "h1"), ("d2", "h2")]

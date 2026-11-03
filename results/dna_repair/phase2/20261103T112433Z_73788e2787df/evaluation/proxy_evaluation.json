@@ -1,0 +1,42 @@
+{
+  "ground_truth": "none available; orthologs (reciprocal best hits or shared KEGG KO) used as a proxy positive set",
+  "positives": 16,
+  "components": {
+    "role": {
+      "evaluable": true,
+      "auc_descriptive": 0.460376591123,
+      "positives_with_value": 14,
+      "negatives_with_value": 16509,
+      "leakage_risk": false
+    },
+    "module": {
+      "evaluable": true,
+      "auc_descriptive": 0.832098076374,
+      "positives_with_value": 14,
+      "negatives_with_value": 16509,
+      "leakage_risk": true
+    },
+    "pathway": {
+      "evaluable": true,
+      "auc_descriptive": 0.87324896227,
+      "positives_with_value": 13,
+      "negatives_with_value": 9099,
+      "leakage_risk": true
+    },
+    "go": {
+      "evaluable": true,
+      "auc_descriptive": 0.965184069915,
+      "positives_with_value": 16,
+      "negatives_with_value": 22084,
+      "leakage_risk": true
+    },
+    "ec": {
+      "evaluable": false,
+      "auc_descriptive": 0.986479643508,
+      "positives_with_value": 8,
+      "negatives_with_value": 4937,
+      "leakage_risk": true
+    }
+  },
+  "note": "An AUC is called evaluable only with >= 10 positives; below that it is listed as descriptive and must not be read as a performance estimate."
+}

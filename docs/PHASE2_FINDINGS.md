@@ -1,8 +1,8 @@
 # Phase 2 findings: oxidative-stress defence networks, D. radiodurans vs human
 
-Reference run: `results/phase2/20261102T165336Z_e64fca252fa7/` (generated report:
-`technical_report.md`). Seed-sensitivity runs: `20261102T165750Z_08cd65edddb8` (seed 1) and
-`20261102T170002Z_39fa731cabef` (seed 987654). Input: Phase 1 run `20261025T174736Z_5bbc7e723df4`
+Reference run: `results/phase2/20261103T111919Z_860ea5376e14/` (generated report:
+`technical_report.md`). Seed-sensitivity runs: `20261103T113549Z_08cd65edddb8` (seed 1) and
+`20261103T113903Z_39fa731cabef` (seed 987654). Input: Phase 1 run `20261025T174736Z_5bbc7e723df4`
 (STRING 12.5, UniProt 2026_03), re-verified by checksum before analysis.
 
 This revision adds three things:
@@ -217,10 +217,15 @@ Read it as "pairs worth examining", not as a fixed list.
 
 ## 6. Embeddings
 
-NetMF link prediction on the human network: AUC 0.933 ± 0.012, slightly below Adamic–Adar (0.949),
+NetMF link prediction on the human network: AUC 0.935 ± 0.011, slightly below Adamic–Adar (0.949),
 Jaccard (0.946) and common neighbours (0.945). Embeddings add nothing here and are not used in the
 ranking. The bacterial network is too small to evaluate, and no cross-species embedding comparison
 is made.
+
+*Correction (2026-11-03):* an earlier version reported 0.933 ± 0.012. Nodes without edges in a
+training split had embedding rows of floating-point noise (~1e-15), which were normalised into
+arbitrary unit vectors; such rows are now treated as zero, so their cosine is 0 and the result no
+longer depends on the CPU.
 
 ## 7. Evaluation and its limits
 

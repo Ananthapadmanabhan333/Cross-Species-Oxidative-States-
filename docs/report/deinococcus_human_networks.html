@@ -240,7 +240,7 @@ pre { margin: 0; background: var(--surface); border: 1px solid var(--rule); bord
         <tbody>
           <tr><td><span class="process-tag ox">Ox</span> topology only (α = 1)</td><td class="num">9 / 11</td><td class="num">0.10</td></tr>
           <tr><td><span class="process-tag ox">Ox</span> KO-projected network, KO prior (α = 0.8)</td><td class="num">13 / 16</td><td class="num">0.02</td></tr>
-          <tr><td><span class="process-tag dna">DNA</span> topology only (α = 1)</td><td class="num">114 / 119</td><td class="num">0.05</td></tr>
+          <tr><td><span class="process-tag dna">DNA</span> topology only (α = 1)</td><td class="num">114 / 119</td><td class="num">0.08</td></tr>
           <tr><td><span class="process-tag dna">DNA</span> homology prior (α = 0.5)</td><td class="num">89 / 119</td><td class="num">0.01</td></tr>
         </tbody>
       </table>
@@ -259,7 +259,7 @@ pre { margin: 0; background: var(--surface); border: 1px solid var(--rule); bord
           <tr><td>Alternative random seeds: top-20 overlap</td><td class="num">1.0</td><td class="num">1.0</td></tr>
           <tr><td>Offline re-run, different hash seed</td><td class="num">41/41 tables identical</td><td class="num">42/42 tables identical</td></tr>
           <tr><td>Candidate analogues across 3 similarity measures</td><td class="num">65 / 81 / 120</td><td class="num">67 / 90 / 108</td></tr>
-          <tr><td>NetMF vs Adamic–Adar (human, link-prediction AUC)</td><td class="num">0.933 vs 0.949</td><td class="num">0.877 vs 0.952</td></tr>
+          <tr><td>NetMF vs Adamic–Adar (human, link-prediction AUC)</td><td class="num">0.935 vs 0.949</td><td class="num">0.879 vs 0.952</td></tr>
         </tbody>
       </table>
     </div>
@@ -301,7 +301,7 @@ python -m extremonet.analysis --config config/phase2_analysis.yaml
 python -m extremonet --config config/phase1_dna_repair.yaml
 python -m extremonet.analysis --config config/phase2_dna_repair.yaml
 python -m pytest</pre>
-    <p class="prose small">Reference runs: oxidative stress <span class="mono">20261102T165336Z_e64fca252fa7</span>; DNA repair <span class="mono">20261102T170150Z_5a2a85f66091</span>. Detailed findings are in <span class="mono">docs/PHASE2_FINDINGS.md</span> and <span class="mono">docs/DNA_REPAIR_FINDINGS.md</span>; methods in <span class="mono">docs/PHASE2_METHODS.md</span>. Data sources: STRING 12.5, UniProtKB 2026_03, QuickGO, KEGG REST (academic use) and IntAct, all cached with provenance.</p>
+    <p class="prose small">Reference runs: oxidative stress <span class="mono">20261103T111919Z_860ea5376e14</span>; DNA repair <span class="mono">20261103T112433Z_73788e2787df</span>. Detailed findings are in <span class="mono">docs/PHASE2_FINDINGS.md</span> and <span class="mono">docs/DNA_REPAIR_FINDINGS.md</span>; methods in <span class="mono">docs/PHASE2_METHODS.md</span>. Data sources: STRING 12.5, UniProtKB 2026_03, QuickGO, KEGG REST (academic use) and IntAct, all cached with provenance.</p>
   </section>
 
   <section>

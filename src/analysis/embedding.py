@@ -37,6 +37,17 @@ def netmf_embedding(graph: nx.Graph, dim: int, window: int, negative: float) -> 
     return u[:, :k] * np.sqrt(s[:k]), nodes
 
 
+def _unit_rows(emb: np.ndarray, rel_tol: float = 1e-9) -> np.ndarray:
+    """Normalise embedding rows to unit length. Rows of nodes without signal (e.g. isolated in the
+    training graph) are zero only up to SVD rounding (~1e-15); normalising that noise would give
+    arbitrary, hardware-dependent cosines, so such rows are set exactly to zero (cosine 0)."""
+    norm = np.linalg.norm(emb, axis=1)
+    keep = norm > rel_tol * norm.max() if norm.size and norm.max() > 0 else np.zeros(len(norm), bool)
+    unit = np.zeros_like(emb)
+    unit[keep] = emb[keep] / norm[keep, None]
+    return unit
+
+
 def _auc(pos: np.ndarray, neg: np.ndarray) -> float:
     """Mann-Whitney AUC with ties counted as 1/2."""
     scores = np.concatenate([pos, neg])
@@ -66,12 +77,11 @@ def link_prediction(graph: nx.Graph, dim: int, window: int, negative: float, tes
         neg = sorted(negatives)
         emb, order = netmf_embedding(train, dim, window, negative)
         index = {n: i for i, n in enumerate(order)}
-        norm = np.linalg.norm(emb, axis=1)
-        norm[norm == 0] = 1.0
-        unit = emb / norm[:, None]
+        unit = _unit_rows(emb)
 
         def cosine(pairs):
-            return np.array([unit[index[u]] @ unit[index[v]] for u, v in pairs])
+            # Rounded so that cosines equal up to floating-point noise tie exactly in the AUC.
+            return np.round(np.array([unit[index[u]] @ unit[index[v]] for u, v in pairs]), 10)
 
         def classical(fn, pairs):
             return np.array([s for _, _, s in fn(train, pairs)], dtype=float)

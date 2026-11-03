@@ -147,7 +147,9 @@ isolated, because isolation at a threshold partly reflects coverage. Module simi
 - **Module correspondence:** core-term similarity of every pair of non-singleton modules.
 - **Alignment** (`analysis/alignment.py`): IsoRank (Singh, Xu & Berger 2008) with α ∈ `alphas`
   (α = 1 is topology only; α < 1 adds a homology prior from STRING bitscores), followed by greedy
-  one-to-one matching. Edge conservation is compared with random one-to-one mappings (a weak
+  one-to-one matching. Scores are compared at 10 significant digits relative to the maximum, so
+  near-ties that differ only by floating-point noise are broken by node order, not by the CPU's
+  rounding. Edge conservation is compared with random one-to-one mappings (a weak
   baseline) and with **degree-preserving rewired copies of the source graph aligned the same way**,
   which tests whether the observed topology aligns better than chance graphs with the same degrees.
 
@@ -196,9 +198,11 @@ Sensitivity analyses:
 
 Python randomises string hashing per process, so set iteration order varies between runs. All
 IC sums therefore run over sorted terms. Scores are rounded to 12 significant digits before
-ranking, and ties are broken by protein identifiers with a stable sort. Tables are written with
-12 significant digits. Outputs are byte-identical across `PYTHONHASHSEED` values (checked for
-0–3 on the reference run).
+ranking, and ties are broken by protein identifiers with a stable sort. Tables and JSON summaries
+are written with 12 significant digits. Outputs are byte-identical across `PYTHONHASHSEED` values
+(each verification run uses a different random hash seed) and across CPU instruction sets (checked by forcing
+OpenBLAS to Haswell and SkylakeX kernels). CI re-runs both reference analyses on a fresh Windows
+machine and requires identical results.
 
 ## 5a. Experimentally confirmed physical interactions (IntAct)
 
@@ -245,7 +249,9 @@ needs only numpy. It is evaluated by held-out-edge link prediction within one sp
 edges are removed *before* the embedding is computed (enforced by a test), and NetMF is compared
 with common neighbours, Jaccard, Adamic–Adar and preferential attachment on the same splits.
 Embeddings are never compared across species, because two independently factorised graphs do not
-share a coordinate system. Graphs with fewer than `min_edges_for_evaluation` edges are not evaluated.
+share a coordinate system. Rows of nodes without signal (e.g. isolated in the training graph) are
+zero only up to SVD rounding, so rows with norm below 1e-9 of the largest are set to zero (cosine
+0) instead of being normalised into arbitrary unit vectors; cosines are compared at 10 decimals. Graphs with fewer than `min_edges_for_evaluation` edges are not evaluated.
 
 ## 7. Evaluation
 
