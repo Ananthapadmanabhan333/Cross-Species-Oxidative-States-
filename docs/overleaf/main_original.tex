@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{2026-Graph-AnanthapadmanabhanDS}
+\author{hguzzi }
+\date{October 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This is a scientifically interesting and feasible direction, though it comes with real methodological challenges worth being upfront about. Here is my assessment and a proposed plan.
+
+Feasibility assessment
+The core premise is sound. Cross-species network comparison has precedent — network-level conservation often outlasts sequence-level conservation, and functional analogies (e.g., bacterial RecA-mediated repair vs. human BRCA2/RAD51-mediated HR, or Deinococcus Mn²⁺-dependent antioxidant defense vs. human MnSOD/Nrf2 oxidative-stress control) are exactly the kind of thing topology-based methods can surface when sequence similarity fails.
+The main bottleneck is data quality, not algorithms. Bacterial PPI networks (including D. radiodurans) are sparse and heavily biased toward well-studied proteins. I would strongly recommend using functional association networks (STRING, including text-mining and genomic-context channels) rather than physical PPI-only graphs, and treating network density differences explicitly in your comparison.
+Graph ML is a tool, not the answer. Embeddings and GNNs are useful for candidate prioritization, but for interpretability you'll want them paired with explicit topology metrics (graphlets, centrality, module preservation) and pathway-level reasoning. A hybrid "topology + embedding + literature" triage framework fits your stated goal better than a black-box model.
+Honest caveat: cross-kingdom network alignment is genuinely hard — orthology is ambiguous, and many protective mechanisms in Deinococcus (e.g., DdrA/DdrB, PprA) have no human orthologs at all. The realistic prize is analogous mechanisms (convergent network logic), not homologous ones. Framing the project around "conserved network principles" rather than "conserved genes" will keep it defensible.\\
+\textit{Proposed research plan}\\
+\textbf{Phase 1 — Network construction.} Build D. radiodurans and human functional networks from STRING (integrated score ≥ 0.7), restricted to DNA repair, oxidative-stress, and stress-response subsystems; harmonize node annotation via KEGG/GO and orthology (OrthoFinder) as a feature, not a filter.\\
+\textbf{Phase 2 — Topological characterization.} Compute per-node and per-module descriptors: degree, betweenness, graphlet degree vectors, module membership (Louvain/Leiden), and hub/bottleneck status; identify stress-induced subnetworks (overlay transcriptomic response data from irradiation/recovery time courses where available).\\
+\textbf{Phase 3 — Cross-species comparison.} Apply (a) module-level comparison via co-expression/module preservation statistics, (b) local network alignment (e.g., MAGNA++ or graphlet-based methods) seeded on known orthologs, and (c) graph embeddings (node2vec or similar) to find functional analogs — pairs of proteins occupying equivalent network positions without sequence similarity.\\
+\textbf{Phase 4 — Interpretability layer. }For each candidate analog pair, require convergent evidence: shared GO functional profile, conserved pathway position (e.g., both at repair-vs-apoptosis decision points), and literature support for stress involvement. Rank candidates by a transparent, weighted score rather than model output alone. \\
+\textbf{Phase 5 — Validation prioritization.} Nominate a shortlist (5–10 mechanisms) with concrete, testable predictions — e.g., "human cell lines with perturbed X should phenocopy ΔddrB radiosensitivity" — and cross-check against human genetics (constraint, disease associations) and existing perturbation data before proposing wet-lab work.
+A realistic first milestone is a small pilot: one subsystem (e.g., base excision repair or antioxidant defense), two species, topology-only comparison — enough to demonstrate the framework before scaling to whole-network graph ML.
+\end{document}

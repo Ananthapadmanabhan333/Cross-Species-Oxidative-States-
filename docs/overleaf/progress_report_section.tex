@@ -1,0 +1,218 @@
+% ---------------------------------------------------------------------------
+% Progress report section, appended below the original research plan.
+% The text above this point (Introduction and proposed plan) is unchanged.
+% All numbers come from the reference runs in the project repository.
+% ---------------------------------------------------------------------------
+\clearpage
+\section{Progress report (November 2026)}
+
+This section reports what has been implemented and found so far, following the plan above.
+Every number comes from reproducible reference runs of the pipeline. \textbf{All results are
+computational candidate relationships ranked by the available evidence. None demonstrates
+biological equivalence, and none has been tested experimentally.}
+
+\subsection{Implementation (Phase 1)}
+
+\begin{itemize}
+  \item \textbf{Networks.} \emph{D.~radiodurans} (NCBI 1299, mapped by STRING to strain R1,
+    243230) and human (9606) networks are built from STRING v12.5 at combined score
+    $\geq 0.7$ (configurable). Functional associations and STRING's physical subnetwork are
+    kept apart, and experimentally confirmed physical interactions are checked separately
+    in IntAct.
+  \item \textbf{Seeds.} Proteins are selected from UniProtKB by GO annotation (including
+    descendant terms): oxidative stress (GO:0006979, GO:0098869, GO:0016209) and DNA repair
+    (GO:0006281). Seeds without a STRING entry are reported, never substituted.
+  \item \textbf{Annotation.} GO with evidence codes (QuickGO; NOT qualifiers are treated as
+    contradictions), KEGG pathways and KEGG Orthology, EC numbers, PANTHER, Pfam and InterPro.
+  \item \textbf{Orthology as a feature, not a filter.} Instead of OrthoFinder, homology is graded
+    in tiers: reciprocal best hit, shared KEGG KO, shared PANTHER family, one-way best hit,
+    shared Pfam, shared InterPro, and a ``common fold'' tier for frequent fold-level signatures.
+  \item \textbf{Reproducibility.} All API responses are cached immutably with SHA-256
+    checksums, every run writes a manifest, the full analysis reruns offline, and result tables
+    are byte-identical across reruns. The pipeline runs with one command and has 88 automated
+    tests with mocked APIs.
+\end{itemize}
+
+\subsection{Oxidative-stress pilot}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrr}
+\hline
+ & \emph{D. radiodurans} & \emph{H. sapiens} \\
+\hline
+proteins in network & 16 & 382 \\
+edges (score $\geq 0.7$) & 11 & 2,210 \\
+isolated proteins & 9 & -- \\
+IntAct-confirmed STRING edges & 0 of 11 & 275 of 2,210 (12.4\%) \\
+\hline
+\end{tabular}
+\caption{Oxidative-stress networks.}
+\end{table}
+
+\begin{itemize}
+  \item \textbf{Coverage.} The bacterial network is small because few proteins carry the seed
+    GO terms, not because they are poorly connected: random 16-protein human subsets have on
+    average 3.5 edges, the bacterial set has 11. Adding every bacterial gene sharing a KEGG KO
+    with a human seed only grows the network to 27 proteins and 16 edges.
+  \item \textbf{Modules.} Louvain (stability over 50 seeds, mean ARI 0.74 for human) finds a
+    69-protein human antioxidant module (SOD1--3, CAT, PRDX1--6, GPX2--8, TXNRD1--3,
+    NFE2L2/KEAP1), plus proteasome and mitochondrial modules. Both bacterial modules match the
+    human antioxidant module best.
+  \item \textbf{Alignment.} Global alignment (IsoRank) conserves more edges than random
+    mappings, but not more than degree-preserving rewired networks (p = 0.10 without prior;
+    0.63--0.88 with a homology prior). \textbf{Topology alone shows no conserved wiring.}
+  \item \textbf{Orthologs (sanity check).} Reciprocal best hits recover katA--CAT, sodA--SOD2,
+    msrB--MSRB3 and the bacterial peroxiredoxin with PRDX2.
+  \item \textbf{Candidate analogues.} Superoxide dismutation by unrelated families: bacterial
+    Mn/Fe-SOD (sodA) with human Cu/Zn-SOD3 and SOD1, and bacterial Cu/Zn proteins with human
+    Mn-SOD2. Peroxide removal by catalase (katA, DRA0259) versus peroxiredoxins is an analogy of
+    reaction class only.
+  \item \textbf{Mixed evidence.} sodA mutants are more radiation-sensitive in one study
+    \cite{markillie1999}, but $\Delta$MnSOD mutants survive gamma radiation better in another,
+    which attributes protection to small-molecule Mn$^{2+}$ antioxidants
+    \cite{gaidamakova2022}. A protein network cannot represent these non-protein defences.
+  \item \textbf{Worth an assay.} OsmC (DR1538) pairs with human GPX2/7/8 on shared function
+    and a curated disruption phenotype \cite{wang2016}, without any detectable homology.
+\end{itemize}
+
+\subsection{DNA repair}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrr}
+\hline
+ & \emph{D. radiodurans} & \emph{H. sapiens} \\
+\hline
+seeds mapped to STRING & 52 of 56 & 426 of 432 \\
+edges (score $\geq 0.7$) & 119 & 5,285 \\
+largest component & 41 & 400 \\
+IntAct-confirmed STRING edges & 0 of 119 & 431 of 5,285 (8.2\%) \\
+\hline
+\end{tabular}
+\caption{DNA-repair networks.}
+\end{table}
+
+\begin{itemize}
+  \item \textbf{Bacterial modules recover known pathways.} All five non-singleton Louvain
+    modules are FDR-significant: base-excision repair, RecFOR recombination,
+    nucleotide-excision repair, replication/mismatch repair, and a radiation-response module
+    (recA, lexA, ddrA, ddrB, pprA).
+  \item \textbf{Module correspondence is weak.} Several bacterial modules match the human
+    base-excision module best, because generic repair terms dominate the module profiles.
+  \item \textbf{Alignment.} Without a prior the result is borderline (p = 0.05 against rewired
+    networks). Anchored on homologs, conservation exceeds chance (p = 0.01--0.02), but STRING
+    transfers evidence between orthologs, so this is not independent evidence of conserved
+    wiring.
+  \item \textbf{Orthologs.} nth--NTHL1, DR\_0354--APEX1, DR\_2285--MUTYH, ung--UNG,
+    mutL--MLH1, recA--DMC1; homologs include recA--RAD51, RecQ--WRN and ddrA--RAD52
+    \cite{harris2004}.
+  \item \textbf{Convergent glycosylases (clearest analogues).} mutM (Fpg family) with NTHL1 and
+    OGG1 (HhH-GPD family), and nth with NEIL1/NEIL3: different folds, same AP-lyase activity.
+    Bacterial MutM and human OGG1 both remove 8-oxoguanine.
+  \item \textbf{Pathway-level analogy.} UvrABC versus XPC/TFIIH in nucleotide-excision repair,
+    and recO versus RAD52 in recombination: same pathway, largely different proteins.
+  \item \textbf{Curated evidence changes interpretations.} lexA deletion does not change
+    radiation survival \cite{jolivet2006}, despite its GO ``DNA repair'' label; pprA loss
+    reduces radiation resistance \cite{narumi2004}, but $\Delta$pprA repairs double-strand
+    breaks efficiently and its defect lies in segregation \cite{devigne2013}. pprA has no
+    supported human counterpart.
+\end{itemize}
+
+\subsection{Ranking and robustness (Phase 4)}
+
+Each pair gets a transparent weighted mean over the evidence components available for it
+(EC, GO, KEGG pathway, literature, perturbation, module, network role, homology), so missing
+evidence never counts as negative. Pairs with too little evidence are listed but not ranked.
+Pairs are labelled ortholog, homolog, distant homolog, candidate analogue, shared function,
+similar pathway role or speculative.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{p{4.2cm}p{3.2cm}p{3.2cm}}
+\hline
+check & oxidative stress & DNA repair \\
+\hline
+500 random weight sets: top-20 overlap (median) & 0.80 & 0.70 \\
+STRING threshold 0.4--0.9: top-20 overlap & 0.80--1.00 & 0.60--1.00 \\
+candidate analogues (3 GO similarity measures) & 65 / 81 / 120 & 67 / 90 / 108 \\
+NetMF link-prediction AUC (human) & 0.933 (Adamic--Adar 0.949) & 0.877 (Adamic--Adar 0.952) \\
+\hline
+\end{tabular}
+\caption{Sensitivity checks. Embeddings did not beat simple neighbourhood baselines and are
+not used in the ranking.}
+\end{table}
+
+There is no ground truth for cross-species analogy, so no accuracy is claimed. Network-role
+similarity alone does not recover known orthologs (AUC 0.46 on 16 DNA-repair ortholog pairs).
+
+\subsection{Status against the proposed plan}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{p{0.9cm}p{4.9cm}p{4.9cm}}
+\hline
+phase & done & not done / different \\
+\hline
+1 & STRING $\geq 0.7$ networks; oxidative stress and DNA repair; KEGG/GO; orthology as a feature
+  & broader stress-response subsystem; OrthoFinder (replaced by RBH, KEGG KO, PANTHER, Pfam/InterPro) \\
+2 & degree, betweenness, closeness, clustering, hub/bottleneck; Louvain with stability
+  & graphlet degree vectors; Leiden; transcriptomic overlay of irradiation time courses \\
+3 & module correspondence by enrichment profiles; global alignment seeded on homology, with
+  rewired nulls
+  & module-preservation statistics; MAGNA++ or graphlet alignment; cross-species embeddings \\
+4 & transparent weighted score, evidence categories, sensitivity analysis & -- \\
+5 & candidate shortlist with proposed experiments; curated bacterial mutant evidence
+  & cross-check against human genetics (constraint, disease associations) \\
+\hline
+\end{tabular}
+\caption{Progress against the five phases.}
+\end{table}
+
+\subsection{Limitations}
+
+\begin{itemize}
+  \item STRING edges are functional associations, partly transferred between organisms through
+    orthology. IntAct, BioGRID and MINT hold no physical interactions for the bacterial seed
+    proteins, so physical-interaction comparison across the two species is not possible.
+  \item Most bacterial GO annotation is electronic. ``No detected homology'' cannot exclude
+    very remote homology.
+  \item Curated mutant evidence covers 12 bacterial proteins, from abstracts only. Human
+    perturbation evidence comes only from GO evidence codes.
+  \item Broad EC numbers (e.g. EC 2.7.7.7, any DNA polymerase) inflate some analogues.
+\end{itemize}
+
+\subsection{Proposed next steps}
+
+\begin{enumerate}
+  \item Cross-complementation tests: \emph{D.~radiodurans} sodA deletion with human SOD1/SOD3
+    (under H$_2$O$_2$ and desiccation), mutM deletion with human OGG1, and nth with NEIL1.
+  \item An activity assay for OsmC (DR1538) to settle the comparison with GPXs.
+  \item The missing Phase 2--3 methods: graphlet degree vectors, Leiden, module-preservation
+    statistics and a local aligner, then cross-species embeddings.
+  \item Cross-check the shortlist against human constraint and disease-association data.
+  \item Represent Mn$^{2+}$--metabolite antioxidants explicitly as network context.
+\end{enumerate}
+
+\subsection{Reproducibility}
+
+Code, cached data, reference runs and detailed reports are in the GitHub repository
+(commit \texttt{65aa853}):\\
+\texttt{Ananthapadmanabhan333/Cross-Species-Oxidative-States-}\\
+Reference runs:\\
+oxidative stress \texttt{20261102T165336Z\_e64fca252fa7}\\
+DNA repair \texttt{20261102T170150Z\_5a2a85f66091}
+
+\begin{thebibliography}{9}
+\bibitem{markillie1999} Markillie et al. (1999), doi:10.1128/JB.181.2.666-669.1999.
+\bibitem{gaidamakova2022} Gaidamakova et al. (2022), doi:10.1128/mbio.03394-21.
+\bibitem{wang2016} Wang et al. (2016), doi:10.3109/09553002.2016.1150618.
+\bibitem{harris2004} Harris et al. (2004), doi:10.1371/journal.pbio.0020304.
+\bibitem{jolivet2006} Jolivet et al. (2006), doi:10.1111/j.1365-2958.2005.04946.x.
+\bibitem{narumi2004} Narumi et al. (2004), doi:10.1111/j.1365-2958.2004.04272.x.
+\bibitem{devigne2013} Devigne et al. (2013), doi:10.1016/j.dnarep.2013.01.004.
+\end{thebibliography}
