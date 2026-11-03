@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: Tests and checksums (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-lock.txt
+      - name: Install
+        run: |
+          python -m pip install -r requirements-lock.txt
+          python -m pip install -e . --no-deps
+      - name: Unit tests (all HTTP mocked)
+        run: python -m pytest -m "not live"
+      - name: Verify checksums of every reference run and cached API response
+        run: python scripts/verify_checksums.py --all
+
+  reproduce:
+    # The reference runs were made on Windows; reproduction is checked on the same platform.
+    name: Reproduce reference analyses offline
+    needs: tests
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-lock.txt
+      - name: Install
+        run: |
+          python -m pip install -r requirements-lock.txt
+          python -m pip install -e . --no-deps
+      - name: Oxidative stress, Phase 2 offline
+        shell: bash
+        run: |
+          python -m extremonet.analysis --config config/phase2_analysis.yaml --mode offline
+          python scripts/check_reproduction.py results/phase2/20261102T165336Z_e64fca252fa7 \
+            "results/phase2/$(cat results/phase2/LATEST_RUN.txt)"
+      - name: DNA repair, Phase 2 offline
+        shell: bash
+        run: |
+          python -m extremonet.analysis --config config/phase2_dna_repair.yaml --mode offline
+          python scripts/check_reproduction.py results/dna_repair/phase2/20261102T170150Z_5a2a85f66091 \
+            "results/dna_repair/phase2/$(cat results/dna_repair/phase2/LATEST_RUN.txt)"

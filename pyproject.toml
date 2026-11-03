@@ -4,10 +4,21 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "extremonet"
-version = "0.2.0"
-description = "Cross-species biological network discovery: oxidative-stress defence networks in Deinococcus radiodurans and Homo sapiens (Phases 1-2)."
+version = "0.3.0"
+description = "Cross-species network analysis of oxidative-stress and DNA-repair proteins in Deinococcus radiodurans and Homo sapiens, with evidence-graded ranking of candidate functional analogues."
 readme = "README.md"
 requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Ananthapadmanabhan" }]
+keywords = ["protein networks", "network alignment", "functional analogy", "Deinococcus radiodurans",
+            "oxidative stress", "DNA repair", "STRING", "reproducibility"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
 dependencies = [
     "networkx==3.4.2",
     "pandas==2.2.3",
@@ -17,6 +28,10 @@ dependencies = [
     "scipy==1.14.1",
     "matplotlib==3.9.2",
 ]
+
+[project.urls]
+Repository = "https://github.com/Ananthapadmanabhan333/Cross-Species-Oxidative-States-"
+Issues = "https://github.com/Ananthapadmanabhan333/Cross-Species-Oxidative-States-/issues"
 
 [project.optional-dependencies]
 test = ["pytest==8.3.3"]

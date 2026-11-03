@@ -1,0 +1,4 @@
+# Cached API responses and run outputs are verified by SHA-256, so they must be checked out
+# byte-for-byte on every platform, whatever the local core.autocrlf setting.
+data/** -text
+results/** -text

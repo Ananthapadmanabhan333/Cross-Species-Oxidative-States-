@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below."
+title: "ExtremoNet: cross-species network analysis of Deinococcus radiodurans and human stress-defence proteins"
+type: software
+authors:
+  - name: "Ananthapadmanabhan"
+version: 0.3.0
+date-released: 2026-11-03
+license: MIT
+repository-code: "https://github.com/Ananthapadmanabhan333/Cross-Species-Oxidative-States-"
+keywords:
+  - protein networks
+  - network alignment
+  - functional analogy
+  - Deinococcus radiodurans
+  - oxidative stress
+  - DNA repair
+  - STRING
+  - reproducibility
+abstract: >-
+  A reproducible pipeline that builds STRING functional-association networks of the oxidative-stress
+  and DNA-repair proteins of Deinococcus radiodurans and Homo sapiens, compares them by topology,
+  modules and IsoRank alignment against degree-preserving null models, and ranks every cross-species
+  protein pair with a transparent, evidence-graded score that separates orthologs, homologs, distant
+  homologs and candidate functional analogues. All results are computational candidates.

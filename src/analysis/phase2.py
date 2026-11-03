@@ -43,9 +43,22 @@ def _tsv(frame: pd.DataFrame, path: Path) -> None:
     frame.to_csv(path, sep="\t", index=False, float_format="%.12g")
 
 
+def _round_floats(value: Any) -> Any:
+    """Round floats to 12 significant digits, as `_tsv` does, so JSON summaries are also
+    byte-identical across hash seeds (e.g. Louvain modularity differs at ~1e-16 otherwise)."""
+    if isinstance(value, float):
+        return float(f"{value:.12g}")
+    if isinstance(value, dict):
+        return {k: _round_floats(v) for k, v in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_round_floats(v) for v in value]
+    return value
+
+
 def _json(payload: Any, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, default=_default), encoding="utf-8")
+    payload = _round_floats(json.loads(json.dumps(payload, default=_default)))
+    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 
 def _default(obj: Any) -> Any:
