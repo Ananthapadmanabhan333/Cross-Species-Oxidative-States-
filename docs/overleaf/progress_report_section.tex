@@ -35,18 +35,18 @@ biological equivalence, and none has been tested experimentally.}
 
 \subsection{Oxidative-stress pilot}
 
-\begin{table}[h]
+\begin{table}[htbp]
 \centering
 \small
 \begin{tabular}{lrr}
-\hline
+\toprule
  & \emph{D. radiodurans} & \emph{H. sapiens} \\
-\hline
+\midrule
 proteins in network & 16 & 382 \\
 edges (score $\geq 0.7$) & 11 & 2,210 \\
 isolated proteins & 9 & -- \\
 IntAct-confirmed STRING edges & 0 of 11 & 275 of 2,210 (12.4\%) \\
-\hline
+\bottomrule
 \end{tabular}
 \caption{Oxidative-stress networks.}
 \end{table}
@@ -79,18 +79,18 @@ IntAct-confirmed STRING edges & 0 of 11 & 275 of 2,210 (12.4\%) \\
 
 \subsection{DNA repair}
 
-\begin{table}[h]
+\begin{table}[htbp]
 \centering
 \small
 \begin{tabular}{lrr}
-\hline
+\toprule
  & \emph{D. radiodurans} & \emph{H. sapiens} \\
-\hline
+\midrule
 seeds mapped to STRING & 52 of 56 & 426 of 432 \\
 edges (score $\geq 0.7$) & 119 & 5,285 \\
 largest component & 41 & 400 \\
 IntAct-confirmed STRING edges & 0 of 119 & 431 of 5,285 (8.2\%) \\
-\hline
+\bottomrule
 \end{tabular}
 \caption{DNA-repair networks.}
 \end{table}
@@ -129,18 +129,18 @@ evidence never counts as negative. Pairs with too little evidence are listed but
 Pairs are labelled ortholog, homolog, distant homolog, candidate analogue, shared function,
 similar pathway role or speculative.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \small
-\begin{tabular}{p{4.2cm}p{3.2cm}p{3.2cm}}
-\hline
+\begin{tabular}{L{4.2cm}L{3.2cm}L{3.2cm}}
+\toprule
 check & oxidative stress & DNA repair \\
-\hline
+\midrule
 500 random weight sets: top-20 overlap (median) & 0.80 & 0.70 \\
 STRING threshold 0.4--0.9: top-20 overlap & 0.80--1.00 & 0.60--1.00 \\
 candidate analogues (3 GO similarity measures) & 65 / 81 / 120 & 67 / 90 / 108 \\
 NetMF link-prediction AUC (human) & 0.933 (Adamic--Adar 0.949) & 0.877 (Adamic--Adar 0.952) \\
-\hline
+\bottomrule
 \end{tabular}
 \caption{Sensitivity checks. Embeddings did not beat simple neighbourhood baselines and are
 not used in the ranking.}
@@ -151,13 +151,13 @@ similarity alone does not recover known orthologs (AUC 0.46 on 16 DNA-repair ort
 
 \subsection{Status against the proposed plan}
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \small
-\begin{tabular}{p{0.9cm}p{4.9cm}p{4.9cm}}
-\hline
+\begin{tabular}{L{0.9cm}L{4.9cm}L{4.9cm}}
+\toprule
 phase & done & not done / different \\
-\hline
+\midrule
 1 & STRING $\geq 0.7$ networks; oxidative stress and DNA repair; KEGG/GO; orthology as a feature
   & broader stress-response subsystem; OrthoFinder (replaced by RBH, KEGG KO, PANTHER, Pfam/InterPro) \\
 2 & degree, betweenness, closeness, clustering, hub/bottleneck; Louvain with stability
@@ -168,7 +168,7 @@ phase & done & not done / different \\
 4 & transparent weighted score, evidence categories, sensitivity analysis & -- \\
 5 & candidate shortlist with proposed experiments; curated bacterial mutant evidence
   & cross-check against human genetics (constraint, disease associations) \\
-\hline
+\bottomrule
 \end{tabular}
 \caption{Progress against the five phases.}
 \end{table}
@@ -200,19 +200,21 @@ phase & done & not done / different \\
 
 \subsection{Reproducibility}
 
-Code, cached data, reference runs and detailed reports are in the GitHub repository
-(commit \texttt{65aa853}):\\
-\texttt{Ananthapadmanabhan333/Cross-Species-Oxidative-States-}\\
-Reference runs:\\
-oxidative stress \texttt{20261102T165336Z\_e64fca252fa7}\\
-DNA repair \texttt{20261102T170150Z\_5a2a85f66091}
+Code, cached data, reference runs and detailed reports are in the project repository.
+
+\begin{itemize}
+  \item Repository: \url{https://github.com/Ananthapadmanabhan333/Cross-Species-Oxidative-States-}
+    (commit \texttt{65aa853})
+  \item Oxidative-stress reference run: \texttt{20261102T165336Z\_e64fca252fa7}
+  \item DNA-repair reference run: \texttt{20261102T170150Z\_5a2a85f66091}
+\end{itemize}
 
 \begin{thebibliography}{9}
-\bibitem{markillie1999} Markillie et al. (1999), doi:10.1128/JB.181.2.666-669.1999.
-\bibitem{gaidamakova2022} Gaidamakova et al. (2022), doi:10.1128/mbio.03394-21.
-\bibitem{wang2016} Wang et al. (2016), doi:10.3109/09553002.2016.1150618.
-\bibitem{harris2004} Harris et al. (2004), doi:10.1371/journal.pbio.0020304.
-\bibitem{jolivet2006} Jolivet et al. (2006), doi:10.1111/j.1365-2958.2005.04946.x.
-\bibitem{narumi2004} Narumi et al. (2004), doi:10.1111/j.1365-2958.2004.04272.x.
-\bibitem{devigne2013} Devigne et al. (2013), doi:10.1016/j.dnarep.2013.01.004.
+\bibitem{markillie1999} Markillie et al. (1999), \href{https://doi.org/10.1128/JB.181.2.666-669.1999}{doi:10.1128/JB.181.2.666-669.1999}.
+\bibitem{gaidamakova2022} Gaidamakova et al. (2022), \href{https://doi.org/10.1128/mbio.03394-21}{doi:10.1128/mbio.03394-21}.
+\bibitem{wang2016} Wang et al. (2016), \href{https://doi.org/10.3109/09553002.2016.1150618}{doi:10.3109/09553002.2016.1150618}.
+\bibitem{harris2004} Harris et al. (2004), \href{https://doi.org/10.1371/journal.pbio.0020304}{doi:10.1371/journal.pbio.0020304}.
+\bibitem{jolivet2006} Jolivet et al. (2006), \href{https://doi.org/10.1111/j.1365-2958.2005.04946.x}{doi:10.1111/j.1365-2958.2005.04946.x}.
+\bibitem{narumi2004} Narumi et al. (2004), \href{https://doi.org/10.1111/j.1365-2958.2004.04272.x}{doi:10.1111/j.1365-2958.2004.04272.x}.
+\bibitem{devigne2013} Devigne et al. (2013), \href{https://doi.org/10.1016/j.dnarep.2013.01.004}{doi:10.1016/j.dnarep.2013.01.004}.
 \end{thebibliography}

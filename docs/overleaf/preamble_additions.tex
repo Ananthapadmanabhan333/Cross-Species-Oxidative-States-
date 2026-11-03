@@ -1,0 +1,18 @@
+% Added below \usepackage{graphicx} in main.tex. The document text is unchanged:
+% these lines only make it typeset correctly.
+% Unicode symbols used in the text that pdfLaTeX does not handle by default
+% (superscript 2 is redefined too, so that "Mn2+" has both signs on one baseline).
+\DeclareUnicodeCharacter{00B2}{\textsuperscript{2}}
+\DeclareUnicodeCharacter{207A}{\textsuperscript{+}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\geq}}
+\DeclareUnicodeCharacter{0394}{\ensuremath{\Delta}}
+% Straight "..." quotes become proper opening and closing quotes.
+\usepackage{csquotes}
+\MakeOuterQuote{"}
+\usepackage{booktabs}  % table rules
+\usepackage{array}     % ragged-right table columns
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{float}     % [H]: keep a table where it is written
+\usepackage{microtype} % better line breaking and spacing
+\usepackage{xurl}      % long URLs may break across lines
+\usepackage[hidelinks]{hyperref}
