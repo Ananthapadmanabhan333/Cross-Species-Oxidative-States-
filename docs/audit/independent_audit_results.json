@@ -1,0 +1,682 @@
+[
+  {
+    "process": "oxidative",
+    "claim": "STRING version",
+    "manuscript": "12.5",
+    "recomputed": "12.5",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "D.r. seed entries",
+    "manuscript": 16,
+    "recomputed": 16,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "D.r. mapped proteins",
+    "manuscript": 16,
+    "recomputed": 16,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "D.r. edges (score >= 0.7)",
+    "manuscript": 11,
+    "recomputed": 11,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "D.r. isolated proteins",
+    "manuscript": 9,
+    "recomputed": 9,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "D.r. largest component",
+    "manuscript": 5,
+    "recomputed": 5,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "D.r. edges also in STRING physical subnetwork",
+    "manuscript": 4,
+    "recomputed": 4,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "H.s. seed entries",
+    "manuscript": 385,
+    "recomputed": 385,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "H.s. mapped proteins",
+    "manuscript": 382,
+    "recomputed": 382,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "H.s. edges (score >= 0.7)",
+    "manuscript": 2210,
+    "recomputed": 2210,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "H.s. isolated proteins",
+    "manuscript": 70,
+    "recomputed": 70,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "H.s. largest component",
+    "manuscript": 295,
+    "recomputed": 295,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "H.s. edges also in STRING physical subnetwork",
+    "manuscript": 1152,
+    "recomputed": 1152,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "mean edges of random 16-protein human subsets",
+    "manuscript": 3.5,
+    "recomputed": 3.6,
+    "status": "CLOSE",
+    "note": "5000 fresh random subsets (different draws from the pipeline)"
+  },
+  {
+    "process": "oxidative",
+    "claim": "share of random subsets with fewer edges than D.r. (%)",
+    "manuscript": 97.7,
+    "recomputed": 97.6,
+    "status": "CLOSE",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "D.r. STRING edges confirmed in IntAct",
+    "manuscript": 0,
+    "recomputed": 0,
+    "status": "MATCH",
+    "note": "1 IntAct responses; (checksum ok, HTTP status): [(True, 200)]"
+  },
+  {
+    "process": "oxidative",
+    "claim": "D.r. physical-subnetwork edges confirmed (%)",
+    "manuscript": 0.0,
+    "recomputed": 0.0,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "H.s. STRING edges confirmed in IntAct",
+    "manuscript": 275,
+    "recomputed": 522,
+    "status": "DIFFERS",
+    "note": "49 IntAct responses; (checksum ok, HTTP status): [(True, 200)]"
+  },
+  {
+    "process": "oxidative",
+    "claim": "H.s. physical-subnetwork edges confirmed (%)",
+    "manuscript": 21.1,
+    "recomputed": 40.5,
+    "status": "DIFFERS",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "H.s. Louvain mean pairwise ARI",
+    "manuscript": 0.74,
+    "recomputed": 0.75,
+    "status": "CLOSE",
+    "note": "50 fresh seeds (pipeline uses different derived seeds)"
+  },
+  {
+    "process": "oxidative",
+    "claim": "H.s. Louvain modularity (median of fresh runs)",
+    "manuscript": 0.54,
+    "recomputed": 0.54,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "H.s. modularity of the pipeline's reported partition",
+    "manuscript": 0.54,
+    "recomputed": 0.54,
+    "status": "MATCH",
+    "note": "networkx modularity on the independently rebuilt graph"
+  },
+  {
+    "process": "oxidative",
+    "claim": "IsoRank conserved edges, alpha=1.0",
+    "manuscript": 9,
+    "recomputed": 9,
+    "status": "MATCH",
+    "note": "independent IsoRank + greedy matching on the rebuilt graphs"
+  },
+  {
+    "process": "oxidative",
+    "claim": "rewired-null p, alpha=1.0 (as reported)",
+    "manuscript": 0.1,
+    "recomputed": 0.1,
+    "status": "MATCH",
+    "note": "p = (1 + 9) / (1 + 100); integer count consistent: True"
+  },
+  {
+    "process": "oxidative",
+    "claim": "IsoRank conserved edges, alpha=0.8",
+    "manuscript": 8,
+    "recomputed": 8,
+    "status": "MATCH",
+    "note": "independent IsoRank + greedy matching on the rebuilt graphs"
+  },
+  {
+    "process": "oxidative",
+    "claim": "rewired-null p, alpha=0.8 (as reported)",
+    "manuscript": 0.63,
+    "recomputed": 0.63,
+    "status": "MATCH",
+    "note": "p = (1 + 63) / (1 + 100); integer count consistent: True"
+  },
+  {
+    "process": "oxidative",
+    "claim": "IsoRank conserved edges, alpha=0.5",
+    "manuscript": 7,
+    "recomputed": 7,
+    "status": "MATCH",
+    "note": "independent IsoRank + greedy matching on the rebuilt graphs"
+  },
+  {
+    "process": "oxidative",
+    "claim": "rewired-null p, alpha=0.5 (as reported)",
+    "manuscript": 0.88,
+    "recomputed": 0.88,
+    "status": "MATCH",
+    "note": "p = (1 + 88) / (1 + 100); integer count consistent: True"
+  },
+  {
+    "process": "oxidative",
+    "claim": "H.s. NetMF link-prediction AUC (mean of 5 splits)",
+    "manuscript": 0.935,
+    "recomputed": 0.935,
+    "status": "MATCH",
+    "note": "independent NetMF and AUC; splits drawn with the pipeline's documented seed rule"
+  },
+  {
+    "process": "oxidative",
+    "claim": "H.s. Adamic-Adar AUC (mean of 5 splits)",
+    "manuscript": 0.949,
+    "recomputed": 0.949,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "pair scores recomputed from components (max abs. difference)",
+    "manuscript": 0.0,
+    "recomputed": 6.3e-13,
+    "status": "CLOSE",
+    "note": "6112 pairs"
+  },
+  {
+    "process": "oxidative",
+    "claim": "eligibility (coverage >= 0.45) disagreements",
+    "manuscript": 0,
+    "recomputed": 4,
+    "status": "DIFFERS",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "category rule disagreements",
+    "manuscript": 0,
+    "recomputed": 0,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "rank and category of katA-CAT",
+    "manuscript": "7 ortholog_rbh",
+    "recomputed": "7 ortholog_rbh",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "rank and category of sodA-SOD2",
+    "manuscript": "16 ortholog_rbh",
+    "recomputed": "16 ortholog_rbh",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "rank and category of DR_0846-PRDX5",
+    "manuscript": "1 homolog",
+    "recomputed": "1 homolog",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "rank and category of sodA-SOD3",
+    "manuscript": "19 candidate_analogue",
+    "recomputed": "19 candidate_analogue",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "rank and category of sodC-SOD2",
+    "manuscript": "76 candidate_analogue",
+    "recomputed": "76 candidate_analogue",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "rank and category of katA-PRDX2",
+    "manuscript": "96 candidate_analogue",
+    "recomputed": "96 candidate_analogue",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "rank and category of DR_1538-GPX8",
+    "manuscript": "11 shared_function_annotation",
+    "recomputed": "11 shared_function_annotation",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "oxidative",
+    "claim": "rank and category of DR_0846-GPX2",
+    "manuscript": "30 distant_homolog",
+    "recomputed": "30 distant_homolog",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "STRING version",
+    "manuscript": "12.5",
+    "recomputed": "12.5",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "D.r. seed entries",
+    "manuscript": 56,
+    "recomputed": 56,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "D.r. mapped proteins",
+    "manuscript": 52,
+    "recomputed": 52,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "D.r. edges (score >= 0.7)",
+    "manuscript": 119,
+    "recomputed": 119,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "D.r. isolated proteins",
+    "manuscript": 11,
+    "recomputed": 11,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "D.r. largest component",
+    "manuscript": 41,
+    "recomputed": 41,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "D.r. edges also in STRING physical subnetwork",
+    "manuscript": 14,
+    "recomputed": 14,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "H.s. seed entries",
+    "manuscript": 432,
+    "recomputed": 432,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "H.s. mapped proteins",
+    "manuscript": 426,
+    "recomputed": 426,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "H.s. edges (score >= 0.7)",
+    "manuscript": 5285,
+    "recomputed": 5285,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "H.s. isolated proteins",
+    "manuscript": 23,
+    "recomputed": 23,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "H.s. largest component",
+    "manuscript": 400,
+    "recomputed": 400,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "H.s. edges also in STRING physical subnetwork",
+    "manuscript": 2393,
+    "recomputed": 2393,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "mean edges of random 52-protein human subsets",
+    "manuscript": 77,
+    "recomputed": 77.4,
+    "status": "CLOSE",
+    "note": "5000 fresh random subsets (different draws from the pipeline)"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "share of random subsets with fewer edges than D.r. (%)",
+    "manuscript": 95.3,
+    "recomputed": 95.2,
+    "status": "CLOSE",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "D.r. STRING edges confirmed in IntAct",
+    "manuscript": 0,
+    "recomputed": 0,
+    "status": "MATCH",
+    "note": "1 IntAct responses; (checksum ok, HTTP status): [(True, 200)]"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "D.r. physical-subnetwork edges confirmed (%)",
+    "manuscript": 0.0,
+    "recomputed": 0.0,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "H.s. STRING edges confirmed in IntAct",
+    "manuscript": 431,
+    "recomputed": 744,
+    "status": "DIFFERS",
+    "note": "64 IntAct responses; (checksum ok, HTTP status): [(True, 200)]"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "H.s. physical-subnetwork edges confirmed (%)",
+    "manuscript": 16.5,
+    "recomputed": 28.0,
+    "status": "DIFFERS",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "D.r. Louvain mean pairwise ARI",
+    "manuscript": 0.76,
+    "recomputed": 0.8,
+    "status": "CLOSE",
+    "note": "50 fresh seeds (pipeline uses different derived seeds)"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "D.r. Louvain modularity (median of fresh runs)",
+    "manuscript": 0.39,
+    "recomputed": 0.39,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "H.s. Louvain mean pairwise ARI",
+    "manuscript": 0.64,
+    "recomputed": 0.67,
+    "status": "CLOSE",
+    "note": "50 fresh seeds (pipeline uses different derived seeds)"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "D.r. modularity of the pipeline's reported partition",
+    "manuscript": 0.39,
+    "recomputed": 0.39,
+    "status": "MATCH",
+    "note": "networkx modularity on the independently rebuilt graph"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "IsoRank conserved edges, alpha=1.0",
+    "manuscript": 114,
+    "recomputed": 114,
+    "status": "MATCH",
+    "note": "independent IsoRank + greedy matching on the rebuilt graphs"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "rewired-null p, alpha=1.0 (as reported)",
+    "manuscript": 0.08,
+    "recomputed": 0.08,
+    "status": "MATCH",
+    "note": "p = (1 + 7) / (1 + 100); integer count consistent: True"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "IsoRank conserved edges, alpha=0.8",
+    "manuscript": 87,
+    "recomputed": 87,
+    "status": "MATCH",
+    "note": "independent IsoRank + greedy matching on the rebuilt graphs"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "rewired-null p, alpha=0.8 (as reported)",
+    "manuscript": 0.02,
+    "recomputed": 0.02,
+    "status": "MATCH",
+    "note": "p = (1 + 1) / (1 + 100); integer count consistent: True"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "IsoRank conserved edges, alpha=0.5",
+    "manuscript": 89,
+    "recomputed": 89,
+    "status": "MATCH",
+    "note": "independent IsoRank + greedy matching on the rebuilt graphs"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "rewired-null p, alpha=0.5 (as reported)",
+    "manuscript": 0.01,
+    "recomputed": 0.01,
+    "status": "MATCH",
+    "note": "p = (1 + 0) / (1 + 100); integer count consistent: True"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "H.s. NetMF link-prediction AUC (mean of 5 splits)",
+    "manuscript": 0.879,
+    "recomputed": 0.879,
+    "status": "MATCH",
+    "note": "independent NetMF and AUC; splits drawn with the pipeline's documented seed rule"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "H.s. Adamic-Adar AUC (mean of 5 splits)",
+    "manuscript": 0.952,
+    "recomputed": 0.952,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "D.r. NetMF link-prediction AUC (mean of 5 splits)",
+    "manuscript": 0.728,
+    "recomputed": 0.728,
+    "status": "MATCH",
+    "note": "independent NetMF and AUC; splits drawn with the pipeline's documented seed rule"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "D.r. Adamic-Adar AUC (mean of 5 splits)",
+    "manuscript": 0.931,
+    "recomputed": 0.931,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "pair scores recomputed from components (max abs. difference)",
+    "manuscript": 0.0,
+    "recomputed": 7.3e-13,
+    "status": "CLOSE",
+    "note": "22152 pairs"
+  },
+  {
+    "process": "dna_repair",
+    "claim": "eligibility (coverage >= 0.45) disagreements",
+    "manuscript": 0,
+    "recomputed": 64,
+    "status": "DIFFERS",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "category rule disagreements",
+    "manuscript": 0,
+    "recomputed": 0,
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "rank and category of nth-NTHL1",
+    "manuscript": "2 ortholog_rbh",
+    "recomputed": "2 ortholog_rbh",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "rank and category of DR_0354-APEX1",
+    "manuscript": "4 ortholog_rbh",
+    "recomputed": "4 ortholog_rbh",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "rank and category of mutM-NTHL1",
+    "manuscript": "26 candidate_analogue",
+    "recomputed": "26 candidate_analogue",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "rank and category of nth-NEIL3",
+    "manuscript": "31 candidate_analogue",
+    "recomputed": "31 candidate_analogue",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "rank and category of mutM-OGG1",
+    "manuscript": "47 candidate_analogue",
+    "recomputed": "47 candidate_analogue",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "rank and category of DR_2584-MPG",
+    "manuscript": "62 candidate_analogue",
+    "recomputed": "62 candidate_analogue",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "rank and category of recO-RAD52",
+    "manuscript": "176 similar_pathway_role",
+    "recomputed": "176 similar_pathway_role",
+    "status": "MATCH",
+    "note": ""
+  },
+  {
+    "process": "dna_repair",
+    "claim": "rank and category of ligA-LIG1",
+    "manuscript": "514 distant_homolog",
+    "recomputed": "514 distant_homolog",
+    "status": "MATCH",
+    "note": ""
+  }
+]

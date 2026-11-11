@@ -1,0 +1,86 @@
+MATCH    oxidative  STRING version                                                manuscript=12.5  recomputed=12.5
+MATCH    oxidative  D.r. seed entries                                             manuscript=16  recomputed=16
+MATCH    oxidative  D.r. mapped proteins                                          manuscript=16  recomputed=16
+MATCH    oxidative  D.r. edges (score >= 0.7)                                     manuscript=11  recomputed=11
+MATCH    oxidative  D.r. isolated proteins                                        manuscript=9  recomputed=9
+MATCH    oxidative  D.r. largest component                                        manuscript=5  recomputed=5
+MATCH    oxidative  D.r. edges also in STRING physical subnetwork                 manuscript=4  recomputed=4
+MATCH    oxidative  H.s. seed entries                                             manuscript=385  recomputed=385
+MATCH    oxidative  H.s. mapped proteins                                          manuscript=382  recomputed=382
+MATCH    oxidative  H.s. edges (score >= 0.7)                                     manuscript=2210  recomputed=2210
+MATCH    oxidative  H.s. isolated proteins                                        manuscript=70  recomputed=70
+MATCH    oxidative  H.s. largest component                                        manuscript=295  recomputed=295
+MATCH    oxidative  H.s. edges also in STRING physical subnetwork                 manuscript=1152  recomputed=1152
+CLOSE    oxidative  mean edges of random 16-protein human subsets                 manuscript=3.5  recomputed=3.6  [5000 fresh random subsets (different draws from the pipeline)]
+CLOSE    oxidative  share of random subsets with fewer edges than D.r. (%)        manuscript=97.7  recomputed=97.6
+MATCH    oxidative  D.r. STRING edges confirmed in IntAct                         manuscript=0  recomputed=0  [1 IntAct responses; (checksum ok, HTTP status): [(True, 200)]]
+MATCH    oxidative  D.r. physical-subnetwork edges confirmed (%)                  manuscript=0.0  recomputed=0.0
+DIFFERS  oxidative  H.s. STRING edges confirmed in IntAct                         manuscript=275  recomputed=522  [49 IntAct responses; (checksum ok, HTTP status): [(True, 200)]]
+DIFFERS  oxidative  H.s. physical-subnetwork edges confirmed (%)                  manuscript=21.1  recomputed=40.5
+CLOSE    oxidative  H.s. Louvain mean pairwise ARI                                manuscript=0.74  recomputed=0.75  [50 fresh seeds (pipeline uses different derived seeds)]
+MATCH    oxidative  H.s. Louvain modularity (median of fresh runs)                manuscript=0.54  recomputed=0.54
+MATCH    oxidative  H.s. modularity of the pipeline's reported partition          manuscript=0.54  recomputed=0.54  [networkx modularity on the independently rebuilt graph]
+MATCH    oxidative  IsoRank conserved edges, alpha=1.0                            manuscript=9  recomputed=9  [independent IsoRank + greedy matching on the rebuilt graphs]
+MATCH    oxidative  rewired-null p, alpha=1.0 (as reported)                       manuscript=0.1  recomputed=0.1  [p = (1 + 9) / (1 + 100); integer count consistent: True]
+MATCH    oxidative  IsoRank conserved edges, alpha=0.8                            manuscript=8  recomputed=8  [independent IsoRank + greedy matching on the rebuilt graphs]
+MATCH    oxidative  rewired-null p, alpha=0.8 (as reported)                       manuscript=0.63  recomputed=0.63  [p = (1 + 63) / (1 + 100); integer count consistent: True]
+MATCH    oxidative  IsoRank conserved edges, alpha=0.5                            manuscript=7  recomputed=7  [independent IsoRank + greedy matching on the rebuilt graphs]
+MATCH    oxidative  rewired-null p, alpha=0.5 (as reported)                       manuscript=0.88  recomputed=0.88  [p = (1 + 88) / (1 + 100); integer count consistent: True]
+MATCH    oxidative  H.s. NetMF link-prediction AUC (mean of 5 splits)             manuscript=0.935  recomputed=0.935  [independent NetMF and AUC; splits drawn with the pipeline's documented seed rule]
+MATCH    oxidative  H.s. Adamic-Adar AUC (mean of 5 splits)                       manuscript=0.949  recomputed=0.949
+CLOSE    oxidative  pair scores recomputed from components (max abs. difference)  manuscript=0.0  recomputed=6.3e-13  [6112 pairs]
+DIFFERS  oxidative  eligibility (coverage >= 0.45) disagreements                  manuscript=0  recomputed=4
+MATCH    oxidative  category rule disagreements                                   manuscript=0  recomputed=0
+MATCH    oxidative  rank and category of katA-CAT                                 manuscript=7 ortholog_rbh  recomputed=7 ortholog_rbh
+MATCH    oxidative  rank and category of sodA-SOD2                                manuscript=16 ortholog_rbh  recomputed=16 ortholog_rbh
+MATCH    oxidative  rank and category of DR_0846-PRDX5                            manuscript=1 homolog  recomputed=1 homolog
+MATCH    oxidative  rank and category of sodA-SOD3                                manuscript=19 candidate_analogue  recomputed=19 candidate_analogue
+MATCH    oxidative  rank and category of sodC-SOD2                                manuscript=76 candidate_analogue  recomputed=76 candidate_analogue
+MATCH    oxidative  rank and category of katA-PRDX2                               manuscript=96 candidate_analogue  recomputed=96 candidate_analogue
+MATCH    oxidative  rank and category of DR_1538-GPX8                             manuscript=11 shared_function_annotation  recomputed=11 shared_function_annotation
+MATCH    oxidative  rank and category of DR_0846-GPX2                             manuscript=30 distant_homolog  recomputed=30 distant_homolog
+MATCH    dna_repair STRING version                                                manuscript=12.5  recomputed=12.5
+MATCH    dna_repair D.r. seed entries                                             manuscript=56  recomputed=56
+MATCH    dna_repair D.r. mapped proteins                                          manuscript=52  recomputed=52
+MATCH    dna_repair D.r. edges (score >= 0.7)                                     manuscript=119  recomputed=119
+MATCH    dna_repair D.r. isolated proteins                                        manuscript=11  recomputed=11
+MATCH    dna_repair D.r. largest component                                        manuscript=41  recomputed=41
+MATCH    dna_repair D.r. edges also in STRING physical subnetwork                 manuscript=14  recomputed=14
+MATCH    dna_repair H.s. seed entries                                             manuscript=432  recomputed=432
+MATCH    dna_repair H.s. mapped proteins                                          manuscript=426  recomputed=426
+MATCH    dna_repair H.s. edges (score >= 0.7)                                     manuscript=5285  recomputed=5285
+MATCH    dna_repair H.s. isolated proteins                                        manuscript=23  recomputed=23
+MATCH    dna_repair H.s. largest component                                        manuscript=400  recomputed=400
+MATCH    dna_repair H.s. edges also in STRING physical subnetwork                 manuscript=2393  recomputed=2393
+CLOSE    dna_repair mean edges of random 52-protein human subsets                 manuscript=77  recomputed=77.4  [5000 fresh random subsets (different draws from the pipeline)]
+CLOSE    dna_repair share of random subsets with fewer edges than D.r. (%)        manuscript=95.3  recomputed=95.2
+MATCH    dna_repair D.r. STRING edges confirmed in IntAct                         manuscript=0  recomputed=0  [1 IntAct responses; (checksum ok, HTTP status): [(True, 200)]]
+MATCH    dna_repair D.r. physical-subnetwork edges confirmed (%)                  manuscript=0.0  recomputed=0.0
+DIFFERS  dna_repair H.s. STRING edges confirmed in IntAct                         manuscript=431  recomputed=744  [64 IntAct responses; (checksum ok, HTTP status): [(True, 200)]]
+DIFFERS  dna_repair H.s. physical-subnetwork edges confirmed (%)                  manuscript=16.5  recomputed=28.0
+CLOSE    dna_repair D.r. Louvain mean pairwise ARI                                manuscript=0.76  recomputed=0.8  [50 fresh seeds (pipeline uses different derived seeds)]
+MATCH    dna_repair D.r. Louvain modularity (median of fresh runs)                manuscript=0.39  recomputed=0.39
+CLOSE    dna_repair H.s. Louvain mean pairwise ARI                                manuscript=0.64  recomputed=0.67  [50 fresh seeds (pipeline uses different derived seeds)]
+MATCH    dna_repair D.r. modularity of the pipeline's reported partition          manuscript=0.39  recomputed=0.39  [networkx modularity on the independently rebuilt graph]
+MATCH    dna_repair IsoRank conserved edges, alpha=1.0                            manuscript=114  recomputed=114  [independent IsoRank + greedy matching on the rebuilt graphs]
+MATCH    dna_repair rewired-null p, alpha=1.0 (as reported)                       manuscript=0.08  recomputed=0.08  [p = (1 + 7) / (1 + 100); integer count consistent: True]
+MATCH    dna_repair IsoRank conserved edges, alpha=0.8                            manuscript=87  recomputed=87  [independent IsoRank + greedy matching on the rebuilt graphs]
+MATCH    dna_repair rewired-null p, alpha=0.8 (as reported)                       manuscript=0.02  recomputed=0.02  [p = (1 + 1) / (1 + 100); integer count consistent: True]
+MATCH    dna_repair IsoRank conserved edges, alpha=0.5                            manuscript=89  recomputed=89  [independent IsoRank + greedy matching on the rebuilt graphs]
+MATCH    dna_repair rewired-null p, alpha=0.5 (as reported)                       manuscript=0.01  recomputed=0.01  [p = (1 + 0) / (1 + 100); integer count consistent: True]
+MATCH    dna_repair H.s. NetMF link-prediction AUC (mean of 5 splits)             manuscript=0.879  recomputed=0.879  [independent NetMF and AUC; splits drawn with the pipeline's documented seed rule]
+MATCH    dna_repair H.s. Adamic-Adar AUC (mean of 5 splits)                       manuscript=0.952  recomputed=0.952
+MATCH    dna_repair D.r. NetMF link-prediction AUC (mean of 5 splits)             manuscript=0.728  recomputed=0.728  [independent NetMF and AUC; splits drawn with the pipeline's documented seed rule]
+MATCH    dna_repair D.r. Adamic-Adar AUC (mean of 5 splits)                       manuscript=0.931  recomputed=0.931
+CLOSE    dna_repair pair scores recomputed from components (max abs. difference)  manuscript=0.0  recomputed=7.3e-13  [22152 pairs]
+DIFFERS  dna_repair eligibility (coverage >= 0.45) disagreements                  manuscript=0  recomputed=64
+MATCH    dna_repair category rule disagreements                                   manuscript=0  recomputed=0
+MATCH    dna_repair rank and category of nth-NTHL1                                manuscript=2 ortholog_rbh  recomputed=2 ortholog_rbh
+MATCH    dna_repair rank and category of DR_0354-APEX1                            manuscript=4 ortholog_rbh  recomputed=4 ortholog_rbh
+MATCH    dna_repair rank and category of mutM-NTHL1                               manuscript=26 candidate_analogue  recomputed=26 candidate_analogue
+MATCH    dna_repair rank and category of nth-NEIL3                                manuscript=31 candidate_analogue  recomputed=31 candidate_analogue
+MATCH    dna_repair rank and category of mutM-OGG1                                manuscript=47 candidate_analogue  recomputed=47 candidate_analogue
+MATCH    dna_repair rank and category of DR_2584-MPG                              manuscript=62 candidate_analogue  recomputed=62 candidate_analogue
+MATCH    dna_repair rank and category of recO-RAD52                               manuscript=176 similar_pathway_role  recomputed=176 similar_pathway_role
+MATCH    dna_repair rank and category of ligA-LIG1                                manuscript=514 distant_homolog  recomputed=514 distant_homolog
+{'MATCH': 70, 'CLOSE': 9, 'DIFFERS': 6}
