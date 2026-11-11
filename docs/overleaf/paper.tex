@@ -55,15 +55,15 @@ oxidative stress, DNA repair, reproducibility
 \section{Introduction}
 
 The bacterium \Dr\ recovers from acute ionising-radiation doses above 10\,kGy and grows under
-chronic irradiation \cite{daly2004}. Two explanations dominate. First, efficient DNA repair
+chronic irradiation \cite{daly2004}. Two mechanisms have been proposed. First, efficient DNA repair
 reassembles its shattered genome. Second, high intracellular Mn(II) relative to iron protects
 proteins from oxidative damage, so that the repair machinery itself survives
-\cite{daly2004,daly2007,daly2009,slade2011}. Both are attractive starting points for understanding,
-and perhaps strengthening, human resistance to oxidative and genotoxic stress.
+\cite{daly2004,daly2007,daly2009,slade2011}. Both raise the question of which human proteins, if
+any, perform equivalent functions.
 
 Transferring this knowledge to humans is hard because many Deinococcus factors, such as DdrA,
 DdrB and PprA, have no human ortholog. Sequence-based orthology inference \cite{orthofinder}
-therefore misses exactly the proteins that make the organism unusual. Network-level comparison
+therefore misses the proteins that make the organism unusual. Network-level comparison
 offers an alternative: proteins can occupy equivalent positions in their interaction networks
 without sharing ancestry. Network alignment methods such as IsoRank \cite{isorank} and MAGNA++
 \cite{magna} formalise this idea, and the trade-offs between local and global alignment are well
@@ -143,8 +143,10 @@ $\geq 50$; score 1.0), shared KO group (0.9), shared PANTHER family (0.8), one-w
 shared Pfam domain (0.5), shared InterPro entry (0.4), and a shared \emph{common-fold} signature
 only (0.2). Signatures carried by more than 5\,\% of all network proteins (for example the
 thioredoxin fold or the P-loop NTPase) define the common-fold tier. They are kept rather than
-discarded, because discarding them turned true homologs into false analogues. Since every protein
-is searched, ``no homology detected'' is an observation, not a missing value.
+discarded, because discarding them turned true homologs into false analogues: peroxiredoxin Q
+(DR0846) and human GPX2 share only the thioredoxin-fold signature IPR036249, together with an EC
+sub-subclass and GO similarity of 0.51, and would otherwise be labelled candidate analogues.
+Since every protein is searched, ``no homology detected'' is an observation, not a missing value.
 
 \subsection{Topology and modules}
 
@@ -169,11 +171,13 @@ R = \alpha\, A R + (1 - \alpha)\, E,
 \end{equation}
 where $A$ is the normalised product of the two adjacency matrices and $E$ is a homology prior built
 from STRING bitscores. $\alpha = 1$ uses topology only. A greedy one-to-one matching then gives the
-alignment, scored by the number of conserved bacterial edges. Beating random one-to-one mappings
-(1,000 samples) only shows that the optimiser works. The decisive test aligns
-degree-preserving rewired copies of the bacterial network \cite{maslov2002} in the same way
-(100 samples; 200 for the small coverage variant below) and asks whether the real network aligns
-better.
+alignment, scored by the number of conserved bacterial edges. Scores are compared at ten
+significant digits relative to the maximum, so near-ties that differ only by floating-point
+rounding are broken by node order rather than by the hardware. Beating random one-to-one mappings
+(1,000 samples) only shows that the optimiser works. The more informative test aligns
+degree-preserving rewired copies of the bacterial network (double-edge swaps, ten per edge)
+\cite{maslov2002} in the same way (100 samples; 200 for the smaller KO-projected network below) and
+asks whether the real network aligns better.
 
 To test whether conclusions depend on coverage, a \emph{KO-projected} bacterial network adds every
 \Dr\ gene whose KO group is carried by a human seed. It is used only for alignment, never for
@@ -190,9 +194,17 @@ similarity and homology. Set similarities use information-content-weighted Ochia
 {\sqrt{\sum_{t \in A} \mathrm{IC}(t) \sum_{t \in B} \mathrm{IC}(t)}},
 \end{equation}
 where $\mathrm{IC}(t) = -\ln p(t)$ is the information content of term $t$ in the annotations of
-both networks. Ochiai is used because annotation depth differs greatly between the species; simGIC \cite{pesquita2008} and a
-min-normalised variant are run as sensitivity analyses. The score of a pair is a weighted mean over
-the components $\mathcal{A}(p)$ that are available for it,
+both networks. Ochiai is used because annotation depth differs greatly between the species; simGIC
+\cite{pesquita2008} and a min-normalised variant are run as sensitivity analyses. The literature
+component is the mean of the two proteins' evidence levels: 1 for an experimental GO evidence code
+or a supporting curated study, 0.5 for phylogenetic, computational or curator codes, and 0.25 for
+electronic annotation only. Module similarity applies the same measure to the core GO and KEGG
+terms (carried by at least half the members) of the two proteins' modules, and is missing for a
+protein outside any non-singleton module. Network-role similarity is one minus the mean absolute
+difference of the within-species percentiles of degree, betweenness and closeness and of the
+clustering and participation coefficients \cite{guimera2005}; it is missing when either protein is
+isolated, because isolation at a threshold partly reflects coverage. The score of a pair is a
+weighted mean over the components $\mathcal{A}(p)$ that are available for it,
 \begin{equation}
 S(p) = \frac{\sum_{i \in \mathcal{A}(p)} w_i\, s_i(p)}{\sum_{i \in \mathcal{A}(p)} w_i},
 \qquad C(p) = \sum_{i \in \mathcal{A}(p)} w_i ,
@@ -205,14 +217,17 @@ Perturbation evidence combines GO mutant codes with a literature-curated table o
 biochemical studies (8 findings for 5 oxidative-stress proteins and 13 for 7 DNA-repair proteins),
 each checked against its PubMed abstract. Findings that \emph{contradict} a protective role are
 kept: a protein scores 1 if all its evidence supports the role, 0.5 if mixed and 0 if only
-contradicting.
+contradicting. The perturbation component of a pair is the mean over the proteins that have such
+evidence, so a protein without mutant data does not lower the score.
 
 Independently of the score, fixed rules assign each pair one category: \emph{ortholog} (reciprocal
 best hit, or shared KO), \emph{homolog} (PANTHER, one-way hit, Pfam or InterPro tier),
 \emph{distant homolog} (common fold only), \emph{candidate analogue} (no homology, shared EC
-sub-subclass, and independent pathway, GO or experimental support), \emph{shared function}
-(no homology, EC or GO similarity only), \emph{similar pathway role} (shared KEGG pathways only),
-and \emph{speculative} or \emph{unsupported}.
+sub-subclass, and pathway or GO similarity $\geq 0.30$ or experimental literature for both
+proteins), \emph{shared function} (no homology, shared EC sub-subclass or GO similarity
+$\geq 0.30$), \emph{similar pathway role} (no homology, pathway similarity $\geq 0.30$ only),
+\emph{speculative} (no homology, only role or module similarity $\geq 0.5$) and
+\emph{unsupported}.
 
 \subsection{Robustness, embeddings and evaluation}
 
@@ -221,8 +236,11 @@ turn, varied the similarity measure and the STRING threshold (0.4--0.9), and rep
 different random seeds and Python hash seeds. As a graph-learning baseline, NetMF embeddings
 \cite{netmf} (16 dimensions, window 5) were evaluated by within-species link prediction on held-out
 edges (5 splits of 10\,\%) against common-neighbour, Jaccard and Adamic--Adar \cite{adamic2003}
-scores. Embeddings were not compared across species, because independently factorised graphs share
-no coordinate system. As there is no ground truth for analogy, we report only a proxy: how well
+scores. Embedding rows that are zero up to rounding (for example those of nodes without edges in
+a training split) are set exactly to zero, giving a cosine of 0, instead of being normalised into
+arbitrary unit vectors. Embeddings were not compared across species, because independently
+factorised graphs share no coordinate system. As there is no ground truth for analogy, we report
+only a proxy: how well
 each component separates known ortholog pairs from other pairs, with an AUC treated as evaluable
 only for at least 10 positive pairs.
 
@@ -230,8 +248,10 @@ only for at least 10 positive pairs.
 
 The pipeline is written in Python with NetworkX \cite{networkx} and Pandas. All API responses are
 cached immutably with SHA-256 checksums; inputs are re-verified before each analysis, every run
-writes a manifest, and result tables are byte-identical across reruns and hash seeds. It runs with
-one command and has 88 automated tests with mocked APIs.
+writes a manifest, and result tables are byte-identical across reruns, Python hash seeds and CPU
+instruction sets; continuous integration re-runs both reference analyses on a fresh machine and
+requires identical results. It runs with
+one command and has 91 automated tests with mocked APIs.
 
 \section{Results}
 
@@ -284,13 +304,15 @@ repair (UvrABC, Mfd); replication and mismatch repair; and a radiation-response 
 RecA, LexA, DdrA, DdrB and PprA. The human network separates into Fanconi anaemia and D-loop
 resolution, replication, base-excision, nucleotide-excision, translesion-synthesis and SMC5/6
 modules. Module correspondence was, however, weakly discriminating: several bacterial modules
-matched the human base-excision module best, because generic repair terms dominate the profiles.
+matched the human base-excision module best, probably because generic repair terms dominate the
+profiles.
 
 \subsection{Network alignment}
 
 Table~\ref{tab:alignment} shows the alignment tests. All alignments conserved more edges than
 random mappings ($p = 1/1001$, the smallest value 1,000 samples can give), but this only confirms
-that the optimiser works. Against degree-preserving rewired networks, oxidative-stress topology showed no conservation, either for
+that the optimiser works. Against degree-preserving rewired networks, oxidative-stress topology
+showed no conservation, either for
 the seed network or for the KO-projected network. The only low $p$-value (0.02) came from the
 KO-prior alignment of the projected network, which is not independent evidence (see below). For
 DNA repair, topology alone was not significant either ($p = 0.08$), while homology-anchored alignment
@@ -402,7 +424,7 @@ DNA repair & \gene{nth} & NTHL1 & ortholog (RBH) & endonuclease III, EC 4.2.99.1
 and \gene{msrB}--MSRB3 in oxidative stress; \gene{nth}--NTHL1, DR\_0354--APEX1, DR\_2285--MUTYH,
 \gene{ung}--UNG, \gene{mutL}--MLH1 and \gene{recA}--DMC1 in DNA repair. Homologs include
 \gene{recA}--RAD51, the RecQ helicase DR\_1289--WRN, and \gene{ddrA}--RAD52, consistent with the
-description of DdrA as a Rad52 homologue \cite{harris2004}. Recovering these conserved enzymes is a
+description of DdrA as a Rad52 homolog \cite{harris2004}. Recovering these conserved enzymes is a
 sanity check, not a discovery. Two caveats emerged. The reciprocal best hit \gene{ligA}--RFC1
 (bitscore 65.5) most likely reflects a single shared BRCT domain. And 9 of 14 DNA-repair reciprocal
 best hits fall in different KO groups, because KEGG often splits bacterial and eukaryotic members of
@@ -426,13 +448,14 @@ DNA-directed DNA polymerase.
 
 \emph{Pathway-level analogy.} Nucleotide-excision repair is performed by UvrABC in bacteria and by
 XPC and TFIIH in humans. The pipeline places this analogy at the pathway level
-(\gene{uvrA}--XPC is a similar-pathway-role pair), not at the level of single enzymes, which is
-where it belongs. The recombination mediators RecO and RAD52 are treated the same way.
+(\gene{uvrA}--XPC is a similar-pathway-role pair) rather than at the level of single enzymes,
+because the two systems use largely different proteins. The recombination mediators RecO and
+RAD52 are treated the same way.
 
 \emph{A corrected expectation.} We expected NAD$^+$-dependent LigA and ATP-dependent LIG1 to be a
 textbook pair of unrelated isofunctional enzymes. The pipeline instead classifies them as distant
 homologs through a shared common-fold signature, consistent with the adenylation and OB-fold domains
-both ligase families share. The data were right and the expectation was not.
+that both ligase families share.
 
 \subsection{Curated literature changes interpretations}
 
@@ -452,8 +475,8 @@ supplant the enzyme \cite{gaidamakova2022}. Neither \gene{lexA} deletion nor non
 changes survival or double-strand-break repair \cite{jolivet2006}, despite its GO ``DNA repair''
 annotation. And although PprA stimulates DNA end-joining and its loss reduces radiation resistance
 \cite{narumi2004}, $\Delta$\gene{pprA} cells repair double-strand breaks efficiently, and their
-defect lies in DNA segregation and cell division \cite{devigne2013}. PprA has no supported human
-counterpart, which fits its genus-specific status. Each contradiction lowers the perturbation
+defect lies in DNA segregation and cell division \cite{devigne2013}. No human partner of PprA ranks
+above the speculative category. Each contradiction lowers the perturbation
 score of the protein concerned and is listed with every pair that involves it.
 
 \subsection{Physical interactions}
@@ -468,7 +491,8 @@ is not possible with current public data.
 \subsection{Robustness and evaluation}
 
 Table~\ref{tab:robustness} summarises the sensitivity analyses. Overall rankings are stable (median
-Spearman correlation 0.98 under weight perturbation), while the top 20 are less so. Without the
+Spearman correlation 0.98 under weight perturbation), while the top 20 change more (median
+overlap 0.80 and 0.70). Without the
 homology component, only 35\,\% of the DNA-repair top 20 remain, because that list is dominated by
 orthologs. Different random seeds gave a top-20 overlap of 1.0, and result tables were
 byte-identical across Python hash seeds.
@@ -500,7 +524,7 @@ NetMF AUC, human (Adamic--Adar) & 0.935 (0.949) & 0.879 (0.952) \\
 
 \section{Discussion}
 
-The two processes give a consistent picture. Where homology exists, the networks and the evidence
+Both processes show the same pattern. Where homology exists, the networks and the evidence
 agree and recover the expected orthologs. Where it does not, network topology on its own carries
 little signal: it did not beat degree-matched random graphs for either process, and role
 similarity did not identify orthologs. The analogues that the analysis does propose rest on
@@ -509,7 +533,8 @@ enzymes, such as the two superoxide-dismutase families and the two families of o
 glycosylases, and pathway-level correspondences, such as bacterial and eukaryotic
 nucleotide-excision repair.
 
-The literature layer proved essential. The \gene{sodA} evidence suggests that in \Dr\ part of the
+The curated literature changed three interpretations. The \gene{sodA} evidence suggests that in
+\Dr\ part of the
 antioxidant function performed in humans by SOD enzymes is carried out by Mn(II)--metabolite
 complexes \cite{gaidamakova2022,daly2007}, which a protein network cannot represent. The
 \gene{lexA} and \gene{pprA} findings show that GO annotation alone can mislabel a protein's role in
@@ -531,7 +556,7 @@ demonstrating functional equivalence.
 We compared the oxidative-stress and DNA-repair networks of \Dr\ and humans with a reproducible,
 evidence-graded pipeline. Network topology alone did not reveal conserved organisation, but the
 integrated evidence separated orthologs, distant homologs and candidate analogues, and identified
-specific pairs worth testing. We propose three experiments: cross-complementation of a \Dr\
+specific pairs for experimental testing. We propose three experiments: cross-complementation of a \Dr\
 \gene{sodA} deletion with human SOD1 or SOD3 under H$_2$O$_2$ and desiccation; complementation of
 \gene{mutM} and \gene{nth} deletions with human OGG1 and NEIL1, measuring 8-oxoguanine removal; and
 an activity assay for the OsmC protein DR1538 against the glutathione peroxidases. Computationally,
@@ -548,6 +573,13 @@ Code, cached raw data, configuration, reference runs and full result tables are 
 \url{https://github.com/Ananthapadmanabhan333/Cross-Species-Oxidative-States-} (release
 \texttt{v0.3.0}). Reference runs: oxidative stress \texttt{20261103T111919Z\_860ea5376e14}; DNA
 repair \texttt{20261103T112433Z\_73788e2787df}.\par}
+
+\section*{Acknowledgment}
+
+The analysis code and the manuscript text were prepared with the assistance of Claude
+(Anthropic), an AI model, under the direction of the authors. All reported numbers are produced by
+the released pipeline, and the biomedical references were checked against their PubMed records.
+The authors are responsible for the content.
 
 \IEEEtriggeratref{39}
 \begin{thebibliography}{99}
@@ -672,6 +704,11 @@ C.~Pesquita, D.~Faria, H.~Bastos, A.~E. Ferreira, A.~O. Falc\~{a}o, and F.~M. Co
 ``Metrics for GO based protein semantic similarity: a systematic evaluation,'' \emph{BMC
 Bioinformatics}, vol.~9, suppl.~5, Art.~no.~S4, 2008,
 doi: \href{https://doi.org/10.1186/1471-2105-9-S5-S4}{\nolinkurl{10.1186/1471-2105-9-S5-S4}}.
+
+\bibitem{guimera2005}
+R.~Guimer\`{a} and L.~A. Nunes Amaral, ``Functional cartography of complex metabolic networks,''
+\emph{Nature}, vol.~433, no.~7028, pp.~895--900, 2005,
+doi: \href{https://doi.org/10.1038/nature03288}{\nolinkurl{10.1038/nature03288}}.
 
 \bibitem{netmf}
 J.~Qiu, Y.~Dong, H.~Ma, J.~Li, K.~Wang, and J.~Tang, ``Network embedding as matrix factorization:
