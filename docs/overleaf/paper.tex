@@ -55,29 +55,28 @@ oxidative stress, DNA repair, reproducibility
 
 \section{Introduction}
 
-The bacterium \Dr\ recovers from acute ionising-radiation doses above 10\,kGy and grows under
-chronic irradiation \cite{daly2004}. Two mechanisms have been proposed. First, efficient DNA repair
-reassembles its shattered genome. Second, high intracellular Mn(II) relative to iron protects
-proteins from oxidative damage, so that the repair machinery itself survives
-\cite{daly2004,daly2007,daly2009,slade2011}. Both raise the question of which human proteins, if
-any, perform equivalent functions.
+\Dr\ survives acute ionising-radiation doses above 10\,kGy and keeps growing under chronic
+irradiation \cite{daly2004}. Two explanations are usually given. The bacterium repairs its
+shattered genome unusually well, and it keeps a high ratio of Mn(II) to iron, which protects its
+proteins, the repair enzymes included, from oxidative damage
+\cite{daly2004,daly2007,daly2009,slade2011}. Either way, a practical question follows: which human
+proteins, if any, do the same jobs?
 
-Transferring this knowledge to humans is hard because several Deinococcus repair factors have no
-clear human counterpart: in our data DdrB and PprA share no detectable homology with any human
-DNA-repair protein, and DdrA is related to RAD52 only through a shared domain \cite{harris2004}.
-Sequence-based orthology inference \cite{orthofinder}
-therefore misses the proteins that make the organism unusual. Network-level comparison
-offers an alternative: proteins can occupy equivalent positions in their interaction networks
-without sharing ancestry. Network alignment methods such as IsoRank \cite{isorank} and MAGNA++
-\cite{magna} formalise this idea, and the trade-offs between local and global alignment are well
-documented \cite{guzzi2018}.
+Sequence comparison answers this only in part. Some of the repair factors that set \Dr\ apart have
+no clear human counterpart: in our data DdrB and PprA show no detectable homology to any human
+DNA-repair protein, and DdrA is linked to RAD52 only through a shared domain \cite{harris2004}.
+Orthology inference \cite{orthofinder} therefore misses the proteins of most interest. Comparing
+networks is one way around this, because two proteins can hold equivalent positions in their
+interaction networks without a common ancestor. Alignment methods such as IsoRank \cite{isorank}
+and MAGNA++ \cite{magna} build on this idea, and their local and global variants have been
+compared in detail \cite{guzzi2018}.
 
-Three obstacles limit such comparisons. Experimental interaction data for the bacterium are sparse:
-IntAct, BioGRID and MINT record no physical interactions among the \Dr\ proteins studied here
-(Section~\ref{sec:physical}). Functional associations are easily mistaken for physical interactions. And
-there is no ground truth for cross-species functional analogy, so accuracy claims cannot be made.
-We therefore designed the analysis to report what the data can and cannot support. Our
-contributions are:
+In practice the comparison runs into three problems. First, experimental interaction data for the
+bacterium are almost absent: IntAct, BioGRID and MINT hold no physical interactions among the \Dr\
+proteins studied here (Section~\ref{sec:physical}). Second, the functional associations that are
+available are easy to over-read as physical contacts. Third, there is no reference set of known
+cross-species analogues, so the accuracy of a prediction cannot be measured. We built the analysis
+around these limits and report negative results alongside positive ones. We contribute:
 \begin{itemize}
   \item a reproducible pipeline that builds and quality-controls cross-species networks from
     public resources, with cached and checksummed inputs and byte-identical reruns;
@@ -545,22 +544,20 @@ NetMF AUC, human (Adamic--Adar) & 0.935 (0.949) & 0.879 (0.952) \\
 
 \section{Discussion}
 
-Both processes show the same pattern. Where homology exists, the networks and the evidence
-agree and recover the expected orthologs. Where it does not, network topology on its own carries
-little signal: it did not beat degree-matched random graphs for either process, and role
-similarity did not identify orthologs. The analogues that the analysis does propose rest on
-shared catalytic activity with independent support, not on network position. They are convergent
-enzymes, such as the two superoxide-dismutase families and the two families of oxidised-base
-glycosylases, and pathway-level correspondences, such as bacterial and eukaryotic
-nucleotide-excision repair.
+The two processes tell the same story. Where proteins are homologous, the networks and the
+annotation agree and the expected orthologs are recovered. Where they are not, topology adds
+little: neither process beat degree-matched random graphs, and role similarity did not pick out
+known orthologs. The analogues we propose therefore stand on shared catalytic activity with
+independent support, not on network position. They fall into two groups: convergent enzymes, such
+as the two superoxide-dismutase families and the two families of oxidised-base glycosylases, and
+correspondences at the pathway level, such as bacterial and eukaryotic nucleotide-excision repair.
 
-The curated literature changed three interpretations. The \gene{sodA} evidence suggests that in
-\Dr\ part of the
-antioxidant function performed in humans by SOD enzymes is carried out by Mn(II)--metabolite
-complexes \cite{gaidamakova2022,daly2007}, which a protein network cannot represent. The
-\gene{lexA} and \gene{pprA} findings show that GO annotation alone can mislabel a protein's role in
-a given organism. Together, these results support framing the comparison around conserved network
-principles and convergent functions rather than conserved genes.
+The mutant literature changed three conclusions we would otherwise have drawn. The \gene{sodA}
+results suggest that in \Dr\ Mn(II)--metabolite complexes take over part of the antioxidant work
+that SOD enzymes do in humans \cite{gaidamakova2022,daly2007}, and a protein network has no way to
+represent this. The \gene{lexA} and \gene{pprA} results show that a GO annotation can misstate what
+a protein does in a particular organism. Taken together, the comparison is better framed around
+shared network principles and convergent functions than around conserved genes.
 
 \section{Limitations}
 
@@ -575,14 +572,14 @@ demonstrating functional equivalence.
 \section{Conclusion and Future Work}
 
 We compared the oxidative-stress and DNA-repair networks of \Dr\ and humans with a reproducible,
-evidence-graded pipeline. Network topology alone did not reveal conserved organisation, but the
-integrated evidence separated orthologs, distant homologs and candidate analogues, and identified
-specific pairs for experimental testing. We propose three experiments: cross-complementation of a \Dr\
-\gene{sodA} deletion with human SOD1 or SOD3 under H$_2$O$_2$ and desiccation, co-expressing SOD1
-with its copper chaperone CCS, without which SOD1 lacks copper and activity in yeast
-\cite{culotta1997}; complementation of
-\gene{mutM} and \gene{nth} deletions with human OGG1 and NEIL1, measuring 8-oxoguanine removal; and
-an activity assay for the OsmC protein DR1538 against the glutathione peroxidases. Computationally,
+evidence-graded pipeline. Topology alone did not reveal conserved organisation. The combined
+evidence did separate orthologs, distant homologs and candidate analogues, and it points to
+specific pairs that can be tested. We propose three experiments. First, complement a \Dr\
+\gene{sodA} deletion with human SOD1 or SOD3 and test survival under H$_2$O$_2$ and desiccation;
+SOD1 must be co-expressed with its copper chaperone CCS, without which it lacks copper and activity
+in yeast \cite{culotta1997}. Second, complement \gene{mutM} and \gene{nth} deletions with human
+OGG1 and NEIL1 and measure 8-oxoguanine removal. Third, measure the activity of the OsmC protein
+DR1538 side by side with the glutathione peroxidases. On the computational side,
 the next steps are graphlet-based node descriptors, alternative aligners such as MAGNA++
 \cite{magna}, Leiden communities
 \cite{leiden}, module-preservation statistics \cite{langfelder2011}, transcriptomic overlays from
@@ -600,8 +597,8 @@ repair \texttt{20261111T155841Z\_73788e2787df}.\par}
 \section*{Acknowledgment}
 
 Claude (Anthropic), an AI model used through Claude Code, wrote the analysis software, retrieved
-the data, ran all analyses, curated the literature evidence from PubMed abstracts and drafted this
-manuscript, under the direction of the first author. An independent re-implementation of the main
+the data, ran all analyses, curated the literature evidence from PubMed abstracts, and drafted and
+edited this manuscript, under the direction of the first author. An independent re-implementation of the main
 computations, also written with Claude, reproduces the reported numbers from the cached raw data;
 the code, data and audit reports are released for verification. The authors are responsible for
 the content.
