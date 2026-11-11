@@ -53,14 +53,14 @@ jobs:
         shell: bash
         run: |
           python -m extremonet.analysis --config config/phase2_analysis.yaml --mode offline
-          python scripts/check_reproduction.py results/phase2/20261103T111919Z_860ea5376e14 \
+          python scripts/check_reproduction.py results/phase2/20261111T155419Z_860ea5376e14 \
             "results/phase2/$(cat results/phase2/LATEST_RUN.txt)"
       - name: DNA repair, Phase 2 offline
         if: success() || failure()
         shell: bash
         run: |
           python -m extremonet.analysis --config config/phase2_dna_repair.yaml --mode offline
-          python scripts/check_reproduction.py results/dna_repair/phase2/20261103T112433Z_73788e2787df \
+          python scripts/check_reproduction.py results/dna_repair/phase2/20261111T155841Z_73788e2787df \
             "results/dna_repair/phase2/$(cat results/dna_repair/phase2/LATEST_RUN.txt)"
       - name: Keep the re-run outputs if a check failed
         if: failure()

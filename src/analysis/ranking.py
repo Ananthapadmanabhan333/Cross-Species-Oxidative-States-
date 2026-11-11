@@ -220,7 +220,9 @@ def rank_pairs(pairs: pd.DataFrame, weights: dict[str, float], min_coverage: flo
     values = frame[COMPONENTS].astype(float).to_numpy()
     frame["score"], frame["evidence_coverage"] = score_matrix(values, w)
     frame["components_available"] = (~np.isnan(values)).sum(axis=1)
-    frame["eligible"] = frame["evidence_coverage"] >= min_coverage
+    # Coverage is a sum of weights such as 0.15 + 0.10 + 0.10 + 0.10, which is 0.44999999999999996 in
+    # floating point; compare rounded values so that a pair exactly at the threshold is eligible.
+    frame["eligible"] = frame["evidence_coverage"].round(9) >= round(min_coverage, 9)
     frame["category"] = [assign_category(r, go_thr, path_thr) for r in frame.to_dict("records")]
     frame["analogous_network_role"] = (frame["homology_tier"] == "none_detected") & (frame["role"].astype(float) >= 0.75)
     # round before sorting and break ties by identifiers, so the order is reproducible bit-for-bit

@@ -28,9 +28,9 @@ ROOT = Path.cwd()
 RESULTS = []
 
 PROCESSES = {
-    "oxidative": {"phase1": "20261025T174736Z_5bbc7e723df4", "phase2": "results/phase2/20261103T111919Z_860ea5376e14"},
+    "oxidative": {"phase1": "20261025T174736Z_5bbc7e723df4", "phase2": "results/phase2/20261111T155419Z_860ea5376e14"},
     "dna_repair": {"phase1": "20261102T161839Z_7128c0f5ca4e",
-                   "phase2": "results/dna_repair/phase2/20261103T112433Z_73788e2787df"},
+                   "phase2": "results/dna_repair/phase2/20261111T155841Z_73788e2787df"},
 }
 SPECIES = {"deinococcus_radiodurans": 243230, "homo_sapiens": 9606}
 THRESHOLD = 0.7
@@ -397,7 +397,7 @@ CLAIMS = {
         "net": {"deinococcus_radiodurans": dict(seeds=16, mapped=16, edges=11, isolated=9, largest=5, physical=4),
                 "homo_sapiens": dict(seeds=385, mapped=382, edges=2210, isolated=70, largest=295, physical=1152)},
         "subset": dict(mean=3.5, mean_tol=0.15, below_pct=97.7),
-        "intact": {"deinococcus_radiodurans": dict(edges=0, phys_pct=0.0), "homo_sapiens": dict(edges=275, phys_pct=21.1)},
+        "intact": {"deinococcus_radiodurans": dict(edges=0, phys_pct=0.0), "homo_sapiens": dict(edges=522, phys_pct=40.5)},
         "louvain": {"homo_sapiens": dict(ari=0.74, modularity=0.54)},
         "partition_modularity": {"homo_sapiens": 0.54},
         "alignment": {1.0: (9, 0.10), 0.8: (8, 0.63), 0.5: (7, 0.88)},
@@ -412,7 +412,7 @@ CLAIMS = {
         "net": {"deinococcus_radiodurans": dict(seeds=56, mapped=52, edges=119, isolated=11, largest=41, physical=14),
                 "homo_sapiens": dict(seeds=432, mapped=426, edges=5285, isolated=23, largest=400, physical=2393)},
         "subset": dict(mean=77, mean_tol=1.5, below_pct=95.3),
-        "intact": {"deinococcus_radiodurans": dict(edges=0, phys_pct=0.0), "homo_sapiens": dict(edges=431, phys_pct=16.5)},
+        "intact": {"deinococcus_radiodurans": dict(edges=0, phys_pct=0.0), "homo_sapiens": dict(edges=744, phys_pct=28.0)},
         "louvain": {"deinococcus_radiodurans": dict(ari=0.76, modularity=0.39), "homo_sapiens": dict(ari=0.64)},
         "partition_modularity": {"deinococcus_radiodurans": 0.39},
         "alignment": {1.0: (114, 0.08), 0.8: (87, 0.02), 0.5: (89, 0.01)},

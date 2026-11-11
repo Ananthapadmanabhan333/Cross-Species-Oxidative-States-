@@ -122,8 +122,11 @@ Two cautions apply to the homology tiers:
   gives `shared_common_fold` (score 0.2) and the category `distant_homolog`, not full domain
   homology. Common folds are kept, not discarded, for two reasons:
   - they would otherwise inflate scores (e.g. RecA vs the helicase ZGRF1 via the P-loop fold);
-  - discarding them turned true homologs into false "analogues" (RecQ helicase DR_1289 vs WRN;
-    peroxiredoxin Q vs glutathione peroxidases).
+  - discarding them turns true homologs into false "analogues": peroxiredoxin Q (DR0846) and
+    GPX2 share only the thioredoxin-fold signature IPR036249, plus an EC sub-subclass and GO
+    similarity 0.51, and would otherwise meet the candidate-analogue rule. (An earlier version of
+    this document gave RecQ DR_1289 vs WRN as an example; in the reference data that pair shares a
+    PANTHER family and is a homolog either way.)
 
   The common-fold signatures are listed in each report.
 - **Different KO groups do not contradict a reciprocal best hit.** KEGG often assigns separate
@@ -164,7 +167,11 @@ evidence_coverage = Σ w_i      over the same components
 ```
 
 Missing evidence therefore never lowers a score. Pairs with coverage below
-`min_evidence_coverage` are listed but not ranked. The weights and their rationale are in the config.
+`min_evidence_coverage` are listed but not ranked; coverage is compared at 9 decimals, so a pair
+exactly at the threshold is ranked. *Correction (2026-11-11):* earlier versions compared the raw
+floating-point sum, and 0.15 + 0.10 + 0.10 + 0.10 summed to 0.44999999999999996, so 4 oxidative and
+64 DNA-repair pairs at exactly 0.45 were left unranked (all `speculative`, scores ≤ 0.31). The
+weights are set a priori, not fitted; their rationale is in the config.
 
 Categories are assigned by fixed rules, independently of the score:
 
@@ -214,11 +221,19 @@ physical interactions*, the pipeline queries IntAct (PSICQUIC, MITAB 2.5):
 - **What counts as physical:** the PSI-MI types physical association (MI:0915), direct
   interaction (MI:0407), association (MI:0914), covalent binding (MI:0195) and disulfide bond
   (MI:0408). Proximity labelling (MI:2364) and colocalisation are recorded but not counted.
+- **Two definitions.** Association (MI:0914) places two proteins in the same complex without
+  showing that they bind each other. Every count is therefore reported twice: for all physical
+  types, and for the *binary* subset that excludes MI:0914 (`*_binary` columns and fields).
+- **Complexes.** IntAct writes a complex as several binary rows that share one interaction id.
+  Duplicates from overlapping query blocks are removed on (interaction id, partner A, partner B),
+  so every pair in a complex is kept. *Correction (2026-11-11):* earlier versions de-duplicated on
+  the interaction id alone, which kept one pair per complex and under-counted the human
+  confirmations (oxidative stress 275 instead of 522 edges; DNA repair 431 instead of 744).
 - **Self-interactions** are counted separately.
-- **Output:** each STRING edge at the analysis threshold carries `intact_confirmed`, the record
-  count, detection methods, PubMed ids and the maximum IntAct MI-score. The summary reports the
-  confirmed fraction of STRING edges and of STRING physical-subnetwork edges, and the IntAct pairs
-  that STRING lacks.
+- **Output:** each STRING edge at the analysis threshold carries `intact_confirmed`,
+  `intact_confirmed_binary`, the record count, detection methods, PubMed ids and the maximum IntAct
+  MI-score. The summary reports the confirmed fraction of STRING edges and of STRING
+  physical-subnetwork edges under both definitions, and the IntAct pairs that STRING lacks.
 
 This is a reporting layer, not a ranking component. IntAct, BioGRID (PSICQUIC) and MINT hold
 essentially no *D. radiodurans* interactions (IntAct and BioGRID: 0; MINT: 1 crystal-structure

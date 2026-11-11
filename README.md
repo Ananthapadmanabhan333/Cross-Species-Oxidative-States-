@@ -82,15 +82,15 @@ All raw API responses are committed under `data/raw/`, so the analyses re-run of
 
 | Process | Phase 1 (networks) | Phase 2 (analysis) |
 |---|---|---|
-| Oxidative stress | `results/20261025T174736Z_5bbc7e723df4` | `results/phase2/20261103T111919Z_860ea5376e14` |
-| DNA repair | `results/dna_repair/20261102T161839Z_7128c0f5ca4e` | `results/dna_repair/phase2/20261103T112433Z_73788e2787df` |
+| Oxidative stress | `results/20261025T174736Z_5bbc7e723df4` | `results/phase2/20261111T155419Z_860ea5376e14` |
+| DNA repair | `results/dna_repair/20261102T161839Z_7128c0f5ca4e` | `results/dna_repair/phase2/20261111T155841Z_73788e2787df` |
 
 ```bash
 .venv/bin/python -m extremonet.analysis --config config/phase2_analysis.yaml --mode offline
 ```
 
 ```bash
-.venv/bin/python scripts/check_reproduction.py results/phase2/20261103T111919Z_860ea5376e14 results/phase2/<new_run_id>
+.venv/bin/python scripts/check_reproduction.py results/phase2/20261111T155419Z_860ea5376e14 results/phase2/<new_run_id>
 ```
 
 `check_reproduction.py` requires every result table to be byte-identical and every JSON summary

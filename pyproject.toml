@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "extremonet"
-version = "0.3.0"
+version = "0.4.0"
 description = "Cross-species network analysis of oxidative-stress and DNA-repair proteins in Deinococcus radiodurans and Homo sapiens, with evidence-graded ranking of candidate functional analogues."
 readme = "README.md"
 requires-python = ">=3.11"

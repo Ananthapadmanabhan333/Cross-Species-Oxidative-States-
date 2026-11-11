@@ -1,8 +1,8 @@
 # Phase 2 findings: oxidative-stress defence networks, D. radiodurans vs human
 
-Reference run: `results/phase2/20261103T111919Z_860ea5376e14/` (generated report:
-`technical_report.md`). Seed-sensitivity runs: `20261103T113549Z_08cd65edddb8` (seed 1) and
-`20261103T113903Z_39fa731cabef` (seed 987654). Input: Phase 1 run `20261025T174736Z_5bbc7e723df4`
+Reference run: `results/phase2/20261111T155419Z_860ea5376e14/` (generated report:
+`technical_report.md`). Seed-sensitivity runs: `20261111T155550Z_08cd65edddb8` (seed 1) and
+`20261111T155716Z_39fa731cabef` (seed 987654). Input: Phase 1 run `20261025T174736Z_5bbc7e723df4`
 (STRING 12.5, UniProt 2026_03), re-verified by checksum before analysis.
 
 This revision adds three things:
@@ -186,15 +186,21 @@ because it would become a candidate analogue if a shared catalytic activity were
 
 ### 4.6 Experimentally confirmed physical interactions (IntAct)
 
-| | *D. radiodurans* | *H. sapiens* |
-|---|---|---|
-| physical interaction pairs between seeds | 0 | 508 |
-| STRING edges (≥ 0.7) confirmed | 0 of 11 | 275 of 2,210 (12.4 %) |
-| STRING physical-subnetwork edges confirmed | 0 of 4 | 243 of 1,152 (21.1 %) |
-| IntAct pairs absent from the STRING graph | – | 233 (176 absent even at score ≥ 0.4) |
+"All physical types" includes co-complex association (MI:0914), which places two proteins in one
+complex without showing that they bind; "binary" excludes it.
 
-Most STRING edges are functional associations without a deposited physical interaction; even
-STRING's predicted physical subnetwork is only about one-fifth confirmed in IntAct. IntAct, BioGRID
+| | *D. radiodurans* | *H. sapiens*, all physical types | *H. sapiens*, binary only |
+|---|---|---|---|
+| physical interaction pairs between seeds | 0 | 1,009 | 342 |
+| STRING edges (≥ 0.7) confirmed | 0 of 11 | 522 of 2,210 (23.6 %) | 217 (9.8 %) |
+| STRING physical-subnetwork edges confirmed | 0 of 4 | 467 of 1,152 (40.5 %) | 192 (16.7 %) |
+| IntAct pairs absent from the STRING graph | – | 487 (347 absent even at score ≥ 0.4) | |
+
+Most STRING edges are functional associations without a deposited physical interaction; under
+the stricter binary definition, only one in six edges of STRING's predicted physical subnetwork is
+confirmed in IntAct. *Correction (2026-11-11):* earlier versions reported 275 edges (12.4 %) and
+243 physical-subnetwork edges (21.1 %), because IntAct complexes were de-duplicated by interaction
+id alone, keeping one pair per complex (see PHASE2_METHODS.md §5a). IntAct, BioGRID
 (PSICQUIC) and MINT hold no physical interactions for the bacterial seed proteins. The bacterial
 network is therefore entirely functional-association based, and physical-interaction comparisons
 across the two species are not possible with current public data.

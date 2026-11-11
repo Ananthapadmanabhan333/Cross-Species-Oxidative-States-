@@ -225,15 +225,15 @@ pre { margin: 0; background: var(--surface); border: 1px solid var(--rule); bord
     <h2>Physical interactions and alignment</h2>
     <div class="tablewrap">
       <table>
-        <thead><tr><th>IntAct, physical interactions between seeds</th><th class="num">Ox · <em class="sp">D. rad.</em></th><th class="num">Ox · human</th><th class="num">DNA · <em class="sp">D. rad.</em></th><th class="num">DNA · human</th></tr></thead>
+        <thead><tr><th>IntAct, physical interactions between seeds (human: all physical types / binary only)</th><th class="num">Ox · <em class="sp">D. rad.</em></th><th class="num">Ox · human</th><th class="num">DNA · <em class="sp">D. rad.</em></th><th class="num">DNA · human</th></tr></thead>
         <tbody>
-          <tr><td>Physical interaction pairs</td><td class="num">0</td><td class="num">508</td><td class="num">0</td><td class="num">599</td></tr>
-          <tr><td>STRING edges confirmed</td><td class="num">0 / 11</td><td class="num">275 / 2,210 (12.4 %)</td><td class="num">0 / 119</td><td class="num">431 / 5,285 (8.2 %)</td></tr>
-          <tr><td>STRING physical-subnetwork edges confirmed</td><td class="num">0 / 4</td><td class="num">243 / 1,152 (21.1 %)</td><td class="num">0 / 14</td><td class="num">395 / 2,393 (16.5 %)</td></tr>
+          <tr><td>Physical interaction pairs</td><td class="num">0</td><td class="num">1,009 / 342</td><td class="num">0</td><td class="num">1,087 / 368</td></tr>
+          <tr><td>STRING edges confirmed</td><td class="num">0 / 11</td><td class="num">522 (23.6 %) / 217 (9.8 %) of 2,210</td><td class="num">0 / 119</td><td class="num">744 (14.1 %) / 272 (5.1 %) of 5,285</td></tr>
+          <tr><td>STRING physical-subnetwork edges confirmed</td><td class="num">0 / 4</td><td class="num">467 (40.5 %) / 192 (16.7 %) of 1,152</td><td class="num">0 / 14</td><td class="num">671 (28.0 %) / 248 (10.4 %) of 2,393</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="prose">IntAct, BioGRID and MINT hold no experimentally determined interactions for the bacterial seed proteins (checked 2 November 2026). Both bacterial networks therefore consist entirely of functional associations.</p>
+    <p class="prose">IntAct, BioGRID and MINT hold no experimentally determined interactions for the bacterial seed proteins (checked 2 November 2026). Both bacterial networks therefore consist entirely of functional associations. "All physical types" includes co-complex association, which places two proteins in one complex without showing that they bind; "binary" excludes it.</p>
     <div class="tablewrap">
       <table>
         <thead><tr><th>IsoRank alignment to the human network</th><th class="num">Edges conserved</th><th class="num">p vs rewired null</th></tr></thead>
@@ -301,7 +301,7 @@ python -m extremonet.analysis --config config/phase2_analysis.yaml
 python -m extremonet --config config/phase1_dna_repair.yaml
 python -m extremonet.analysis --config config/phase2_dna_repair.yaml
 python -m pytest</pre>
-    <p class="prose small">Reference runs: oxidative stress <span class="mono">20261103T111919Z_860ea5376e14</span>; DNA repair <span class="mono">20261103T112433Z_73788e2787df</span>. Detailed findings are in <span class="mono">docs/PHASE2_FINDINGS.md</span> and <span class="mono">docs/DNA_REPAIR_FINDINGS.md</span>; methods in <span class="mono">docs/PHASE2_METHODS.md</span>. Data sources: STRING 12.5, UniProtKB 2026_03, QuickGO, KEGG REST (academic use) and IntAct, all cached with provenance.</p>
+    <p class="prose small">Reference runs: oxidative stress <span class="mono">20261111T155419Z_860ea5376e14</span>; DNA repair <span class="mono">20261111T155841Z_73788e2787df</span>. Detailed findings are in <span class="mono">docs/PHASE2_FINDINGS.md</span> and <span class="mono">docs/DNA_REPAIR_FINDINGS.md</span>; methods in <span class="mono">docs/PHASE2_METHODS.md</span>. Data sources: STRING 12.5, UniProtKB 2026_03, QuickGO, KEGG REST (academic use) and IntAct, all cached with provenance.</p>
   </section>
 
   <section>

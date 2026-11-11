@@ -38,7 +38,8 @@ Louvain modules, aligned them with IsoRank against degree-preserving null models
 cross-species protein pair with a transparent score that combines catalytic activity, GO and KEGG
 annotation, experimental literature, mutant phenotypes, network context and graded homology.
 Topology alone showed no conservation beyond degree-matched random graphs. Homology-anchored
-alignment of the DNA-repair networks exceeded the null ($p = 0.01$--$0.02$), which partly reflects
+alignment of the DNA-repair networks exceeded the null (empirical $p = 0.01$--$0.02$ against 100
+rewired networks, not adjusted for multiple tests), which partly reflects
 STRING's transfer of evidence between orthologs. The ranking recovered known orthologs and proposed
 candidate analogues, most clearly Mn/Fe versus Cu/Zn superoxide dismutases and Fpg/MutM versus
 HhH-GPD DNA glycosylases. Curated mutant studies contradicted simple protective roles for
@@ -61,16 +62,19 @@ proteins from oxidative damage, so that the repair machinery itself survives
 \cite{daly2004,daly2007,daly2009,slade2011}. Both raise the question of which human proteins, if
 any, perform equivalent functions.
 
-Transferring this knowledge to humans is hard because many Deinococcus factors, such as DdrA,
-DdrB and PprA, have no human ortholog. Sequence-based orthology inference \cite{orthofinder}
+Transferring this knowledge to humans is hard because several Deinococcus repair factors have no
+clear human counterpart: in our data DdrB and PprA share no detectable homology with any human
+DNA-repair protein, and DdrA is related to RAD52 only through a shared domain \cite{harris2004}.
+Sequence-based orthology inference \cite{orthofinder}
 therefore misses the proteins that make the organism unusual. Network-level comparison
 offers an alternative: proteins can occupy equivalent positions in their interaction networks
 without sharing ancestry. Network alignment methods such as IsoRank \cite{isorank} and MAGNA++
 \cite{magna} formalise this idea, and the trade-offs between local and global alignment are well
 documented \cite{guzzi2018}.
 
-Three obstacles limit such comparisons. Bacterial interaction data are sparse and biased towards
-well-studied proteins. Functional associations are easily mistaken for physical interactions. And
+Three obstacles limit such comparisons. Experimental interaction data for the bacterium are sparse:
+IntAct, BioGRID and MINT record no physical interactions among the \Dr\ proteins studied here
+(Section~\ref{sec:physical}). Functional associations are easily mistaken for physical interactions. And
 there is no ground truth for cross-species functional analogy, so accuracy claims cannot be made.
 We therefore designed the analysis to report what the data can and cannot support. Our
 contributions are:
@@ -130,7 +134,10 @@ analysis, so other thresholds can be re-applied offline. Edges pass ordered qual
 (identifier validity, species, self-loops, score range, duplicates), and every excluded record is
 listed with its reason. STRING edges are functional associations. Edges also present in STRING's
 physical subnetwork are flagged, and physical interactions are checked separately in IntAct
-\cite{intact2022} through PSICQUIC \cite{psicquic}; this layer is reported but not used for ranking.
+\cite{intact2022} through PSICQUIC \cite{psicquic}. Every protein pair of a multi-protein complex is
+kept, and confirmations are counted twice: for all physical interaction types, and for binary types
+only, excluding co-complex association (PSI-MI MI:0914), which places two proteins in one complex
+without showing that they bind. This layer is reported but not used for ranking.
 
 \subsection{Annotation and graded homology}
 
@@ -150,9 +157,10 @@ Since every protein is searched, ``no homology detected'' is an observation, not
 
 \subsection{Topology and modules}
 
-For each network we compute degree, betweenness and closeness (edge length $1/\text{score}$),
-clustering, PageRank and k-core, with percentiles taken within species over connected nodes.
-Hubs and bottlenecks are nodes in the top 20\,\% of degree and betweenness \cite{yu2007}.
+For each network we compute degree, betweenness and closeness (edge length $1/\text{score}$), the
+clustering coefficient and, from the module partition below, the participation coefficient, with
+percentiles taken within species over connected nodes. These five quantities define the
+network-role similarity used in the ranking.
 Modules are found with weighted Louvain \cite{louvain} at resolution 1.0 over 50 random seeds. The
 reported partition is the medoid run, and stability is the mean pairwise adjusted Rand index
 (ARI) \cite{ari}. Module enrichment uses a one-sided hypergeometric test against the species'
@@ -210,7 +218,9 @@ S(p) = \frac{\sum_{i \in \mathcal{A}(p)} w_i\, s_i(p)}{\sum_{i \in \mathcal{A}(p
 \qquad C(p) = \sum_{i \in \mathcal{A}(p)} w_i ,
 \end{equation}
 so missing evidence never lowers a score. The weights are 0.15 for EC, GO, pathway and literature
-and 0.10 for perturbation, module, role and homology. Pairs with evidence coverage $C(p) < 0.45$
+and 0.10 for perturbation, module, role and homology; they are set a priori, not fitted, and
+Section~\ref{sec:robust} reports how the ranking responds when they are perturbed. Pairs with
+evidence coverage $C(p) < 0.45$
 are listed but not ranked.
 
 Perturbation evidence combines GO mutant codes with a literature-curated table of \Dr\ mutant and
@@ -251,7 +261,7 @@ cached immutably with SHA-256 checksums; inputs are re-verified before each anal
 writes a manifest, and result tables are byte-identical across reruns, Python hash seeds and CPU
 instruction sets; continuous integration re-runs both reference analyses on a fresh machine and
 requires identical results. It runs with
-one command and has 91 automated tests with mocked APIs.
+one command and has 93 automated tests with mocked APIs.
 
 \section{Results}
 
@@ -282,10 +292,12 @@ seeds / mapped & 16 / 16 & 385 / 382 & 56 / 52 & 432 / 426 \\
 edges & 11 & 2,210 & 119 & 5,285 \\
 isolated proteins & 9 & 70 & 11 & 23 \\
 largest component & 5 & 295 & 41 & 400 \\
-edges in IntAct & 0 & 275 & 0 & 431 \\
+IntAct-confirmed edges, all types & 0 & 522 & 0 & 744 \\
+IntAct-confirmed edges, binary & 0 & 217 & 0 & 272 \\
 \bottomrule
 \end{tabular}\\[3pt]
-D.r., \emph{D.~radiodurans}; H.s., \emph{H.~sapiens}.
+D.r., \emph{D.~radiodurans}; H.s., \emph{H.~sapiens}. IntAct: all physical interaction types, or
+binary types only (Section~\ref{sec:physical}).
 \end{table}
 
 \subsection{Modules}
@@ -318,7 +330,9 @@ KO-prior alignment of the projected network, which is not independent evidence (
 DNA repair, topology alone was not significant either ($p = 0.08$), while homology-anchored alignment
 exceeded the null ($p = 0.01$--$0.02$; KO-projected variant $p = 0.005$). With 100 rewired samples the
 smallest attainable $p$ is $1/101 \approx 0.01$ (and $1/201$ with 200 samples), so these values
-sit at the resolution limit of the test.
+sit at the resolution limit of the test. The nine reported tests are not adjusted for multiple
+comparisons; after Bonferroni correction only the KO-projected DNA-repair alignment ($p = 0.005$)
+would remain below 0.05.
 
 These $p$-values must be read with one caveat. STRING transfers association evidence between
 orthologs of different organisms, so edge conservation between orthologous pairs is partly built
@@ -355,7 +369,7 @@ prior ($\alpha$) & conserved edges & $p$ \\
 
 \subsection{Candidate relationships}
 
-All 6,112 oxidative-stress pairs and 22,152 DNA-repair pairs were scored; 4,329 and 20,020 had
+All 6,112 oxidative-stress pairs and 22,152 DNA-repair pairs were scored; 4,333 and 20,084 had
 enough evidence to be ranked. Fig.~\ref{fig:categories} shows the eligible pairs per category, and
 Table~\ref{tab:pairs} lists representative pairs.
 
@@ -436,12 +450,13 @@ support: it has peroxidase and chaperone activity, and a DR0846/\gene{katA} doub
 of oxidative stress than either single mutant \cite{cho2018}. Its pairs with human glutathione
 peroxidases are distant homologs: they share only the thioredoxin fold.
 
-\emph{Candidate analogues: convergent enzymes.} The clearest analogues are enzymes from unrelated
-families that catalyse the same reaction. Bacterial Mn/Fe superoxide dismutase (\gene{sodA}) pairs
-with human Cu/Zn SOD3 and SOD1, and the bacterial Cu/Zn proteins pair with human Mn-SOD2. In DNA
+\emph{Candidate analogues: convergent enzymes.} The clearest analogues are enzymes that catalyse
+the same reaction but share no detectable homology at any tier. Bacterial Mn/Fe superoxide
+dismutase (\gene{sodA}) pairs with human Cu/Zn SOD3 and SOD1, and the bacterial Cu/Zn proteins pair with human Mn-SOD2. In DNA
 repair, the Fpg/MutM glycosylase pairs with the HhH-GPD glycosylases NTHL1 and OGG1, and the
-HhH-GPD enzyme Nth pairs with NEIL1 and NEIL3 of the Fpg/Nei family; all share EC 4.2.99.18, and
-bacterial MutM and human OGG1 both remove 8-oxoguanine. Catalase versus peroxiredoxin pairs share
+HhH-GPD enzyme Nth pairs with NEIL1 and NEIL3 of the Fpg/Nei family \cite{ide2001}; all share
+EC 4.2.99.18, and bacterial Fpg/MutM and human OGG1 both initiate the repair of 8-oxoguanine
+\cite{boiteux2017}. Catalase versus peroxiredoxin pairs share
 only the EC sub-subclass 1.11.1 and differ in chemistry, so they are analogies of reaction class
 only. Some analogues are weak because their EC numbers are broad: EC 2.7.7.7 covers every
 DNA-directed DNA polymerase.
@@ -449,13 +464,14 @@ DNA-directed DNA polymerase.
 \emph{Pathway-level analogy.} Nucleotide-excision repair is performed by UvrABC in bacteria and by
 XPC and TFIIH in humans. The pipeline places this analogy at the pathway level
 (\gene{uvrA}--XPC is a similar-pathway-role pair) rather than at the level of single enzymes,
-because the two systems use largely different proteins. The recombination mediators RecO and
+because the two systems use largely different proteins \cite{hoeijmakers1991}. The recombination
+mediators RecO and
 RAD52 are treated the same way.
 
 \emph{A corrected expectation.} We expected NAD$^+$-dependent LigA and ATP-dependent LIG1 to be a
 textbook pair of unrelated isofunctional enzymes. The pipeline instead classifies them as distant
-homologs through a shared common-fold signature, consistent with the adenylation and OB-fold domains
-that both ligase families share.
+homologs through a shared common-fold signature, consistent with the nucleotidyltransferase
+(adenylation) and OB-fold domains that both ligase families share \cite{shuman2004}.
 
 \subsection{Curated literature changes interpretations}
 
@@ -480,15 +496,20 @@ above the speculative category. Each contradiction lowers the perturbation
 score of the protein concerned and is listed with every pair that involves it.
 
 \subsection{Physical interactions}
+\label{sec:physical}
 
-Most STRING edges are functional associations without a deposited physical interaction: IntAct
-confirms 12.4\,\% of human oxidative-stress edges and 8.2\,\% of human DNA-repair edges, and only
-21.1\,\% and 16.5\,\% of STRING's predicted physical subnetwork. IntAct, BioGRID and MINT contain
+Most STRING edges are functional associations without a deposited physical interaction. IntAct
+records a physical interaction of some type for 23.6\,\% of human oxidative-stress edges and
+14.1\,\% of human DNA-repair edges (40.5\,\% and 28.0\,\% of STRING's predicted physical
+subnetwork). Many of these records are co-complex associations; counting binary interaction types
+only, the confirmed fractions are 9.8\,\% and 5.1\,\% (16.7\,\% and 10.4\,\% of the physical
+subnetwork). IntAct, BioGRID and MINT contain
 no physical interactions among the bacterial seed proteins. The bacterial networks are therefore
 entirely functional-association based, and physical-interaction comparison across the two species
 is not possible with current public data.
 
 \subsection{Robustness and evaluation}
+\label{sec:robust}
 
 Table~\ref{tab:robustness} summarises the sensitivity analyses. Overall rankings are stable (median
 Spearman correlation 0.98 under weight perturbation), while the top 20 change more (median
@@ -498,8 +519,8 @@ orthologs. Different random seeds gave a top-20 overlap of 1.0, and result table
 byte-identical across Python hash seeds.
 
 NetMF embeddings did not beat simple neighbourhood scores and were therefore not used for ranking.
-Network-role similarity did not recover known orthologs (AUC 0.46 on 16 DNA-repair ortholog pairs),
-so topology alone does not identify equivalent proteins here. The annotation components separate
+Network-role similarity did not recover known orthologs (AUC 0.46 on the 14 of 16 DNA-repair
+ortholog pairs that have a role value), so topology alone does not identify equivalent proteins here. The annotation components separate
 orthologs well (AUC 0.83--0.97), but these values are inflated because annotations are often
 transferred between homologs. The oxidative-stress proxy has only 8 positive pairs and is not
 evaluable.
@@ -557,7 +578,9 @@ We compared the oxidative-stress and DNA-repair networks of \Dr\ and humans with
 evidence-graded pipeline. Network topology alone did not reveal conserved organisation, but the
 integrated evidence separated orthologs, distant homologs and candidate analogues, and identified
 specific pairs for experimental testing. We propose three experiments: cross-complementation of a \Dr\
-\gene{sodA} deletion with human SOD1 or SOD3 under H$_2$O$_2$ and desiccation; complementation of
+\gene{sodA} deletion with human SOD1 or SOD3 under H$_2$O$_2$ and desiccation, co-expressing SOD1
+with its copper chaperone CCS, without which SOD1 lacks copper and activity in yeast
+\cite{culotta1997}; complementation of
 \gene{mutM} and \gene{nth} deletions with human OGG1 and NEIL1, measuring 8-oxoguanine removal; and
 an activity assay for the OsmC protein DR1538 against the glutathione peroxidases. Computationally,
 the next steps are graphlet-based node descriptors, alternative aligners such as MAGNA++
@@ -571,17 +594,18 @@ cross-check of the shortlist against human genetic constraint and disease associ
 {\raggedright
 Code, cached raw data, configuration, reference runs and full result tables are available at
 \url{https://github.com/Ananthapadmanabhan333/Cross-Species-Oxidative-States-} (release
-\texttt{v0.3.0}). Reference runs: oxidative stress \texttt{20261103T111919Z\_860ea5376e14}; DNA
-repair \texttt{20261103T112433Z\_73788e2787df}.\par}
+\texttt{v0.4.0}). Reference runs: oxidative stress \texttt{20261111T155419Z\_860ea5376e14}; DNA
+repair \texttt{20261111T155841Z\_73788e2787df}.\par}
 
 \section*{Acknowledgment}
 
-The analysis code and the manuscript text were prepared with the assistance of Claude
-(Anthropic), an AI model, under the direction of the authors. All reported numbers are produced by
-the released pipeline, and the biomedical references were checked against their PubMed records.
-The authors are responsible for the content.
+Claude (Anthropic), an AI model used through Claude Code, wrote the analysis software, retrieved
+the data, ran all analyses, curated the literature evidence from PubMed abstracts and drafted this
+manuscript, under the direction of the first author. An independent re-implementation of the main
+computations, also written with Claude, reproduces the reported numbers from the cached raw data;
+the code, data and audit reports are released for verification. The authors are responsible for
+the content.
 
-\IEEEtriggeratref{39}
 \begin{thebibliography}{99}
 
 \bibitem{daly2004}
@@ -603,6 +627,11 @@ doi: \href{https://doi.org/10.1038/nrmicro2073}{\nolinkurl{10.1038/nrmicro2073}}
 D.~Slade and M.~Radman, ``Oxidative stress resistance in \emph{Deinococcus radiodurans},''
 \emph{Microbiol. Mol. Biol. Rev.}, vol.~75, no.~1, pp.~133--191, 2011,
 doi: \href{https://doi.org/10.1128/MMBR.00015-10}{\nolinkurl{10.1128/MMBR.00015-10}}.
+
+\bibitem{harris2004}
+D.~R. Harris \emph{et al.}, ``Preserving genome integrity: the DdrA protein of \emph{Deinococcus
+radiodurans} R1,'' \emph{PLoS Biol.}, vol.~2, no.~10, Art.~no.~e304, 2004,
+doi: \href{https://doi.org/10.1371/journal.pbio.0020304}{\nolinkurl{10.1371/journal.pbio.0020304}}.
 
 \bibitem{orthofinder}
 D.~M. Emms and S.~Kelly, ``OrthoFinder: phylogenetic orthology inference for comparative
@@ -674,12 +703,6 @@ M.~Blum \emph{et al.}, ``InterPro: the protein sequence classification resource 
 \emph{Nucleic Acids Res.}, vol.~53, no.~D1, pp.~D444--D456, 2025,
 doi: \href{https://doi.org/10.1093/nar/gkae1082}{\nolinkurl{10.1093/nar/gkae1082}}.
 
-\bibitem{yu2007}
-H.~Yu, P.~M. Kim, E.~Sprecher, V.~Trifonov, and M.~Gerstein, ``The importance of bottlenecks in
-protein networks: correlation with gene essentiality and expression dynamics,'' \emph{PLoS Comput.
-Biol.}, vol.~3, no.~4, Art.~no.~e59, 2007,
-doi: \href{https://doi.org/10.1371/journal.pcbi.0030059}{\nolinkurl{10.1371/journal.pcbi.0030059}}.
-
 \bibitem{louvain}
 V.~D. Blondel, J.-L. Guillaume, R.~Lambiotte, and E.~Lefebvre, ``Fast unfolding of communities in
 large networks,'' \emph{J. Stat. Mech.}, vol.~2008, Art.~no.~P10008, 2008,
@@ -687,12 +710,13 @@ doi: \href{https://doi.org/10.1088/1742-5468/2008/10/P10008}{\nolinkurl{10.1088/
 
 \bibitem{ari}
 L.~Hubert and P.~Arabie, ``Comparing partitions,'' \emph{J. Classification}, vol.~2, no.~1,
-pp.~193--218, 1985.
+pp.~193--218, 1985,
+doi: \href{https://doi.org/10.1007/BF01908075}{\nolinkurl{10.1007/BF01908075}}.
 
 \bibitem{bh}
 Y.~Benjamini and Y.~Hochberg, ``Controlling the false discovery rate: a practical and powerful
 approach to multiple testing,'' \emph{J. R. Stat. Soc. Ser. B}, vol.~57, no.~1, pp.~289--300,
-1995.
+1995, doi: \href{https://doi.org/10.1111/j.2517-6161.1995.tb02031.x}{\nolinkurl{10.1111/j.2517-6161.1995.tb02031.x}}.
 
 \bibitem{maslov2002}
 S.~Maslov and K.~Sneppen, ``Specificity and stability in topology of protein networks,''
@@ -718,21 +742,40 @@ doi: \href{https://doi.org/10.1145/3159652.3159706}{\nolinkurl{10.1145/3159652.3
 
 \bibitem{adamic2003}
 L.~A. Adamic and E.~Adar, ``Friends and neighbors on the Web,'' \emph{Soc. Netw.}, vol.~25,
-no.~3, pp.~211--230, 2003.
+no.~3, pp.~211--230, 2003,
+doi: \href{https://doi.org/10.1016/S0378-8733(03)00009-1}{\nolinkurl{10.1016/S0378-8733(03)00009-1}}.
 
 \bibitem{networkx}
 A.~A. Hagberg, D.~A. Schult, and P.~J. Swart, ``Exploring network structure, dynamics, and
-function using NetworkX,'' in \emph{Proc. 7th Python Sci. Conf. (SciPy)}, 2008, pp.~11--15.
-
-\bibitem{harris2004}
-D.~R. Harris \emph{et al.}, ``Preserving genome integrity: the DdrA protein of \emph{Deinococcus
-radiodurans} R1,'' \emph{PLoS Biol.}, vol.~2, no.~10, Art.~no.~e304, 2004,
-doi: \href{https://doi.org/10.1371/journal.pbio.0020304}{\nolinkurl{10.1371/journal.pbio.0020304}}.
+function using NetworkX,'' in \emph{Proc. 7th Python Sci. Conf. (SciPy)}, 2008, pp.~11--15,
+doi: \href{https://doi.org/10.25080/TCWV9851}{\nolinkurl{10.25080/TCWV9851}}.
 
 \bibitem{cho2018}
 C.~Cho \emph{et al.}, ``Novel functions of peroxiredoxin Q from \emph{Deinococcus radiodurans} R1
 as a peroxidase and a molecular chaperone,'' \emph{FEBS Lett.}, vol.~593, no.~2, pp.~219--229,
 2019, doi: \href{https://doi.org/10.1002/1873-3468.13302}{\nolinkurl{10.1002/1873-3468.13302}}.
+
+\bibitem{ide2001}
+H.~Ide, ``DNA substrates containing defined oxidative base lesions and their application to study
+substrate specificities of base excision repair enzymes,'' \emph{Prog. Nucleic Acid Res. Mol.
+Biol.}, vol.~68, pp.~207--221, 2001,
+doi: \href{https://doi.org/10.1016/s0079-6603(01)68101-7}{\nolinkurl{10.1016/s0079-6603(01)68101-7}}.
+
+\bibitem{boiteux2017}
+S.~Boiteux, F.~Coste, and B.~Castaing, ``Repair of 8-oxo-7,8-dihydroguanine in prokaryotic and
+eukaryotic cells: properties and biological roles of the Fpg and OGG1 DNA N-glycosylases,''
+\emph{Free Radic. Biol. Med.}, vol.~107, pp.~179--201, 2017,
+doi: \href{https://doi.org/10.1016/j.freeradbiomed.2016.11.042}{\nolinkurl{10.1016/j.freeradbiomed.2016.11.042}}.
+
+\bibitem{hoeijmakers1991}
+J.~H. Hoeijmakers, ``How relevant is the \emph{Escherichia coli} UvrABC model for excision repair in
+eukaryotes?'' \emph{J. Cell Sci.}, vol.~100, no.~4, pp.~687--691, 1991,
+doi: \href{https://doi.org/10.1242/jcs.100.4.687}{\nolinkurl{10.1242/jcs.100.4.687}}.
+
+\bibitem{shuman2004}
+S.~Shuman and C.~D. Lima, ``The polynucleotide ligase and RNA capping enzyme superfamily of covalent
+nucleotidyltransferases,'' \emph{Curr. Opin. Struct. Biol.}, vol.~14, no.~6, pp.~757--764, 2004,
+doi: \href{https://doi.org/10.1016/j.sbi.2004.10.006}{\nolinkurl{10.1016/j.sbi.2004.10.006}}.
 
 \bibitem{markillie1999}
 L.~M. Markillie, S.~M. Varnum, P.~Hradecky, and K.~K. Wong, ``Targeted mutagenesis by duplication
@@ -803,6 +846,11 @@ A.~Devigne \emph{et al.}, ``The PprA protein is required for accurate cell divis
 $\gamma$-irradiated \emph{Deinococcus radiodurans} bacteria,'' \emph{DNA Repair}, vol.~12,
 no.~4, pp.~265--272, 2013,
 doi: \href{https://doi.org/10.1016/j.dnarep.2013.01.004}{\nolinkurl{10.1016/j.dnarep.2013.01.004}}.
+
+\bibitem{culotta1997}
+V.~C. Culotta, L.~W. Klomp, J.~Strain, R.~L. Casareno, B.~Krems, and J.~D. Gitlin, ``The copper
+chaperone for superoxide dismutase,'' \emph{J. Biol. Chem.}, vol.~272, no.~38, pp.~23469--23472,
+1997, doi: \href{https://doi.org/10.1074/jbc.272.38.23469}{\nolinkurl{10.1074/jbc.272.38.23469}}.
 
 \bibitem{leiden}
 V.~A. Traag, L.~Waltman, and N.~J. van Eck, ``From Louvain to Leiden: guaranteeing

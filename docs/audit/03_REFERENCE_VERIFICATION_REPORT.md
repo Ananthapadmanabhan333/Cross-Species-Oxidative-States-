@@ -1,9 +1,11 @@
 # 3. Reference verification report
 
-All 43 references in `paper.tex` were checked for existence and bibliographic accuracy (authors,
-title, journal, volume, pages, year, DOI): 37 against their PubMed record (PMID below) and 6, which
-PubMed does not index, against Crossref by DOI. No reference was found to be invented or
-mis-attributed.
+All 47 references in `paper.tex` (v0.4.0) were checked for existence and bibliographic accuracy
+(authors, title, journal, volume, pages, year, DOI): 41 against their PubMed record (PMID below) and
+6, which PubMed does not index, against Crossref by DOI. No reference was found to be invented or
+mis-attributed. Compared with the first audit (43 references), v0.4.0 adds five PubMed-verified
+references (ide2001, boiteux2017, hoeijmakers1991, shuman2004, culotta1997) and removes yu2007,
+which was cited only for a topology measure the paper no longer describes.
 
 **Claim support.** Bibliographic accuracy is not the same as support for the sentence citing it.
 The curated mutant studies were checked against their PubMed abstracts when the evidence tables
@@ -31,32 +33,35 @@ supports Mn-dependent protection of proteins. Full-text checks were not made for
 | kegg2025 | PMID 39417505 | earl2002 | PMID 11807060 |
 | panther2022 | PMID 34717010 | xu2010 | PMID 20451472 |
 | interpro2025 | PMID 39565202 | gaidamakova2022 | PMID 35012337 |
-| yu2007 | PMID 17447836 | jolivet2006 | PMID 16359339 |
+| ide2001 | PMID 11554298 | jolivet2006 | PMID 16359339 |
 | louvain | Crossref 10.1088/1742-5468/2008/10/P10008 | narumi2004 | PMID 15458422 |
 | ari | Crossref 10.1007/BF01908075 | devigne2013 | PMID 23403184 |
 | bh | Crossref 10.1111/j.2517-6161.1995.tb02031.x | leiden | PMID 30914743 |
-| | | langfelder2011 | PMID 21283776 |
+| boiteux2017 | PMID 27903453 | langfelder2011 | PMID 21283776 |
+| hoeijmakers1991 | PMID 1814927 | shuman2004 | PMID 15582400 |
+| culotta1997 | PMID 9295278 | | |
 
 ## Issues
 
-- **Missing DOIs.** `ari`, `bh`, `adamic2003` and `networkx` have no DOI in the manuscript. The
-  verified DOIs are listed above.
+- **Missing DOIs (fixed in v0.4.0).** `ari`, `bh`, `adamic2003` and `networkx` had no DOI in the
+  manuscript; the verified DOIs above were added.
 - **Year conventions.** `cho2018` and `jeong2015` are cited with their print-issue years (2019 and
   2016); PubMed lists the online years (2018 and 2015). The keys are internal labels and do not
   appear in the PDF.
 
 ## Claims that need a citation
 
-Candidates were found in PubMed and checked at abstract level. Each must be read before use; none
-has been added to the manuscript.
+Candidates were found in PubMed and checked at abstract level. *Status (v0.4.0):* five were added
+to the manuscript where their abstracts support the sentence; the other claims were rewritten so
+that they rest on this paper's own data instead (last column). Full texts have not been read.
 
-| Claim in the manuscript | Candidate source | What the abstract supports |
-|---|---|---|
-| Fpg/MutM (bacteria) and OGG1 (eukaryotes) both initiate 8-oxoguanine repair | Boiteux, Coste & Castaing 2017, *Free Radic Biol Med* 107:179–201, PMID 27903453, doi:10.1016/j.freeradbiomed.2016.11.042 | function in both kingdoms; structural comparison stated as covered but not in the abstract |
-| Oxidative-base glycosylases form Endo III (HhH-GPD) and Fpg families | Ide 2001, *Prog Nucleic Acid Res Mol Biol* 68:207–221, PMID 11554298, doi:10.1016/s0079-6603(01)68101-7 | the two subgroups |
-| NAD⁺- and ATP-dependent ligases share nucleotidyltransferase and OB-fold domains | Shuman & Lima 2004, *Curr Opin Struct Biol* 14:757–764, PMID 15582400, doi:10.1016/j.sbi.2004.10.006 | shared core of a nucleotidyltransferase domain fused to an OB-fold domain |
-| Eukaryotic NER uses proteins unrelated to UvrABC | Hoeijmakers 1991, *J Cell Sci* 100:687–691, PMID 1814927, doi:10.1242/jcs.100.4.687 | "no eukaryotic homologs of the UvrABC proteins have been identified" (as of 1991; a recent source is preferable) |
-| Cu/Zn and Mn/Fe SODs are unrelated families | none found yet | author to supply |
-| Bacterial interaction data are sparse and biased | none searched | author to supply, or support with the IntAct counts in this paper |
-| DdrA, DdrB and PprA have no human ortholog (Introduction) | none searched | author to supply; note that harris2004 describes DdrA as a Rad52 homolog (report 2, B1) |
-| SOD1 copper loading needs CCS (feasibility of the proposed experiment) | Culotta et al. 1997, *J Biol Chem* 272:23469–23472, PMID 9295278, doi:10.1074/jbc.272.38.23469 | copper delivery to SOD1 by CCS; yeast without it make inactive SOD1 |
+| Claim in the manuscript | Candidate source | What the abstract supports | v0.4.0 |
+|---|---|---|---|
+| Fpg/MutM (bacteria) and OGG1 (eukaryotes) both initiate 8-oxoguanine repair | Boiteux, Coste & Castaing 2017, *Free Radic Biol Med* 107:179–201, PMID 27903453, doi:10.1016/j.freeradbiomed.2016.11.042 | function in both kingdoms; structural comparison stated as covered but not in the abstract | cited (boiteux2017) |
+| Oxidative-base glycosylases form Endo III (HhH-GPD) and Fpg families | Ide 2001, *Prog Nucleic Acid Res Mol Biol* 68:207–221, PMID 11554298, doi:10.1016/s0079-6603(01)68101-7 | the two subgroups | cited (ide2001) |
+| NAD⁺- and ATP-dependent ligases share nucleotidyltransferase and OB-fold domains | Shuman & Lima 2004, *Curr Opin Struct Biol* 14:757–764, PMID 15582400, doi:10.1016/j.sbi.2004.10.006 | shared core of a nucleotidyltransferase domain fused to an OB-fold domain | cited (shuman2004) |
+| Eukaryotic NER uses proteins unrelated to UvrABC | Hoeijmakers 1991, *J Cell Sci* 100:687–691, PMID 1814927, doi:10.1242/jcs.100.4.687 | "no eukaryotic homologs of the UvrABC proteins have been identified" (as of 1991; a recent source is preferable) | cited (hoeijmakers1991) |
+| Cu/Zn and Mn/Fe SODs are unrelated families | none found yet | author to supply | rewritten: the pairs are described as sharing no detectable homology at any tier in this paper's data |
+| Bacterial interaction data are sparse and biased | none searched | author to supply, or support with the IntAct counts in this paper | rewritten: stated from this paper's IntAct, BioGRID and MINT result (Section V) |
+| DdrA, DdrB and PprA have no human ortholog (Introduction) | none searched | author to supply; note that harris2004 describes DdrA as a Rad52 homolog (report 2, B1) | rewritten: DdrB and PprA share no detectable homology in this paper's data; DdrA is related to RAD52 through a shared domain (harris2004) |
+| SOD1 copper loading needs CCS (feasibility of the proposed experiment) | Culotta et al. 1997, *J Biol Chem* 272:23469–23472, PMID 9295278, doi:10.1074/jbc.272.38.23469 | copper delivery to SOD1 by CCS; yeast without it make inactive SOD1 | cited (culotta1997) |

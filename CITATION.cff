@@ -4,8 +4,8 @@ title: "ExtremoNet: cross-species network analysis of Deinococcus radiodurans an
 type: software
 authors:
   - name: "Ananthapadmanabhan"
-version: 0.3.0
-date-released: 2026-11-03
+version: 0.4.0
+date-released: 2026-11-11
 license: MIT
 repository-code: "https://github.com/Ananthapadmanabhan333/Cross-Species-Oxidative-States-"
 keywords:

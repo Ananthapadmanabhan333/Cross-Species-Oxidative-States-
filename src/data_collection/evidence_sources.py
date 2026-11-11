@@ -230,6 +230,11 @@ def intact_within_set(http: CachedHttpClient, accessions: list[str], species_key
     frame = pd.DataFrame(records, columns=["uniprot_a", "uniprot_b", "interaction_id", "detection_method",
                                            "interaction_type", "interaction_type_mi", "publications",
                                            "intact_miscore"])
-    frame = frame.drop_duplicates("interaction_id").reset_index(drop=True)
+    # A complex is written as several binary rows that share one interaction id, so a row is a
+    # duplicate (from overlapping query blocks) only if its id AND both partners repeat.
+    frame = frame.drop_duplicates(["interaction_id", "uniprot_a", "uniprot_b"]).reset_index(drop=True)
     frame["physical"] = frame["interaction_type_mi"].isin(PHYSICAL_INTERACTION_TYPES)
+    # Co-complex association (MI:0914) places two proteins in one complex without showing that
+    # they bind each other; the binary subset excludes it.
+    frame["physical_binary"] = frame["physical"] & (frame["interaction_type_mi"] != "MI:0914")
     return frame

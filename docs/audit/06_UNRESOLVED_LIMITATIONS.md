@@ -2,13 +2,14 @@
 
 ## Must be resolved before submission
 
-1. **IntAct confirmation counts (C1).** Fix the de-duplication, choose a definition of physical
-   interaction, regenerate the runs and update Table I and the text.
-2. **Coverage boundary (C2).** Fix the comparison, regenerate the runs and update the ranked-pair
-   counts.
-3. **Human verification.** The first author has not yet re-derived the key results personally.
-4. **Disclosure.** Replace the acknowledgment with an accurate statement (report 5).
-5. **Missing citations** for the background claims listed in report 3.
+1. **Human verification.** The first author has not yet re-derived the key results personally.
+   The manuscript does not claim otherwise.
+2. **Compile check of the revised manuscript.** The v0.4.0 text passed static checks (references,
+   labels, braces, environments) but has not been compiled since the revision.
+3. **KEGG redistribution.** Decide whether the two cached KEGG responses may stay public.
+
+Resolved in v0.4.0: IntAct counts (C1), coverage boundary (C2), accurate AI-use acknowledgment,
+and citations for the background claims (report 3).
 
 ## Limitations of the study design (to be stated, not fixed)
 

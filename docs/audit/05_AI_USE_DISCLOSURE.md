@@ -29,16 +29,17 @@ computational.
 - Claude can make errors that look plausible. Two such errors (C1, C2) survived until this audit.
 - The literature findings were curated from abstracts, not full texts.
 
-## Proposed acknowledgment for the manuscript
+## Acknowledgment in the manuscript
 
-The current acknowledgment ("prepared with the assistance of Claude ... under the direction of the
-authors") understates Claude's role. A more accurate wording, for the authors to approve or adapt:
+The earlier acknowledgment ("prepared with the assistance of Claude ... under the direction of the
+authors") understated Claude's role. Since v0.4.0 the manuscript says:
 
 > Claude (Anthropic), an AI model used through Claude Code, wrote the analysis software, retrieved
 > the data, ran all analyses, curated the literature evidence from PubMed abstracts and drafted this
-> manuscript, under the direction of the first author. The authors reviewed the results, are
-> responsible for the content, and have released the code, cached data and an independent
-> re-computation of the reported numbers for verification.
+> manuscript, under the direction of the first author. An independent re-implementation of the main
+> computations, also written with Claude, reproduces the reported numbers from the cached raw data;
+> the code, data and audit reports are released for verification. The authors are responsible for
+> the content.
 
-Use this wording only once its claims are true: in particular, "the authors reviewed the results"
-should follow the section-by-section review.
+It deliberately does not say that the authors re-derived the results; add that only once it is
+true. The v0.4.0 revision of the manuscript was also made by Claude.

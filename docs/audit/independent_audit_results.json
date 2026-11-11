@@ -138,17 +138,17 @@
   {
     "process": "oxidative",
     "claim": "H.s. STRING edges confirmed in IntAct",
-    "manuscript": 275,
+    "manuscript": 522,
     "recomputed": 522,
-    "status": "DIFFERS",
+    "status": "MATCH",
     "note": "49 IntAct responses; (checksum ok, HTTP status): [(True, 200)]"
   },
   {
     "process": "oxidative",
     "claim": "H.s. physical-subnetwork edges confirmed (%)",
-    "manuscript": 21.1,
+    "manuscript": 40.5,
     "recomputed": 40.5,
-    "status": "DIFFERS",
+    "status": "MATCH",
     "note": ""
   },
   {
@@ -251,8 +251,8 @@
     "process": "oxidative",
     "claim": "eligibility (coverage >= 0.45) disagreements",
     "manuscript": 0,
-    "recomputed": 4,
-    "status": "DIFFERS",
+    "recomputed": 0,
+    "status": "MATCH",
     "note": ""
   },
   {
@@ -466,17 +466,17 @@
   {
     "process": "dna_repair",
     "claim": "H.s. STRING edges confirmed in IntAct",
-    "manuscript": 431,
+    "manuscript": 744,
     "recomputed": 744,
-    "status": "DIFFERS",
+    "status": "MATCH",
     "note": "64 IntAct responses; (checksum ok, HTTP status): [(True, 200)]"
   },
   {
     "process": "dna_repair",
     "claim": "H.s. physical-subnetwork edges confirmed (%)",
-    "manuscript": 16.5,
+    "manuscript": 28.0,
     "recomputed": 28.0,
-    "status": "DIFFERS",
+    "status": "MATCH",
     "note": ""
   },
   {
@@ -603,8 +603,8 @@
     "process": "dna_repair",
     "claim": "eligibility (coverage >= 0.45) disagreements",
     "manuscript": 0,
-    "recomputed": 64,
-    "status": "DIFFERS",
+    "recomputed": 0,
+    "status": "MATCH",
     "note": ""
   },
   {

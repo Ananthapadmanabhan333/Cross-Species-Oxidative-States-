@@ -1,8 +1,8 @@
 # DNA-repair findings: D. radiodurans vs human
 
-Reference run: `results/dna_repair/phase2/20261103T112433Z_73788e2787df/` (generated report:
-`technical_report.md`). Seed-sensitivity runs: `20261103T114216Z_0e41d8f5b4be` (seed 1) and
-`20261103T114851Z_41c672396042` (seed 987654). Input: Phase 1 run `20261102T161839Z_7128c0f5ca4e`
+Reference run: `results/dna_repair/phase2/20261111T155841Z_73788e2787df/` (generated report:
+`technical_report.md`). Seed-sensitivity runs: `20261111T160140Z_0e41d8f5b4be` (seed 1) and
+`20261111T160437Z_41c672396042` (seed 987654). Input: Phase 1 run `20261102T161839Z_7128c0f5ca4e`
 (`config/phase1_dna_repair.yaml`; STRING 12.5), re-verified by checksum before analysis.
 
 The code and analysis parameters are identical to the oxidative-stress analysis
@@ -191,14 +191,18 @@ proteins, curated at abstract level. All of the following is according to PubMed
 
 ## 5. Experimentally confirmed physical interactions (IntAct)
 
-| | *D. radiodurans* | *H. sapiens* |
-|---|---|---|
-| physical interaction pairs between seeds | 0 | 599 |
-| STRING edges (≥ 0.7) confirmed | 0 of 119 | 431 of 5,285 (8.2 %) |
-| STRING physical-subnetwork edges confirmed | 0 of 14 | 395 of 2,393 (16.5 %) |
-| IntAct pairs absent from the STRING graph | – | 168 (111 absent even at score ≥ 0.4) |
+"All physical types" includes co-complex association (MI:0914); "binary" excludes it.
+
+| | *D. radiodurans* | *H. sapiens*, all physical types | *H. sapiens*, binary only |
+|---|---|---|---|
+| physical interaction pairs between seeds | 0 | 1,087 | 368 |
+| STRING edges (≥ 0.7) confirmed | 0 of 119 | 744 of 5,285 (14.1 %) | 272 (5.1 %) |
+| STRING physical-subnetwork edges confirmed | 0 of 14 | 671 of 2,393 (28.0 %) | 248 (10.4 %) |
+| IntAct pairs absent from the STRING graph | – | 343 (224 absent even at score ≥ 0.4) | |
 
 Most human STRING edges are functional associations without a deposited physical interaction.
+*Correction (2026-11-11):* earlier versions reported 431 edges (8.2 %) and 395 physical-subnetwork
+edges (16.5 %), because IntAct complexes were de-duplicated by interaction id alone.
 **No experimentally confirmed physical interactions exist for the bacterial repair proteins in
 IntAct, BioGRID or MINT**, so the bacterial network is entirely functional-association based.
 
@@ -213,7 +217,7 @@ IntAct, BioGRID or MINT**, so the bacterial network is entirely functional-assoc
 | Random seed (two alternatives) | top-20 overlap 1.0; score Spearman ≥ 0.9988 |
 | Python hash seed (offline) | all 42 result tables byte-identical |
 | Embeddings (NetMF) | link-prediction AUC 0.879 (human) and 0.728 (*D. radiodurans*), below Adamic–Adar (0.952 / 0.931). Not used. |
-| Proxy (16 ortholog pairs; evaluable) | `role` (topology only, no leakage) AUC 0.46: topology does not recover orthologs. Annotation components 0.83–0.97 (inflated by annotation transfer) |
+| Proxy (16 ortholog pairs; evaluable) | `role` (topology only, no leakage) AUC 0.46 on the 14 pairs with a role value: topology does not recover orthologs. Annotation components 0.83–0.97 (inflated by annotation transfer) |
 
 **The top of this ranking is less stable than for oxidative stress.** Without the homology
 component, only 35 % of the top 20 remain, because the top of the list is mostly orthologs. Read

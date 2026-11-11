@@ -329,6 +329,53 @@ def test_isolated_nodes_get_zero_cosine_in_link_prediction():
         assert not unit[order.index(n)].any()
 
 
+def test_pair_exactly_at_the_coverage_threshold_is_eligible():
+    # Summed column by column (pandas hands numpy a column-ordered array for multi-row tables),
+    # 0.15 + 0.10 + 0.10 + 0.10 is 0.44999999999999996; such pairs must still count as eligible.
+    weights = {"ec": .15, "go": .15, "pathway": .15, "literature": .15, "perturbation": .10, "module": .10,
+               "role": .10, "homology": .10}
+    rows = []
+    for i in range(20):
+        row = {c: np.nan for c in ranking.COMPONENTS}
+        row.update({"go": 0.2, "module": 0.3, "role": 0.4, "homology": 0.0, "homology_tier": "none_detected",
+                    "dr_string_id": f"d{i:02d}", "hs_string_id": "h1", "dr_name": f"d{i:02d}", "shared_ec": "",
+                    "dr_ec": "", "hs_ec": "", "shared_pathways": "", "negated_go_conflicts": "",
+                    "dr_isolated": False, "dr_evidence_codes": "", "perturbation_evidence_for": 0})
+        rows.append(row)
+    ranked = ranking.rank_pairs(pd.DataFrame(rows), weights, 0.45, 0.30, 0.30)
+    assert ranked["evidence_coverage"].to_numpy() == pytest.approx(0.45)
+    assert ranked["eligible"].all() and ranked["rank"].tolist() == list(range(1, 21))
+
+
+def test_intact_complex_rows_sharing_an_id_are_all_kept():
+    from extremonet.data_collection import evidence_sources
+
+    def row(a, b, mi, name, iid):
+        return "\t".join([f"uniprotkb:{a}", f"uniprotkb:{b}", "-", "-", "-", "-", 'psi-mi:"MI:0019"(coip)', "-",
+                          "pubmed:1", "taxid:9606", "taxid:9606", f'psi-mi:"{mi}"({name})', "-", f"intact:{iid}",
+                          "intact-miscore:0.5"])
+
+    body = "\n".join([
+        row("P1", "P2", "MI:0914", "association", "EBI-9"),      # one complex, three binary rows
+        row("P1", "P3", "MI:0914", "association", "EBI-9"),
+        row("P2", "P3", "MI:0914", "association", "EBI-9"),
+        row("P1", "P2", "MI:0914", "association", "EBI-9"),      # true duplicate from an overlapping block
+        row("P2", "P3", "MI:0915", "physical association", "EBI-10"),
+    ])
+
+    class Http:
+        def fetch(self, *args, **kwargs):
+            first = (args[3] if len(args) > 3 else kwargs["params"]).get("firstResult", 0)
+            return type("Raw", (), {"text": body if first == 0 else ""})()
+
+    frame = evidence_sources.intact_within_set(Http(), ["P1", "P2", "P3"], "homo_sapiens")
+    pairs = set(zip(frame["uniprot_a"], frame["uniprot_b"], frame["interaction_id"]))
+    assert pairs == {("P1", "P2", "EBI-9"), ("P1", "P3", "EBI-9"), ("P2", "P3", "EBI-9"), ("P2", "P3", "EBI-10")}
+    assert frame["physical"].all()
+    assert frame.loc[frame["interaction_id"] == "EBI-10", "physical_binary"].all()
+    assert not frame.loc[frame["interaction_id"] == "EBI-9", "physical_binary"].any()
+
+
 def test_greedy_matching_breaks_noise_level_ties_by_node_order():
     # Two scores that differ only by floating-point noise must tie, whichever is larger.
     for noise in (1e-15, -1e-15):

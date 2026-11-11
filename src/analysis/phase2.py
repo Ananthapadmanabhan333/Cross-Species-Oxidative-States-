@@ -442,8 +442,10 @@ def _experimental_confirmation(graph: nx.Graph, sp, records: pd.DataFrame) -> tu
     pairs: dict[tuple[str, str], dict] = {}
     for r in phys.itertuples():
         key = tuple(sorted((r.u, r.v)))
-        entry = pairs.setdefault(key, {"records": 0, "methods": set(), "pubs": set(), "miscore": None})
+        entry = pairs.setdefault(key, {"records": 0, "methods": set(), "pubs": set(), "miscore": None,
+                                       "binary": False})
         entry["records"] += 1
+        entry["binary"] = entry["binary"] or bool(r.physical_binary)
         entry["methods"].add(r.detection_method.split("(")[-1].rstrip(")"))
         entry["pubs"].update(p for p in r.publications.split(";") if p)
         if r.intact_miscore is not None and not pd.isna(r.intact_miscore):
@@ -455,26 +457,34 @@ def _experimental_confirmation(graph: nx.Graph, sp, records: pd.DataFrame) -> tu
         rows.append({"node_u": key[0], "node_v": key[1], "combined_score": d.get("combined_score"),
                      "in_physical_subnetwork": bool(d.get("in_physical_subnetwork")),
                      "intact_confirmed": hit is not None,
+                     "intact_confirmed_binary": bool(hit and hit["binary"]),
                      "intact_records": hit["records"] if hit else 0,
                      "intact_max_miscore": hit["miscore"] if hit else None,
                      "intact_methods": ";".join(sorted(hit["methods"])) if hit else "",
                      "intact_publications": ";".join(sorted(hit["pubs"])) if hit else ""})
     table = pd.DataFrame(rows, columns=["node_u", "node_v", "combined_score", "in_physical_subnetwork",
-                                        "intact_confirmed", "intact_records", "intact_max_miscore",
-                                        "intact_methods", "intact_publications"])
+                                        "intact_confirmed", "intact_confirmed_binary", "intact_records",
+                                        "intact_max_miscore", "intact_methods", "intact_publications"])
     string_edges = {tuple(sorted(e)) for e in graph.edges}
     retrieved = {tuple(sorted(p)) for p in zip(sp.functional_records["string_id_a"], sp.functional_records["string_id_b"])}
     n_edges = len(table)
     confirmed = int(table["intact_confirmed"].sum()) if n_edges else 0
+    confirmed_binary = int(table["intact_confirmed_binary"].sum()) if n_edges else 0
     phys_sub = table[table["in_physical_subnetwork"]] if n_edges else table
+    binary_pairs = {k for k, e in pairs.items() if e["binary"]}
     summary = {
         "accessions_queried": len(acc_to_sid), "intact_records": len(records),
         "physical_records": int(records["physical"].sum()) if len(records) else 0,
-        "physical_pairs_between_seeds": len(pairs), "self_interactions": self_interactions,
+        "physical_pairs_between_seeds": len(pairs), "binary_physical_pairs_between_seeds": len(binary_pairs),
+        "self_interactions": self_interactions,
         "string_edges": n_edges, "string_edges_confirmed": confirmed,
         "fraction_string_edges_confirmed": round(confirmed / n_edges, 4) if n_edges else None,
+        "string_edges_confirmed_binary": confirmed_binary,
+        "fraction_string_edges_confirmed_binary": round(confirmed_binary / n_edges, 4) if n_edges else None,
         "string_physical_subnetwork_edges": len(phys_sub),
         "string_physical_subnetwork_edges_confirmed": int(phys_sub["intact_confirmed"].sum()) if len(phys_sub) else 0,
+        "string_physical_subnetwork_edges_confirmed_binary":
+            int(phys_sub["intact_confirmed_binary"].sum()) if len(phys_sub) else 0,
         "intact_pairs_not_in_string_graph": len(set(pairs) - string_edges),
         "intact_pairs_absent_from_string_records_ge_0_4": len(set(pairs) - retrieved),
     }
