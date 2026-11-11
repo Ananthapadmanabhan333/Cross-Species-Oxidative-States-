@@ -12,3 +12,6 @@ dist/
 Thumbs.db
 .DS_Store
 .pytest_tmp/
+
+# KEGG data may not be redistributed; only provenance records are kept (data/raw/kegg/README.md)
+data/raw/kegg/**/*.tsv

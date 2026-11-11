@@ -43,5 +43,10 @@ random subsets), so exact equality is not expected; the agreement is within the 
   not an independent *person*. A human re-derivation of the key numbers (Part 3) is still needed.
 - **Exact reproduction in CI is checked on Windows only.** Linux runs the tests and checksums but
   not the full re-run.
-- **KEGG terms.** Two cached KEGG responses are redistributed in a public repository; KEGG's terms
-  restrict redistribution. This needs a decision by the authors.
+- **KEGG data are not redistributed (since v0.4.1).** KEGG's terms restrict redistribution, so the
+  two KEGG responses were removed from the repository; their provenance records remain, and
+  `scripts/fetch_kegg.py` restores them from KEGG if the SHA-256 still matches. KEGG had already
+  changed by 2026-11-11 (dra: 2 lines removed, 1 added; hsa: 8 added), so outside the authors'
+  copy the reference runs cannot be reproduced byte for byte; CI then runs the analyses on the
+  current KEGG release without the comparison. The files remain in the git history before
+  v0.4.1.

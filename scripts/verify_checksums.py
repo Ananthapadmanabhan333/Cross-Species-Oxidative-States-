@@ -31,12 +31,20 @@ def check_sums(root: Path, sums: Path) -> tuple[int, int]:
     return len(lines), failures
 
 
+# Sources whose terms do not allow redistribution: the repository keeps only their provenance
+# record, and scripts/fetch_kegg.py restores the data. A missing data file is reported, not failed.
+NOT_REDISTRIBUTED = {"kegg"}
+
+
 def check_raw(root: Path) -> tuple[int, int]:
     metas = sorted((root / "data" / "raw").rglob("*.meta.json"))
     failures = 0
     for meta_path in metas:
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
         data = meta_path.parent / meta["data_file"]
+        if not data.is_file() and meta.get("source") in NOT_REDISTRIBUTED:
+            print(f"not redistributed (restore with scripts/fetch_kegg.py): {data.relative_to(root)}")
+            continue
         if not data.is_file() or sha256(data) != meta["sha256"]:
             print(f"FAILED raw {data}")
             failures += 1

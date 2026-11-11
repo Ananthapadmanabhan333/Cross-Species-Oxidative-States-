@@ -13,7 +13,7 @@ ancestry**, for two processes: **oxidative-stress defence** and **DNA repair**.
 The pipeline builds STRING functional-association networks for both species, compares them by
 topology, modules and network alignment against degree-preserving null models, and ranks every
 cross-species protein pair with a transparent, evidence-graded score. Every input is cached and
-checksummed, and the reference analyses are reproduced offline in CI.
+checksummed, and CI re-runs the reference analyses on every push.
 
 > **All results are computational candidates.** None demonstrates biological equivalence, safety,
 > therapeutic effect or experimental validation.
@@ -78,7 +78,18 @@ Verify every reference run and every cached API response against its recorded SH
 
 ## Reproducing the reference results
 
-All raw API responses are committed under `data/raw/`, so the analyses re-run offline:
+All raw API responses except KEGG's are committed under `data/raw/`. KEGG's terms do not allow
+redistribution, so only the provenance records (URL, time, SHA-256) of its two responses are
+kept; restore the data from KEGG first:
+
+```bash
+.venv/bin/python scripts/fetch_kegg.py
+```
+
+The script keeps a response only if it matches the recorded SHA-256. KEGG has changed slightly
+since the reference runs (see [data/raw/kegg/README.md](data/raw/kegg/README.md)), so a byte-exact
+re-run needs the original snapshot; `--accept-current` runs the analysis on the current KEGG
+release instead. Then re-run offline:
 
 | Process | Phase 1 (networks) | Phase 2 (analysis) |
 |---|---|---|
@@ -94,7 +105,8 @@ All raw API responses are committed under `data/raw/`, so the analyses re-run of
 ```
 
 `check_reproduction.py` requires every result table to be byte-identical and every JSON summary
-to agree to 12 significant digits. CI runs this for both processes on every push. Each Phase 2
+to agree to 12 significant digits. CI runs both analyses on every push and compares them with
+the reference runs whenever KEGG still serves the snapshot data. Each Phase 2
 run takes about two minutes.
 
 Random-seed sensitivity (two alternative seeds per process are committed):
@@ -250,8 +262,9 @@ See [CITATION.cff](CITATION.cff); GitHub's "Cite this repository" button uses it
 - QuickGO (https://www.ebi.ac.uk/QuickGO/api), GO annotations, CC BY 4.0.
 - IntAct (https://www.ebi.ac.uk/intact) via PSICQUIC, CC BY 4.0.
 - KEGG REST (https://www.kegg.jp/kegg/rest/keggapi.html), KO assignments: free for academic use;
-  commercial use needs a licence (https://www.kegg.jp/kegg/legal.html). Pathway maps come from
-  STRING's redistribution of KEGG.
+  commercial use needs a licence (https://www.kegg.jp/kegg/legal.html). Not redistributed here:
+  `scripts/fetch_kegg.py` retrieves it. Cite Kanehisa & Goto, Nucleic Acids Res. 28:27-30 (2000),
+  doi:10.1093/nar/28.1.27. Pathway maps come from STRING's redistribution of KEGG.
 
 ## Contributing
 

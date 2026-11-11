@@ -1,11 +1,12 @@
 # 3. Reference verification report
 
-All 47 references in `paper.tex` (v0.4.0) were checked for existence and bibliographic accuracy
-(authors, title, journal, volume, pages, year, DOI): 41 against their PubMed record (PMID below) and
+All 48 references in `paper.tex` (v0.4.1) were checked for existence and bibliographic accuracy
+(authors, title, journal, volume, pages, year, DOI): 42 against their PubMed record (PMID below) and
 6, which PubMed does not index, against Crossref by DOI. No reference was found to be invented or
 mis-attributed. Compared with the first audit (43 references), v0.4.0 adds five PubMed-verified
 references (ide2001, boiteux2017, hoeijmakers1991, shuman2004, culotta1997) and removes yu2007,
-which was cited only for a topology measure the paper no longer describes.
+which was cited only for a topology measure the paper no longer describes. v0.4.1 adds the
+original KEGG paper (kanehisa2000, PMID 10592173), as KEGG asks.
 
 **Claim support.** Bibliographic accuracy is not the same as support for the sentence citing it.
 The curated mutant studies were checked against their PubMed abstracts when the evidence tables
@@ -31,6 +32,7 @@ supports Mn-dependent protection of proteins. Full-text checks were not made for
 | psicquic | PMID 21716279 | selvam2013 | PMID 23840905 |
 | quickgo | PMID 19744993 | funayama1999 | PMID 10556595 |
 | kegg2025 | PMID 39417505 | earl2002 | PMID 11807060 |
+| kanehisa2000 | PMID 10592173 | | |
 | panther2022 | PMID 34717010 | xu2010 | PMID 20451472 |
 | interpro2025 | PMID 39565202 | gaidamakova2022 | PMID 35012337 |
 | ide2001 | PMID 11554298 | jolivet2006 | PMID 16359339 |

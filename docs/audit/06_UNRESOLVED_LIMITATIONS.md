@@ -4,12 +4,10 @@
 
 1. **Human verification.** The first author has not yet re-derived the key results personally.
    The manuscript does not claim otherwise.
-2. **Compile check of the revised manuscript.** The v0.4.0 text passed static checks (references,
-   labels, braces, environments) but has not been compiled since the revision.
-3. **KEGG redistribution.** Decide whether the two cached KEGG responses may stay public.
-
 Resolved in v0.4.0: IntAct counts (C1), coverage boundary (C2), accurate AI-use acknowledgment,
-and citations for the background claims (report 3).
+and citations for the background claims (report 3); the v0.4.0 manuscript compiles in Overleaf. Resolved in v0.4.1: the KEGG responses are
+no longer redistributed (report 1); as a consequence, outside reproduction is byte-exact only
+while KEGG serves the snapshot data.
 
 ## Limitations of the study design (to be stated, not fixed)
 

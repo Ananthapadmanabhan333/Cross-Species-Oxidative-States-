@@ -142,7 +142,7 @@ without showing that they bind. This layer is reported but not used for ranking.
 
 Each protein is annotated with GO terms and evidence codes (QuickGO \cite{quickgo}; NOT
 qualifiers are kept as contradicting evidence), KEGG pathways and KEGG Orthology (KO) groups
-\cite{kegg2025}, EC numbers, PANTHER families \cite{panther2022}, and Pfam and InterPro
+\cite{kanehisa2000,kegg2025}, EC numbers, PANTHER families \cite{panther2022}, and Pfam and InterPro
 signatures \cite{interpro2025}. Homology between a bacterial and a human protein is graded by the
 first tier that applies: reciprocal best hit in STRING's Smith--Waterman searches (bitscore
 $\geq 50$; score 1.0), shared KO group (0.9), shared PANTHER family (0.8), one-way best hit (0.6),
@@ -591,8 +591,10 @@ cross-check of the shortlist against human genetic constraint and disease associ
 {\raggedright
 Code, cached raw data, configuration, reference runs and full result tables are available at
 \url{https://github.com/Ananthapadmanabhan333/Cross-Species-Oxidative-States-} (release
-\texttt{v0.4.0}). Reference runs: oxidative stress \texttt{20261111T155419Z\_860ea5376e14}; DNA
-repair \texttt{20261111T155841Z\_73788e2787df}.\par}
+\texttt{v0.4.1}). Reference runs: oxidative stress \texttt{20261111T155419Z\_860ea5376e14}; DNA
+repair \texttt{20261111T155841Z\_73788e2787df}. KEGG data are not redistributed, in line with
+KEGG's terms; the repository keeps their checksums and a script that retrieves them from the
+KEGG REST API \cite{kanehisa2000,kegg2025}.\par}
 
 \section*{Acknowledgment}
 
@@ -683,6 +685,11 @@ D.~Binns, E.~Dimmer, R.~Huntley, D.~Barrell, C.~O'Donovan, and R.~Apweiler, ``Qu
 web-based tool for Gene Ontology searching,'' \emph{Bioinformatics}, vol.~25, no.~22,
 pp.~3045--3046, 2009,
 doi: \href{https://doi.org/10.1093/bioinformatics/btp536}{\nolinkurl{10.1093/bioinformatics/btp536}}.
+
+\bibitem{kanehisa2000}
+M.~Kanehisa and S.~Goto, ``KEGG: Kyoto Encyclopedia of Genes and Genomes,'' \emph{Nucleic Acids
+Res.}, vol.~28, no.~1, pp.~27--30, 2000,
+doi: \href{https://doi.org/10.1093/nar/28.1.27}{\nolinkurl{10.1093/nar/28.1.27}}.
 
 \bibitem{kegg2025}
 M.~Kanehisa, M.~Furumichi, Y.~Sato, Y.~Matsuura, and M.~Ishiguro-Watanabe, ``KEGG: biological

@@ -35,7 +35,7 @@ jobs:
 
   reproduce:
     # The reference runs were made on Windows; reproduction is checked on the same platform.
-    name: Reproduce reference analyses offline
+    name: Reproduce reference analyses
     needs: tests
     runs-on: windows-latest
     steps:
@@ -49,19 +49,41 @@ jobs:
         run: |
           python -m pip install -r requirements-lock.txt
           python -m pip install -e . --no-deps
+      - name: Fetch KEGG data (not redistributed; see data/raw/kegg/README.md)
+        # Byte-exact reproduction needs the KEGG release the reference runs used. If KEGG has
+        # changed since, the analyses still run on the current release, but are not compared.
+        shell: bash
+        run: |
+          set +e
+          python scripts/fetch_kegg.py
+          status=$?
+          set -e
+          if [ "$status" -eq 0 ]; then
+            echo "KEGG_SNAPSHOT=1" >> "$GITHUB_ENV"
+          elif [ "$status" -eq 3 ]; then
+            echo "::warning::KEGG has changed since the reference runs; the analyses run on the current KEGG release and are not compared byte for byte."
+            python scripts/fetch_kegg.py --accept-current
+            echo "KEGG_SNAPSHOT=0" >> "$GITHUB_ENV"
+          else
+            exit "$status"
+          fi
       - name: Oxidative stress, Phase 2 offline
         shell: bash
         run: |
           python -m extremonet.analysis --config config/phase2_analysis.yaml --mode offline
-          python scripts/check_reproduction.py results/phase2/20261111T155419Z_860ea5376e14 \
-            "results/phase2/$(cat results/phase2/LATEST_RUN.txt)"
+          if [ "$KEGG_SNAPSHOT" = "1" ]; then
+            python scripts/check_reproduction.py results/phase2/20261111T155419Z_860ea5376e14 \
+              "results/phase2/$(cat results/phase2/LATEST_RUN.txt)"
+          fi
       - name: DNA repair, Phase 2 offline
         if: success() || failure()
         shell: bash
         run: |
           python -m extremonet.analysis --config config/phase2_dna_repair.yaml --mode offline
-          python scripts/check_reproduction.py results/dna_repair/phase2/20261111T155841Z_73788e2787df \
-            "results/dna_repair/phase2/$(cat results/dna_repair/phase2/LATEST_RUN.txt)"
+          if [ "$KEGG_SNAPSHOT" = "1" ]; then
+            python scripts/check_reproduction.py results/dna_repair/phase2/20261111T155841Z_73788e2787df \
+              "results/dna_repair/phase2/$(cat results/dna_repair/phase2/LATEST_RUN.txt)"
+          fi
       - name: Keep the re-run outputs if a check failed
         if: failure()
         uses: actions/upload-artifact@v6
